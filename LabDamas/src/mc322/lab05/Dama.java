@@ -9,5 +9,11 @@ public class Dama {
 		this.j = j;
 		this.cor = cor;
 	}
+	
+	public char getCor() {
+		return cor;
+	}
+	
+	
 
 }
