@@ -16,7 +16,7 @@ public class Peao {
 	
 	//vetor: preto: 1, branco:-1, vazio: 0 [caminho, i, j]
 	
-	boolean [] validaMovimento(char[] caminho) {
+	public boolean [] validaMovimento(char[] caminho) {
 		
 		// saida = [true = movimento valido, true = ataque/false = avanço]
 		boolean [] saida = {true, true};
@@ -36,45 +36,40 @@ public class Peao {
 			saida[0] = false;
 		}
 		
-		//Movimento só pode ser na diagonal
-		if ((i_target == i) || (j_target == j)) {
-			saida[0] = false;
-		}
-		
 		if(saida[0] == true) {
 			
 			//apenas avançando
 			if(tamanho == 3) {
 				if(cor == 'p') {
-					System.out.println("entrou em p");
+					//System.out.println("entrou em p");
 					if(i - i_target > 0) {
-						System.out.println("if > 0");
+						//System.out.println("if > 0");
 						i = i_target;
 						j = j_target;
 						saida[1] = false;
 					}
 					else {
-						System.out.println("else if > 0");
+						//System.out.println("else if > 0");
 						saida[0] = false;
 					}
 				}
 				else if(cor == 'b') {
-					System.out.println("entrou em b");
+					//System.out.println("entrou em b");
 					if(i - i_target < 0) {
-						System.out.println("if < 0");
+						//System.out.println("if < 0");
 						i = i_target;
 						j = j_target;
 						saida[1] = false;
 					}
 					else {
-						System.out.println("else if < 0");
+						//System.out.println("else if < 0");
 						saida[0] = false;
 					}
 				}
 			}
 			//ataque
 			else if(tamanho == 4) {
-				System.out.println("tam 4");
+				//System.out.println("tam 4");
 				if(caminho[0] != '-') {
 					if(caminho[0] != cor) {
 						i = i_target;
@@ -96,9 +91,4 @@ public class Peao {
 		
 	return saida;
 	}
-	
-	
-
-	
-
 }
