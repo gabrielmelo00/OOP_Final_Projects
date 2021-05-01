@@ -124,10 +124,10 @@ public class Tabuleiro {
 			direcao[tamanho - 2] = Character.forDigit(t_i, 10);
 			
 			///////////teste
-			System.out.println("tamanho do caminho: " + direcao.length);
+			/*System.out.println("tamanho do caminho: " + direcao.length);
 			for(int i = 0;i < direcao.length; i++) {
 				System.out.println(direcao[i]);
-			}
+			}*/
 			///////////
 			return direcao;
 		
@@ -146,7 +146,9 @@ public class Tabuleiro {
 		}else {
 			matrizPeao[target_i][target_j] = new Peao(target_i, target_j, matrizPeao[source_i][source_j].getCor());
 		}
+		
 		matrizPeao[source_i][source_j] = null;
+		
 	}
 	
 	void avancaDama(int source_i, int source_j, int target_i, int target_j) {
@@ -164,7 +166,7 @@ public class Tabuleiro {
 				break;
 			}
 		}
-		System.out.println("aux: " + aux);
+		//System.out.println("aux: " + aux);
 		
 		//subindo direita
 		if((t_j > s_j) && (t_i > s_i)) {
