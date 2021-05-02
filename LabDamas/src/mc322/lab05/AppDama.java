@@ -23,7 +23,7 @@ public class AppDama {
 	public static void main(String[] args) {
 		
 		CSVReader csv = new CSVReader();
-		csv.setDataSource("C:\\Users\\Gabriel\\TrabalhosMC\\LabDamas\\data\\data.csv");
+		csv.setDataSource("../LabDamas/data/data.csv");
 		String commands[] = csv.requestCommands();
 		
 		String[] saida = executaJogo(commands);
