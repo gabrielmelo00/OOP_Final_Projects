@@ -28,12 +28,14 @@ public class Peao {
 		if(tamanho <= 2) {
 			saida[0] = false;
 			saida[1] = false;
+			System.out.println("Jogada inválida: entrada inválida.");
 			return saida;
 		}
 		
 		//target não pode estar ocupado por uma peça
 		if(caminho[tamanho - 3] != '-') {
 			saida[0] = false;
+			System.out.println("Jogada inválida: a casa para a qual você está querendo se movimentar já contém uma peça.");
 		}
 		
 		if(saida[0] == true) {
@@ -50,6 +52,7 @@ public class Peao {
 					}
 					else {
 						//System.out.println("else if > 0");
+						System.out.println("Jogada inválida: peão só avança para frente");
 						saida[0] = false;
 					}
 				}
@@ -63,6 +66,7 @@ public class Peao {
 					}
 					else {
 						//System.out.println("else if < 0");
+						System.out.println("Jogada inválida: peão só avança para frente");
 						saida[0] = false;
 					}
 				}
@@ -77,14 +81,17 @@ public class Peao {
 						saida[1] = true;
 					}
 					else {
+						System.out.println("Jogada inválida: você não pode comer uma peça da sua cor.");
 						saida[0] = false; 
 					}
 				}
 				else {
+					System.out.println("Jogada inválida: você só pode avançar uma casa por jogada.");
 					saida[0] = false;
 				}
 			}
 			else {
+				System.out.println("Jogada inválida: número de casas do avanço incompatível com peão.");
 				saida[0] = false;
 			}
 		}

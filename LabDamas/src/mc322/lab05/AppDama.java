@@ -1,41 +1,40 @@
 package mc322.lab05;
 
 public class AppDama {
+	
+	public static String[] executaJogo(String [] comandos) {
+		String [] estados = new String[comandos.length+1];
+		Tabuleiro meuTabuleiro = new Tabuleiro();
+		System.out.println("Tabuleiro inicial: ");
+		System.out.println(meuTabuleiro.retornaEstado());
+		estados[0] = meuTabuleiro.retornaEstado();
+		
+		for(int i = 0; i < comandos.length; i++) {
+			meuTabuleiro.moverPeca(comandos[i]);
+			String[] jogadas = comandos[i].split(":");
+			estados[i+1] = meuTabuleiro.retornaEstado();			
+			System.out.println("Source: " + jogadas[0]);
+			System.out.println("Target: " + jogadas[1]);
+			System.out.println(meuTabuleiro.retornaEstado());
+		}
+		return estados;
+	}
 
 	public static void main(String[] args) {
-		Tabuleiro meuTabuleiro = new Tabuleiro();
-		System.out.println(meuTabuleiro.retornaEstado());
-		meuTabuleiro.moverPeca("b6:c5");
-		System.out.println(meuTabuleiro.retornaEstado());
-		meuTabuleiro.moverPeca("e3:d4");
-		System.out.println(meuTabuleiro.retornaEstado());
-		meuTabuleiro.moverPeca("c5:e3");
-		System.out.println(meuTabuleiro.retornaEstado());
-		meuTabuleiro.moverPeca("c3:d4");
-		System.out.println(meuTabuleiro.retornaEstado());
-		meuTabuleiro.moverPeca("e3:c5");
-		System.out.println(meuTabuleiro.retornaEstado());
-		meuTabuleiro.moverPeca("a3:b4");
-		System.out.println(meuTabuleiro.retornaEstado());
-		meuTabuleiro.moverPeca("c5:a3");
-		System.out.println(meuTabuleiro.retornaEstado());
-		meuTabuleiro.moverPeca("b2:c3");
-		System.out.println(meuTabuleiro.retornaEstado());
-		meuTabuleiro.moverPeca("d6:e5");
-		System.out.println(meuTabuleiro.retornaEstado());
-		meuTabuleiro.moverPeca("c1:b2");
-		System.out.println(meuTabuleiro.retornaEstado());
-		meuTabuleiro.moverPeca("a3:c1");
-		System.out.println(meuTabuleiro.retornaEstado());
 		
-		/*Teste útil:
-		System.out.println("avanca: " + avanca  + " ataca: " + ataca);
+		CSVReader csv = new CSVReader();
+		csv.setDataSource("C:\\Users\\Gabriel\\TrabalhosMC\\LabDamas\\data\\data.csv");
+		String commands[] = csv.requestCommands();
 		
-		//char [] s = {'-', '4','2'};
-		//meuTabuleiro.testaPeao();
-		//System.out.println("cor:" + meuTabuleiro.matrizPeao[5][1].getCor());
-		//char [] s = meuTabuleiro.retornaDirecao(2, 2, 5, 5);
-		*/
+		String[] saida = executaJogo(commands);
+		
+		//String de saída com os estados
+		
+		//System.out.println("Vetor saida:");
+		//for(int i = 0; i < saida.length; i++) {
+		//	System.out.println(saida[i]);
+		//}
+		
 	}
 
 }

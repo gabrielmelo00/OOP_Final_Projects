@@ -1,12 +1,14 @@
 package mc322.lab05;
 
-import java.awt.desktop.SystemSleepEvent;
-
 public class Tabuleiro {
 	Peao[][] matrizPeao;
 	Dama[][] matrizDama;
+	//char ultima_cor;
 	
 	public Tabuleiro() {
+		
+//		ultima_cor = 'p'; //brancas começam
+		
 		matrizPeao = new Peao[8][8];
 		matrizDama = new Dama[8][8];
 		
@@ -123,12 +125,6 @@ public class Tabuleiro {
 			direcao[tamanho - 1] = Character.forDigit(t_j, 10);
 			direcao[tamanho - 2] = Character.forDigit(t_i, 10);
 			
-			///////////teste
-			/*System.out.println("tamanho do caminho: " + direcao.length);
-			for(int i = 0;i < direcao.length; i++) {
-				System.out.println(direcao[i]);
-			}*/
-			///////////
 			return direcao;
 		
 		}
@@ -152,7 +148,7 @@ public class Tabuleiro {
 	}
 	
 	void avancaDama(int source_i, int source_j, int target_i, int target_j) {
-		matrizDama[target_i][target_j] = new Dama (target_i, target_j, matrizPeao[source_i][source_j].getCor());
+		matrizDama[target_i][target_j] = new Dama (target_i, target_j, matrizDama[source_i][source_j].getCor());
 		matrizDama[source_i][source_j] = null;
 	}
 	
@@ -212,51 +208,59 @@ public class Tabuleiro {
 		
 		if(caminho != null) {
 			boolean[] estados;
-			//Que peça eu estou mexendo?
-			if(matrizPeao[source_i][source_j] != null ) {
-				estados = matrizPeao[source_i][source_j].validaMovimento(caminho);
-				if(estados[0]) {
-					avancaPeao(source_i, source_j, target_i, target_j);
-					if(estados[1]) {
-						comePeca(source_i, source_j, target_i, target_j, caminho);
+			
+			//as jogadas devem ser intercaladas entre as peças brancas e pretas
+			/*int jogador_correto = 1;
+			if(matrizPeao[source_i][source_j] != null) {
+				if(matrizPeao[source_i][source_j].getCor() != ultima_cor) {
+					jogador_correto = 0;
+					ultima_cor = matrizPeao[source_i][source_j].getCor();
+				}else if(matrizPeao[source_i][source_j].getCor() == ultima_cor) {
+					jogador_correto = -1;
+				}
+			}else if(matrizDama[source_i][source_j] != null){
+				if(ultima_cor == 'p') {
+					if(matrizDama[source_i][source_j].getCor() != 'P') {
+						jogador_correto = 0;
+						ultima_cor = 'b';
+					}else if(matrizDama[source_i][source_j].getCor() == 'P') {
+						jogador_correto = -1;
+					}
+				}else {
+					if(matrizDama[source_i][source_j].getCor() != 'B') {
+						jogador_correto = 0;
+						ultima_cor = 'p';
+					}else if(matrizDama[source_i][source_j].getCor() == 'B') {
+						jogador_correto = -1;
 					}
 				}
-			}
-			else if(matrizDama[source_i][source_j] != null) {
-				estados = matrizDama[source_i][source_j].validaMovimento(caminho);
-				if(estados[0]) {
-					avancaDama(source_i, source_j, target_i, target_j);
-					if(estados[1]) {
-						comePeca(source_i, source_j, target_i, target_j, caminho);
+			}*/
+			
+			//if(jogador_correto == 0) {
+				//Que peça eu estou mexendo?
+				if(matrizPeao[source_i][source_j] != null ) {
+					estados = matrizPeao[source_i][source_j].validaMovimento(caminho);
+					if(estados[0]) {
+						avancaPeao(source_i, source_j, target_i, target_j);
+						if(estados[1]) {
+							comePeca(source_i, source_j, target_i, target_j, caminho);
+						}
 					}
 				}
-				
-			}
+				else if(matrizDama[source_i][source_j] != null) {
+					estados = matrizDama[source_i][source_j].validaMovimento(caminho);
+					if(estados[0]) {
+						avancaDama(source_i, source_j, target_i, target_j);
+						if(estados[1]) {
+							comePeca(source_i, source_j, target_i, target_j, caminho);
+						}
+					}
+				}
+		//	}else if(jogador_correto == -1){
+		//		System.out.println("Não é seu turno.");
+		//	}
 		}
 		
-	}
-	
-	void testaPeao() {
-		char [] s = {'-', '4','2'};
-		char [] b =  {'-', '-', '4','2'};
-		System.out.println("1");
-		boolean[] resultado = matrizPeao[5][1].validaMovimento(s);
-		System.out.println(resultado[0]);
-		System.out.println(resultado[1]);
-		System.out.println("2");
-		resultado = matrizPeao[2][0].validaMovimento(b);
-		System.out.println(resultado[0]);
-		System.out.println(resultado[1]);
-		char [] ss = {'-', '3','1'};
-		System.out.println("3");
-		resultado = matrizPeao[2][0].validaMovimento(ss);
-		System.out.println(resultado[0]);
-		System.out.println(resultado[1]);
-		char [] sss = {'b','-', '2','0'};
-		System.out.println("4");
-		resultado = matrizPeao[5][1].validaMovimento(sss);
-		System.out.println(resultado[0]);
-		System.out.println(resultado[1]);
 	}
 
 }
