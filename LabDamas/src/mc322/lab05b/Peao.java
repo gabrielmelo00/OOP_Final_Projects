@@ -50,12 +50,10 @@ public class Peao extends Peça {
 					}
 				}
 				else {
-					System.out.println("Movimento invalido!");
 					saida[0] = false;
 				}
 			}
 			else {
-				System.out.println("Movimento invalido!");
 				saida[0] = false;
 			}
 		}

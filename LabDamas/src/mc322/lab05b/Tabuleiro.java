@@ -2,6 +2,7 @@ package mc322.lab05b;
 
 public class Tabuleiro {
 	Peça [][] matriz;
+	boolean erro = false;
 	
 	Tabuleiro(){
 		matriz = new Peça[8][8];
@@ -36,21 +37,25 @@ public class Tabuleiro {
 	
 	void imprimirTabuleiro() {
 		String estado = "";
-		
-		for(int i = 7;i >= 0;i--) {
-			estado += Integer.toString(i+1);
-			for(int j = 0;j <= 7;j++) {
-				estado += " ";
-				if(matriz[i][j] != null) {
-					estado += matriz[i][j].getCor();
-				}else {
-					estado += '-';
+		if(!erro) {
+			for(int i = 7;i >= 0;i--) {
+				estado += Integer.toString(i+1);
+				for(int j = 0;j <= 7;j++) {
+					estado += " ";
+					if(matriz[i][j] != null) {
+						estado += matriz[i][j].getCor();
+					}else {
+						estado += '-';
+					}
 				}
+				estado += "\n";
 			}
-			estado += "\n";
+			String linha_final = "  a b c d e f g h\n";
+			estado += linha_final;
+		}else {
+			estado += "Movimento invalido!";
 		}
-		String linha_final = "  a b c d e f g h\n";
-		estado += linha_final;
+		
 		System.out.println(estado);
 	}
 	
@@ -107,7 +112,7 @@ public class Tabuleiro {
 		
 		}
 
-		System.out.println("Movimento invalido!");
+		erro = true;
 		direcao = null;
 		return direcao;	
 	}
@@ -135,7 +140,6 @@ public class Tabuleiro {
 				break;
 			}
 		}
-		//System.out.println("aux: " + aux);
 		
 		//subindo direita
 		if((t_j > s_j) && (t_i > s_i)) {
@@ -175,7 +179,7 @@ public class Tabuleiro {
 		
 		char [] caminho = null;
 		if(source_i > 7 || source_i < 0 || target_i > 7 || target_i < 0 || source_j == -1 || target_j == -1) {
-			System.out.println("Movimento invalido!");
+			erro = true;
 		}else {
 			caminho = retornaDirecao(source_i, source_j, target_i, target_j);
 		}
@@ -190,9 +194,37 @@ public class Tabuleiro {
 					if(estados[1]) {
 						comePeça(source_i, source_j, target_i, target_j, caminho);
 					}
+				}else {
+					erro = true;
 				}
 			}
 		}
+	}
+	
+	void exportaArquivo(String pasta) {
+		String [] vetor;
+		CSVHandling csv = new CSVHandling();
+		if(!erro) {
+			vetor = new String[64];
+			int x = 0;
+			char [] aux = {'a','b','c','d','e','f','g','h'};
+			for(int j = 0;j < 8;j++) {
+				for(int i = 0;i < 8;i++) {
+					if(matriz[i][j] == null) {
+						vetor[x] =  "" + aux[j] + Character.forDigit(i + 1, 10) + '_';
+					}else {
+						vetor[x] =  "" + aux[j] + Character.forDigit(i + 1, 10) + matriz[i][j].getCor();
+					}
+					x++;
+				}
+			}
+		}else {
+			vetor = new String[1];
+			vetor[0] = "erro";
+		}
+		
+		csv.setDataExport(pasta);
+		csv.exportState(vetor);
 	}
 }
 	

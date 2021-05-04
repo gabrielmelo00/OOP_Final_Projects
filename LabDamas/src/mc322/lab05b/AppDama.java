@@ -3,11 +3,14 @@ package mc322.lab05b;
 
 public class AppDama {
 	
-	public static void executaJogo(String [] comandos) {
+	public static void executaJogo(String entrada, String saida) {
 		Tabuleiro meuTabuleiro = new Tabuleiro();
 		System.out.println("Tabuleiro inicial: ");
 		meuTabuleiro.imprimirTabuleiro();
 		
+		CSVHandling csv = new CSVHandling();
+		csv.setDataSource(entrada);
+		String comandos[] = csv.requestCommands();
 		
 		for(int i = 0; i < comandos.length; i++) {
 			meuTabuleiro.solicitaMovimento(comandos[i]);
@@ -16,16 +19,19 @@ public class AppDama {
 			System.out.println("Target: " + jogadas[1]);
 			meuTabuleiro.imprimirTabuleiro();
 		}
+		
+		meuTabuleiro.exportaArquivo(saida);
 	}
 
 	public static void main(String[] args) {
 		
-		CSVHandling csv = new CSVHandling();
-		csv.setDataSource("../LabDamas/data/data.csv");
-		String commands[] = csv.requestCommands();
+		executaJogo(args[0],args[1]);
 		
-		executaJogo(commands);
-		
+		/* Caminhos:
+		 * args[0] = "../LabDamas/data/data.csv";
+		 * args[1] = "../LabDamas/data/out.csv";
+		 */
 	}
 
 }
+
