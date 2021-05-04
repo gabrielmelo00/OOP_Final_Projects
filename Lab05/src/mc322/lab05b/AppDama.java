@@ -28,8 +28,8 @@ public class AppDama {
 		executaJogo(args[0],args[1]);
 		
 		/* Caminhos:
-		 * args[0] = "../LabDamas/data/data.csv";
-		 * args[1] = "../LabDamas/data/out.csv";
+		 * args[0] = "../Lab05/data/data.csv";
+		 * args[1] = "../Lab05/data/out.csv";
 		 */
 	}
 
