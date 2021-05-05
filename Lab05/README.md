@@ -30,7 +30,7 @@ Os espaços que não estão ocupados por nenhuma peça são representados como `
 
 ## Entrada
 
-A entrada do programa será um arquivo `.csv` contendo todos os comandos a serem executados pelo jogo. Cada comando consistirá de uma posição inicial e uma posição final, separadas por `:`. Assim, `f4:d4` representa um comando em que a peça sai da casa `f4` e vai até a casa `d4`.
+A entrada do programa será um arquivo `.csv` contendo todos os comandos a serem executados pelo jogo. Cada comando consistirá de uma posição inicial e uma posição final, separadas por `:`. Assim, `e3:f4` representa um comando em que a peça sai da casa `e3` e vai até a casa `f4`.
 
 ## Saída
 
