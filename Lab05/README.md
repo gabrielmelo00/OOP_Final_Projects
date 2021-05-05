@@ -92,7 +92,7 @@ Para acionar o jogo você deve:
 * Baixar a pasta Lab05 deste github.
 * Alterar o documento [data.csv](https://github.com/HannahPlath/MC322/blob/main/Lab05//data/data.csv) com a sua sequência de jogadas.
 * Apagar o arquivo [out.csv](https://github.com/HannahPlath/MC322/blob/main/Lab05//data/out.csv). Caso contrário, as saídas dos diferentes jogos serão concatenadas dentro do arquivo.
-* Executar o jogo tendo como entrada um vetor de Strings que contém na primeira posição o endereço para o arquivo de entrada `"../Lab05/data/data.csv"` e na segunda posição o enderelo para o arquivo de saída "../Lab04/data/out.csv"
+* Executar o jogo tendo como entrada um vetor de Strings que contém na primeira posição o endereço para o arquivo de entrada `"../Lab05/data/data.csv"` e na segunda posição o endereço para o arquivo de saída `"../Lab04/data/out.csv"`.
 
 
 
