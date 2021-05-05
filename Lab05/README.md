@@ -39,7 +39,7 @@ A entrada do programa será um arquivo `.csv` contendo todos os comandos a serem
 O programa contém duas saídas:
 
 * `saída padrão` - imprime a posição inicial e final da peça assim como o estado do tabuleiro após o movimento;
-  * se o movimento for inválido, o estado atual do movimento (sem modificações em relação ao anterior) é impresso na saída.
+  * se o movimento for inválido, o estado atual do tabuleiro (sem modificações em relação ao anterior) é impresso na saída.
 * `vetor de strings` - contém todos os estados do tabuleiro durante o jogo.
 
 ### Lab B
