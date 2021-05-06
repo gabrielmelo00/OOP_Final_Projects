@@ -53,22 +53,9 @@ public class Dama {
 		//dama pode andar pra frente e para tras quantas casas quiser na diagonal
 		if(saida[0]) {
 			if(tipo_mov == 1) {
-				// cor da peça
-				char cor_em_peao;
-				if(cor == 'P') {
-					cor_em_peao = 'p';
-				}else {
-					cor_em_peao = 'b';
-				}
-				// o target tem que ser logo após a peça comida
-				if((caminho[tamanho - 4] == cor_em_peao) || (caminho[tamanho - 4] == '-')) {
-					System.out.println("Jogada inválida: posição alvo inválida.");
-					saida[0] = false;
-				} else {
-					i = i_target;
-					j = j_target;
-					saida[1] = true;
-				}
+				i = i_target;
+				j = j_target;
+				saida[1] = true;
 			}else {
 				i = i_target;
 				j = j_target;
