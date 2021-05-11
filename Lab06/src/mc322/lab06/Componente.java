@@ -16,6 +16,14 @@ public class Componente {
 		minhaCaverna = x;
 	}
 	
+	public void conectaComponente(Componente a){
+		minhaCaverna.conectaSala(i, j, a);
+	}
+	
+	public char getTipo(){
+		return tipo;
+	}
+	
 	
 	public void printa() {
 		System.out.println("i: " + i);

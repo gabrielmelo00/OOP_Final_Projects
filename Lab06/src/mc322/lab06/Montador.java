@@ -17,31 +17,41 @@ public class Montador {
 		
 		
 		if(verifica(vetor_componentes)) {
-			minhaCaverna = new Caverna(101);
+			minhaCaverna = new Caverna();
 			Componente meusComponentes;
 			meusComponentes = new Componente(minhaCaverna);
 			
 			
-			for(int x = 1;x < vetor_componentes.length;x++) {
+			
+			for(int x = 0;x < vetor_componentes.length;x++) {
 				switch(vetor_componentes[x]) {
 					case "B":
-						meusComponentes = new teste(Integer.parseInt(vetor_i[x]),Integer.parseInt(vetor_j[x]),'B');
-						meusComponentes.printa();
+						meusComponentes = new Buraco(Integer.parseInt(vetor_i[x]),Integer.parseInt(vetor_j[x]),'B');
+						meusComponentes.conectaComponente(meusComponentes);
+						
+					//	meusComponentes.printa();
 						break;
 					case "P":
-						meusComponentes = new teste(Integer.parseInt(vetor_i[x]),Integer.parseInt(vetor_j[x]),'P');
-						meusComponentes.printa();
+						meusComponentes = new Heroi(Integer.parseInt(vetor_i[x]),Integer.parseInt(vetor_j[x]),'P');
+						meusComponentes.conectaComponente(meusComponentes);
+					//	meusComponentes.printa();
 						break;
 					case "O":
-						meusComponentes = new teste(Integer.parseInt(vetor_i[x]),Integer.parseInt(vetor_j[x]),'O');
-						meusComponentes.printa();
+						meusComponentes = new Ouro(Integer.parseInt(vetor_i[x]),Integer.parseInt(vetor_j[x]),'O');
+						meusComponentes.conectaComponente(meusComponentes);
+					//	meusComponentes.printa();
 						break;
 					case "W":
-						meusComponentes = new teste(Integer.parseInt(vetor_i[x]),Integer.parseInt(vetor_j[x]),'W');
-						meusComponentes.printa();
+						meusComponentes = new Wumpus(Integer.parseInt(vetor_i[x]),Integer.parseInt(vetor_j[x]),'W');
+						meusComponentes.conectaComponente(meusComponentes);
+					//	meusComponentes.printa();
 						break;
 				}
+								
 			}
+			
+			meusComponentes = new Buraco(1,4,'O');
+			meusComponentes.conectaComponente(meusComponentes);
 			
 		}
 		
