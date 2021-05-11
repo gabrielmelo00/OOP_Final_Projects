@@ -16,8 +16,8 @@ public class Componente {
 		minhaCaverna = x;
 	}
 	
-	public void conectaComponente(Componente a){
-		minhaCaverna.conectaSala(i, j, a);
+	public void conectaComponente(){
+		minhaCaverna.conectaSala(i, j, this);
 	}
 	
 	public char getTipo(){

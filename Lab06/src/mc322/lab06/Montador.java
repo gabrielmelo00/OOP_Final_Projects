@@ -21,37 +21,34 @@ public class Montador {
 			Componente meusComponentes;
 			meusComponentes = new Componente(minhaCaverna);
 			
-			
-			
 			for(int x = 0;x < vetor_componentes.length;x++) {
 				switch(vetor_componentes[x]) {
 					case "B":
 						meusComponentes = new Buraco(Integer.parseInt(vetor_i[x]),Integer.parseInt(vetor_j[x]),'B');
-						meusComponentes.conectaComponente(meusComponentes);
-						
-					//	meusComponentes.printa();
+						meusComponentes.conectaComponente();
 						break;
+						
 					case "P":
 						meusComponentes = new Heroi(Integer.parseInt(vetor_i[x]),Integer.parseInt(vetor_j[x]),'P');
-						meusComponentes.conectaComponente(meusComponentes);
-					//	meusComponentes.printa();
+						meusComponentes.conectaComponente();
 						break;
+						
 					case "O":
 						meusComponentes = new Ouro(Integer.parseInt(vetor_i[x]),Integer.parseInt(vetor_j[x]),'O');
-						meusComponentes.conectaComponente(meusComponentes);
-					//	meusComponentes.printa();
+						meusComponentes.conectaComponente();
 						break;
+						
 					case "W":
 						meusComponentes = new Wumpus(Integer.parseInt(vetor_i[x]),Integer.parseInt(vetor_j[x]),'W');
-						meusComponentes.conectaComponente(meusComponentes);
-					//	meusComponentes.printa();
+						meusComponentes.conectaComponente();
 						break;
+						
 				}
 								
 			}
 			
 			meusComponentes = new Buraco(1,4,'O');
-			meusComponentes.conectaComponente(meusComponentes);
+			meusComponentes.conectaComponente();
 			
 		}
 		
