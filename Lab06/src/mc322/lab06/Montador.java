@@ -47,7 +47,7 @@ public class Montador {
 								
 			}
 			
-			meusComponentes = new Buraco(1,4,'O');
+			meusComponentes = new Ouro(1,4,'O');
 			meusComponentes.conectaComponente();
 			
 		}
