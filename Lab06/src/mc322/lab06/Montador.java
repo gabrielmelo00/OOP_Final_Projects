@@ -4,15 +4,16 @@ public class Montador {
 	
 	private Caverna minhaCaverna;
 
-	public Montador(String[] vetor) {
-		String [] vetor_i = new String[vetor.length];
-		String [] vetor_j = new String[vetor.length];
-		String [] vetor_componentes = new String[vetor.length];
+		// [[1:1,P]]
+	public Montador(String[][] matriz) {
+		String [] vetor_i = new String[matriz.length];
+		String [] vetor_j = new String[matriz.length];
+		String [] vetor_componentes = new String[matriz.length];
 		
-		for(int x = 0;x < vetor.length;x++) {
-			vetor_i[x] = vetor[x].split(",")[0].split(":")[0];
-			vetor_j[x] = vetor[x].split(",")[0].split(":")[1];
-			vetor_componentes[x] = vetor[x].split(",")[1];
+		for(int x = 0;x < matriz.length;x++) {
+			vetor_i[x] = matriz[x][0].split(",")[0].split(":")[0];
+			vetor_j[x] = matriz[x][0].split(",")[0].split(":")[1];
+			vetor_componentes[x] = matriz[x][1];
 		}
 		
 		
@@ -47,8 +48,8 @@ public class Montador {
 								
 			}
 			
-			meusComponentes = new Ouro(1,4,'O');
-			meusComponentes.conectaComponente();
+			//meusComponentes = new Heroi(1,4,'P');
+			//meusComponentes.conectaComponente();
 			
 		}
 		
