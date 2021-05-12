@@ -9,29 +9,35 @@ public class Sala {
 	int wumpus;
 	int fedor;
 	int brisa;
+	boolean salaConhecida;
 	
-	public Sala(Componente c) {
+	public Sala() {
 		identidade('*');
-		meusComponentes = new Componente [1];
-		meusComponentes[0] = c;
-		meusComponentes[0].printa();
-		identidade(c.getTipo());
+		meusComponentes = null;
 	}
 	
-	public void adicionaComponente(Componente c) {
+	public boolean adicionaComponente(Componente c) {
 		// método verifica
 		if(verifica(c)) {
 			identidade(c.getTipo());
-			Componente [] novoVetor = new Componente[meusComponentes.length + 1];
-			novoVetor[0] = c;
-			for(int i = 0; i < meusComponentes.length; i++ ) {
-				novoVetor[i+1] = meusComponentes[i];
+			if(meusComponentes != null) {
+				Componente [] novoVetor = new Componente[meusComponentes.length + 1];
+				novoVetor[0] = c;
+				for(int i = 0; i < meusComponentes.length; i++ ) {
+					novoVetor[i+1] = meusComponentes[i];
+				}
+				meusComponentes = new Componente[novoVetor.length];
+				meusComponentes = novoVetor;
+			}else {
+				meusComponentes = new Componente [1];
+				meusComponentes[0] = c;
+				meusComponentes[0].printa();
+				System.out.println("sala " + salaConhecida);
 			}
-			meusComponentes = new Componente[novoVetor.length];
-			meusComponentes = novoVetor;
-
+			return true;
 		}else {
-			System.out.println("Não pode colocar nessa sala");
+			//Não pode colocar nessa sala;
+			return false;
 		}
 		/*System.out.println("Printando " + meusComponentes.length + " componentes:");
 		for(int i = 0; i < meusComponentes.length; i++) {
@@ -48,20 +54,24 @@ public class Sala {
 	private boolean verifica(Componente c) {
 		//OURO, WUMPUS E BURACO não podem estar na mesma sala
 		boolean estado = true;
-		
-		for(int i = 0; i < meusComponentes.length; i++) {
-			if(meusComponentes[i].getTipo() == 'O' || meusComponentes[i].getTipo() == 'W' || meusComponentes[i].getTipo() == 'B') {
-				if(c.getTipo() == 'O' || c.getTipo() == 'W' || c.getTipo() == 'B') {
-					estado = false;
+		if(meusComponentes != null) {
+			for(int i = 0; i < meusComponentes.length; i++) {
+				if(meusComponentes[i].getTipo() == 'O' || meusComponentes[i].getTipo() == 'W' || meusComponentes[i].getTipo() == 'B') {
+					if(c.getTipo() == 'O' || c.getTipo() == 'W' || c.getTipo() == 'B') {
+						estado = false;
+					}
 				}
 			}
-		}		
+		}
 		return estado;
 	}
 	
 	private void identidade(char tipo) {
 		switch(tipo) {
-			case 'P': heroi++; break;
+			case 'P': 
+				heroi++; 
+				salaConhecida = true; 
+				break;
 			case 'B': buraco++; break;
 			case 'O': ouro++; break;
 			case 'W': wumpus++; break;
@@ -74,6 +84,7 @@ public class Sala {
 				wumpus = 0;
 				brisa = 0;
 				fedor = 0;
+				salaConhecida = false;
 				break;
 				
 		}
