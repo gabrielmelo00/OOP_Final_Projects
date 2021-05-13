@@ -1,13 +1,55 @@
 package mc322.lab06;
 
+import java.util.ArrayList;
+
 public class Sala {
 	
-	Componente [] meusComponentes;
+	//Componente [] meusComponentes;
+	ArrayList<Componente> meusComponentes;
 	boolean salaConhecida;
 	
 	public Sala() {
-		meusComponentes = null;
+		meusComponentes = new ArrayList<Componente>();
+		salaConhecida = false;
 	}
+	
+	public boolean adicionaComponente(Componente c) {
+		boolean estado = false;
+		if(verifica(c)) {
+			meusComponentes.add(c);
+			if(c.getTipo() == 'P') {
+				salaConhecida = true;
+			}
+			estado = true;
+		}
+		return estado;
+	}
+	
+	public boolean retiraComponente(Componente c) {
+		boolean estado = false;
+		if(meusComponentes.contains(c)) {
+			meusComponentes.remove(meusComponentes.indexOf(c));
+			estado = true;
+		}
+		return estado;
+	}
+	
+	private boolean verifica(Componente c) {
+		//OURO, WUMPUS E BURACO não podem estar na mesma sala
+		boolean estado = true;
+		if(!meusComponentes.isEmpty()) {
+			for(int i = 0; i < meusComponentes.size(); i++) {
+				if(meusComponentes.get(i).getTipo() == 'O' || meusComponentes.get(i).getTipo() == 'W' || meusComponentes.get(i).getTipo() == 'B') {
+					if(c.getTipo() == 'O' || c.getTipo() == 'W' || c.getTipo() == 'B') {
+						estado = false;
+					}
+				}
+			}
+		}
+		return estado;
+	}
+	
+	/*
 	
 	public boolean adicionaComponente(Componente c) {
 		// método verifica
@@ -74,5 +116,5 @@ public class Sala {
 		}
 		return estado;
 	}
-	
+	*/
 }

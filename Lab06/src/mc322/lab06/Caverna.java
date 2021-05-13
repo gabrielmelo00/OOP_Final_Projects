@@ -37,8 +37,8 @@ public class Caverna {
 			for(int j = 0;j < tamanho();j++) {
 				estado += " ";
 				if(matrizSala[i][j].salaConhecida) {
-					if(matrizSala[i][j].meusComponentes != null) {
-						estado += matrizSala[i][j].meusComponentes[0].getTipo();
+					if(!matrizSala[i][j].meusComponentes.isEmpty()) {
+						estado += matrizSala[i][j].meusComponentes.get(0).getTipo();
 					}else {
 						estado += "#";
 					}

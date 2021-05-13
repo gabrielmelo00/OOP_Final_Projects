@@ -19,7 +19,7 @@ public class Heroi extends Componente {
 		if(j+1 < minhaCaverna.tamanho()) {
 			pontuacao = pontuacao -15;
 			//if(equipada) -> atirarFlecha
-			//minhaCaverna.retiraHeroiSala
+			minhaCaverna.desconectaSala(i,j,this);
 			j++;
 			minhaCaverna.conectaSala(i,j,this);
 			return true;
@@ -32,7 +32,7 @@ public class Heroi extends Componente {
 		if(j -1 >= 0) {
 			pontuacao = pontuacao -15;
 			//if(equipada) -> atirarFlecha
-			//minhaCaverna.retiraHeroiSala
+			minhaCaverna.desconectaSala(i,j,this);
 			j --;
 			minhaCaverna.conectaSala(i, j, this);
 			return true;
@@ -46,7 +46,7 @@ public class Heroi extends Componente {
 			pontuacao = pontuacao -15;
 			//if(equipada) -> atirarFlecha
 				// pontuacao = pontuacao -100;
-			//minhaCaverna.retiraHeroiSala
+			minhaCaverna.desconectaSala(i,j,this);
 			i--;
 			minhaCaverna.conectaSala(i, j, this);
 			return true;
@@ -59,7 +59,7 @@ public class Heroi extends Componente {
 		if(i+1 < minhaCaverna.tamanho()) {
 			pontuacao = pontuacao -15;
 			//if(equipada) -> atirarFlecha
-			//minhaCaverna.retiraHeroiSala
+			minhaCaverna.desconectaSala(i,j,this);
 			i++;
 			minhaCaverna.conectaSala(i, j, this);
 			return true;
