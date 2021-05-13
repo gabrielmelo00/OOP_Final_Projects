@@ -7,8 +7,8 @@ public class Componente {
 	protected char tipo;
 	
 	public Componente(int i, int j, char tipo) {
-		this.i  = i;
-		this.j = j;
+		this.i  = i - 1;
+		this.j = j - 1;
 		this.tipo = tipo;
 	}
 	public Componente(Caverna x) {
@@ -30,6 +30,7 @@ public class Componente {
 		System.out.println("j: " + j);
 		System.out.println("tipo: " + tipo);
 		System.out.println("minhaCav: " + minhaCaverna);
+		System.out.println("eu: " + this);
 	}
 
 }

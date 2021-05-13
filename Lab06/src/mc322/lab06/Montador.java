@@ -3,8 +3,8 @@ package mc322.lab06;
 public class Montador {
 	
 	private Caverna minhaCaverna;
-
-		// [[1:1,P]]
+    private Heroi meuHeroi;
+	
 	public Montador(String[][] matriz) {
 		String [] vetor_i = new String[matriz.length];
 		String [] vetor_j = new String[matriz.length];
@@ -32,6 +32,7 @@ public class Montador {
 					case "P":
 						meusComponentes = new Heroi(Integer.parseInt(vetor_i[x]),Integer.parseInt(vetor_j[x]),'P');
 						meusComponentes.conectaComponente();
+						meuHeroi = (Heroi) meusComponentes;
 						break;
 						
 					case "O":
@@ -44,15 +45,9 @@ public class Montador {
 						meusComponentes.conectaComponente();
 						break;
 						
-				}
-								
+				}				
 			}
-			
-			//meusComponentes = new Heroi(1,4,'P');
-			//meusComponentes.conectaComponente();
-			
 		}
-		
 	}
 	
 	public boolean verifica(String[] vetor_componentes) {
@@ -78,5 +73,9 @@ public class Montador {
 		}
 		
 		return resultado;
+	}
+	
+	public Heroi getHeroi() {
+		return meuHeroi;
 	}
 }

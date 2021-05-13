@@ -2,10 +2,10 @@ package mc322.lab06;
 
 public class Heroi extends Componente {
 	
-	int flechas;
-	boolean equipada;
-	int ouro;
-	int pontuacao;
+	private int flechas;
+	private boolean equipada;
+	private int ouro;
+	private int pontuacao;
 
 	public Heroi(int i, int j, char tipo) {
 		super(i, j, tipo);
@@ -16,11 +16,11 @@ public class Heroi extends Componente {
 	}
 	
 	public boolean direita() {
-		if(i+1 < minhaCaverna.tamanho()) {
+		if(j+1 < minhaCaverna.tamanho()) {
 			pontuacao = pontuacao -15;
 			//if(equipada) -> atirarFlecha
 			//minhaCaverna.retiraHeroiSala
-			i++;
+			j++;
 			minhaCaverna.conectaSala(i,j,this);
 			return true;
 		}else {
@@ -29,11 +29,11 @@ public class Heroi extends Componente {
 	}
 	
 	public boolean esquerda() {
-		if(i -1 >= 0) {
+		if(j -1 >= 0) {
 			pontuacao = pontuacao -15;
 			//if(equipada) -> atirarFlecha
 			//minhaCaverna.retiraHeroiSala
-			i --;
+			j --;
 			minhaCaverna.conectaSala(i, j, this);
 			return true;
 		}else {
@@ -42,12 +42,12 @@ public class Heroi extends Componente {
 	}
 	
 	public boolean acima() {
-		if(j + 1 < minhaCaverna.tamanho()) {
+		if(i -1 >= 0) {
 			pontuacao = pontuacao -15;
 			//if(equipada) -> atirarFlecha
 				// pontuacao = pontuacao -100;
 			//minhaCaverna.retiraHeroiSala
-			j++;
+			i--;
 			minhaCaverna.conectaSala(i, j, this);
 			return true;
 		}else {
@@ -56,11 +56,11 @@ public class Heroi extends Componente {
 	}
 	
 	public boolean abaixo() {
-		if(j-1 >= 0) {
+		if(i+1 < minhaCaverna.tamanho()) {
 			pontuacao = pontuacao -15;
 			//if(equipada) -> atirarFlecha
 			//minhaCaverna.retiraHeroiSala
-			j--;
+			i++;
 			minhaCaverna.conectaSala(i, j, this);
 			return true;
 		}else {

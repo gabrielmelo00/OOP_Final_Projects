@@ -31,8 +31,7 @@ public class Sala {
 			}else {
 				meusComponentes = new Componente [1];
 				meusComponentes[0] = c;
-				meusComponentes[0].printa();
-				System.out.println("sala " + salaConhecida);
+				//meusComponentes[0].printa();
 			}
 			return true;
 		}else {

@@ -15,12 +15,40 @@ public class Caverna {
 	}
 	
 	public void conectaSala(int x, int y, Componente c) {
-		if(!matrizSala[x-1][y-1].adicionaComponente(c)) {
+		if(!matrizSala[x][y].adicionaComponente(c)) {
 			System.out.println("Erro: caverna não pode adicionar componente");
 		}
 	}
 	
 	public int tamanho() {
 		return matrizSala[0].length;
+	}
+	
+	public String getEstadoCaverna() {
+		String estado = "";
+		for(int i = 0;i < tamanho();i++) {
+			estado += Integer.toString(i+1);
+			for(int j = 0;j < tamanho();j++) {
+				estado += " ";
+				if(matrizSala[i][j].salaConhecida) {
+					if(matrizSala[i][j].meusComponentes != null) {
+						estado += matrizSala[i][j].meusComponentes[0].getTipo();
+					}else {
+						estado += "#";
+					}
+				}else {
+					estado += "-";
+				}
+			}
+			estado += "\n";
+		}
+		String linha_final = " ";
+		for(int i = 0;i < tamanho();i++) {
+			linha_final += " ";
+			linha_final += Integer.toString(i+1);
+		}
+		linha_final += "\n";
+		estado += linha_final;
+		return estado;
 	}
 }
