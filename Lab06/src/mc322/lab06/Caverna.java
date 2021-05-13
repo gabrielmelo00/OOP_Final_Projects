@@ -19,4 +19,8 @@ public class Caverna {
 			System.out.println("Erro: caverna não pode adicionar componente");
 		}
 	}
+	
+	public int tamanho() {
+		return matrizSala[0].length;
+	}
 }
