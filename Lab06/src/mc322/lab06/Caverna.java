@@ -20,6 +20,12 @@ public class Caverna {
 		}
 	}
 	
+	public void desconectaSala(int x, int y, Componente c) {
+		if(!matrizSala[x][y].retiraComponente(c)) {
+			System.out.println("Erro: caverna não pode retirar componente");
+		}
+	}
+	
 	public int tamanho() {
 		return matrizSala[0].length;
 	}

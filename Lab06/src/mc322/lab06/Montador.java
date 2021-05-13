@@ -3,7 +3,7 @@ package mc322.lab06;
 public class Montador {
 	
 	private Caverna minhaCaverna;
-    private Heroi meuHeroi;
+    private Componente meuHeroi;
 	
 	public Montador(String[][] matriz) {
 		String [] vetor_i = new String[matriz.length];
@@ -32,7 +32,7 @@ public class Montador {
 					case "P":
 						meusComponentes = new Heroi(Integer.parseInt(vetor_i[x]),Integer.parseInt(vetor_j[x]),'P');
 						meusComponentes.conectaComponente();
-						meuHeroi = (Heroi) meusComponentes;
+						meuHeroi = meusComponentes;
 						break;
 						
 					case "O":
@@ -75,7 +75,7 @@ public class Montador {
 		return resultado;
 	}
 	
-	public Heroi getHeroi() {
+	public Componente getHeroi() {
 		return meuHeroi;
 	}
 }

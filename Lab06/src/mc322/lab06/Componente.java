@@ -32,5 +32,40 @@ public class Componente {
 		System.out.println("minhaCav: " + minhaCaverna);
 		System.out.println("eu: " + this);
 	}
+	
+	
+	//=== métodos do Heroi ===
+	
+	public boolean direita() {
+		return true;
+	}
+	
+	public boolean esquerda() {
+		return true;
+	}
+	
+	public boolean acima() {
+		return true;
+	}
+	
+	public boolean abaixo() {
+		return true;
+	}
+	
+	public boolean equipaFlecha() {
+		return true;
+	}
+	
+	public boolean capturaOuro() {
+		return true;
+	}
+	
+	
+	public int getPontuacao() {
+		return 0;
+	}
+	
+	public void setPontuacao(int acrescimo) {
+	}
 
 }

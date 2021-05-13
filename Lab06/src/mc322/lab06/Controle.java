@@ -1,10 +1,10 @@
 package mc322.lab06;
 
 public class Controle {
-	private Heroi meuHeroi;
+	private Componente meuHeroi;
 	private String nomeHeroi;
 	
-	public Controle(String nomeHeroi, Heroi meuHeroi) {
+	public Controle(String nomeHeroi, Componente meuHeroi) {
 		this.nomeHeroi = nomeHeroi;
 		this.meuHeroi = meuHeroi;
 		System.out.println(meuHeroi.minhaCaverna.getEstadoCaverna());
