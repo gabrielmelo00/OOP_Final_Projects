@@ -7,12 +7,16 @@ public class Heroi extends Componente {
 	private int ouro;
 	private int pontuacao;
 
-	public Heroi(int i, int j, char tipo) {
-		super(i, j, tipo);
+	public Heroi(int i, int j) {
+		super(i, j);
+		tipo = 'P';
 		flechas = 1;
 		equipada = false;
 		ouro = 0;
 		pontuacao = 0;
+		System.out.println("Heroi:");
+		System.out.println(i);
+		System.out.println(j);
 	}
 	
 	public boolean direita() {

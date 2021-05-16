@@ -15,6 +15,8 @@ public class Caverna {
 	}
 	
 	public void conectaSala(int x, int y, Componente c) {
+		System.out.println("Meu x " + x);
+		System.out.println("Meu y " + y);
 		if(!matrizSala[x][y].adicionaComponente(c)) {
 			System.out.println("Erro: caverna não pode adicionar componente");
 		}
@@ -28,6 +30,7 @@ public class Caverna {
 	
 	public int tamanho() {
 		return matrizSala[0].length;
+		
 	}
 	
 	public String getEstadoCaverna() {

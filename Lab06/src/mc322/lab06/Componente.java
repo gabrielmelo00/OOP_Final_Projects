@@ -6,13 +6,12 @@ public class Componente {
 	protected int j;
 	protected char tipo;
 	
-	public Componente(int i, int j, char tipo) {
-		this.i  = i - 1;
-		this.j = j - 1;
-		this.tipo = tipo;
+	public Componente(int i, int j) {
+		this.i  = i-1;
+		this.j = j-1;
 	}
 	public Componente(Caverna x) {
-		this (-1,-1,'n');
+		this (-1,-1);
 		minhaCaverna = x;
 	}
 	
