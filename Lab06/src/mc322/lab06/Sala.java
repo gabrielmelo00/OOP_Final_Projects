@@ -20,6 +20,15 @@ public class Sala {
 			meusComponentes.add(posicao, c);
 			if(c.getTipo() == 'P') {
 				salaConhecida = true;
+				for(int x = 0; x < meusComponentes.size(); x++) {
+					if(meusComponentes.get(x).getTipo() == 'B') {
+						c.setPerdeu();
+					}else if(meusComponentes.get(x).getTipo() == 'W') {
+						if(!c.getFlechaEquipada()) {
+							c.setPerdeu();
+						}
+					}
+				}
 			}
 			estado = true;
 		}
@@ -68,5 +77,41 @@ public class Sala {
 			posicao = meusComponentes.size();
 		}
 		return posicao;
+	}
+	
+	public void retiraOuro() {
+		Componente ouro = null;
+		Componente heroi = null;
+		for(int i = 0; i < meusComponentes.size(); i++) {
+			if(meusComponentes.get(i).getTipo() == 'O') {
+				ouro = meusComponentes.get(i);
+			}else if(meusComponentes.get(i).getTipo() == 'P') {
+				heroi = meusComponentes.get(i);
+			}
+		}
+		if(ouro != null && heroi!= null) {
+			retiraComponente(ouro);
+			heroi.setOuro();
+		}
+	}
+	
+	public void atiraFlecha() {
+		Componente wumpus = null;
+		Componente heroi = null;
+		for(int i = 0; i < meusComponentes.size(); i++) {
+			if(meusComponentes.get(i).getTipo() == 'W') {
+				wumpus = meusComponentes.get(i);
+			}else if(meusComponentes.get(i).getTipo() == 'P') {
+				heroi = meusComponentes.get(i);
+			}
+		}
+		if(wumpus != null && heroi != null) {
+			if(wumpus.atacarWumpus()) {
+				heroi.setWumpus();
+				retiraComponente(wumpus);
+			}else {
+				heroi.setPerdeu();
+			}
+		}
 	}
 }

@@ -23,6 +23,14 @@ public class Componente {
 		return tipo;
 	}
 	
+	public int getX() {
+		return i;
+	}
+	
+	public int getY() {
+		return j;
+	}
+	
 	
 	public void printa() {
 		System.out.println("i: " + i);
@@ -64,7 +72,36 @@ public class Componente {
 		return 0;
 	}
 	
-	public void setPontuacao(int acrescimo) {
+	public void setOuro() {}
+	public void setWumpus() {}
+	public void setPerdeu() {}
+	public boolean getPerdeu() {
+		return false;
 	}
+	public boolean getFlechaEquipada() {
+		return false;
+	}
+	public boolean ganhei() {
+		return false;
+	}
+	
+	public int getOuro() {
+		return 0;
+	}
+	
+	public int getFlechas() {
+		return 0;
+	}
+	
+	public boolean getWumpus() {
+		return false;
+	}
+	
+	//métodos do Wumpus
+	
+	public boolean atacarWumpus() {
+		return false;
+	}
+	
 
 }

@@ -6,6 +6,8 @@ public class Heroi extends Componente {
 	private boolean equipada;
 	private int ouro;
 	private int pontuacao;
+	private int wumpus;
+	private boolean perdeu;
 
 	public Heroi(int i, int j) {
 		super(i, j);
@@ -14,18 +16,21 @@ public class Heroi extends Componente {
 		equipada = false;
 		ouro = 0;
 		pontuacao = 0;
-		System.out.println("Heroi:");
-		System.out.println(i);
-		System.out.println(j);
+		wumpus = 0;
+		perdeu = false;
 	}
 	
 	public boolean direita() {
 		if(j+1 < minhaCaverna.tamanho()) {
-			pontuacao = pontuacao -15;
-			//if(equipada) -> atirarFlecha
+			setPontuacao(-15);
 			minhaCaverna.desconectaSala(i,j,this);
 			j++;
 			minhaCaverna.conectaSala(i,j,this);
+			if(equipada) {
+				minhaCaverna.atiraFlecha(i,j);
+				setPontuacao(-100);
+				equipada = false;
+			} 
 			return true;
 		}else {
 			return false;
@@ -34,11 +39,15 @@ public class Heroi extends Componente {
 	
 	public boolean esquerda() {
 		if(j -1 >= 0) {
-			pontuacao = pontuacao -15;
-			//if(equipada) -> atirarFlecha
+			setPontuacao(-15);
 			minhaCaverna.desconectaSala(i,j,this);
 			j --;
 			minhaCaverna.conectaSala(i, j, this);
+			if(equipada) {
+				minhaCaverna.atiraFlecha(i,j);
+				setPontuacao(-100);
+				equipada = false;
+			} 
 			return true;
 		}else {
 			return false;
@@ -47,12 +56,15 @@ public class Heroi extends Componente {
 	
 	public boolean acima() {
 		if(i -1 >= 0) {
-			pontuacao = pontuacao -15;
-			//if(equipada) -> atirarFlecha
-				// pontuacao = pontuacao -100;
+			setPontuacao(-15);
 			minhaCaverna.desconectaSala(i,j,this);
 			i--;
 			minhaCaverna.conectaSala(i, j, this);
+			if(equipada) {
+				minhaCaverna.atiraFlecha(i,j);
+				setPontuacao(-100);
+				equipada = false;
+			} 
 			return true;
 		}else {
 			return false;
@@ -61,11 +73,15 @@ public class Heroi extends Componente {
 	
 	public boolean abaixo() {
 		if(i+1 < minhaCaverna.tamanho()) {
-			pontuacao = pontuacao -15;
-			//if(equipada) -> atirarFlecha
+			setPontuacao(-15);
 			minhaCaverna.desconectaSala(i,j,this);
 			i++;
 			minhaCaverna.conectaSala(i, j, this);
+			if(equipada) {
+				minhaCaverna.atiraFlecha(i,j);
+				setPontuacao(-100);
+				equipada = false;
+			} 
 			return true;
 		}else {
 			return false;
@@ -82,10 +98,43 @@ public class Heroi extends Componente {
 	}
 	
 	public boolean capturaOuro() {
-		//if(pedeParaPegarOuro)
+		int ouro_antigo = ouro;
+		minhaCaverna.capturaOuro(i, j);
+		if(ouro_antigo < ouro) {
+			return true;
+		}else {
+			return false;
+		}
+	}
+	
+	public void setOuro(){
 		ouro ++;
-		return true;
-		//else return false
+	}
+	
+	public int getOuro() {
+		return ouro;
+	}
+	
+	public void setWumpus() {
+		setPontuacao(500);
+		wumpus ++;
+	}
+	
+	public boolean getWumpus() {
+		if(wumpus > 0) {
+			return true;
+		}else {
+			return false;
+		}
+	}
+	
+	public void setPerdeu() {
+		perdeu = true;
+		setPontuacao(-1000);
+	}
+	
+	public boolean getPerdeu() {
+		return perdeu;
 	}
 	
 	
@@ -93,9 +142,25 @@ public class Heroi extends Componente {
 		return pontuacao;
 	}
 	
-	// para ser usado se o héroi mata o wumpus, é morto pelo wumpus, cai em um buraco ...
-	public void setPontuacao(int acrescimo) {
+	private void setPontuacao(int acrescimo) {
 		pontuacao = pontuacao + acrescimo; 
+	}
+	
+	public boolean getFlechaEquipada() {
+		return equipada;
+	}
+	
+	public int getFlechas() {
+		return flechas;
+	}
+	
+	public boolean ganhei() {
+		if(ouro == 1 && i == 0 && j == 0) {
+			setPontuacao(1000);
+			return true;
+		}else {
+			return false;
+		}
 	}
 
 }

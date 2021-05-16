@@ -25,34 +25,22 @@ public class Montador {
 			for(int x = 0;x < vetor_componentes.length;x++) {
 				switch(vetor_componentes[x]) {
 					case "B":
-						System.out.println("Montador manda:");
-						System.out.println(Integer.parseInt(vetor_i[x]));
-						System.out.println(Integer.parseInt(vetor_j[x]));
 						meusComponentes = new Buraco(Integer.parseInt(vetor_i[x]),Integer.parseInt(vetor_j[x]));
 						meusComponentes.conectaComponente();
 						break;
 						
 					case "P":
-						System.out.println("Montador manda:");
-						System.out.println(Integer.parseInt(vetor_i[x]));
-						System.out.println(Integer.parseInt(vetor_j[x]));
 						meusComponentes = new Heroi(Integer.parseInt(vetor_i[x]),Integer.parseInt(vetor_j[x]));
 						meusComponentes.conectaComponente();
 						meuHeroi = meusComponentes;
 						break;
 						
 					case "O":
-						System.out.println("Montador manda:");
-						System.out.println(Integer.parseInt(vetor_i[x]));
-						System.out.println(Integer.parseInt(vetor_j[x]));
 						meusComponentes = new Ouro(Integer.parseInt(vetor_i[x]),Integer.parseInt(vetor_j[x]));
 						meusComponentes.conectaComponente();
 						break;
 						
 					case "W":
-						System.out.println("Montador manda:");
-						System.out.println(Integer.parseInt(vetor_i[x]));
-						System.out.println(Integer.parseInt(vetor_j[x]));
 						meusComponentes = new Wumpus(Integer.parseInt(vetor_i[x]),Integer.parseInt(vetor_j[x]));
 						meusComponentes.conectaComponente();
 						break;
