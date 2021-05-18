@@ -1,4 +1,4 @@
-EM EDIÇÂO
+EM EDIÇÃO
 
 # Trecho 1
 
