@@ -1,5 +1,3 @@
-EM EDIÇÃO
-
 # Trecho 1
 
 5. Explore ao máximo o polimorfismo.
