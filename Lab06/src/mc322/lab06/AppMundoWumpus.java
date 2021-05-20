@@ -4,10 +4,10 @@ import java.util.Scanner;
 
 public class AppMundoWumpus {
 
-	public static void main(String[] args) {
+	public static void main(String [] args) {
 		String [][] tabuleiro;
 		CSVHandling csv = new CSVHandling();
-		csv.setDataSource("../Lab06/data/caverna2.csv");
+		csv.setDataSource(args[0]);
 		tabuleiro = csv.requestCommands();
 		
 		Montador meuMontador = new Montador(tabuleiro);
