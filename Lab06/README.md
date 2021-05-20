@@ -2,7 +2,7 @@
 
 ## O Jogo
 
-O Mundo de Wumpus é um jogo que consiste em uma caverna composta por 16 salas (4x4) que são conectadas entre si. O herói (personagem principal) deve desbravar essa caverna em busca do ouro. No entanto, nessa caverna há também um monstro chamado Wumpus que mata qualquer pessoa que entra na caverna. Para se proteger do Wumpus, o herói tem a sua disposição uma flecha para atacar o monstro. Na caverna, existem também buracos espalhados. Se o herói cair em uma delas, ele não consegue sair da caverna e perde o jogo.
+O Mundo de Wumpus é um jogo que consiste em uma caverna composta por 16 salas (4x4) que são conectadas entre si. O herói (personagem principal) deve desbravar essa caverna em busca do ouro. No entanto, nessa caverna há também um monstro chamado Wumpus que mata qualquer pessoa que entra na caverna. Para se proteger do Wumpus, o herói tem a sua disposição uma flecha para atacar o monstro. Na caverna, existem também buracos espalhados. Se o herói cair em um deles, ele não consegue sair da caverna e perde o jogo.
 
 ## Objetivo
 
@@ -34,7 +34,7 @@ A pontuação é, então, distribuída da seguinte forma:
 * -1000 pontos - se o herói cai no buraco ou é morto pelo Wumpus;
 * -15 pontos - por cada movimento;
 * -100 pontos - por usar a flecha;
-* + 500 pontos - se o herói matar o Wumpus.
+* +500 pontos - se o herói matar o Wumpus.
 	
 ## Informações sobre o Jogo
 	
@@ -67,7 +67,7 @@ Para acionar o jogo você deve:
 	
 * Baixar a pasta Lab06 deste github.
 * Executar o jogo tendo como entrada um vetor de Strings que contém na primeira posição o endereço para o arquivo de entrada "../Lab06/data/data.csv"
-* Na pasta [data](\Lab06\data) existem outros arquivos de entrada intitulados de `caverna1` , `caverna2` e `caverna3`. Para trocar o arquivo de entrada (tabuleiro do jogo), basta alterar o caminho do arquivo para, por exemplo,  "../Lab06/data/caverna3.csv".
+* Na pasta [data](https://github.com/gabrielmelo00/TrabalhosMC/tree/master/Lab06/data) existem outros arquivos de entrada intitulados de `caverna1` , `caverna2` e `caverna3`. Para trocar o arquivo de entrada (tabuleiro do jogo), basta alterar o caminho do arquivo para, por exemplo,  "../Lab06/data/caverna3.csv".
 * Após executar o jogo, você deverá enserir um nome para o seu Player;
 * Então basta começar a jogar!
 
@@ -119,7 +119,7 @@ public class Heroi extends Componente {
 
 ## Aspectos que Facilitam a Implementação de Novos Componentes no Jogo
 						 
-Em cada sala, os Componentes são armazenados em uma array ordenada de acordo com a hierarquia dos Componentes. Dessa forma, caso deseja-se inserir um novo tipo de Componente no jogo, basta inseri-lo dentro da hierarquia dos outros Componentes, não sendo alterar outras partes do código além dessa.
+Em cada sala, os Componentes são armazenados em uma array ordenada de acordo com a hierarquia dos Componentes. Dessa forma, caso deseja-se inserir um novo tipo de Componente no jogo, basta inseri-lo dentro da hierarquia dos outros Componentes, não sendo necessário alterar outras partes do código além dessa.
 
 ~~~java
 public Sala() {
