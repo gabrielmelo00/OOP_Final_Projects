@@ -1,5 +1,74 @@
-Em edição
+# Lab06 - O Mundo de Wumpus
 
+## O Jogo
+
+O Mundo de Wumpus é um jogo que consiste em uma caverna composta por 16 salas (4x4) que são conectadas entre si. O herói (personagem principal) deve desbravar essa caverna em busca do ouro. No entanto, nessa caverna há também um monstro chamado Wumpus que mata qualquer pessoa que entra na caverna. Para se proteger do Wumpus, o herói tem a sua disposição uma flecha para atacar o monstro. Na caverna, existem também buracos espalhados. Se o herói cair em uma delas, ele não consegue sair da caverna e perde o jogo.
+
+## Objetivo
+
+O objetivo do jogo é o héroi entrar na caverna, capturar o ouro e sair dela sem ser morto pelo Wumpus ou cair em um buraco.
+
+## Elementos do Jogo
+
+O jogo possui, então, os seguintes componentes:
+
+* Caverna: composta por 16 salas conectadas dispostas como uma matriz 4x4;
+* Herói: busca o ouro na caverna sem morrer;
+* Wumpus: monstro que mata qualquer um que entrar na caverna;
+* Buraco: um buraco que não permite que ninguém saia dele;
+* Ouro: prêmio buscado pelo herói;
+* Fedor*: odor emitido pelo monstro e mostrado nas células adjacentes a ele (exceto diagonais);
+* Brisa*: vento emitido pelo buraco e mostrado nas células adjacentes a ele (exceto diagonais);
+
+<sub>*Elementos secundários que ajudam na exploração da caverna visto que indicam onde podem estar o Wumpus e os buracos.<sub>
+
+O herói possui uma única flecha para matar o Wumpus. A probabilidade de matar o monstro após atirar a flecha é de 50%.
+	
+## Pontuação
+	
+O herói começa o jogo com zero pontos.
+
+A pontuação é, então, distribuída da seguinte forma:
+
+* +1000 pontos - se o herói sai da caverna com o Ouro;
+* -1000 pontos - se o herói cai no buraco ou é morto pelo Wumpus;
+* -15 pontos - por cada movimento;
+* -100 pontos - por usar a flecha;
++ 500 pontos - se o herói matar o Wumpus.
+	
+## Informações sobre o Jogo
+	
+* O herói sempre começa na célula (1,1);
+* O Wumpus não se move pela caverna;
+* O herói só toma conhecimento dos elementos dentro da sala após passar por ela;
+* Para matar o Wumpus, o herói deve estar com a flecha equipada antes de entrar na sala com o monstro;
+* Caso o herói equipe a flecha e se mova para uma sala sem  o monstro, ele perderá a flecha;
+* O herói não pode sair da caverna sem o ouro;
+* Matar o monstro é opcional.
+* Existe uma hierarquia entre os elementos de uma sala. Apenas o elemento de maior hierarquia da sala será mostrado na tela para o usuário, mas podem existir outros elementos de menor hierarquia na sala. A ordem é: ouro = Wumpus = buraco > herói > brisa > fedor.
+	
+## Movimentos do Jogo
+	
+Os movimentos existentes no jogo são:
+	
+* w -> Herói movimenta para a sala acima;
+* s -> Herói movimenta para a sala abaixo;
+● d -> Herói movimenta para a sala a direita;
+● a -> Herói movimenta para a sala a esquerda;
+● k -> Herói equipa a flecha;
+● c -> Herói captura o ouro;
+● q -> O usuário sai do jogo.
+	
+A primeira coisa que o jogador deve fazer no jogo é inserir o nome do Player. O tabuleiro será então mostrado e o jogador pode iniciar o jogo.
+	
+## Arquivos Java do Jogo
+	
+### Como acionar o jogo
+	
+Para acionar o jogo você deve:
+	
+* Baixar a pasta Lab06 deste github.
+* Executar o jogo tendo como entrada um vetor de Strings que contém na primeira posição o endereço para o arquivo de entrada "../Lab05/data/data.csv"
 # Trecho 1
 
 5. Explore ao máximo o polimorfismo.
