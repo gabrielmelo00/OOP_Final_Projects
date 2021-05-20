@@ -59,8 +59,6 @@ Os movimentos existentes no jogo são:
 ● c -> Herói captura o ouro;
 ● q -> O usuário sai do jogo.
 	
-A primeira coisa que o jogador deve fazer no jogo é inserir o nome do Player. O tabuleiro será então mostrado e o jogador pode iniciar o jogo.
-	
 ## Arquivos Java do Jogo
 	
 ### Como acionar o jogo
@@ -68,7 +66,10 @@ A primeira coisa que o jogador deve fazer no jogo é inserir o nome do Player. O
 Para acionar o jogo você deve:
 	
 * Baixar a pasta Lab06 deste github.
-* Executar o jogo tendo como entrada um vetor de Strings que contém na primeira posição o endereço para o arquivo de entrada "../Lab05/data/data.csv"
+* Executar o jogo tendo como entrada um vetor de Strings que contém na primeira posição o endereço para o arquivo de entrada "../Lab06/data/data.csv"
+* Na pasta [data](..\Lab06\data) existem outros arquivos de entrada intitulados de `caverna1` , `caverna2` e `caverna3`. Para trocar o arquivo de entrada (tabuleiro do jogo), basta alterar o caminho do arquivo para, por exemplo,  "../Lab06/data/caverna3.csv".
+* Após executar o jogo, você deverá enserir um nome para o seu Player;
+* Então basta começar a jogar!
 # Trecho 1
 
 5. Explore ao máximo o polimorfismo.
