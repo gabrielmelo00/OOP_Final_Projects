@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class AppMundoWumpus {
 
 	public static void main(String [] args) {
+		
 		String [][] tabuleiro;
 		CSVHandling csv = new CSVHandling();
 		csv.setDataSource(args[0]);
