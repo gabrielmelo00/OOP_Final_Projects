@@ -34,7 +34,7 @@ A pontuação é, então, distribuída da seguinte forma:
 * -1000 pontos - se o herói cai no buraco ou é morto pelo Wumpus;
 * -15 pontos - por cada movimento;
 * -100 pontos - por usar a flecha;
-+ 500 pontos - se o herói matar o Wumpus.
+* + 500 pontos - se o herói matar o Wumpus.
 	
 ## Informações sobre o Jogo
 	
@@ -131,7 +131,7 @@ public Sala() {
  public boolean retiraComponente(Componente c) {..}
 ~~~
 
-##Evitando Centralização de Papéis
+## Evitando Centralização de Papéis
 	
 A classe caverna tem como principal papel conectar os componentes com as salas. Dessa forma, ela não verifica se as ações requeridas pelo componente são possíveis ou não, mas apenas as passa para a Sala, onde essa verificação ocorrerá.
 
