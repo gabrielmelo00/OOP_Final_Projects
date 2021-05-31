@@ -2,7 +2,7 @@
 
 ## O Jogo
 
-O Mundo de Wumpus é um jogo que consiste em uma caverna composta por 16 salas (4x4) que são conectadas entre si. O herói (personagem principal) deve desbravar essa caverna em busca do ouro. No entanto, nessa caverna há também um monstro chamado Wumpus que mata qualquer pessoa que entra na caverna. Para se proteger do Wumpus, o herói tem a sua disposição uma flecha para atacar o monstro. Na caverna, existem também buracos espalhados. Se o herói cair em uma delas, ele não consegue sair da caverna e perde o jogo.
+O Mundo de Wumpus é um jogo que consiste em uma caverna composta por 16 salas (4x4) que são conectadas entre si. O herói (personagem principal) deve desbravar essa caverna em busca do ouro. No entanto, nessa caverna há também um monstro chamado Wumpus que mata qualquer pessoa que entra na caverna. Para se proteger do Wumpus, o herói tem a sua disposição uma flecha para atacar o monstro. Na caverna, existem também buracos espalhados. Se o herói cair em um deles, ele não consegue sair da caverna e perde o jogo.
 
 ## Objetivo
 
@@ -34,7 +34,7 @@ A pontuação é, então, distribuída da seguinte forma:
 * -1000 pontos - se o herói cai no buraco ou é morto pelo Wumpus;
 * -15 pontos - por cada movimento;
 * -100 pontos - por usar a flecha;
-+ 500 pontos - se o herói matar o Wumpus.
+* +500 pontos - se o herói matar o Wumpus.
 	
 ## Informações sobre o Jogo
 	
@@ -53,11 +53,11 @@ Os movimentos existentes no jogo são:
 	
 * w -> Herói movimenta para a sala acima;
 * s -> Herói movimenta para a sala abaixo;
-● d -> Herói movimenta para a sala a direita;
-● a -> Herói movimenta para a sala a esquerda;
-● k -> Herói equipa a flecha;
-● c -> Herói captura o ouro;
-● q -> O usuário sai do jogo.
+* d -> Herói movimenta para a sala a direita;
+* a -> Herói movimenta para a sala a esquerda;
+* k -> Herói equipa a flecha;
+* c -> Herói captura o ouro;
+* q -> O usuário sai do jogo.
 	
 ## Arquivos Java do Jogo
 	
@@ -67,14 +67,18 @@ Para acionar o jogo você deve:
 	
 * Baixar a pasta Lab06 deste github.
 * Executar o jogo tendo como entrada um vetor de Strings que contém na primeira posição o endereço para o arquivo de entrada "../Lab06/data/data.csv"
-* Na pasta [data](..\Lab06\data) existem outros arquivos de entrada intitulados de `caverna1` , `caverna2` e `caverna3`. Para trocar o arquivo de entrada (tabuleiro do jogo), basta alterar o caminho do arquivo para, por exemplo,  "../Lab06/data/caverna3.csv".
+* Na pasta [data](https://github.com/gabrielmelo00/TrabalhosMC/tree/master/Lab06/data) existem outros arquivos de entrada intitulados de `caverna1` , `caverna2` e `caverna3`. Para trocar o arquivo de entrada (tabuleiro do jogo), basta alterar o caminho do arquivo para, por exemplo,  "../Lab06/data/caverna3.csv".
 * Após executar o jogo, você deverá enserir um nome para o seu Player;
 * Então basta começar a jogar!
-# Trecho 1
 
-5. Explore ao máximo o polimorfismo.
+Os arquivos de Java do jogo estão na seguinte pasta.
 
-Decisão de arquitetura: usar caverna como uma variável estática de componente
+## Destaques de Arquitetura
+### Polimorfismo
+	
+O trecho abaixo ilustra o uso de polimorfismo no laboratório. Os componentes do jogo (herói, wumpus, buraco, fedor, brisa) foram todos construídos como subclasses de uma classe maior chamada Componente. Assim, no Montador, utiliza-se desse polimorfismo para a criação dos componentes do jogo. 
+	
+Além disso, no trecho abaixo, nota-se que a classe Componente possui dois construtores (sobrecarga). No primeiro caso, somente o objeto Caverna é passado como parâmetro do construtor. Para a resolução desse laboratório, decidiu-se que a classe Componente teria uma instância estática do tipo Caverna, visto que todos as subclasses de Componente partilham da mesma caverna.
 
 ~~~java
   ...
@@ -91,12 +95,9 @@ Decisão de arquitetura: usar caverna como uma variável estática de componente
   }
 ~~~
 
-# Trecho 2
-
-3. Delegue o máximo possível a cada objeto coisas que lhe dizem respeito, por exemplo, cabe ao
-objeto Herói saber quantas flechas ele tem e se há flechas disponíveis para disparar.
-
-4. Explore ao máximo o encapsulamento e evite tarefas que o subvertem.
+## Modularização e Encapsulamento
+						 
+Abaixo, mostra-se algumas das instâncias e métodos da classe Herói. Essa classe possui instâncias e métodos que guardam informação sobre aspectos do jogo que são diretamente relacionados ao herói, contribuindo para a modularização e encapsulamento do código.
 
 ~~~java
 public class Heroi extends Componente {
@@ -116,9 +117,9 @@ public class Heroi extends Componente {
   public void setWumpus() {..}
 ~~~
 
-# Trecho 3
-
-6. Evolua a arquitetura inicial de tal modo que ela seja fácil..
+## Aspectos que Facilitam a Implementação de Novos Componentes no Jogo
+						 
+Em cada sala, os Componentes são armazenados em uma array ordenada de acordo com a hierarquia dos Componentes. Dessa forma, caso deseja-se inserir um novo tipo de Componente no jogo, basta inseri-lo dentro da hierarquia dos outros Componentes, não sendo necessário alterar outras partes do código além dessa.
 
 ~~~java
 public Sala() {
@@ -130,10 +131,9 @@ public Sala() {
  public boolean retiraComponente(Componente c) {..}
 ~~~
 
-# Trecho 4
-
-2. A distribuição da lógica do jogo pelas várias classes: tentem distribuir ao máximo as tarefas entre
-as classes e evitem centralização de papéis.
+## Evitando Centralização de Papéis
+	
+A classe caverna tem como principal papel conectar os componentes com as salas. Dessa forma, ela não verifica se as ações requeridas pelo componente são possíveis ou não, mas apenas as passa para a Sala, onde essa verificação ocorrerá.
 
 ~~~java
 public class Caverna {
