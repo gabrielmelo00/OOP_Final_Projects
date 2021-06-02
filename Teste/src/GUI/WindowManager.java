@@ -34,19 +34,24 @@ public class WindowManager extends JFrame implements ActionListener{
 		add(button1);
 		add(button2);
 		
-		ImageIcon imagem = new ImageIcon("C:/Users/Gabriel/eclipse-workspace/java2learn/src/java/src/pt/c04gui/s10imagem/dino.png");
-		painel.add(imagem);
-		setVisible(true);
 		
+	    setVisible(true);
 	}
 	
 	public void actionPerformed(ActionEvent event) {
         //Changing Background Color
 		
 		if(event.getSource() == button1) {
-			getContentPane().setBackground(Color.orange);
+			Container contentPane = getContentPane();
+		    contentPane.setLayout(new BorderLayout());
+		    
+		    String arquivoImagem = WindowManager.class.getResource(".").getPath();
+		    ImageIcon imagem = new ImageIcon(arquivoImagem + "soso.jpg");
+		    JLabel campoImagem = new JLabel(imagem);
+		    contentPane.add(campoImagem, BorderLayout.CENTER);
+		    SwingUtilities.updateComponentTreeUI(this);
 		}else if(event.getSource() == button2){
-			getContentPane().setBackground(Color.orange);
+			getContentPane().setBackground(Color.pink);
 		}
 		
  
