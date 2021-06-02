@@ -1,9 +1,20 @@
 
+import framework.Builder;
+import framework.WindowManager;
+import images.Loader;
+
 public class AppProjetoFinal {
+	
+	
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		
+		WindowManager window;
+		
+		window = new WindowManager("Jogo de MC");
+	
 	}
+	
+	
 
 }
