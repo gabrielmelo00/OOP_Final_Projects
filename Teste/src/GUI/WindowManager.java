@@ -6,23 +6,26 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-public class WindowManager extends JFrame implements ActionListener{
+public class WindowManager implements ActionListener{
 	
-	private static final long serialVersionUID = -4861605391469864979L;
+	private JFrame  frame;
 	private Container painel;
+	private Container painel2;
 	private JButton button1;
 	private JButton button2;
 	
 	public WindowManager(String nome) {
-		super(nome);
-		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		frame = new JFrame(nome);
+		frame.setSize(400,400);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	    visual();
+	    
+	    
 	}
 	
 	public void visual() {
-		//setExtendedState(JFrame.MAXIMIZED_BOTH);
-		setSize(400,400);
-		painel = getContentPane();
+		//setExtendedState(JFrame.MAXIMIZED_BOTH)
+		painel = new JPanel();
 		painel.setLayout(null);
 		
 		button1 = new JButton("Start");	
@@ -31,26 +34,30 @@ public class WindowManager extends JFrame implements ActionListener{
 		button2.setBounds(200,200, 100, 30);
 		button1.addActionListener(this);
 		button2.addActionListener(this);
-		add(button1);
-		add(button2);
+		painel.add(button1);
+		painel.add(button2);
 		
+		frame.add(painel);
 		
-	    setVisible(true);
+	    frame.setVisible(true);
 	}
 	
 	public void actionPerformed(ActionEvent event) {
         //Changing Background Color
 		
 		if(event.getSource() == button1) {
-			Container contentPane = getContentPane();
-		    contentPane.setLayout(new BorderLayout());
-		    
-		    ImageIcon imagem = new ImageIcon(WindowManager.class.getResource(".").getPath()+ "soso.jpg");
-		    JLabel campoImagem = new JLabel(imagem);
-		    contentPane.add(campoImagem, BorderLayout.CENTER);
-		    SwingUtilities.updateComponentTreeUI(this);
+			frame.remove(painel);
+			painel2 = new JPanel();
+		    painel2.setLayout(new BorderLayout());
+		    AnimatedImage imagem = new AnimatedImage(WindowManager.class.getResource(".").getPath() + "dino.png",0, 0, 200, 200, 40, 0);
+		    painel2.add(imagem, BorderLayout.CENTER);
+		    frame.add(painel2);
+		    Timer timer = new Timer(1000, imagem);
+		    timer.start();
+		    SwingUtilities.updateComponentTreeUI(frame);
 		}else if(event.getSource() == button2){
-			getContentPane().setBackground(Color.pink);
+			frame.getContentPane().setBackground(Color.pink);
+			SwingUtilities.updateComponentTreeUI(frame);
 		}
 		
  
