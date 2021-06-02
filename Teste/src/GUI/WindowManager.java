@@ -45,8 +45,7 @@ public class WindowManager extends JFrame implements ActionListener{
 			Container contentPane = getContentPane();
 		    contentPane.setLayout(new BorderLayout());
 		    
-		    String arquivoImagem = WindowManager.class.getResource(".").getPath();
-		    ImageIcon imagem = new ImageIcon(arquivoImagem + "soso.jpg");
+		    ImageIcon imagem = new ImageIcon(WindowManager.class.getResource(".").getPath()+ "soso.jpg");
 		    JLabel campoImagem = new JLabel(imagem);
 		    contentPane.add(campoImagem, BorderLayout.CENTER);
 		    SwingUtilities.updateComponentTreeUI(this);
