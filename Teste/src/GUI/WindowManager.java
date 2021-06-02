@@ -5,7 +5,6 @@ import java.awt.Container;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import javax.swing.JFrame;
 
 public class WindowManager extends JFrame implements ActionListener{
 	
@@ -34,17 +33,22 @@ public class WindowManager extends JFrame implements ActionListener{
 		button2.addActionListener(this);
 		add(button1);
 		add(button2);
+		
+		ImageIcon imagem = new ImageIcon("C:/Users/Gabriel/eclipse-workspace/java2learn/src/java/src/pt/c04gui/s10imagem/dino.png");
+		painel.add(imagem);
 		setVisible(true);
+		
 	}
 	
 	public void actionPerformed(ActionEvent event) {
         //Changing Background Color
+		
 		if(event.getSource() == button1) {
-			getContentPane().setBackground(Color.pink);
+			getContentPane().setBackground(Color.orange);
 		}else if(event.getSource() == button2){
 			getContentPane().setBackground(Color.orange);
 		}
-        
+		
  
     }
 
