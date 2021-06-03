@@ -17,9 +17,6 @@ public class WindowManager extends JPanel implements ActionListener {
 	private static final long serialVersionUID = -6111255996436353556L;
 	private JFrame frame;
 	private JPanel panel;
-	private Container menu;
-	private Container rules;
-	private Container game;
 	Image image;
 
 	public WindowManager(String gamename) {
