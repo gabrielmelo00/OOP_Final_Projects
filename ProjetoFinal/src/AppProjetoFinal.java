@@ -1,7 +1,6 @@
 
-import framework.Engine;
-import framework.WindowManager;
-import images.Loader;
+import framework.Motor;
+import midia.Carregador;
 
 public class AppProjetoFinal {
 	
@@ -9,8 +8,8 @@ public class AppProjetoFinal {
 
 	public static void main(String[] args) {
 		
-		Loader.load();
-		Engine myGame = new Engine();
+		Carregador.carregar();
+		Motor meuJogo = new Motor();
 	
 	}
 	

@@ -15,9 +15,13 @@ public class Loader {
 
 	public static void load() {
 		
-		Images.add(BACKGROUND, new ImageIcon(Loader.class.getResource(".").getPath() + "background.png"));
+		Images.add(BACKGROUND, new ImageIcon("C:\\Users\\plath\\Documents\\Unicamp\\7º semestre\\MC322\\LabDupla\\TrabalhosMC\\ProjetoFinal\\src\\images\\background.png"));
 				
-		Images.add(APPLE, new ImageIcon(Loader.class.getResource(".").getPath() + "apple.png"));
+				//Loader.class.getResource(".").getPath() + "background.png"));
+				
+		//Images.add(APPLE, 
+				
+				//new ImageIcon(Loader.class.getResource(".").getPath() + "apple.png"));
 				
 		
 	}
