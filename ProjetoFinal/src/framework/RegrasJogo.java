@@ -3,12 +3,9 @@ package framework;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
-import java.util.ArrayList;
-
 import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JComponent;
 
 import midia.Carregador;
 
@@ -25,38 +22,35 @@ public class RegrasJogo extends Modo{
 
 
 	public RegrasJogo() {
-
+		carregarImagens();
+		meuMenu = regras_menu;
+		selecaoEstado = MENU;
+	}
+	
+	public void carregarImagens() {
 		background = Carregador.Imagens.get(Carregador.BACKGROUND_REGRAS).getImage();
 		regras_jogar = Carregador.Imagens.get(Carregador.SELECAO_REGRAS_JOGAR).getImage();
 		regras_menu = Carregador.Imagens.get(Carregador.SELECAO_REGRAS_MENU).getImage();
-		setLayout(null);
-		meuMenu = regras_jogar;
-		selecaoEstado = JOGAR;
 	}
 
 	
-	public  void pintarTela(Graphics g, Dimension tela) {
-		double largura = tela.getWidth();
+	public  void pintarTela(Graphics g) {
+		//setLayout(null);
+		
+	    Dimension tela = Toolkit.getDefaultToolkit().getScreenSize();
+	    double largura = tela.getWidth();
 	    double altura = tela.getHeight();
         Image imagem = new ImageIcon(background.getScaledInstance((int) largura, (int) altura, 1)).getImage();
-        g.drawImage(imagem, 0, 0, this);
-        g.drawImage(meuMenu, 30, 30, this);
+        g.drawImage(imagem, 0, 0, null);
+        g.drawImage(meuMenu, 30, 30, null);
 
 	} 
-//	public abstract void keyPressed(); // o que essa tecla representa nessa classe
 	
-	public  void loop() {
-		
-	}
+	public  void loop() {}
 	
-	public void keyTyped(KeyEvent e) {
-		// nada ocorre
-		
-	}
+	public void keyTyped(KeyEvent e) {}
 
-	public void keyPressed(KeyEvent e) {
-		//nada ocorre
-	}
+	public void keyPressed(KeyEvent e) {}
 
 	public void keyReleased(KeyEvent e) {
 		if(e.getKeyCode() == KeyEvent.VK_ENTER) {

@@ -1,5 +1,7 @@
 package framework;
 
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.awt.event.KeyListener;
 
 import javax.swing.JFrame;
@@ -12,7 +14,10 @@ public class GerenciadorJanela {
 
 	public GerenciadorJanela(String nomejogo) {
 		frame = new JFrame(nomejogo);
-		frame.setSize(400,400);
+		Dimension tamanhoTela = Toolkit.getDefaultToolkit().getScreenSize();
+	    double largura = tamanhoTela.getWidth();
+	    double altura = tamanhoTela.getHeight();
+		frame.setSize((int) largura, (int) altura);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 	
@@ -29,13 +34,5 @@ public class GerenciadorJanela {
 		this.painel.addKeyListener(listener);
 		painel.setFocusable(true);
 	}
-	
-	//public void KeyPressed() {
-		//panel.addkeylistener
-	//}
-	
-	//public void addKeyListener() {
-	//	this.panel.metodo();
-//	}
 
 }

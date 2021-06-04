@@ -3,10 +3,9 @@ package framework;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
-
 import javax.swing.ImageIcon;
-
 import midia.Carregador;
 
 public class Jogo extends Modo {
@@ -14,28 +13,27 @@ public class Jogo extends Modo {
 	private Image background;
 
 	public Jogo() {
+		carregarImagens();
+	}
+	
+	public void carregarImagens() {
 		background = Carregador.Imagens.get(Carregador.BACKGROUND_JOGO).getImage();
-		setLayout(null);
 	}
 
-	public void pintarTela(Graphics g, Dimension tela) {
+	public void pintarTela(Graphics g) {
+		//setLayout(null);
+		Dimension tela = Toolkit.getDefaultToolkit().getScreenSize();
 		double largura = tela.getWidth();
 	    double altura = tela.getHeight();
         Image imagem = new ImageIcon(background.getScaledInstance((int) largura, (int) altura, 1)).getImage();
-        g.drawImage(imagem, 0, 0, this);
+        g.drawImage(imagem, 0, 0, null);
 	}
 
-	public void loop() {
-		// TODO Auto-generated method stub
-	}
+	public void loop() {}
 
-	public void keyTyped(KeyEvent e) {
-		// TODO Auto-generated method stubaaaa
-	}
+	public void keyTyped(KeyEvent e) {}
 
-	public void keyPressed(KeyEvent e) {
-		// TODO Auto-generated method stub
-	}
+	public void keyPressed(KeyEvent e) {}
 
 	public void keyReleased(KeyEvent e) {
 		char keyChar = e.getKeyChar();

@@ -1,13 +1,9 @@
 package framework;
 
-import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.event.KeyEvent;
-import java.util.ArrayList;
 import java.util.Stack;
 
-import javax.swing.JComponent;
-import javax.swing.JPanel;
 
 public class GerenciadorModos {
 	private Stack<Modo> modos;
@@ -32,8 +28,8 @@ public class GerenciadorModos {
 		modos.peek().loop();
 	}
 	
-	public void pintarTela (Graphics g, Dimension tela) {
-		 modos.peek().pintarTela(g, tela);
+	public void pintarTela (Graphics g) {
+		 modos.peek().pintarTela(g);
 	}
 	
 	public void keyTyped(KeyEvent e) {
@@ -50,9 +46,5 @@ public class GerenciadorModos {
 	
 
 }
-	
-	//public void keyPressed() {
-		//mode.keyPressed
-	//}
 
 
