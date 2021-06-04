@@ -9,14 +9,25 @@ public class Carregador {
 	public static  ArrayList<ImageIcon> Imagens = new ArrayList<ImageIcon>();
 	
 	//lista de imagens
-	public static final byte BACKGROUND = 0;
-	public static final byte MACA = 1;
+	public static final byte BACKGROUND_MENU = 0;
+	public static final byte SELECAO_MENU_JOGAR = 1;
+	public static final byte SELECAO_MENU_REGRAS = 2;
+	public static final byte SELECAO_REGRAS_JOGAR = 3;
+	public static final byte SELECAO_REGRAS_MENU = 4;
+	public static final byte BACKGROUND_REGRAS = 5;
+	public static final byte BACKGROUND_JOGO = 6;
+	public static final byte MACA = 7;
 
 
 	public static void carregar() {
 		
-		Imagens.add(BACKGROUND, new ImageIcon("C:\\Users\\plath\\Documents\\Unicamp\\7º semestre\\MC322\\LabDupla\\TrabalhosMC\\ProjetoFinal\\src\\midia\\background.png"));
-				
+		Imagens.add(BACKGROUND_MENU, new ImageIcon("C:\\Users\\plath\\Documents\\Unicamp\\7º semestre\\MC322\\LabDupla\\TrabalhosMC\\ProjetoFinal\\src\\midia\\background.png"));
+		Imagens.add(SELECAO_MENU_JOGAR, new ImageIcon("C:\\Users\\plath\\Documents\\Unicamp\\7º semestre\\MC322\\LabDupla\\TrabalhosMC\\ProjetoFinal\\src\\midia\\selecao_menu_jogar.png"));
+		Imagens.add(SELECAO_MENU_REGRAS, new ImageIcon("C:\\Users\\plath\\Documents\\Unicamp\\7º semestre\\MC322\\LabDupla\\TrabalhosMC\\ProjetoFinal\\src\\midia\\selecao_menu_regras.png"));
+		Imagens.add(SELECAO_REGRAS_JOGAR, new ImageIcon("C:\\Users\\plath\\Documents\\Unicamp\\7º semestre\\MC322\\LabDupla\\TrabalhosMC\\ProjetoFinal\\src\\midia\\selecao_regras_jogar.png"));
+		Imagens.add(SELECAO_REGRAS_MENU, new ImageIcon("C:\\Users\\plath\\Documents\\Unicamp\\7º semestre\\MC322\\LabDupla\\TrabalhosMC\\ProjetoFinal\\src\\midia\\selecao_regras_menu.png"));
+		Imagens.add(BACKGROUND_REGRAS, new ImageIcon("C:\\Users\\plath\\Documents\\Unicamp\\7º semestre\\MC322\\LabDupla\\TrabalhosMC\\ProjetoFinal\\src\\midia\\background_regras.png"));
+		Imagens.add(BACKGROUND_JOGO, new ImageIcon("C:\\Users\\plath\\Documents\\Unicamp\\7º semestre\\MC322\\LabDupla\\TrabalhosMC\\ProjetoFinal\\src\\midia\\background_jogo.png"));
 				//Loader.class.getResource(".").getPath() + "background.png"));
 				
 		Imagens.add(MACA, new ImageIcon("C:\\Users\\plath\\Documents\\Unicamp\\7º semestre\\MC322\\LabDupla\\TrabalhosMC\\ProjetoFinal\\src\\midia\\maca.png")); 

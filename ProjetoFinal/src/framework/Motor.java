@@ -1,11 +1,17 @@
 package framework;
 
+import java.awt.Color;
+import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.ArrayList;
 
+import javax.swing.JButton;
+import javax.swing.JComponent;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
@@ -15,6 +21,7 @@ public class Motor {
 	private GerenciadorJanela janela;
 	private GerenciadorModos modo;
 	private Timer timer;
+	private Comandos teclado;
 
 	public Motor() {
 		
@@ -25,11 +32,13 @@ public class Motor {
 		modo.adicionarPilha(new MenuPrincipal(modo));// um MenuPrincipal do tipo Modo
 		
 		janela.adicionarPainel(new TelaAtual());
+		teclado = new Comandos();
+		janela.adicionarKeyListener(teclado);
 		janela.mostrarJanela();
 
 		//windowmanager como KeyListener
 		//menu = new MainMenu();
-
+		
 	
 		timer.start();
 		
@@ -47,22 +56,31 @@ public class Motor {
 
 		private static final long serialVersionUID = 2925789023364782010L;
 		
+		
 		protected void paintComponent(Graphics g) {
 			super.paintComponent(g);
+			
 			Dimension tela = this.getSize();
+			
 			modo.pintarTela(g, tela);
 			repaint();
 		}
 		
-		// paintComponent
-		
-		//e ir chamando o render de cada estado?
 	}
 	
-	//private class Comandos implements KeyListener {
-		//o que fazer com os comandos mas entrando no codigo:
-		// windowmanager.key....
-	//	windowmanager.metodo();
-	//}
+	private class Comandos implements KeyListener {
+		
+		public void keyTyped(KeyEvent e) {
+			modo.keyTyped(e);
+		}
+
+		public void keyPressed(KeyEvent e) {
+			modo.keyPressed(e);
+		}
+
+		public void keyReleased(KeyEvent e) {
+			modo.keyReleased(e);
+		}
+	}
 
 }
