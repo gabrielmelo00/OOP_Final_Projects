@@ -6,14 +6,20 @@ import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
 import javax.swing.ImageIcon;
+
+import jogo.Montador;
 import midia.Carregador;
 
 public class Jogo extends Modo {
 	
 	private Image background;
-
+	private Montador meuMontador;
+	
 	public Jogo() {
 		carregarImagens();
+		//montador
+		meuMontador = new Montador();
+		//controlador (interface?)
 	}
 	
 	public void carregarImagens() {

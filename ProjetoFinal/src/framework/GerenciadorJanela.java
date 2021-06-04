@@ -17,7 +17,8 @@ public class GerenciadorJanela {
 		Dimension tamanhoTela = Toolkit.getDefaultToolkit().getScreenSize();
 	    double largura = tamanhoTela.getWidth();
 	    double altura = tamanhoTela.getHeight();
-		frame.setSize((int) largura, (int) altura);
+		//frame.setSize((int) largura, (int) altura);
+	    frame.setSize(400,400);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 	
