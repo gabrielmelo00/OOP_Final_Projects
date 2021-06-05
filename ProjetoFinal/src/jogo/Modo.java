@@ -1,5 +1,6 @@
-package framework;
+package jogo;
 
+import framework.GerenciadorModos;
 import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 

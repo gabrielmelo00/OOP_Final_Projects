@@ -1,4 +1,4 @@
-package framework;
+package jogo;
 
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -6,19 +6,18 @@ import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
 import javax.swing.ImageIcon;
-
-import jogo.Montador;
 import midia.Carregador;
 
-public class Jogo extends Modo {
+public class JogoTela1 extends Modo {
 	
 	private Image background;
-	private Montador meuMontador;
+	private Quintal meuQuintal;
 	
-	public Jogo() {
+	public JogoTela1() {
 		carregarImagens();
+		meuQuintal = new Quintal();
 		//montador
-		meuMontador = new Montador();
+		//controleinterno -> montador
 		//controlador (interface?)
 	}
 	
@@ -33,19 +32,29 @@ public class Jogo extends Modo {
 	    double altura = tela.getHeight();
         Image imagem = new ImageIcon(background.getScaledInstance((int) largura, (int) altura, 1)).getImage();
         g.drawImage(imagem, 0, 0, null);
+        meuQuintal.pintarTela(g);
 	}
 
-	public void loop() {}
+	public void loop() {	
+		meuQuintal.mover();
+		//checar colisao	
+	}
 
-	public void keyTyped(KeyEvent e) {}
+	public void keyTyped(KeyEvent e) {
+		meuQuintal.keyTyped(e);
+	}
 
-	public void keyPressed(KeyEvent e) {}
+	public void keyPressed(KeyEvent e) {
+		meuQuintal.keyPressed(e);
+	}
 
 	public void keyReleased(KeyEvent e) {
+		meuQuintal.keyReleased(e);
 		char keyChar = e.getKeyChar();
-		if(keyChar == 'A' ) {
+		if(keyChar == 'P' ) {
 			meuGerenciador.removerPilha();
 		}
 	}
 
 }
+

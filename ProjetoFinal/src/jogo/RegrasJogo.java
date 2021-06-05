@@ -1,4 +1,4 @@
-package framework;
+package jogo;
 
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -56,7 +56,7 @@ public class RegrasJogo extends Modo{
 		if(e.getKeyCode() == KeyEvent.VK_ENTER) {
 			meuGerenciador.removerPilha();
 			switch(selecaoEstado) {
-			case JOGAR: meuGerenciador.adicionarPilha(new Jogo());break;
+			case JOGAR: meuGerenciador.adicionarPilha(new JogoTela1());break;
 			case MENU: break;
 			}
 		}else if(e.getKeyCode() == KeyEvent.VK_DOWN) {

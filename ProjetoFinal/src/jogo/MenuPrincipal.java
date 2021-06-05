@@ -1,4 +1,4 @@
-package framework;
+package jogo;
 
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -9,6 +9,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import midia.Carregador;
+import framework.GerenciadorModos;
 
 public class MenuPrincipal extends Modo  {
 	
@@ -70,7 +71,7 @@ public class MenuPrincipal extends Modo  {
 	public void keyReleased(KeyEvent e) {
 		if(e.getKeyCode() == KeyEvent.VK_ENTER) {
 			switch(selecaoEstado) {
-			case JOGAR: meuGerenciador.adicionarPilha(new Jogo()); break;
+			case JOGAR: meuGerenciador.adicionarPilha(new JogoTela1()); break;
 			case REGRAS:
 				meuGerenciador.adicionarPilha(new RegrasJogo());
 				meuMenu = menu_jogar;

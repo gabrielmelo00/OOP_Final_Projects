@@ -1,14 +1,22 @@
 package jogo;
 
+import java.awt.Graphics;
+import java.awt.event.KeyEvent;
+
 public abstract class Agente {
 	
-	protected int i;
-	protected int j;
+	protected int x;
+	protected int y;
 	
-	Agente(int i, int j){
-		this.i = i;
-		this.j = j;
+	Agente(int x, int y){
+		this.y = y;
+		this.x = x;
 	}
 	
+	public abstract void pintarTela(Graphics g);
+	public abstract void mover();
+	public abstract void keyTyped(KeyEvent e);
+	public abstract void keyPressed(KeyEvent e);
+	public abstract void keyReleased(KeyEvent e);
 
 }
