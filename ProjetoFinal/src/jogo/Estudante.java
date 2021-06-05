@@ -23,7 +23,6 @@ public class Estudante extends Agente{
 
 	public void pintarTela(Graphics g) {
 		g.drawImage(estudante, x, y, null);
-		
 	}
 
 	public void mover() {}
@@ -33,13 +32,13 @@ public class Estudante extends Agente{
 	public void keyPressed(KeyEvent e) {}
 
 	public void keyReleased(KeyEvent e) {
-		if(e.getKeyCode() == KeyEvent.VK_W) {
+		if(e.getKeyCode() == KeyEvent.VK_W || e.getKeyCode() == KeyEvent.VK_UP) {
 			y = y - deltaY;
-		}else if(e.getKeyCode() == KeyEvent.VK_S) {
+		}else if(e.getKeyCode() == KeyEvent.VK_S || e.getKeyCode() == KeyEvent.VK_DOWN) {
 			y = y + deltaY;
-		}else if(e.getKeyCode() == KeyEvent.VK_A) {
+		}else if(e.getKeyCode() == KeyEvent.VK_A || e.getKeyCode() == KeyEvent.VK_LEFT) {
 			x = x - deltaX;
-		}else if(e.getKeyCode() == KeyEvent.VK_D) {
+		}else if(e.getKeyCode() == KeyEvent.VK_D || e.getKeyCode() == KeyEvent.VK_RIGHT) {
 			x = x + deltaX;
 		}
 	}
