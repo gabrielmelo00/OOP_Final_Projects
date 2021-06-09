@@ -71,7 +71,7 @@ public class MenuPrincipal extends Modo  {
 	public void keyReleased(KeyEvent e) {
 		if(e.getKeyCode() == KeyEvent.VK_ENTER) {
 			switch(selecaoEstado) {
-			case JOGAR: meuGerenciador.adicionarPilha(new JogoTela1()); break;
+			case JOGAR: meuGerenciador.adicionarPilha(new Quintal()); break;
 			case REGRAS:
 				meuGerenciador.adicionarPilha(new RegrasJogo());
 				meuMenu = menu_jogar;

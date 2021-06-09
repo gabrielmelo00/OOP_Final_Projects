@@ -5,13 +5,27 @@ import java.awt.event.KeyEvent;
 
 public abstract class Agente {
 	
-	protected int x;
-	protected int y;
+	protected Modo meuComodo;
+	protected int xInicio;
+	protected int yInicio;
+	protected int i;
+	protected int j;
+	protected int lado;
+	protected int xTela;
+	protected int yTela;
 	
-	Agente(int x, int y){
-		this.y = y;
-		this.x = x;
+	Agente(int xInicio, int yInicio, int i, int j, int lado, Modo meuComodo){
+		this.yInicio = yInicio;
+		this.xInicio = xInicio;
+		this.i = i;
+		this.j = j;
+		this.lado = lado;
+		this.meuComodo = meuComodo;
+		xTela = xInicio + j*(lado);
+		yTela = yInicio + i*(lado);
+		
 	}
+	
 	
 	public abstract void pintarTela(Graphics g);
 	public abstract void mover();

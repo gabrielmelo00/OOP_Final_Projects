@@ -56,7 +56,7 @@ public class RegrasJogo extends Modo{
 		if(e.getKeyCode() == KeyEvent.VK_ENTER) {
 			meuGerenciador.removerPilha();
 			switch(selecaoEstado) {
-			case JOGAR: meuGerenciador.adicionarPilha(new JogoTela1());break;
+			case JOGAR: meuGerenciador.adicionarPilha(new Quintal());break;
 			case MENU: break;
 			}
 		}else if(e.getKeyCode() == KeyEvent.VK_DOWN) {

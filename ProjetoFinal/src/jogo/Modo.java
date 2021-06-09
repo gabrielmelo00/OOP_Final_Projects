@@ -15,7 +15,8 @@ public abstract class Modo {
 	}
 	
 	public Modo() {};
-
+	
+	public abstract boolean trocarCelula(int i, int j, int novoi, int novoj, Agente g);
 	public abstract void pintarTela(Graphics g); 	
 	public abstract void loop(); 	
 	public abstract void carregarImagens();	

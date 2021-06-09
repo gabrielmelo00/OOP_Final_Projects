@@ -18,7 +18,7 @@ public class GerenciadorJanela {
 	    double largura = tamanhoTela.getWidth();
 	    double altura = tamanhoTela.getHeight();
 		frame.setSize((int) largura, (int) altura);
-		frame.setResizable(false);
+		frame.setResizable(true);
 	   // frame.setSize(400,400);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}

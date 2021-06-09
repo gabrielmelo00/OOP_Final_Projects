@@ -11,20 +11,25 @@ import midia.Carregador;
 public class Maca extends Agente{
 	
 	private Image maca;
-	private int deltax;
-
-	Maca(int x, int y) {
-		super(x, y);
-		deltax = 5;
-		maca = new ImageIcon(Carregador.Imagens.get(Carregador.MACA).getImage().getScaledInstance(100, 100, 1)).getImage();
+	private int xTelaLimite;
+   
+	
+	Maca(int posicaoInicialX, int posicaoInicialY, int i, int j, int lado, Modo meuComodo) {
+		super(posicaoInicialX,  posicaoInicialY,  i,  j,  lado, meuComodo);
+		maca = new ImageIcon(Carregador.Imagens.get(Carregador.MACA).getImage().getScaledInstance(lado, lado, 1)).getImage();
+		xTelaLimite = xTela + lado;
 	}
 
 	public void pintarTela(Graphics g) {
-        g.drawImage(maca, x, y, null);
+        g.drawImage(maca, xTela, yTela, null);
 	}
 
 	public void mover() {
-		x = x + deltax;
+		xTela += 5;	
+		if(xTela == xTelaLimite) {
+			xTela = xInicio;
+			//meuComodo.trocarCelula(i,j,i,j++,this);
+		}
 	}
 
 	public void keyTyped(KeyEvent e) {}
