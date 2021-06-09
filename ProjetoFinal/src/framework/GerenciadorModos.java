@@ -3,7 +3,6 @@ package framework;
 import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 import java.util.Stack;
-import jogo.Modo;
 
 public class GerenciadorModos {
 	private Stack<Modo> modos;

@@ -10,7 +10,7 @@ import javax.swing.Timer;
 import jogo.MenuPrincipal;
 
 
-public class Motor {
+public class Motor implements IFramework{
 	
 	private GerenciadorJanela janela;
 	private GerenciadorModos modo;
@@ -22,17 +22,18 @@ public class Motor {
 		janela = new GerenciadorJanela("NOME DO JOGO");
 		modo = new GerenciadorModos();
 		timer = new Timer(20, new LoopJogo());
-		
-		modo.adicionarPilha(new MenuPrincipal(modo));
-		
+	}
+	
+	public void conecta(Modo novoModo) {
+		modo.adicionarPilha(novoModo);
+	}
+
+	public void comecarJogo() {
 		janela.adicionarPainel(new TelaAtual());
 		teclado = new Comandos();
 		janela.adicionarKeyListener(teclado);
 		janela.mostrarJanela();
-		
-	
 		timer.start();
-		
 	}
 	
 	public class LoopJogo implements ActionListener {
@@ -70,5 +71,7 @@ public class Motor {
 			modo.keyReleased(e);
 		}
 	}
+
+	
 
 }

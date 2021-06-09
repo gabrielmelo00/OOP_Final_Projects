@@ -10,8 +10,10 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 import midia.Carregador;
 import framework.GerenciadorModos;
+import framework.Modo;
+import framework.IFramework;
 
-public class MenuPrincipal extends Modo  {
+public class MenuPrincipal extends Modo implements IFramework{
 	
 	private Image background;
 	private Image menu_jogar;
@@ -38,16 +40,6 @@ public class MenuPrincipal extends Modo  {
 		background = Carregador.Imagens.get(Carregador.BACKGROUND_MENU).getImage();
 		menu_jogar = Carregador.Imagens.get(Carregador.SELECAO_MENU_JOGAR).getImage();
 		menu_regras = Carregador.Imagens.get(Carregador.SELECAO_MENU_REGRAS).getImage();
-	}
-	
-	private void ConfigBotao() {
-		panel = new JPanel();
-		start = new JButton("Start Game");	
-		rules = new JButton("Game Rules");
-		start.setBounds(100,200,100,30);
-		rules.setBounds(200,200, 100, 30);
-		//setBackground(Color.pink);
-		
 	}
 	
 	public void pintarTela(Graphics g) {
@@ -96,4 +88,5 @@ public class MenuPrincipal extends Modo  {
 			}
 		}
 	}
+
 }

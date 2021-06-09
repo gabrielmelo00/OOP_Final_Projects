@@ -6,15 +6,18 @@ import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
 import javax.swing.ImageIcon;
+import framework.Modo;
+import framework.IFramework;
 
 import midia.Carregador;
 
-public class RegrasJogo extends Modo{
+public class RegrasJogo extends Modo implements IFramework{
 	
 	private Image background;
 	private Image regras_jogar;
 	private Image regras_menu;
 	private Image meuMenu;
+	
 	
 	public static final byte JOGAR = 0;
 	public static final byte MENU = 1;

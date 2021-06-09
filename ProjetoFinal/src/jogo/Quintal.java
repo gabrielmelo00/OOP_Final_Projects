@@ -5,33 +5,117 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
-import java.util.ArrayList;
+
+import framework.IFramework;
+import framework.Modo;
 
 import javax.swing.ImageIcon;
 
 import midia.Carregador;
 
-public class Quintal extends Modo {
+public class Quintal extends Modo implements IFramework{
 	
 	private int altura;
 	private int largura;
 	private int inicioQuintalX; 
-    private Image imgQuintal;
-    private Image background;
+	private int inicioQuintalY;
+	private int delta;
+   
+	private Image imgQuintal;
+    private Image imgBackground;
+    
+    private Estudante estudante;
+   
     private Celula[][] matrizCelulas;
-    private static final int TAMANHO = 11; 
+    private static final int TAMANHO = 14; 
     
 	
 	public Quintal(){
+		
+		calculoDimensoes();
 		carregarImagens();
 		matrizCelulas = new Celula[TAMANHO][TAMANHO];
+		
+		for(int i = 0; i < TAMANHO; i++) {
+			for(int j = 0; j < TAMANHO; j++) {
+				int x = inicioQuintalX + j*delta;
+				int y = inicioQuintalY + i*delta;
+				matrizCelulas[i][j] = new Celula(i,j, x, y);
+			}
+		}
 		carregarAgentes();
 		
 	}
 	
+	private void calculoDimensoes() {
+		Dimension tela = Toolkit.getDefaultToolkit().getScreenSize();
+	    altura = (int) tela.getHeight();
+	    largura = (int)  tela.getWidth();
+	    inicioQuintalX = (largura - altura)/2;
+	    inicioQuintalY = 0;
+	    delta = altura/TAMANHO;
+	}
+	
+	public void carregarAgentes() {	
+		//matrizCelulas[0][0].adicionaAgente(new Maca(inicioQuintalX - (altura/TAMANHO)/2,0,0,0,altura/TAMANHO,this));
+		estudante = new Estudante( 9, 5, delta, this);
+		matrizCelulas[1][0].adicionaAgente(new Maca(1,0, delta, this));
+		matrizCelulas[1][4].adicionaAgente(new Maca(1,4, delta, this));
+		matrizCelulas[1][8].adicionaAgente(new Maca(1,8, delta, this));
+		matrizCelulas[0][5].adicionaAgente(new Objetivo(0,5,delta,this));
+		matrizCelulas[9][5].adicionaAgente(estudante);
+	}
+	
+	public boolean inserirCelula(int i, int j, Agente g) {
+		if(i >= 0 && i < TAMANHO && j >= 0 && j < TAMANHO) {
+			matrizCelulas[i][j].adicionaAgente(g);
+			return true;
+		}else {
+			return false;
+		}
+	}
+	
+	public boolean retirarCelula(int i, int j, Agente g) {
+		if(i >= 0 && i < TAMANHO && j >= 0 && j < TAMANHO) {
+			matrizCelulas[i][j].retiraAgente(g);
+			return true;
+		}else {
+			return false;
+		}
+	}
+	
+	
+	/*public boolean trocarCelula(int i, int j, int novoi, int novoj, Agente g) {
+		matrizCelulas[i][j].retiraAgente(g);
+		if(novoi >=0 && novoi < TAMANHO && novoj >= 0 && novoj < TAMANHO ) {
+			matrizCelulas[novoi][novoj].adicionaAgente(g);
+			return true;
+		}else {
+			return false;
+		}
+	}*/
+	
+	public void loop() {
+		for(int i = 0; i < TAMANHO; i++) {
+			for(int j = 0; j < TAMANHO; j++) {
+				matrizCelulas[i][j].mover();
+				matrizCelulas[i][j].colisao();
+			}
+		}
+	}
+	
+	public void perdeuJogo() {
+		meuGerenciador.removerPilha();
+		meuGerenciador.adicionarPilha(new GameOver());
+	}
+	
+	public void carregarImagens() {
+	    imgBackground = new ImageIcon(Carregador.Imagens.get(Carregador.BACKGROUND_JOGO).getImage().getScaledInstance( largura, altura, 1)).getImage();
+		imgQuintal = new ImageIcon(Carregador.Imagens.get(Carregador.BACKGROUND_QUINTAL).getImage().getScaledInstance( altura, altura, 1)).getImage();
+	}
+	
 	public void pintarTela(Graphics g) {
-		Image imagem = new ImageIcon(background.getScaledInstance((int) largura, (int) altura, 1)).getImage();
-        g.drawImage(imagem, 0, 0, null);
+        g.drawImage(imgBackground, 0, 0, null);
 		g.drawImage(imgQuintal, inicioQuintalX, 0, null);
 		
 		for(int i = 0; i < TAMANHO; i++) {
@@ -43,60 +127,20 @@ public class Quintal extends Modo {
 		}
 		
 	}
-
-	
-	public void loop() {
-		for(int i = 0; i < TAMANHO; i++) {
-			for(int j = 0; j < TAMANHO; j++) {
-				matrizCelulas[i][j].mover();
-			}
-		}
-		
-	}
-
-	
-	public void carregarImagens() {
-		background = Carregador.Imagens.get(Carregador.BACKGROUND_JOGO).getImage();
-		Dimension tela = Toolkit.getDefaultToolkit().getScreenSize();
-	    altura = (int) tela.getHeight();
-	    largura =(int)  tela.getWidth();
-	    inicioQuintalX = (largura - altura)/2;
-		imgQuintal = new ImageIcon(Carregador.Imagens.get(Carregador.BACKGROUND_QUINTAL).getImage().getScaledInstance( altura/TAMANHO, altura/TAMANHO, 1)).getImage();
-	}
-	
-	public void carregarAgentes() {
-		for(int i = 0; i < TAMANHO; i++) {
-			for(int j = 0; j < TAMANHO; j++) {
-				matrizCelulas[i][j] = new Celula(i,j);
-			}
-		}
-		matrizCelulas[0][0].adicionaAgente(new Maca(inicioQuintalX - (altura/TAMANHO)/2,0,0,0,altura/TAMANHO,this));
-	}
-	
-	public boolean trocarCelula(int i, int j, int novoi, int novoj, Agente g) {
-		
-		matrizCelulas[i][j].retiraAgente(g);
-		matrizCelulas[i][j].adicionaAgente(g);
-		return true;
-		
-	}
-
 	
 	public void keyTyped(KeyEvent e) {
-		// TODO Auto-generated method stub
+		estudante.keyTyped(e);
 		
 	}
 
 	
 	public void keyPressed(KeyEvent e) {
-		// TODO Auto-generated method stub
-		
+		estudante.keyPressed(e);
 	}
 
 	
 	public void keyReleased(KeyEvent e) {
-		// TODO Auto-generated method stub
-		
+		estudante.keyReleased(e);		
 	}
 
 }
