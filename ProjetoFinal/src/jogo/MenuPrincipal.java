@@ -13,15 +13,12 @@ import framework.GerenciadorModos;
 import framework.Modo;
 import framework.IFramework;
 
-public class MenuPrincipal extends Modo implements IFramework{
+public class MenuPrincipal extends Modo {
 	
 	private Image background;
 	private Image menu_jogar;
 	private Image menu_regras;
 	private Image meuMenu;
-	private JButton start;
-	private JButton rules;
-	private JPanel panel;
 	
 	public static final byte JOGAR = 0;
 	public static final byte REGRAS = 1;
@@ -29,8 +26,8 @@ public class MenuPrincipal extends Modo implements IFramework{
 
 	
 
-	public MenuPrincipal(GerenciadorModos meuGerenciador) {
-		super(meuGerenciador);
+	public MenuPrincipal() {
+		super();
 		carregarImagens();
 		meuMenu = menu_jogar;
 		selecaoEstado = JOGAR;
@@ -88,5 +85,6 @@ public class MenuPrincipal extends Modo implements IFramework{
 			}
 		}
 	}
+
 
 }

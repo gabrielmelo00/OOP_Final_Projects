@@ -13,13 +13,14 @@ import javax.swing.ImageIcon;
 
 import midia.Carregador;
 
-public class Quintal extends Modo implements IFramework{
+public class Quintal extends Modo{
 	
 	private int altura;
 	private int largura;
 	private int inicioQuintalX; 
 	private int inicioQuintalY;
 	private int delta;
+	private int faixa;
    
 	private Image imgQuintal;
     private Image imgBackground;
@@ -54,16 +55,18 @@ public class Quintal extends Modo implements IFramework{
 	    inicioQuintalX = (largura - altura)/2;
 	    inicioQuintalY = 0;
 	    delta = altura/TAMANHO;
+	    faixa = (largura - altura)/2;
 	}
 	
 	public void carregarAgentes() {	
 		//matrizCelulas[0][0].adicionaAgente(new Maca(inicioQuintalX - (altura/TAMANHO)/2,0,0,0,altura/TAMANHO,this));
-		estudante = new Estudante( 9, 5, delta, this);
+		
 		matrizCelulas[1][0].adicionaAgente(new Maca(1,0, delta, this));
 		matrizCelulas[1][4].adicionaAgente(new Maca(1,4, delta, this));
 		matrizCelulas[1][8].adicionaAgente(new Maca(1,8, delta, this));
 		matrizCelulas[0][5].adicionaAgente(new Objetivo(0,5,delta,this));
-		matrizCelulas[9][5].adicionaAgente(estudante);
+		estudante = new Estudante( 13, 13, delta, this);
+		matrizCelulas[13][13].adicionaAgente(estudante);
 	}
 	
 	public boolean inserirCelula(int i, int j, Agente g) {
@@ -84,17 +87,6 @@ public class Quintal extends Modo implements IFramework{
 		}
 	}
 	
-	
-	/*public boolean trocarCelula(int i, int j, int novoi, int novoj, Agente g) {
-		matrizCelulas[i][j].retiraAgente(g);
-		if(novoi >=0 && novoi < TAMANHO && novoj >= 0 && novoj < TAMANHO ) {
-			matrizCelulas[novoi][novoj].adicionaAgente(g);
-			return true;
-		}else {
-			return false;
-		}
-	}*/
-	
 	public void loop() {
 		for(int i = 0; i < TAMANHO; i++) {
 			for(int j = 0; j < TAMANHO; j++) {
@@ -110,12 +102,11 @@ public class Quintal extends Modo implements IFramework{
 	}
 	
 	public void carregarImagens() {
-	    imgBackground = new ImageIcon(Carregador.Imagens.get(Carregador.BACKGROUND_JOGO).getImage().getScaledInstance( largura, altura, 1)).getImage();
+	    imgBackground = new ImageIcon(Carregador.Imagens.get(Carregador.BACKGROUND_JOGO).getImage().getScaledInstance( faixa, altura, 1)).getImage();
 		imgQuintal = new ImageIcon(Carregador.Imagens.get(Carregador.BACKGROUND_QUINTAL).getImage().getScaledInstance( altura, altura, 1)).getImage();
 	}
 	
 	public void pintarTela(Graphics g) {
-        g.drawImage(imgBackground, 0, 0, null);
 		g.drawImage(imgQuintal, inicioQuintalX, 0, null);
 		
 		for(int i = 0; i < TAMANHO; i++) {
@@ -125,7 +116,8 @@ public class Quintal extends Modo implements IFramework{
 				}
 			}
 		}
-		
+		g.drawImage(imgBackground, 0, 0, null);
+		g.drawImage(imgBackground, largura - faixa, 0, null);
 	}
 	
 	public void keyTyped(KeyEvent e) {
@@ -142,5 +134,7 @@ public class Quintal extends Modo implements IFramework{
 	public void keyReleased(KeyEvent e) {
 		estudante.keyReleased(e);		
 	}
+
+
 
 }

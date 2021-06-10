@@ -22,9 +22,21 @@ public class Motor implements IFramework{
 		janela = new GerenciadorJanela("NOME DO JOGO");
 		modo = new GerenciadorModos();
 		timer = new Timer(20, new LoopJogo());
+		
+		//modo.adicionarPilha(new MenuPrincipal(modo));
+		
+		//janela.adicionarPainel(new TelaAtual());
+		//teclado = new Comandos();
+		//janela.adicionarKeyListener(teclado);
+		//janela.mostrarJanela();
+		
+	
+		//timer.start();
+		
 	}
 	
 	public void conecta(Modo novoModo) {
+		novoModo.setGerenciador(modo);
 		modo.adicionarPilha(novoModo);
 	}
 
@@ -35,6 +47,7 @@ public class Motor implements IFramework{
 		janela.mostrarJanela();
 		timer.start();
 	}
+	
 	
 	public class LoopJogo implements ActionListener {
 
