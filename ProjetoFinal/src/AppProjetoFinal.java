@@ -2,6 +2,7 @@
 import framework.IFramework;
 import framework.Modo;
 import framework.Motor;
+import jogo.IJogo;
 import jogo.MenuPrincipal;
 import midia.Carregador;
 
@@ -11,13 +12,12 @@ public class AppProjetoFinal {
 		
 		Carregador.carregar();
 		
-		IFramework meuJogo = new Motor();
-		Modo meuModo = new MenuPrincipal();
+		IFramework meuMotor = new Motor();
 		
-		meuJogo.conecta(meuModo);
-		meuJogo.comecarJogo();
+		IJogo meuJogo = new MenuPrincipal();
 		
+		meuMotor.conecta(meuJogo);
+		meuMotor.comecarJogo();
 		
-		//motor implementa IFramework IRFramework
 	}
 }

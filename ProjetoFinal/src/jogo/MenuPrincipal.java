@@ -13,7 +13,7 @@ import framework.GerenciadorModos;
 import framework.Modo;
 import framework.IFramework;
 
-public class MenuPrincipal extends Modo {
+public class MenuPrincipal extends Modo implements IJogo{
 	
 	private Image background;
 	private Image menu_jogar;
@@ -84,6 +84,10 @@ public class MenuPrincipal extends Modo {
 				break;
 			}
 		}
+	}
+
+	public Modo retornaJogo() {
+		return this;
 	}
 
 

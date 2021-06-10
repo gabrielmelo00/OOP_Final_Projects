@@ -7,37 +7,29 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import javax.swing.JPanel;
 import javax.swing.Timer;
+
+import jogo.IJogo;
 import jogo.MenuPrincipal;
 
 
 public class Motor implements IFramework{
 	
 	private GerenciadorJanela janela;
-	private GerenciadorModos modo;
+	private GerenciadorModos gerenciadorModo;
 	private Timer timer;
 	private Comandos teclado;
 
 	public Motor() {
 		
 		janela = new GerenciadorJanela("NOME DO JOGO");
-		modo = new GerenciadorModos();
+		gerenciadorModo = new GerenciadorModos();
 		timer = new Timer(20, new LoopJogo());
-		
-		//modo.adicionarPilha(new MenuPrincipal(modo));
-		
-		//janela.adicionarPainel(new TelaAtual());
-		//teclado = new Comandos();
-		//janela.adicionarKeyListener(teclado);
-		//janela.mostrarJanela();
-		
-	
-		//timer.start();
-		
 	}
 	
-	public void conecta(Modo novoModo) {
-		novoModo.setGerenciador(modo);
-		modo.adicionarPilha(novoModo);
+	public void conecta(IJogo jogo) {
+		Modo novoModo = jogo.retornaJogo();
+		novoModo.setGerenciador(gerenciadorModo);
+		gerenciadorModo.adicionarPilha(novoModo);
 	}
 
 	public void comecarJogo() {
@@ -49,10 +41,10 @@ public class Motor implements IFramework{
 	}
 	
 	
-	public class LoopJogo implements ActionListener {
+	private class LoopJogo implements ActionListener {
 
 		public void actionPerformed(ActionEvent e) {
-			modo.loop();
+			gerenciadorModo.loop();
 		}
 	}
 	
@@ -62,9 +54,8 @@ public class Motor implements IFramework{
 		
 		
 		protected void paintComponent(Graphics g) {
-			super.paintComponent(g);	
-			//Dimension tela = this.getSize();		
-			modo.pintarTela(g);
+			super.paintComponent(g);		
+			gerenciadorModo.pintarTela(g);
 			repaint();
 		}
 		
@@ -73,15 +64,15 @@ public class Motor implements IFramework{
 	private class Comandos implements KeyListener {
 		
 		public void keyTyped(KeyEvent e) {
-			modo.keyTyped(e);
+			gerenciadorModo.keyTyped(e);
 		}
 
 		public void keyPressed(KeyEvent e) {
-			modo.keyPressed(e);
+			gerenciadorModo.keyPressed(e);
 		}
 
 		public void keyReleased(KeyEvent e) {
-			modo.keyReleased(e);
+			gerenciadorModo.keyReleased(e);
 		}
 	}
 
