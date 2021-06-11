@@ -6,14 +6,13 @@ import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
 
-import framework.IFramework;
-import framework.Modo;
-
 import javax.swing.ImageIcon;
 
+import agente.FabricaAgente;
+import agente.IAgente;
 import midia.Carregador;
 
-public class Quintal extends Modo{
+public class Quintal extends Comodo{
 	
 	private int altura;
 	private int largura;
@@ -25,7 +24,8 @@ public class Quintal extends Modo{
 	private Image imgQuintal;
     private Image imgBackground;
     
-    private Estudante estudante;
+    private IAgente estudante;
+    FabricaAgente fabricaAgente;
    
     private Celula[][] matrizCelulas;
     private static final int TAMANHO = 14; 
@@ -33,6 +33,7 @@ public class Quintal extends Modo{
 	
 	public Quintal(){
 		
+		fabricaAgente = new FabricaAgente();
 		calculoDimensoes();
 		carregarImagens();
 		matrizCelulas = new Celula[TAMANHO][TAMANHO];
@@ -48,7 +49,7 @@ public class Quintal extends Modo{
 		
 	}
 	
-	private void calculoDimensoes() {
+	public void calculoDimensoes() {
 		Dimension tela = Toolkit.getDefaultToolkit().getScreenSize();
 	    altura = (int) tela.getHeight();
 	    largura = (int)  tela.getWidth();
@@ -59,17 +60,15 @@ public class Quintal extends Modo{
 	}
 	
 	public void carregarAgentes() {	
-		//matrizCelulas[0][0].adicionaAgente(new Maca(inicioQuintalX - (altura/TAMANHO)/2,0,0,0,altura/TAMANHO,this));
-		
-		matrizCelulas[1][0].adicionaAgente(new Maca(1,0, delta, this));
-		matrizCelulas[1][4].adicionaAgente(new Maca(1,4, delta, this));
-		matrizCelulas[1][8].adicionaAgente(new Maca(1,8, delta, this));
-		matrizCelulas[0][5].adicionaAgente(new Objetivo(0,5,delta,this));
-		estudante = new Estudante( 13, 13, delta, this);
+		matrizCelulas[1][0].adicionaAgente(fabricaAgente.retornaAgente("MACA",1, 0, delta, this));
+		matrizCelulas[1][4].adicionaAgente(fabricaAgente.retornaAgente("MACA",1, 4, delta, this));
+		matrizCelulas[1][8].adicionaAgente(fabricaAgente.retornaAgente("MACA",1, 8, delta, this));
+		matrizCelulas[0][5].adicionaAgente(fabricaAgente.retornaAgente("OBJETIVO",0, 5, delta, this));
+		estudante = fabricaAgente.retornaAgente("ESTUDANTE" ,13, 13, delta, this);
 		matrizCelulas[13][13].adicionaAgente(estudante);
 	}
 	
-	public boolean inserirCelula(int i, int j, Agente g) {
+	public boolean inserirCelula(int i, int j, IAgente g) {
 		if(i >= 0 && i < TAMANHO && j >= 0 && j < TAMANHO) {
 			matrizCelulas[i][j].adicionaAgente(g);
 			return true;
@@ -78,7 +77,7 @@ public class Quintal extends Modo{
 		}
 	}
 	
-	public boolean retirarCelula(int i, int j, Agente g) {
+	public boolean retirarCelula(int i, int j, IAgente g) {
 		if(i >= 0 && i < TAMANHO && j >= 0 && j < TAMANHO) {
 			matrizCelulas[i][j].retiraAgente(g);
 			return true;
@@ -134,6 +133,7 @@ public class Quintal extends Modo{
 	public void keyReleased(KeyEvent e) {
 		estudante.keyReleased(e);		
 	}
+
 
 
 
