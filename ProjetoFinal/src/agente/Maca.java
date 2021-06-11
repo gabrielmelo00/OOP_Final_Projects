@@ -8,11 +8,7 @@ import javax.swing.ImageIcon;
 import jogo.Comodo;
 import midia.Carregador;
 
-public class Maca implements IAgente{
-	
-	private int i;
-	private int j;
-	protected char tipoAgente;
+public class Maca extends Agente{
 	
 	private Image maca;
 	private Image macaLagarta;
@@ -24,18 +20,14 @@ public class Maca implements IAgente{
 	
 	private int estado;
 	
-	private static int TEMPO_CELULA = 50;
+	private static int TEMPO_CELULA = 20;
 	
 	
 	Maca(int i, int j, int escala, Comodo meuComodo){
-	
-		this.i = i;
-		this.j = j;
+		super(i,j,escala,'V');
 		this.meuComodo = meuComodo;
-		tipoAgente = 'V'; //vilao
 		contadorTempoCelula = 0;
 		estado = 0;
-		
 		maca = new ImageIcon(Carregador.Imagens.get(Carregador.MACA).getImage().getScaledInstance(escala,escala, 1)).getImage();
 		macaLagarta = new ImageIcon(Carregador.Imagens.get(Carregador.MACA_LAGARTA).getImage().getScaledInstance(2*escala,escala, 1)).getImage();
 		img = maca;

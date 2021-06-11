@@ -7,11 +7,11 @@ import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
 import javax.swing.ImageIcon;
 import framework.Modo;
-import framework.IFramework;
+
 
 import midia.Carregador;
 
-public class RegrasJogo extends Modo implements IFramework{
+public class RegrasJogo extends Modo {
 	
 	private Image background;
 	private Image regras_jogar;

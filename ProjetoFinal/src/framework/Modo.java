@@ -1,6 +1,6 @@
 package framework;
 
-import jogo.Agente;
+
 import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 

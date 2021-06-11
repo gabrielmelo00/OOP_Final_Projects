@@ -2,9 +2,9 @@ package framework;
 
 import jogo.IJogo;
 
-public interface IFramework {
+public interface IRJogo {
 
-	public void conecta(IJogo novoModo);	
+	public void conecta(IJogo novoJogo);	
 	public void comecarJogo();
 	
 }

@@ -3,16 +3,16 @@ package jogo;
 import java.awt.Graphics;
 import java.util.ArrayList;
 
-import agente.IAgente;
+import agente.Agente;
 
 public class Celula {
-	private ArrayList<IAgente> meusAgentes;
+	private ArrayList<Agente> meusAgentes;
 	private int i;
 	private int j;
 	private int x;
 	private int y;
 	private boolean estudante;
-	private IAgente agenteEstudante;
+	private Agente agenteEstudante;
 	
 	public Celula(int i, int j, int x, int y) {
 		this.i = i;
@@ -21,10 +21,10 @@ public class Celula {
 		this.y = y;
 		estudante = false;
 		agenteEstudante = null;
-		meusAgentes = new ArrayList<IAgente>();
+		meusAgentes = new ArrayList<Agente>();
 	}
 
-	public void adicionaAgente(IAgente agente) {
+	public void adicionaAgente(Agente agente) {
 		if(agente.getTipoAgente() == 'E') {
 			estudante = true;
 			agenteEstudante = agente;
@@ -32,7 +32,7 @@ public class Celula {
 		meusAgentes.add(agente);
 	}
 	
-	public void retiraAgente(IAgente agente) {
+	public void retiraAgente(Agente agente) {
 		if(agente.getTipoAgente() == 'E') {
 			estudante = false;
 			agenteEstudante = null;

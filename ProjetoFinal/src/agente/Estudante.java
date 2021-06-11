@@ -9,20 +9,25 @@ import javax.swing.ImageIcon;
 import jogo.Comodo;
 import midia.Carregador;
 
-public class Estudante implements IAgente{
+public class Estudante extends Agente{
 	
-	private int i;
-	private int j;
-	private char tipoAgente;
-
 	private Image imgEstudante;
 	private Comodo meuComodo;
+	private static Estudante instanciaEstudante = new Estudante();
 	
-	public Estudante(int i, int j, int escala, Comodo meuComodo) {
+	private Estudante() {
+		super(0,0,65,'E');
+	}
+	
+	public static Estudante getInstancia() {
+		return instanciaEstudante;
+	}
+	
+	public void setParametros(int i, int j, int escala, Comodo meuComodo) {
 		this.i = i;
 		this.j = j;
+		this.escala = escala;
 		this.meuComodo = meuComodo;
-		tipoAgente = 'E'; //explorador
 		imgEstudante = new ImageIcon(Carregador.Imagens.get(Carregador.ESTUDANTE).getImage().getScaledInstance(escala, escala, 1)).getImage();
 	}
 	
@@ -68,7 +73,8 @@ public class Estudante implements IAgente{
 	public void colisao(char tipo) {
 		switch(tipo) {
 		case 'V': meuComodo.perdeuJogo(); break;
-		case 'O': System.out.println("Cheguei no Objetivo"); break;  //meuQuintal.proximoNivel(); break;
+		case 'O': System.out.println("Cheguei no Objetivo"); 
+				  meuComodo.proximoNivel(); break; 
 		default : break;
 		}
 	}

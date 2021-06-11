@@ -13,8 +13,8 @@ import agente.FabricaAgente;
 import agente.IFabricaAgente;
 import midia.Carregador;
 
-public class Quintal extends Comodo{
-	
+public class Cozinha extends Comodo{
+
 	private int altura;
 	private int largura;
 	private int inicioQuintalX; 
@@ -32,7 +32,7 @@ public class Quintal extends Comodo{
     private static final int TAMANHO = 14; 
     
 	
-	public Quintal(){
+	public Cozinha(){
 		
 		fabricaAgente = new FabricaAgente();
 		calculoDimensoes();
@@ -98,7 +98,7 @@ public class Quintal extends Comodo{
 	
 	public void carregarImagens() {
 	    imgBackground = new ImageIcon(Carregador.Imagens.get(Carregador.BACKGROUND_JOGO).getImage().getScaledInstance( faixa, altura, 1)).getImage();
-		imgQuintal = new ImageIcon(Carregador.Imagens.get(Carregador.BACKGROUND_QUINTAL).getImage().getScaledInstance( altura, altura, 1)).getImage();
+		imgQuintal = new ImageIcon(Carregador.Imagens.get(Carregador.BACKGROUND_MENU).getImage().getScaledInstance( altura, altura, 1)).getImage();
 	}
 	
 	public void pintarTela(Graphics g) {
@@ -118,7 +118,7 @@ public class Quintal extends Comodo{
 	
 	public void proximoNivel() {
 		meuGerenciador.removerPilha();
-		meuGerenciador.adicionarPilha(new Cozinha());
+		meuGerenciador.adicionarPilha(new GameOver());
 		
 	}
 	
@@ -141,4 +141,5 @@ public class Quintal extends Comodo{
 	public void keyReleased(KeyEvent e) {
 		estudante.keyReleased(e);		
 	}
+
 }

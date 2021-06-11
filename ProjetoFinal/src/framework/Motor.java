@@ -9,10 +9,10 @@ import javax.swing.JPanel;
 import javax.swing.Timer;
 
 import jogo.IJogo;
-import jogo.MenuPrincipal;
 
 
-public class Motor implements IFramework{
+
+public class Motor implements IRJogo{
 	
 	private GerenciadorJanela janela;
 	private GerenciadorModos gerenciadorModo;

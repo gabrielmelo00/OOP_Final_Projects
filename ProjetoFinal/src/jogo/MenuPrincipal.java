@@ -6,12 +6,8 @@ import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
 import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JPanel;
 import midia.Carregador;
-import framework.GerenciadorModos;
 import framework.Modo;
-import framework.IFramework;
 
 public class MenuPrincipal extends Modo implements IJogo{
 	

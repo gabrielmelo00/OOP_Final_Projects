@@ -8,18 +8,14 @@ import javax.swing.ImageIcon;
 import jogo.Comodo;
 import midia.Carregador;
 
-public class Lagarta implements IAgente{
+public class Lagarta extends Agente{
 	
-	private int i;
-	private int j;
-	private char tipoAgente;
+	
 	
 	private Image transparente;
 
 	Lagarta(int i, int j, int escala) {
-		this.i  = i;
-		this.j = j;
-		tipoAgente = 'V';
+		super(i,j,escala,'V');
 		transparente = new ImageIcon(Carregador.Imagens.get(Carregador.TRANSPARENTE).getImage().getScaledInstance(escala,escala, 1)).getImage();
 	}
 	

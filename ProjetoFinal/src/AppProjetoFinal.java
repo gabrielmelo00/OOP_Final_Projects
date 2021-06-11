@@ -1,6 +1,5 @@
 
-import framework.IFramework;
-import framework.Modo;
+import framework.IRJogo;
 import framework.Motor;
 import jogo.IJogo;
 import jogo.MenuPrincipal;
@@ -12,12 +11,11 @@ public class AppProjetoFinal {
 		
 		Carregador.carregar();
 		
-		IFramework meuMotor = new Motor();
+		IRJogo meuFramework = new Motor();
 		
 		IJogo meuJogo = new MenuPrincipal();
 		
-		meuMotor.conecta(meuJogo);
-		meuMotor.comecarJogo();
-		
+		meuFramework.conecta(meuJogo);
+		meuFramework.comecarJogo();
 	}
 }

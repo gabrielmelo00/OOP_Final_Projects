@@ -8,22 +8,14 @@ import javax.swing.ImageIcon;
 import jogo.Comodo;
 import midia.Carregador;
 
-public class Objetivo implements IAgente{
-	
-	private int i;
-	private int j;
-	private int escala;
-	private char tipoAgente;
-	
+public class Objetivo extends Agente{
+
 	private Image imgObjetivo;
 	private Comodo meuComodo;
 
 	Objetivo(int i, int j, int escala, Comodo meuComodo) {
-		this.i = i;
-		this.j = j;
-		this.escala = escala;
+		super(i,j,escala,'O');
 		this.meuComodo = meuComodo;
-		tipoAgente = 'O'; //objetivo
 		imgObjetivo = new ImageIcon(Carregador.Imagens.get(Carregador.OBJETIVO).getImage().getScaledInstance(escala, escala, 1)).getImage();
 	}
 
