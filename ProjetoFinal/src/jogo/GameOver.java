@@ -9,7 +9,7 @@ import java.awt.event.KeyEvent;
 import javax.swing.ImageIcon;
 
 import framework.Modo;
-import midia.Carregador;
+import jogo.midia.Carregador;
 
 public class GameOver extends Modo{
 	

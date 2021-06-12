@@ -25,19 +25,24 @@ public class Celula {
 	}
 
 	public void adicionaAgente(Agente agente) {
-		if(agente.getTipoAgente() == 'E') {
-			estudante = true;
-			agenteEstudante = agente;
+		if(agente != null) {
+			if(agente.getTipoAgente() == 'E') {
+				estudante = true;
+				agenteEstudante = agente;
+			}
+			meusAgentes.add(agente);
 		}
-		meusAgentes.add(agente);
+		
 	}
 	
 	public void retiraAgente(Agente agente) {
-		if(agente.getTipoAgente() == 'E') {
-			estudante = false;
-			agenteEstudante = null;
+		if(agente != null) {
+			if(agente.getTipoAgente() == 'E') {
+				estudante = false;
+				agenteEstudante = null;
+			}
+			meusAgentes.remove(agente);
 		}
-		meusAgentes.remove(agente);
 	}
 	
 	public void pintarTela(Graphics g) {

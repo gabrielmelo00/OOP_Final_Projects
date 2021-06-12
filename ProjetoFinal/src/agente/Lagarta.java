@@ -6,7 +6,7 @@ import java.awt.event.KeyEvent;
 import javax.swing.ImageIcon;
 
 import jogo.Comodo;
-import midia.Carregador;
+import jogo.midia.Carregador;
 
 public class Lagarta extends Agente{
 	

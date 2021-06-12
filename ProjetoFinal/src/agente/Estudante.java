@@ -7,7 +7,7 @@ import javax.swing.ImageIcon;
 
 
 import jogo.Comodo;
-import midia.Carregador;
+import jogo.midia.Carregador;
 
 public class Estudante extends Agente{
 	

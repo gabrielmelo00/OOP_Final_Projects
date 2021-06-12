@@ -11,7 +11,7 @@ import javax.swing.ImageIcon;
 import agente.Agente;
 import agente.FabricaAgente;
 import agente.IFabricaAgente;
-import midia.Carregador;
+import jogo.midia.Carregador;
 
 public class Quintal extends Comodo{
 	
@@ -61,7 +61,7 @@ public class Quintal extends Comodo{
 	}
 	
 	public void carregarAgentes() {	
-		matrizCelulas[1][0].adicionaAgente(fabricaAgente.retornaAgente("MACA",1, 0, delta, this));
+		matrizCelulas[1][0].adicionaAgente(fabricaAgente.retornaAgente("LARANJA",1, 0, delta, this));
 		matrizCelulas[1][4].adicionaAgente(fabricaAgente.retornaAgente("MACA",1, 4, delta, this));
 		matrizCelulas[1][8].adicionaAgente(fabricaAgente.retornaAgente("MACA",1, 8, delta, this));
 		matrizCelulas[0][5].adicionaAgente(fabricaAgente.retornaAgente("OBJETIVO",0, 5, delta, this));
@@ -139,6 +139,6 @@ public class Quintal extends Comodo{
 
 	
 	public void keyReleased(KeyEvent e) {
-		estudante.keyReleased(e);		
+		estudante.keyReleased(e);
 	}
 }

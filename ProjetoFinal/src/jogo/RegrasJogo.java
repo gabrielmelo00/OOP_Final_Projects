@@ -9,7 +9,7 @@ import javax.swing.ImageIcon;
 import framework.Modo;
 
 
-import midia.Carregador;
+import jogo.midia.Carregador;
 
 public class RegrasJogo extends Modo {
 	

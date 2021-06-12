@@ -6,7 +6,7 @@ import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
 import javax.swing.ImageIcon;
-import midia.Carregador;
+import jogo.midia.Carregador;
 import framework.Modo;
 
 public class MenuPrincipal extends Modo implements IJogo{
@@ -24,6 +24,7 @@ public class MenuPrincipal extends Modo implements IJogo{
 
 	public MenuPrincipal() {
 		super();
+		Carregador.carregar();
 		carregarImagens();
 		meuMenu = menu_jogar;
 		selecaoEstado = JOGAR;

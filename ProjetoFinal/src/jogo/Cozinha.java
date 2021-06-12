@@ -11,7 +11,7 @@ import javax.swing.ImageIcon;
 import agente.Agente;
 import agente.FabricaAgente;
 import agente.IFabricaAgente;
-import midia.Carregador;
+import jogo.midia.Carregador;
 
 public class Cozinha extends Comodo{
 

@@ -1,4 +1,4 @@
-package midia;
+package jogo.midia;
 
 import java.util.ArrayList;
 
