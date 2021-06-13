@@ -17,7 +17,15 @@ public class FabricaAgente implements IFabricaAgente{
 			return aux;
 		}else if(nomeAgente.equals("OBJETIVO")){
 			return new Objetivo(i, j, escala, meuComodo);
-		}else {
+		}else if(nomeAgente.equals("CACHORRO")){
+			return new Cachorro(i,j,escala, meuComodo);
+		}else if(nomeAgente.equals("BOLA")){
+			return new Bola(i, j, escala, meuComodo);
+		}else if(nomeAgente.equals("GATO")){
+			return new Gato(i,j,escala,meuComodo);
+		}else if(nomeAgente.equals("MANGUEIRA")){
+			return new Mangueira(i,j,escala,meuComodo);
+		}else{
 			return null;
 		}
 	}

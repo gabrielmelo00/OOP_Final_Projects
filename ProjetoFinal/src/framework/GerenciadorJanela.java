@@ -1,6 +1,7 @@
 package framework;
 
 import java.awt.Dimension;
+import java.awt.Insets;
 import java.awt.Toolkit;
 import java.awt.event.KeyListener;
 
@@ -19,7 +20,7 @@ public class GerenciadorJanela {
 	    double altura = tamanhoTela.getHeight();
 		frame.setSize((int) largura, (int) altura);
 		frame.setResizable(true);
-	   // frame.setSize(400,400);
+		frame.setUndecorated(true);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 	

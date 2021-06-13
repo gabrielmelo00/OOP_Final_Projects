@@ -20,7 +20,7 @@ public class Maca extends Agente{
 	
 	private int estado;
 	
-	private static int TEMPO_CELULA = 20;
+	private int TEMPO_CELULA = 20;
 	
 	
 	Maca(int i, int j, int escala, Comodo meuComodo){
@@ -44,7 +44,7 @@ public class Maca extends Agente{
 				meuComodo.retirarCelula(i,j, this);
 				j++;
 			}else {
-				meuComodo.inserirCelula(i, 0,this);
+				meuComodo.inserirCelulaInicioX(i, this);
 				meuComodo.retirarCelula(i, j,this);
 				j = 0;
 			}

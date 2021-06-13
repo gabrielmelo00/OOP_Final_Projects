@@ -24,7 +24,13 @@ public class Carregador {
 	public static final byte OBJETIVO = 12;
 	public static final byte MACA_LAGARTA = 13;
 	public static final byte TRANSPARENTE = 14;
-
+	public static final byte CACHORRO = 15;
+	public static final byte CACHORRO_2 = 16;
+	public static final byte BOLA = 17;
+	public static final byte GATO = 18;
+	public static final byte GATO_2 = 19;
+	public static final byte MANGUEIRA = 20;
+	
 	public static void carregar() {
 		Imagens.add(BACKGROUND_MENU, new ImageIcon(Carregador.class.getResource("background.png")));
 		Imagens.add(SELECAO_MENU_JOGAR, new ImageIcon(Carregador.class.getResource("selecao_menu_jogar.png")));
@@ -47,6 +53,14 @@ public class Carregador {
 		Imagens.add(OBJETIVO, new ImageIcon(Carregador.class.getResource("objetivo.png")));
 		Imagens.add(MACA_LAGARTA, new ImageIcon(Carregador.class.getResource("maca_lagarta.png")));
 		Imagens.add(TRANSPARENTE, new ImageIcon(Carregador.class.getResource("transparente.png")));
+		
+		Imagens.add(CACHORRO, new ImageIcon(Carregador.class.getResource("cachorro.png")));
+		Imagens.add(CACHORRO_2, new ImageIcon(Carregador.class.getResource("cachorro_2.png")));
+		
+		Imagens.add(BOLA, new ImageIcon(Carregador.class.getResource("bola.png")));
+		Imagens.add(GATO, new ImageIcon(Carregador.class.getResource("gato.png")));
+		Imagens.add(GATO_2, new ImageIcon(Carregador.class.getResource("gato_2.png")));
+		Imagens.add(MANGUEIRA, new ImageIcon(Carregador.class.getResource("mangueira.png")));
 	}
 
 }

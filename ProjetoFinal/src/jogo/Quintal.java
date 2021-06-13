@@ -29,7 +29,7 @@ public class Quintal extends Comodo{
     private IFabricaAgente fabricaAgente;
    
     private Celula[][] matrizCelulas;
-    private static final int TAMANHO = 14; 
+    private static final int TAMANHO = 12; 
     
 	
 	public Quintal(){
@@ -61,12 +61,28 @@ public class Quintal extends Comodo{
 	}
 	
 	public void carregarAgentes() {	
-		matrizCelulas[1][0].adicionaAgente(fabricaAgente.retornaAgente("LARANJA",1, 0, delta, this));
-		matrizCelulas[1][4].adicionaAgente(fabricaAgente.retornaAgente("MACA",1, 4, delta, this));
-		matrizCelulas[1][8].adicionaAgente(fabricaAgente.retornaAgente("MACA",1, 8, delta, this));
+		//matrizCelulas[1][0].adicionaAgente(fabricaAgente.retornaAgente("MACA",1, 0, delta, this));
+		//matrizCelulas[1][4].adicionaAgente(fabricaAgente.retornaAgente("MACA",1, 4, delta, this));
+		//matrizCelulas[1][8].adicionaAgente(fabricaAgente.retornaAgente("MACA",1, 8, delta, this));
+		matrizCelulas[10][0].adicionaAgente(fabricaAgente.retornaAgente("CACHORRO",10, 0, delta, this));
+		matrizCelulas[10][4].adicionaAgente(fabricaAgente.retornaAgente("CACHORRO",10, 4, delta, this));
+		matrizCelulas[10][8].adicionaAgente(fabricaAgente.retornaAgente("CACHORRO",10, 8, delta, this));
+		matrizCelulas[9][0].adicionaAgente(fabricaAgente.retornaAgente("BOLA",9, 0, delta, this));
+		matrizCelulas[9][6].adicionaAgente(fabricaAgente.retornaAgente("BOLA",9, 6, delta, this));
+		matrizCelulas[8][3].adicionaAgente(fabricaAgente.retornaAgente("GATO",8, 3, delta, this));
+		matrizCelulas[8][7].adicionaAgente(fabricaAgente.retornaAgente("GATO",8, 7, delta, this));
+		matrizCelulas[8][11].adicionaAgente(fabricaAgente.retornaAgente("GATO",8, 11, delta, this));
+		
+		//matrizCelulas[8][0].adicionaAgente(fabricaAgente.retornaAgente("GATO",8, 0, delta, this));
+		//matrizCelulas[8][3].adicionaAgente(fabricaAgente.retornaAgente("GATO",8, 3, delta, this));
+		//matrizCelulas[8][6].adicionaAgente(fabricaAgente.retornaAgente("GATO",8, 6, delta, this));
+		//matrizCelulas[8][9].adicionaAgente(fabricaAgente.retornaAgente("GATO",8, 9, delta, this));
+		matrizCelulas[7][3].adicionaAgente(fabricaAgente.retornaAgente("MANGUEIRA",7, 3, delta, this));
+		matrizCelulas[7][9].adicionaAgente(fabricaAgente.retornaAgente("MANGUEIRA",7, 9, delta, this));
 		matrizCelulas[0][5].adicionaAgente(fabricaAgente.retornaAgente("OBJETIVO",0, 5, delta, this));
-		estudante = fabricaAgente.retornaAgente("ESTUDANTE" ,13, 13, delta, this);
-		matrizCelulas[13][13].adicionaAgente(estudante);
+		
+		estudante = fabricaAgente.retornaAgente("ESTUDANTE" ,11, 11, delta, this);
+		matrizCelulas[11][11].adicionaAgente(estudante);
 	}
 	
 	public boolean inserirCelula(int i, int j, Agente g) {
@@ -76,6 +92,15 @@ public class Quintal extends Comodo{
 		}else {
 			return false;
 		}
+	}
+	
+	public void inserirCelulaInicioX(int i, Agente g) {
+		matrizCelulas[i][0].adicionaAgente(g);
+	}
+	
+	public int inserirCelulaFimX(int i, Agente g) {
+		matrizCelulas[i][TAMANHO-1].adicionaAgente(g);
+		return TAMANHO-1;
 	}
 	
 	public boolean retirarCelula(int i, int j, Agente g) {

@@ -78,6 +78,15 @@ public class Cozinha extends Comodo{
 		}
 	}
 	
+	public void inserirCelulaInicioX(int i, Agente g) {
+		matrizCelulas[i][0].adicionaAgente(g);
+	}
+	
+	public int inserirCelulaFimX(int i, Agente g) {
+		matrizCelulas[i][TAMANHO].adicionaAgente(g);
+		return TAMANHO;
+	}
+	
 	public boolean retirarCelula(int i, int j, Agente g) {
 		if(i >= 0 && i < TAMANHO && j >= 0 && j < TAMANHO) {
 			matrizCelulas[i][j].retiraAgente(g);
