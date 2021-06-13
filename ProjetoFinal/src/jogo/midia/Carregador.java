@@ -30,6 +30,8 @@ public class Carregador {
 	public static final byte GATO = 18;
 	public static final byte GATO_2 = 19;
 	public static final byte MANGUEIRA = 20;
+	public static final byte BASQUETE = 21;
+	public static final byte CERCA = 22;
 	
 	public static void carregar() {
 		Imagens.add(BACKGROUND_MENU, new ImageIcon(Carregador.class.getResource("background.png")));
@@ -61,6 +63,8 @@ public class Carregador {
 		Imagens.add(GATO, new ImageIcon(Carregador.class.getResource("gato.png")));
 		Imagens.add(GATO_2, new ImageIcon(Carregador.class.getResource("gato_2.png")));
 		Imagens.add(MANGUEIRA, new ImageIcon(Carregador.class.getResource("mangueira.png")));
+		Imagens.add(BASQUETE, new ImageIcon(Carregador.class.getResource("basquete.png")));	
+		Imagens.add(CERCA, new ImageIcon(Carregador.class.getResource("cerca.png")));
 	}
 
 }

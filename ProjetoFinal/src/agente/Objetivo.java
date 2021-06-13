@@ -13,8 +13,8 @@ public class Objetivo extends Agente{
 	private Image imgObjetivo;
 	private Comodo meuComodo;
 
-	Objetivo(int i, int j, int escala, Comodo meuComodo) {
-		super(i,j,escala,'O');
+	Objetivo(int i, int j, int escala, Comodo meuComodo, int velocidade) {
+		super(i,j,escala,'O', velocidade);
 		this.meuComodo = meuComodo;
 		imgObjetivo = new ImageIcon(Carregador.Imagens.get(Carregador.OBJETIVO).getImage().getScaledInstance(escala, escala, 1)).getImage();
 	}

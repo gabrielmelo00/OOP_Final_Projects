@@ -20,11 +20,10 @@ public class Maca extends Agente{
 	
 	private int estado;
 	
-	private int TEMPO_CELULA = 20;
 	
 	
-	Maca(int i, int j, int escala, Comodo meuComodo){
-		super(i,j,escala,'V');
+	Maca(int i, int j, int escala, Comodo meuComodo, int ciclos){
+		super(i,j,escala,'V', ciclos);
 		this.meuComodo = meuComodo;
 		contadorTempoCelula = 0;
 		estado = 0;
@@ -37,7 +36,7 @@ public class Maca extends Agente{
 
 	public void mover() {
 		contadorTempoCelula ++;
-		if(contadorTempoCelula == TEMPO_CELULA) {
+		if(contadorTempoCelula == ciclos) {
 			contadorTempoCelula = 0;			
 			
 			if(meuComodo.inserirCelula(i, j+1, this)) {

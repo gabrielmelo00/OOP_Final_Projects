@@ -5,28 +5,22 @@ import java.awt.event.KeyEvent;
 
 import javax.swing.ImageIcon;
 
-import jogo.Comodo;
 import jogo.midia.Carregador;
 
-public class Lagarta extends Agente{
+public class Cerca extends Agente{
 	
-	
-	
-	private Image transparente;
+	private Image imgCerca;
 
-	Lagarta(int i, int j, int escala) {
-		super(i,j,escala,'V', 0);
-		transparente = new ImageIcon(Carregador.Imagens.get(Carregador.TRANSPARENTE).getImage().getScaledInstance(escala,escala, 1)).getImage();
-	}
-	
-	Lagarta(int escala) {
-		this(0,0,escala);
+	public Cerca(int i, int j, int escala) {
+		super(i, j, escala, 'P', 0);
+		imgCerca = new ImageIcon(Carregador.Imagens.get(Carregador.CERCA).getImage().getScaledInstance(escala,escala, 1)).getImage();
+		
 	}
 
 	public void mover() {}
 
 	public Image getImagem() {
-		return transparente;
+		return imgCerca;
 	}
 
 	public char getTipoAgente() {

@@ -16,7 +16,7 @@ public class Estudante extends Agente{
 	private static Estudante instanciaEstudante = new Estudante();
 	
 	private Estudante() {
-		super(0,0,65,'E');
+		super(0,0,65,'E', 0);
 	}
 	
 	public static Estudante getInstancia() {
@@ -44,9 +44,7 @@ public class Estudante extends Agente{
 
 	public void keyTyped(KeyEvent e) {}
 
-	public void keyPressed(KeyEvent e) {}
-
-	public void keyReleased(KeyEvent e) {
+	public void keyPressed(KeyEvent e) {
 		if(e.getKeyCode() == KeyEvent.VK_W || e.getKeyCode() == KeyEvent.VK_UP) {
 			if(meuComodo.inserirCelula( i - 1, j, this)) {
 				meuComodo.retirarCelula(i, j, this);
@@ -70,11 +68,12 @@ public class Estudante extends Agente{
 		}
 	}
 
+	public void keyReleased(KeyEvent e) {}
+
 	public void colisao(char tipo) {
 		switch(tipo) {
 		case 'V': meuComodo.perdeuJogo(); break;
-		case 'O': System.out.println("Cheguei no Objetivo"); 
-				  meuComodo.proximoNivel(); break; 
+		case 'O': meuComodo.proximoNivel(); break; 
 		default : break;
 		}
 	}

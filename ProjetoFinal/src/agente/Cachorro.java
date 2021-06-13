@@ -15,21 +15,20 @@ public class Cachorro extends Agente{
 	private Comodo meuComodo;
 	private int contadorTempoCelula;
 	private int estado;
-	private int TEMPO = 30;
 	
 
-	public Cachorro(int i, int j, int escala, Comodo meuComodo) {
-		super(i, j, escala, 'V');
+	public Cachorro(int i, int j, int escala, Comodo meuComodo, int ciclos) {
+		super(i, j, escala, 'V', ciclos);
 		this.meuComodo = meuComodo;
 		contadorTempoCelula = 0;
 		estado = 0;
-		cachorro = new ImageIcon(Carregador.Imagens.get(Carregador.CACHORRO).getImage().getScaledInstance(escala,escala-2, 1)).getImage();
-		cachorro_2 = new ImageIcon(Carregador.Imagens.get(Carregador.CACHORRO_2).getImage().getScaledInstance(escala,escala-2, 1)).getImage();
+		cachorro = new ImageIcon(Carregador.Imagens.get(Carregador.CACHORRO).getImage().getScaledInstance(escala,escala, 1)).getImage();
+		cachorro_2 = new ImageIcon(Carregador.Imagens.get(Carregador.CACHORRO_2).getImage().getScaledInstance(escala,escala, 1)).getImage();
 	}
 
 	public void mover() {
 		contadorTempoCelula ++;
-		if(contadorTempoCelula == TEMPO) {
+		if(contadorTempoCelula == ciclos) {
 			contadorTempoCelula = 0;
 			meuComodo.retirarCelula(i, j, this);
 			if(meuComodo.inserirCelula(i, j-1, this)) {

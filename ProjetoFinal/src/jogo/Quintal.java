@@ -61,46 +61,85 @@ public class Quintal extends Comodo{
 	}
 	
 	public void carregarAgentes() {	
-		//matrizCelulas[1][0].adicionaAgente(fabricaAgente.retornaAgente("MACA",1, 0, delta, this));
-		//matrizCelulas[1][4].adicionaAgente(fabricaAgente.retornaAgente("MACA",1, 4, delta, this));
-		//matrizCelulas[1][8].adicionaAgente(fabricaAgente.retornaAgente("MACA",1, 8, delta, this));
-		matrizCelulas[10][0].adicionaAgente(fabricaAgente.retornaAgente("CACHORRO",10, 0, delta, this));
-		matrizCelulas[10][4].adicionaAgente(fabricaAgente.retornaAgente("CACHORRO",10, 4, delta, this));
-		matrizCelulas[10][8].adicionaAgente(fabricaAgente.retornaAgente("CACHORRO",10, 8, delta, this));
-		matrizCelulas[9][0].adicionaAgente(fabricaAgente.retornaAgente("BOLA",9, 0, delta, this));
-		matrizCelulas[9][6].adicionaAgente(fabricaAgente.retornaAgente("BOLA",9, 6, delta, this));
-		matrizCelulas[8][3].adicionaAgente(fabricaAgente.retornaAgente("GATO",8, 3, delta, this));
-		matrizCelulas[8][7].adicionaAgente(fabricaAgente.retornaAgente("GATO",8, 7, delta, this));
-		matrizCelulas[8][11].adicionaAgente(fabricaAgente.retornaAgente("GATO",8, 11, delta, this));
+		matrizCelulas[10][0].adicionaAgente(fabricaAgente.retornaAgente("CACHORRO",10, 0, delta, 20, this));
+		matrizCelulas[10][4].adicionaAgente(fabricaAgente.retornaAgente("CACHORRO",10, 4, delta, 20, this));
+		matrizCelulas[10][8].adicionaAgente(fabricaAgente.retornaAgente("CACHORRO",10, 8, delta, 20, this));
 		
-		//matrizCelulas[8][0].adicionaAgente(fabricaAgente.retornaAgente("GATO",8, 0, delta, this));
-		//matrizCelulas[8][3].adicionaAgente(fabricaAgente.retornaAgente("GATO",8, 3, delta, this));
-		//matrizCelulas[8][6].adicionaAgente(fabricaAgente.retornaAgente("GATO",8, 6, delta, this));
-		//matrizCelulas[8][9].adicionaAgente(fabricaAgente.retornaAgente("GATO",8, 9, delta, this));
-		matrizCelulas[7][3].adicionaAgente(fabricaAgente.retornaAgente("MANGUEIRA",7, 3, delta, this));
-		matrizCelulas[7][9].adicionaAgente(fabricaAgente.retornaAgente("MANGUEIRA",7, 9, delta, this));
-		matrizCelulas[0][5].adicionaAgente(fabricaAgente.retornaAgente("OBJETIVO",0, 5, delta, this));
+		matrizCelulas[9][0].adicionaAgente(fabricaAgente.retornaAgente("BOLA",9, 0, delta, 25, this));
+		matrizCelulas[9][6].adicionaAgente(fabricaAgente.retornaAgente("BOLA",9, 6, delta, 25, this));
 		
-		estudante = fabricaAgente.retornaAgente("ESTUDANTE" ,11, 11, delta, this);
+		matrizCelulas[8][3].adicionaAgente(fabricaAgente.retornaAgente("GATO",8, 3, delta, 30, this));
+		matrizCelulas[8][7].adicionaAgente(fabricaAgente.retornaAgente("GATO",8, 7, delta, 30, this));
+		matrizCelulas[8][11].adicionaAgente(fabricaAgente.retornaAgente("GATO",8, 11, delta, 30, this));
+		
+		matrizCelulas[7][3].adicionaAgente(fabricaAgente.retornaAgente("MANGUEIRA",7, 3, delta, 20, this));
+		matrizCelulas[7][9].adicionaAgente(fabricaAgente.retornaAgente("MANGUEIRA",7, 9, delta, 20, this));
+		
+	
+		matrizCelulas[5][1].adicionaAgente(fabricaAgente.retornaAgente("CERCA",5, 1, delta, 0, this));
+		matrizCelulas[5][2].adicionaAgente(fabricaAgente.retornaAgente("CERCA",5, 2, delta, 0, this));
+		matrizCelulas[5][3].adicionaAgente(fabricaAgente.retornaAgente("CERCA",5, 3, delta, 0, this));
+		matrizCelulas[5][4].adicionaAgente(fabricaAgente.retornaAgente("CERCA",5, 4, delta, 0, this));
+		matrizCelulas[5][5].adicionaAgente(fabricaAgente.retornaAgente("CERCA",5, 5, delta, 0, this));
+		matrizCelulas[5][6].adicionaAgente(fabricaAgente.retornaAgente("CERCA",5, 6, delta, 0, this));
+		matrizCelulas[5][7].adicionaAgente(fabricaAgente.retornaAgente("CERCA",5, 7, delta, 0, this));
+		matrizCelulas[5][8].adicionaAgente(fabricaAgente.retornaAgente("CERCA",5, 8, delta, 0, this));
+		matrizCelulas[5][9].adicionaAgente(fabricaAgente.retornaAgente("CERCA",5, 9, delta, 0, this));
+		matrizCelulas[5][10].adicionaAgente(fabricaAgente.retornaAgente("CERCA",5, 10, delta, 0, this));
+		matrizCelulas[5][11].adicionaAgente(fabricaAgente.retornaAgente("CERCA",5, 11, delta, 0, this));
+		matrizCelulas[4][0].adicionaAgente(fabricaAgente.retornaAgente("BOLA",4, 0, delta, 15, this));
+		matrizCelulas[4][4].adicionaAgente(fabricaAgente.retornaAgente("BOLA",4, 4, delta, 15, this));
+		matrizCelulas[4][8].adicionaAgente(fabricaAgente.retornaAgente("BOLA",4, 8, delta, 15, this));
+		matrizCelulas[3][3].adicionaAgente(fabricaAgente.retornaAgente("GATO",3, 3, delta, 20, this));
+		matrizCelulas[3][7].adicionaAgente(fabricaAgente.retornaAgente("GATO",3, 7, delta, 20, this));
+		matrizCelulas[3][11].adicionaAgente(fabricaAgente.retornaAgente("GATO",3, 11, delta, 20, this));
+		matrizCelulas[1][0].adicionaAgente(fabricaAgente.retornaAgente("MANGUEIRA",1, 0, delta, 10, this));
+		matrizCelulas[1][6].adicionaAgente(fabricaAgente.retornaAgente("MANGUEIRA",1, 6, delta, 10, this));	
+		
+		matrizCelulas[2][0].adicionaAgente(fabricaAgente.retornaAgente("CACHORRO",2, 0, delta, 20, this));
+		matrizCelulas[2][4].adicionaAgente(fabricaAgente.retornaAgente("CACHORRO",2, 4, delta, 20, this));
+		matrizCelulas[2][8].adicionaAgente(fabricaAgente.retornaAgente("CACHORRO",2, 8, delta, 20, this));
+		
+		matrizCelulas[0][0].adicionaAgente(fabricaAgente.retornaAgente("CERCA",0, 0, delta, 0, this));
+		matrizCelulas[0][1].adicionaAgente(fabricaAgente.retornaAgente("CERCA",0, 1, delta, 0, this));
+		matrizCelulas[0][2].adicionaAgente(fabricaAgente.retornaAgente("CERCA",0, 2, delta, 0, this));
+		matrizCelulas[0][3].adicionaAgente(fabricaAgente.retornaAgente("CERCA",0, 3, delta, 0, this));
+		matrizCelulas[0][4].adicionaAgente(fabricaAgente.retornaAgente("CERCA",0, 4, delta, 0, this));
+		matrizCelulas[0][5].adicionaAgente(fabricaAgente.retornaAgente("CERCA",0, 5, delta, 0, this));
+		matrizCelulas[0][6].adicionaAgente(fabricaAgente.retornaAgente("CERCA",0, 6, delta, 0, this));
+		matrizCelulas[0][7].adicionaAgente(fabricaAgente.retornaAgente("CERCA",0, 7, delta, 0, this));
+		matrizCelulas[0][8].adicionaAgente(fabricaAgente.retornaAgente("CERCA",0,8, delta, 0, this));
+		matrizCelulas[0][9].adicionaAgente(fabricaAgente.retornaAgente("CERCA",0, 9, delta, 0, this));
+		matrizCelulas[0][10].adicionaAgente(fabricaAgente.retornaAgente("CERCA",0, 10, delta, 0, this));
+		
+		matrizCelulas[0][11].adicionaAgente(fabricaAgente.retornaAgente("OBJETIVO",0, 11, delta, 0, this));
+		
+		estudante = fabricaAgente.retornaAgente("ESTUDANTE" ,11, 11, delta, 0, this);
 		matrizCelulas[11][11].adicionaAgente(estudante);
 	}
 	
 	public boolean inserirCelula(int i, int j, Agente g) {
 		if(i >= 0 && i < TAMANHO && j >= 0 && j < TAMANHO) {
-			matrizCelulas[i][j].adicionaAgente(g);
-			return true;
+			return matrizCelulas[i][j].adicionaAgente(g);
 		}else {
 			return false;
 		}
 	}
 	
-	public void inserirCelulaInicioX(int i, Agente g) {
-		matrizCelulas[i][0].adicionaAgente(g);
+	public int inserirCelulaInicioX(int i, Agente g) {
+		int jAux = 0;
+		while(!matrizCelulas[i][jAux].adicionaAgente(g)){
+			jAux = jAux + 1;
+		}
+		return jAux;
 	}
 	
 	public int inserirCelulaFimX(int i, Agente g) {
-		matrizCelulas[i][TAMANHO-1].adicionaAgente(g);
-		return TAMANHO-1;
+		int jAux = TAMANHO -1;
+		while(!matrizCelulas[i][jAux].adicionaAgente(g)) {
+			jAux = jAux -1;
+		}
+		return jAux;
 	}
 	
 	public boolean retirarCelula(int i, int j, Agente g) {

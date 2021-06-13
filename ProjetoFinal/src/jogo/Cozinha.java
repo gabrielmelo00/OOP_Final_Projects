@@ -61,30 +61,36 @@ public class Cozinha extends Comodo{
 	}
 	
 	public void carregarAgentes() {	
-		matrizCelulas[1][0].adicionaAgente(fabricaAgente.retornaAgente("MACA",1, 0, delta, this));
-		matrizCelulas[1][4].adicionaAgente(fabricaAgente.retornaAgente("MACA",1, 4, delta, this));
-		matrizCelulas[1][8].adicionaAgente(fabricaAgente.retornaAgente("MACA",1, 8, delta, this));
-		matrizCelulas[0][5].adicionaAgente(fabricaAgente.retornaAgente("OBJETIVO",0, 5, delta, this));
-		estudante = fabricaAgente.retornaAgente("ESTUDANTE" ,13, 13, delta, this);
+		matrizCelulas[1][0].adicionaAgente(fabricaAgente.retornaAgente("MACA",1, 0, delta, 20, this));
+		matrizCelulas[1][4].adicionaAgente(fabricaAgente.retornaAgente("MACA",1, 4, delta, 20, this));
+		matrizCelulas[1][8].adicionaAgente(fabricaAgente.retornaAgente("MACA",1, 8, delta, 20, this));
+		matrizCelulas[0][5].adicionaAgente(fabricaAgente.retornaAgente("OBJETIVO",0, 5, delta, 20, this));
+		estudante = fabricaAgente.retornaAgente("ESTUDANTE" ,13, 13, delta, 0, this);
 		matrizCelulas[13][13].adicionaAgente(estudante);
 	}
 	
 	public boolean inserirCelula(int i, int j, Agente g) {
 		if(i >= 0 && i < TAMANHO && j >= 0 && j < TAMANHO) {
-			matrizCelulas[i][j].adicionaAgente(g);
-			return true;
+			return matrizCelulas[i][j].adicionaAgente(g);
 		}else {
 			return false;
 		}
 	}
 	
-	public void inserirCelulaInicioX(int i, Agente g) {
-		matrizCelulas[i][0].adicionaAgente(g);
+	public int inserirCelulaInicioX(int i, Agente g) {
+		if(matrizCelulas[i][0].adicionaAgente(g)) {
+			return 0;
+		}else {
+			return i;
+		}
 	}
 	
 	public int inserirCelulaFimX(int i, Agente g) {
-		matrizCelulas[i][TAMANHO].adicionaAgente(g);
-		return TAMANHO;
+		if(matrizCelulas[i][TAMANHO-1].adicionaAgente(g)) {
+			return TAMANHO-1;
+		}else {
+			return i;
+		}
 	}
 	
 	public boolean retirarCelula(int i, int j, Agente g) {

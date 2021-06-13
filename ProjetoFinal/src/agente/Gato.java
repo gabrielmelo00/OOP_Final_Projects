@@ -15,21 +15,20 @@ public class Gato extends Agente{
 	private Comodo meuComodo;
 	private int contadorTempoCelula;
 	private int estado;
-	private int TEMPO = 35;
 
-	public Gato(int i, int j, int escala, Comodo meuComodo) {
-		super(i, j, escala, 'V');
+	public Gato(int i, int j, int escala, Comodo meuComodo, int ciclos) {
+		super(i, j, escala, 'V', ciclos);
 		this.meuComodo = meuComodo;
 		contadorTempoCelula = 0;
 		estado = 0;
-		imgGato = new ImageIcon(Carregador.Imagens.get(Carregador.GATO).getImage().getScaledInstance(escala,escala-2, 1)).getImage();
-		imgGato_2 = new ImageIcon(Carregador.Imagens.get(Carregador.GATO_2).getImage().getScaledInstance(escala,escala-2, 1)).getImage();
+		imgGato = new ImageIcon(Carregador.Imagens.get(Carregador.GATO).getImage().getScaledInstance(escala,escala, 1)).getImage();
+		imgGato_2 = new ImageIcon(Carregador.Imagens.get(Carregador.GATO_2).getImage().getScaledInstance(escala,escala, 1)).getImage();
 	}
 
 
 	public void mover() {
 		contadorTempoCelula ++;
-		if(contadorTempoCelula == TEMPO) {
+		if(contadorTempoCelula == ciclos) {
 			contadorTempoCelula = 0;
 			meuComodo.retirarCelula(i, j, this);
 			if(meuComodo.inserirCelula(i, j-1, this)) {

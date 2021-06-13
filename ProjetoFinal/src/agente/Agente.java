@@ -8,15 +8,17 @@ public abstract class Agente {
 	
 	protected int i;
 	protected int j;
+	protected int ciclos;
 	protected int escala;
 	protected char tipoAgente;
 	
 	
-	public Agente(int i, int j, int escala, char tipoAgente) {
+	public Agente(int i, int j, int escala, char tipoAgente, int ciclos) {
 		this.i = i;
 		this.j = j;
 		this.escala = escala;
 		this.tipoAgente = tipoAgente;
+		this.ciclos = ciclos;
 	}
   
 	public abstract void mover();

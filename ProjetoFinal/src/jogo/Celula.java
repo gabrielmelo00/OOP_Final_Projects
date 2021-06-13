@@ -12,6 +12,7 @@ public class Celula {
 	private int x;
 	private int y;
 	private boolean estudante;
+	private boolean parede;
 	private Agente agenteEstudante;
 	
 	public Celula(int i, int j, int x, int y) {
@@ -20,18 +21,30 @@ public class Celula {
 		this.x = x;
 		this.y = y;
 		estudante = false;
+		parede = false;
 		agenteEstudante = null;
 		meusAgentes = new ArrayList<Agente>();
 	}
 
-	public void adicionaAgente(Agente agente) {
+	public boolean adicionaAgente(Agente agente) {
 		if(agente != null) {
-			if(agente.getTipoAgente() == 'E') {
-				estudante = true;
-				agenteEstudante = agente;
+			if(agente.getTipoAgente() == 'P') {
+				parede = true;
+				meusAgentes.add(agente);
 			}
-			meusAgentes.add(agente);
+			
+			if(parede == false) {
+				if(agente.getTipoAgente() == 'E') {
+					estudante = true;
+					agenteEstudante = agente;
+				}
+				meusAgentes.add(agente);
+			}else {
+				return false;
+			}
+			
 		}
+		return true;
 		
 	}
 	

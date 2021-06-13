@@ -8,40 +8,35 @@ import javax.swing.ImageIcon;
 import jogo.Comodo;
 import jogo.midia.Carregador;
 
-public class Mangueira extends Agente{
+public class Basquete extends Agente{
 	
-	private Image imgMangueira;
+	private Image imgBola;
 	private Comodo meuComodo;
 	private int contadorTempoCelula;
-	private Agente transparente;
 
-	public Mangueira(int i, int j, int escala, Comodo meuComodo, int ciclos) {
+	public Basquete(int i, int j, int escala, Comodo meuComodo, int ciclos) {
 		super(i, j, escala, 'V', ciclos);
 		this.meuComodo = meuComodo;
 		contadorTempoCelula = 0;
-		transparente = new Transparente(i, j+1, escala);
-		imgMangueira = new ImageIcon(Carregador.Imagens.get(Carregador.MANGUEIRA).getImage().getScaledInstance(2*escala,escala, 1)).getImage();
+		imgBola = new ImageIcon(Carregador.Imagens.get(Carregador.BASQUETE).getImage().getScaledInstance(escala,escala, 1)).getImage();
 	}
-
 
 	public void mover() {
 		contadorTempoCelula ++;
 		if(contadorTempoCelula == ciclos) {
 			contadorTempoCelula = 0;
 			meuComodo.retirarCelula(i, j,this);
-			meuComodo.retirarCelula(i, j+1, transparente);
 			if(meuComodo.inserirCelula(i,j+1, this)) {
-				meuComodo.inserirCelula(i, j + 2, transparente);
 				j = j+1;
 			}else {
-				j = meuComodo.inserirCelulaInicioX(i,this);
-				meuComodo.inserirCelula(i, j+1, transparente);
+				meuComodo.inserirCelulaInicioX(i,this);
+				j = 0;
 			}
 		}
 	}
 
 	public Image getImagem() {
-		return imgMangueira;
+		return imgBola;
 	}
 
 	public char getTipoAgente() {
