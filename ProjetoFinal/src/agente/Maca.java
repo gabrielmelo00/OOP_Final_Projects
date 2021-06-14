@@ -37,25 +37,36 @@ public class Maca extends Agente{
 	public void mover() {
 		contadorTempoCelula ++;
 		if(contadorTempoCelula == ciclos) {
-			contadorTempoCelula = 0;			
-			
+			contadorTempoCelula = 0;				
 			if(meuComodo.inserirCelula(i, j+1, this)) {
 				meuComodo.retirarCelula(i,j, this);
 				j++;
+				if(estado == 0) {
+					meuComodo.inserirCelula(i,j+1, lagarta);
+					estado =1;
+					img = macaLagarta;
+				}else {
+					meuComodo.retirarCelula(i,j, lagarta);
+					img = maca;
+					estado = 0;
+				}
 			}else {
-				meuComodo.inserirCelulaInicioX(i, this);
 				meuComodo.retirarCelula(i, j,this);
-				j = 0;
+				if(estado == 0) {
+					j = meuComodo.inserirCelulaInicioX(i, this);
+					meuComodo.inserirCelula(i,  j+1,  lagarta);
+					estado = 1;
+					img = macaLagarta;
+				}else {
+					meuComodo.retirarCelula(i, j+1, lagarta);
+					j = meuComodo.inserirCelulaInicioX(i, this);
+					estado = 0;
+					img = maca;
+				}
+				
+				
 			}
-			if(estado == 0) {
-				meuComodo.inserirCelula(i,j+1, lagarta);
-				estado = 1;
-				img = macaLagarta;
-			}else {
-				meuComodo.retirarCelula(i,j, lagarta);
-				img = maca;
-				estado = 0;
-			}
+			
 		}
 	}
 

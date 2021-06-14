@@ -8,17 +8,17 @@ import javax.swing.ImageIcon;
 import jogo.Comodo;
 import jogo.midia.Carregador;
 
-public class Basquete extends Agente{
-	
-	private Image imgBola;
+public class Videogame extends Agente{
+
+	private Image imgVideogame;
 	private Comodo meuComodo;
 	private int contadorTempoCelula;
 
-	public Basquete(int i, int j, int escala, Comodo meuComodo, int ciclos) {
+	public Videogame(int i, int j, int escala, Comodo meuComodo, int ciclos) {
 		super(i, j, escala, 'V', ciclos);
 		this.meuComodo = meuComodo;
 		contadorTempoCelula = 0;
-		imgBola = new ImageIcon(Carregador.Imagens.get(Carregador.BASQUETE).getImage().getScaledInstance(escala,escala, 1)).getImage();
+		imgVideogame = new ImageIcon(Carregador.Imagens.get(Carregador.VIDEOGAME).getImage().getScaledInstance(escala,escala, 1)).getImage();
 	}
 
 	public void mover() {
@@ -26,17 +26,17 @@ public class Basquete extends Agente{
 		if(contadorTempoCelula == ciclos) {
 			contadorTempoCelula = 0;
 			meuComodo.retirarCelula(i, j,this);
-			if(meuComodo.inserirCelula(i,j+1, this)) {
-				j = j+1;
+			if(meuComodo.inserirCelula(i,j-1, this)) {
+				j = j-1;
 			}else {
-				meuComodo.inserirCelulaInicioX(i,this);
-				j = 0;
+				j = meuComodo.inserirCelulaFimX(i,this);
 			}
-		}
+		}		
 	}
 
+
 	public Image getImagem() {
-		return imgBola;
+		return imgVideogame;
 	}
 
 	public char getTipoAgente() {

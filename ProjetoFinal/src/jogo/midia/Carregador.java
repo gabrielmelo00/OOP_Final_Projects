@@ -30,8 +30,15 @@ public class Carregador {
 	public static final byte GATO = 18;
 	public static final byte GATO_2 = 19;
 	public static final byte MANGUEIRA = 20;
-	public static final byte BASQUETE = 21;
-	public static final byte CERCA = 22;
+	public static final byte CERCA = 21;
+	public static final byte BACKGROUND_SALA = 22;
+	public static final byte PIPOCA = 23;
+	public static final byte TV = 24;
+	public static final byte TV_SOM = 25;
+	public static final byte RADIO = 26;
+	public static final byte VIDEOGAME = 27;
+
+	
 	
 	public static void carregar() {
 		Imagens.add(BACKGROUND_MENU, new ImageIcon(Carregador.class.getResource("background.png")));
@@ -63,8 +70,16 @@ public class Carregador {
 		Imagens.add(GATO, new ImageIcon(Carregador.class.getResource("gato.png")));
 		Imagens.add(GATO_2, new ImageIcon(Carregador.class.getResource("gato_2.png")));
 		Imagens.add(MANGUEIRA, new ImageIcon(Carregador.class.getResource("mangueira.png")));
-		Imagens.add(BASQUETE, new ImageIcon(Carregador.class.getResource("basquete.png")));	
 		Imagens.add(CERCA, new ImageIcon(Carregador.class.getResource("cerca.png")));
+		
+		Imagens.add(BACKGROUND_SALA, new ImageIcon(Carregador.class.getResource("background_sala.png")));
+		Imagens.add(PIPOCA, new ImageIcon(Carregador.class.getResource("pipoca.png")));
+		Imagens.add(TV, new ImageIcon(Carregador.class.getResource("televisao.png")));
+		Imagens.add(TV_SOM, new ImageIcon(Carregador.class.getResource("televisao_som.png")));
+		Imagens.add(RADIO, new ImageIcon(Carregador.class.getResource("radio.png")));
+		Imagens.add(VIDEOGAME, new ImageIcon(Carregador.class.getResource("videogame.png")));
+
+
 	}
 
 }

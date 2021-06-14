@@ -142,6 +142,22 @@ public class Quintal extends Comodo{
 		return jAux;
 	}
 	
+	public int inserirCelulaFimY(int j, Agente agente) {
+        int iAux = TAMANHO -1;
+        while(!matrizCelulas[iAux][j].adicionaAgente(agente)) {
+        	iAux = iAux -1;
+        }
+		return iAux;
+	}
+
+	public int inserirCelulaInicioY(int j, Agente agente) {
+        int iAux = 0;
+        while(!matrizCelulas[iAux][j].adicionaAgente(agente)) {
+        	iAux = iAux +1;
+        }
+		return iAux;
+	}
+	
 	public boolean retirarCelula(int i, int j, Agente g) {
 		if(i >= 0 && i < TAMANHO && j >= 0 && j < TAMANHO) {
 			matrizCelulas[i][j].retiraAgente(g);

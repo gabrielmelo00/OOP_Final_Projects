@@ -133,7 +133,7 @@ public class Cozinha extends Comodo{
 	
 	public void proximoNivel() {
 		meuGerenciador.removerPilha();
-		meuGerenciador.adicionarPilha(new GameOver());
+		meuGerenciador.adicionarPilha(new Sala());
 		
 	}
 	
@@ -155,6 +155,22 @@ public class Cozinha extends Comodo{
 	
 	public void keyReleased(KeyEvent e) {
 		estudante.keyReleased(e);		
+	}
+
+	public int inserirCelulaFimY(int j, Agente agente) {
+        int iAux = TAMANHO -1;
+        while(!matrizCelulas[iAux][j].adicionaAgente(agente)) {
+        	iAux = iAux -1;
+        }
+		return iAux;
+	}
+
+	public int inserirCelulaInicioY(int j, Agente agente) {
+        int iAux = 0;
+        while(!matrizCelulas[iAux][j].adicionaAgente(agente)) {
+        	iAux = iAux +1;
+        }
+		return iAux;
 	}
 
 }

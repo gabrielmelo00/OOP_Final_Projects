@@ -3,7 +3,9 @@ package agente;
 import java.awt.Image;
 import java.awt.event.KeyEvent;
 
+
 public class Transparente extends Agente{
+	
 
 	public Transparente(int i, int j, int escala) {
 		super(i, j, 0,'V', 0);

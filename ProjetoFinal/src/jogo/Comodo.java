@@ -19,6 +19,8 @@ public abstract class Comodo extends Modo{
 	public abstract boolean inserirCelula(int i, int j, Agente agente);
 	public abstract int inserirCelulaInicioX(int i, Agente agente);
 	public abstract int inserirCelulaFimX(int i, Agente agente);
+	public abstract int inserirCelulaFimY(int j, Agente agente);
+	public abstract int inserirCelulaInicioY(int j, Agente agente);
 	public abstract boolean retirarCelula(int i, int j, Agente agente);
 	public abstract void perdeuJogo();
 	public abstract void proximoNivel();
