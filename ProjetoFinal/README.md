@@ -163,7 +163,7 @@ Método | Objetivo
 ### Diagrama da hierarquia de exceções
 `<Elabore um diagrama com a hierarquia de exceções como detalhado abaixo>`
 
-![Hierarquia Exceções](exception-hierarchy.png)
+![Hierarquia Exceções](https://github.com/gabrielmelo00/TrabalhosMC/blob/master/ProjetoFinal/assets/diagramaExcessao.png)
 
 ### Descrição das classes de exceção
 
@@ -171,6 +171,7 @@ Método | Objetivo
 
 Classe | Descrição
 ----- | -----
-DivisaoInvalida | Engloba todas as exceções de divisões não aceitas.
-DivisaoInutil | Indica que a divisão por 1 é inútil.
-DivisaoNaoInteira | Indica uma divisão não inteira.
+ErroImagem | Engloba todas as exceções referentes à escrita e leitura de imagens no jogo
+ImagemNaoEncontrada | Indica que nenhuma imagem com o nome especificado foi encontrada no diretório dado.
+PosicaoInvalidaVetorImagem | Indica que o vetor de imagem não possui uma posição correspondente à que foi requisitada pelo código.
+
