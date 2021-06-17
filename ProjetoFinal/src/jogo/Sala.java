@@ -170,7 +170,7 @@ public class Sala extends Comodo {
 
 	public void proximoNivel() {
 		meuGerenciador.removerPilha();
-		meuGerenciador.adicionarPilha(new GameOver());	
+		meuGerenciador.adicionarPilha(new Quarto());	
 	}
 	
 	public void pintarTela(Graphics g) {

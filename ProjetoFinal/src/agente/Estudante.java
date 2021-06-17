@@ -14,9 +14,11 @@ public class Estudante extends Agente{
 	private Image imgEstudante;
 	private Comodo meuComodo;
 	private static Estudante instanciaEstudante = new Estudante();
+	private int tempo;
 	
 	private Estudante() {
 		super(0,0,65,'E', 0);
+		tempo = 0;
 	}
 	
 	public static Estudante getInstancia() {
@@ -31,7 +33,15 @@ public class Estudante extends Agente{
 		imgEstudante = new ImageIcon(Carregador.Imagens.get(Carregador.ESTUDANTE).getImage().getScaledInstance(escala, escala, 1)).getImage();
 	}
 	
-	public void mover() {}
+	public void mover() {
+		tempo++;
+	}
+	
+	public int getTempo() {
+		int aux = tempo;
+		tempo = 0;
+		return aux;
+	}
 
 
 	public Image getImagem() {

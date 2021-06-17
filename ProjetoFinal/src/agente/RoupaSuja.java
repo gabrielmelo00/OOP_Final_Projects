@@ -8,18 +8,18 @@ import javax.swing.ImageIcon;
 import jogo.Comodo;
 import jogo.midia.Carregador;
 
-public class Bola extends Agente{
-	
-	private Image imgBola;
+public class RoupaSuja extends Agente {
+
+	private Image imgRoupa;
 	private Comodo meuComodo;
 	private int contadorTempoCelula;
 	
 
-	public Bola(int i, int j, int escala, Comodo meuComodo, int ciclos) {
+	public RoupaSuja(int i, int j, int escala, Comodo meuComodo, int ciclos) {
 		super(i, j, escala, 'V', ciclos);
 		this.meuComodo = meuComodo;
 		contadorTempoCelula = 0;
-		imgBola = new ImageIcon(Carregador.Imagens.get(Carregador.BOLA).getImage().getScaledInstance(escala,escala, 1)).getImage();
+		imgRoupa = new ImageIcon(Carregador.Imagens.get(Carregador.ROUPA_SUJA).getImage().getScaledInstance(escala,escala, 1)).getImage();
 	}
 
 	public void mover() {
@@ -37,7 +37,7 @@ public class Bola extends Agente{
 	}
 
 	public Image getImagem() {
-		return imgBola;
+		return imgRoupa;
 	}
 
 	public char getTipoAgente() {

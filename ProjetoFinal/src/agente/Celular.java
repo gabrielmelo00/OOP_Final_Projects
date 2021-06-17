@@ -8,18 +8,19 @@ import javax.swing.ImageIcon;
 import jogo.Comodo;
 import jogo.midia.Carregador;
 
-public class Bola extends Agente{
-	
-	private Image imgBola;
+public class Celular extends Agente {
+
+	private Image imgCelular;
 	private Comodo meuComodo;
 	private int contadorTempoCelula;
-	
+	private int estado;
 
-	public Bola(int i, int j, int escala, Comodo meuComodo, int ciclos) {
+	public Celular(int i, int j, int escala, Comodo meuComodo, int ciclos) {
 		super(i, j, escala, 'V', ciclos);
 		this.meuComodo = meuComodo;
 		contadorTempoCelula = 0;
-		imgBola = new ImageIcon(Carregador.Imagens.get(Carregador.BOLA).getImage().getScaledInstance(escala,escala, 1)).getImage();
+		estado = 0;
+		imgCelular = new ImageIcon(Carregador.Imagens.get(Carregador.CELULAR).getImage().getScaledInstance(escala,escala, 1)).getImage();
 	}
 
 	public void mover() {
@@ -27,17 +28,30 @@ public class Bola extends Agente{
 		if(contadorTempoCelula == ciclos) {
 			contadorTempoCelula = 0;
 			meuComodo.retirarCelula(i, j,this);
-			if(meuComodo.inserirCelula(i,j+1, this)) {
-				j = j+1;
+			if(estado == 0) {
+				if(meuComodo.inserirCelula(i,j+1,this)) {
+					j++;
+				}else {
+					estado = 1;
+					meuComodo.inserirCelula(i, j-1, this);
+					j--;
+				}
 			}else {
-				j = meuComodo.inserirCelulaInicioX(i,this);
+				if(meuComodo.inserirCelula(i, j-1, this)) {
+					j--;
+				}else {
+					estado = 0;
+					meuComodo.inserirCelula(i,j+1,this);
+					j++;
+				}
 			}
+			
 		}
 		
 	}
 
 	public Image getImagem() {
-		return imgBola;
+		return imgCelular;
 	}
 
 	public char getTipoAgente() {
@@ -51,7 +65,5 @@ public class Bola extends Agente{
 	public void keyReleased(KeyEvent e) {}
 
 	public void colisao(char tipo) {}
-	
-	
 
 }

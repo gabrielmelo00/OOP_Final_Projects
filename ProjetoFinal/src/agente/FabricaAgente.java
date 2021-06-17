@@ -35,6 +35,34 @@ public class FabricaAgente implements IFabricaAgente{
 			return new Radio(i,j,escala,meuComodo,ciclos);
 		}else if(nomeAgente.equals("VIDEOGAME")){
 			return new Videogame(i,j,escala,meuComodo,ciclos);
+		}else if(nomeAgente.equals("PIA")){
+			return new Pia(i,j,escala);
+		}else if(nomeAgente.equals("FOGAO")){
+			return new Fogao(i,j,escala);
+		}else if(nomeAgente.equals("ARMARIO")){
+			return new Armario(i,j,escala); 
+		}else if(nomeAgente.equals("FRIGIDEIRA")){
+			return new Frigideira(i,j,escala, meuComodo, ciclos);
+		}else if(nomeAgente.equals("LOUCA")){
+			return new Louca(i,j,escala, meuComodo, ciclos);
+		}else if(nomeAgente.equals("CAMA_1")){
+			return new Cama(i,j,escala,1);
+		}else if(nomeAgente.equals("CAMA_2")){
+			return new Cama(i,j,escala,2);
+		}else if(nomeAgente.equals("CAMA_3")){
+			return new Cama(i,j,escala,3);
+		}else if(nomeAgente.equals("CAMA_4")){
+			return new Cama(i,j,escala,4);
+		}else if(nomeAgente.equals("DESKTOP")){
+			return new Desktop(i,j,escala);
+		}else if(nomeAgente.equals("CELULAR")){
+			return new Celular(i, j, escala, meuComodo, ciclos);
+		}else if(nomeAgente.equals("ROUPA_SUJA")){
+			return new RoupaSuja(i, j, escala, meuComodo, ciclos);
+		}else if(nomeAgente.equals("LIVRO")){
+			return new Livro(i, j, escala, meuComodo, ciclos);
+		}else if(nomeAgente.equals("ABAJUR")){
+			return new Abajur(i, j, escala, meuComodo, ciclos);
 		}else{
 			return null;
 		}

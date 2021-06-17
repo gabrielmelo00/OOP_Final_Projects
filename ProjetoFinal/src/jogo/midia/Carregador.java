@@ -37,8 +37,24 @@ public class Carregador {
 	public static final byte TV_SOM = 25;
 	public static final byte RADIO = 26;
 	public static final byte VIDEOGAME = 27;
-
-	
+	public static final byte BACKGROUND_COZINHA = 28;
+	public static final byte PIA = 29;
+	public static final byte ARMARIO_1 = 30;
+	public static final byte FOGAO = 31;
+	public static final byte LOUCA = 32;
+	public static final byte FRIGIDEIRA = 33;
+	public static final byte BACKGROUND_QUARTO = 34;
+	public static final byte CAMA_1 = 35;
+	public static final byte CAMA_2 = 36;
+	public static final byte CAMA_3 = 37;
+	public static final byte CAMA_4 = 38;
+	public static final byte DESKTOP = 39;
+	public static final byte BACKGROUND_VITORIA_MENU = 40;
+	public static final byte BACKGROUND_VITORIA_JOGAR = 41;
+	public static final byte CELULAR = 42;
+	public static final byte ROUPA_SUJA = 43;
+	public static final byte LIVRO = 44;
+	public static final byte ABAJUR = 45;
 	
 	public static void carregar() {
 		Imagens.add(BACKGROUND_MENU, new ImageIcon(Carregador.class.getResource("background.png")));
@@ -78,8 +94,27 @@ public class Carregador {
 		Imagens.add(TV_SOM, new ImageIcon(Carregador.class.getResource("televisao_som.png")));
 		Imagens.add(RADIO, new ImageIcon(Carregador.class.getResource("radio.png")));
 		Imagens.add(VIDEOGAME, new ImageIcon(Carregador.class.getResource("videogame.png")));
-
-
+		
+		Imagens.add(BACKGROUND_COZINHA, new ImageIcon(Carregador.class.getResource("background_cozinha.png")));
+		Imagens.add(PIA, new ImageIcon(Carregador.class.getResource("pia.png")));
+		Imagens.add(ARMARIO_1, new ImageIcon(Carregador.class.getResource("armario1.png")));
+		Imagens.add(FOGAO, new ImageIcon(Carregador.class.getResource("fogao.png")));
+		Imagens.add(LOUCA, new ImageIcon(Carregador.class.getResource("louca.png")));
+		Imagens.add(FRIGIDEIRA, new ImageIcon(Carregador.class.getResource("frigideira.png")));
+		
+		Imagens.add(BACKGROUND_QUARTO, new ImageIcon(Carregador.class.getResource("background_quarto.png")));
+		Imagens.add(CAMA_1, new ImageIcon(Carregador.class.getResource("cama1.png")));
+		Imagens.add(CAMA_2, new ImageIcon(Carregador.class.getResource("cama2.png")));
+		Imagens.add(CAMA_3, new ImageIcon(Carregador.class.getResource("cama3.png")));
+		Imagens.add(CAMA_4, new ImageIcon(Carregador.class.getResource("cama4.png")));
+		Imagens.add(DESKTOP, new ImageIcon(Carregador.class.getResource("desktop.png")));
+		
+		Imagens.add(BACKGROUND_VITORIA_MENU, new ImageIcon(Carregador.class.getResource("vitoria_menu.png")));
+		Imagens.add(BACKGROUND_VITORIA_JOGAR, new ImageIcon(Carregador.class.getResource("vitoria_jogar.png")));
+		
+		Imagens.add(CELULAR, new ImageIcon(Carregador.class.getResource("celular.png")));
+		Imagens.add(ROUPA_SUJA, new ImageIcon(Carregador.class.getResource("roupasuja.png")));
+		Imagens.add(LIVRO, new ImageIcon(Carregador.class.getResource("livro.png")));
+		Imagens.add(ABAJUR, new ImageIcon(Carregador.class.getResource("abajur.png")));
 	}
-
 }

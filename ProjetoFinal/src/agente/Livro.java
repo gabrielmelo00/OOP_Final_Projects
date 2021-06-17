@@ -8,36 +8,36 @@ import javax.swing.ImageIcon;
 import jogo.Comodo;
 import jogo.midia.Carregador;
 
-public class Bola extends Agente{
-	
-	private Image imgBola;
+public class Livro extends Agente {
+
+	private Image imgLivro;
 	private Comodo meuComodo;
 	private int contadorTempoCelula;
-	
 
-	public Bola(int i, int j, int escala, Comodo meuComodo, int ciclos) {
+	public Livro(int i, int j, int escala, Comodo meuComodo, int ciclos) {
 		super(i, j, escala, 'V', ciclos);
 		this.meuComodo = meuComodo;
 		contadorTempoCelula = 0;
-		imgBola = new ImageIcon(Carregador.Imagens.get(Carregador.BOLA).getImage().getScaledInstance(escala,escala, 1)).getImage();
+		imgLivro = new ImageIcon(Carregador.Imagens.get(Carregador.LIVRO).getImage().getScaledInstance(escala,escala, 1)).getImage();
 	}
+
 
 	public void mover() {
 		contadorTempoCelula ++;
 		if(contadorTempoCelula == ciclos) {
 			contadorTempoCelula = 0;
-			meuComodo.retirarCelula(i, j,this);
-			if(meuComodo.inserirCelula(i,j+1, this)) {
-				j = j+1;
+			meuComodo.retirarCelula(i, j, this);
+			if(meuComodo.inserirCelula(i, j-1, this)) {
+				j = j-1;
 			}else {
-				j = meuComodo.inserirCelulaInicioX(i,this);
+				j = meuComodo.inserirCelulaFimX(i, this);
 			}
 		}
 		
 	}
 
 	public Image getImagem() {
-		return imgBola;
+		return imgLivro;
 	}
 
 	public char getTipoAgente() {
@@ -51,7 +51,6 @@ public class Bola extends Agente{
 	public void keyReleased(KeyEvent e) {}
 
 	public void colisao(char tipo) {}
-	
 	
 
 }
