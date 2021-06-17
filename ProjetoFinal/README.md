@@ -2,20 +2,25 @@
 
 ## Descrição Resumida do Projeto/Jogo
 
-> <Descreva resumidamente o jogo e seu propósito.>
+Há quase um ano e meio no EAD, nós estudantes sabemos que um dos maiores desafios do estudo remoto é se manter focado. Na superfície, isso pode parecer uma tarefa fácil, mas assistir aulas em casa é uma tarefa que apresenta vários desafios, como telefonemas inesperados, animais que demandam atenção e pilhas de louça que parecem nunca ter fim.
+
+Com isso em mente, propomos um jogo em que você deve ajudar um estudante a chegar são e salvo no seu computador para assistir uma aula. Para isso ele deve atravessar diferentes cômodos da casa, desviando das distrações e obrigações que aparecem pelo caminho.
+	
+A dinâmica do jogo foi inspirado no jogo de Arcade, Frogger. 
 
 ## Equipe
-* `<nome completo>` - `<RA>`
+* Hannah de Oliveira Plath - 198642
+* Gabriel Silva Vieira de Melo - 216474
 
 ## Vídeos do Projeto
 
 ### Vídeo da Prévia
-[Apresentação prévia do projeto](https://drive.google.com/file/d/1SO7CH6iEJi1w_buz3tIoBtMbhdTDB4hw/view?usp=sharing)
+[Apresentação em vídeo da prévia do projeto](https://drive.google.com/file/d/1SO7CH6iEJi1w_buz3tIoBtMbhdTDB4hw/view?usp=sharing)
 
 ## Slides do Projeto
 
 ### Slides da Prévia
-`<Coloque um link para os slides da prévia do projeto.>`
+[Apresentação de slides da prévia do projeto](https://github.com/gabrielmelo00/TrabalhosMC/blob/master/ProjetoFinal/assets/Previa%20Projeto.pdf)
 
 ## Documentação dos Componentes
 
