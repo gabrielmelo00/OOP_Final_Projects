@@ -15,7 +15,7 @@ A dinâmica do jogo foi inspirado no jogo de Arcade, Frogger.
 ## Vídeos do Projeto
 
 ### Vídeo da Prévia
-![Apresentação em vídeo da prévia do projeto](https://drive.google.com/file/d/1SO7CH6iEJi1w_buz3tIoBtMbhdTDB4hw/view?usp=sharing)
+[![Apresentação em vídeo da prévia do projeto](https://drive.google.com/file/d/1SO7CH6iEJi1w_buz3tIoBtMbhdTDB4hw/view?usp=sharing)
 
 ## Slides do Projeto
 
