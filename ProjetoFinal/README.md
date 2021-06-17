@@ -34,7 +34,6 @@ A dinâmica do jogo foi inspirado no jogo de Arcade, Frogger.
 
 ### Componente Framework
 
-> <Resumo do papel do componente e serviços que ele oferece.>
 
 ![ComponenteFramework](https://github.com/gabrielmelo00/TrabalhosMC/blob/master/ProjetoFinal/assets/framework.png)
 
