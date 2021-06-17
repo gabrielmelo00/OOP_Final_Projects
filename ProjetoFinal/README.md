@@ -69,7 +69,7 @@ Para a construção dos diagramas, devem ser usados modelos disponíveis em: [Di
 # Vídeos do Projeto
 
 ## Vídeo da Prévia
-> <Coloque um link para o vídeo da prévia do projeto.>
+[Apresentação prévia do projeto](https://drive.google.com/file/d/1SO7CH6iEJi1w_buz3tIoBtMbhdTDB4hw/view?usp=sharing)
 
 # Slides do Projeto
 
