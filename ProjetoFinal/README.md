@@ -32,11 +32,11 @@ A dinâmica do jogo foi inspirado no jogo de Arcade, Frogger.
 
 ![DiagramaComponente](https://github.com/gabrielmelo00/TrabalhosMC/blob/master/ProjetoFinal/assets/diagrama_compontens_geral.png)
 
-### Componente `<Nome do Componente>`
+### Componente Framework
 
 > <Resumo do papel do componente e serviços que ele oferece.>
 
-![Componente](diagrama-componente.png)
+![ComponenteFramework](https://github.com/gabrielmelo00/TrabalhosMC/blob/master/ProjetoFinal/assets/framework.png)
 
 **Ficha Técnica**
 item | detalhamento
@@ -57,6 +57,59 @@ Interface agregadora do componente em Java:
 public interface IDataSet extends ITableProducer, IDataSetProperties {
 }
 ~~~
+
+### Componente Jogo
+
+> <Resumo do papel do componente e serviços que ele oferece.>
+
+![ComponenteJogo](https://github.com/gabrielmelo00/TrabalhosMC/blob/master/ProjetoFinal/assets/jogo.png)
+
+**Ficha Técnica**
+item | detalhamento
+----- | -----
+Classe | `<caminho completo da classe com pacotes>` <br> Exemplo: `pt.c08componentes.s20catalog.s10ds.DataSetComponent`
+Autores | `<nome dos membros que criaram o componente>`
+Interfaces | `<listagem das interfaces do componente>`
+
+#### Interfaces
+
+Interfaces associadas a esse componente:
+
+![Diagrama Interfaces](diagrama-interfaces.png)
+
+Interface agregadora do componente em Java:
+
+~~~java
+public interface IDataSet extends ITableProducer, IDataSetProperties {
+}
+~~~
+
+### Componente Agente
+
+> <Resumo do papel do componente e serviços que ele oferece.>
+
+![Componente](https://github.com/gabrielmelo00/TrabalhosMC/blob/master/ProjetoFinal/assets/agente.png)
+
+**Ficha Técnica**
+item | detalhamento
+----- | -----
+Classe | `<caminho completo da classe com pacotes>` <br> Exemplo: `pt.c08componentes.s20catalog.s10ds.DataSetComponent`
+Autores | `<nome dos membros que criaram o componente>`
+Interfaces | `<listagem das interfaces do componente>`
+
+#### Interfaces
+
+Interfaces associadas a esse componente:
+
+![Diagrama Interfaces](diagrama-interfaces.png)
+
+Interface agregadora do componente em Java:
+
+~~~java
+public interface IDataSet extends ITableProducer, IDataSetProperties {
+}
+~~~
+
 
 ### Detalhamento das Interfaces
 
