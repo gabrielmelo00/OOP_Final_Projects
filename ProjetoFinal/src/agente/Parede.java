@@ -1,22 +1,21 @@
 package agente;
 
-import java.awt.Image;
 import java.awt.event.KeyEvent;
+import java.awt.Image;
 
-
-public class Transparente extends Agente{
+public class Parede extends Agente{
 	
-
-	public Transparente(int i, int j, int escala) {
-		super(i, j, 0,'V', 0);
+	public Parede(int i, int j, Image img) {
+		super(i, j, 'P', 0, img);
+		this.img = img;
 	}
 
 	public void mover() {}
 
 	public Image getImagem() {
-		return null;
+		return img;
 	}
-
+	
 	public char getTipoAgente() {
 		return tipoAgente;
 	}
@@ -28,5 +27,7 @@ public class Transparente extends Agente{
 	public void keyReleased(KeyEvent e) {}
 
 	public void colisao(char tipo) {}
+
+	
 
 }

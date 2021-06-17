@@ -2,28 +2,20 @@ package agente;
 
 import java.awt.Image;
 import java.awt.event.KeyEvent;
-
-import javax.swing.ImageIcon;
-
 import jogo.Comodo;
-import jogo.midia.Carregador;
+
 
 public class Objetivo extends Agente{
 
-	private Image imgObjetivo;
-	private Comodo meuComodo;
-
-	Objetivo(int i, int j, int escala, Comodo meuComodo, int velocidade) {
-		super(i,j,escala,'O', velocidade);
-		this.meuComodo = meuComodo;
-		imgObjetivo = new ImageIcon(Carregador.Imagens.get(Carregador.OBJETIVO).getImage().getScaledInstance(escala, escala, 1)).getImage();
+	Objetivo(int i, int j, Comodo meuComodo, int velocidade, Image img) {
+		super(i,j,'O', velocidade, img);
 	}
 
 
 	public void mover() {}
 
 	public Image getImagem() {
-		return imgObjetivo;
+		return img;
 	}
 
 

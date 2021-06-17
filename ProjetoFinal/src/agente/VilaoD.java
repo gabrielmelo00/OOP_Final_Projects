@@ -2,23 +2,17 @@ package agente;
 
 import java.awt.Image;
 import java.awt.event.KeyEvent;
-
-import javax.swing.ImageIcon;
-
 import jogo.Comodo;
-import jogo.midia.Carregador;
 
-public class Videogame extends Agente{
-
-	private Image imgVideogame;
+public class VilaoD extends Agente{
+	
 	private Comodo meuComodo;
 	private int contadorTempoCelula;
 
-	public Videogame(int i, int j, int escala, Comodo meuComodo, int ciclos) {
-		super(i, j, escala, 'V', ciclos);
+	public VilaoD(int i, int j,  Comodo meuComodo, int ciclos, Image img) {
+		super(i, j,  'V', ciclos, img);
 		this.meuComodo = meuComodo;
 		contadorTempoCelula = 0;
-		imgVideogame = new ImageIcon(Carregador.Imagens.get(Carregador.VIDEOGAME).getImage().getScaledInstance(escala,escala, 1)).getImage();
 	}
 
 	public void mover() {
@@ -26,17 +20,16 @@ public class Videogame extends Agente{
 		if(contadorTempoCelula == ciclos) {
 			contadorTempoCelula = 0;
 			meuComodo.retirarCelula(i, j,this);
-			if(meuComodo.inserirCelula(i,j-1, this)) {
-				j = j-1;
+			if(meuComodo.inserirCelula(i,j+1, this)) {
+				j = j+1;
 			}else {
-				j = meuComodo.inserirCelulaFimX(i,this);
+				j = meuComodo.inserirCelulaInicioX(i,this);
 			}
-		}		
+		}
 	}
 
-
 	public Image getImagem() {
-		return imgVideogame;
+		return img;
 	}
 
 	public char getTipoAgente() {

@@ -17,8 +17,7 @@ public class Motor implements IRJogo{
 	private Timer timer;
 	private Comandos teclado;
 
-	public Motor() {
-		
+	public Motor() {		
 		janela = new GerenciadorJanela("NOME DO JOGO");
 		gerenciadorModo = new GerenciadorModos();
 		timer = new Timer(20, new LoopJogo());

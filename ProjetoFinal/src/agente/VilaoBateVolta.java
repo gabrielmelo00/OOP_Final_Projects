@@ -3,24 +3,19 @@ package agente;
 import java.awt.Image;
 import java.awt.event.KeyEvent;
 
-import javax.swing.ImageIcon;
-
 import jogo.Comodo;
-import jogo.midia.Carregador;
 
-public class Abajur extends Agente {
-
-	private Image imgAbajur;
+public class VilaoBateVolta extends Agente{
+	
 	private Comodo meuComodo;
 	private int contadorTempoCelula;
 	private int estado;
 
-	public Abajur(int i, int j, int escala, Comodo meuComodo, int ciclos) {
-		super(i, j, escala, 'V', ciclos);
+	public VilaoBateVolta(int i, int j, Comodo meuComodo, int ciclos, Image img) {
+		super(i, j, 'V', ciclos, img);
 		this.meuComodo = meuComodo;
 		contadorTempoCelula = 0;
 		estado = 0;
-		imgAbajur = new ImageIcon(Carregador.Imagens.get(Carregador.ABAJUR).getImage().getScaledInstance(escala,escala, 1)).getImage();
 	}
 
 	public void mover() {
@@ -47,11 +42,10 @@ public class Abajur extends Agente {
 			}
 			
 		}
-		
 	}
 
 	public Image getImagem() {
-		return imgAbajur;
+		return img;
 	}
 
 	public char getTipoAgente() {

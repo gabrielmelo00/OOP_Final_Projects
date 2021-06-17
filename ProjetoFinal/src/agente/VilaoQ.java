@@ -2,28 +2,21 @@ package agente;
 
 import java.awt.Image;
 import java.awt.event.KeyEvent;
-import java.util.Random;
-
-import javax.swing.ImageIcon;
 
 import jogo.Comodo;
-import jogo.midia.Carregador;
 
-public class Pipoca extends Agente{
+public class VilaoQ extends Agente{
 	
-	private Image imgPipoca;
 	private Comodo meuComodo;
 	private int contadorTempoCelula;
 	private int estado;
 
-	public Pipoca(int i, int j, int escala, Comodo meuComodo, int ciclos) {
-		super(i, j, escala, 'V', ciclos);
+	public VilaoQ(int i, int j, Comodo meuComodo, int ciclos, Image img) {
+		super(i, j, 'V', ciclos, img);
 		this.meuComodo = meuComodo;
 		contadorTempoCelula = 0;
 		estado = 0;
-		imgPipoca = new ImageIcon(Carregador.Imagens.get(Carregador.PIPOCA).getImage().getScaledInstance(escala,escala, 1)).getImage();	
-	}	
-	
+	}
 
 	public void mover() {
 		contadorTempoCelula ++;
@@ -61,13 +54,10 @@ public class Pipoca extends Agente{
 			}
 			
 		}
-		
 	}
-	
-	
 
 	public Image getImagem() {
-		return imgPipoca;
+		return img;
 	}
 
 	public char getTipoAgente() {

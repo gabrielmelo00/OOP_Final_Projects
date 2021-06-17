@@ -3,36 +3,29 @@ package agente;
 import java.awt.Image;
 import java.awt.event.KeyEvent;
 
-import javax.swing.ImageIcon;
-
 import jogo.Comodo;
-import jogo.midia.Carregador;
 
-public class Maca extends Agente{
+public class VilaoDuploDinamico extends Agente{
 	
-	private Image maca;
-	private Image macaLagarta;
-	private Image img;
+	private Image img1;
+	private Image img2;
 	private int contadorTempoCelula;
-	private Comodo meuComodo;
-	
-	private Lagarta lagarta;
-	
 	private int estado;
+	private Comodo meuComodo;
+	private Agente transparente;
 	
-	
-	
-	Maca(int i, int j, int escala, Comodo meuComodo, int ciclos){
-		super(i,j,escala,'V', ciclos);
+
+	public VilaoDuploDinamico(int i, int j, Comodo meuComodo, int ciclos, Image img1, Image img2) {
+		super(i, j, 'V', ciclos, null);
 		this.meuComodo = meuComodo;
+		this.img1 = img1;
+		this.img2 = img2;
 		contadorTempoCelula = 0;
 		estado = 0;
-		maca = new ImageIcon(Carregador.Imagens.get(Carregador.MACA).getImage().getScaledInstance(escala,escala, 1)).getImage();
-		macaLagarta = new ImageIcon(Carregador.Imagens.get(Carregador.MACA_LAGARTA).getImage().getScaledInstance(2*escala,escala, 1)).getImage();
-		img = maca;
-		lagarta = new Lagarta(escala);
+		img = img1;
+		transparente = new VilaoTransparente(i, j);
+		
 	}
-	
 
 	public void mover() {
 		contadorTempoCelula ++;
@@ -42,26 +35,26 @@ public class Maca extends Agente{
 				meuComodo.retirarCelula(i,j, this);
 				j++;
 				if(estado == 0) {
-					meuComodo.inserirCelula(i,j+1, lagarta);
+					meuComodo.inserirCelula(i,j+1, transparente);
 					estado =1;
-					img = macaLagarta;
+					img = img2;
 				}else {
-					meuComodo.retirarCelula(i,j, lagarta);
-					img = maca;
+					meuComodo.retirarCelula(i,j, transparente);
+					img = img1;
 					estado = 0;
 				}
 			}else {
 				meuComodo.retirarCelula(i, j,this);
 				if(estado == 0) {
 					j = meuComodo.inserirCelulaInicioX(i, this);
-					meuComodo.inserirCelula(i,  j+1,  lagarta);
+					meuComodo.inserirCelula(i,  j+1,  transparente);
 					estado = 1;
-					img = macaLagarta;
+					img = img2;
 				}else {
-					meuComodo.retirarCelula(i, j+1, lagarta);
+					meuComodo.retirarCelula(i, j+1, transparente);
 					j = meuComodo.inserirCelulaInicioX(i, this);
 					estado = 0;
-					img = maca;
+					img = img1;
 				}
 				
 				
@@ -85,7 +78,5 @@ public class Maca extends Agente{
 	public void keyReleased(KeyEvent e) {}
 
 	public void colisao(char tipo) {}
-	
-	
 
 }

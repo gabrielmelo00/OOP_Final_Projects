@@ -2,22 +2,17 @@ package agente;
 
 import java.awt.Image;
 import java.awt.event.KeyEvent;
-
-import javax.swing.ImageIcon;
-
-
 import jogo.Comodo;
-import jogo.midia.Carregador;
+
 
 public class Estudante extends Agente{
 	
-	private Image imgEstudante;
 	private Comodo meuComodo;
 	private static Estudante instanciaEstudante = new Estudante();
 	private int tempo;
 	
 	private Estudante() {
-		super(0,0,65,'E', 0);
+		super(0,0,'E', 0, null);
 		tempo = 0;
 	}
 	
@@ -25,12 +20,11 @@ public class Estudante extends Agente{
 		return instanciaEstudante;
 	}
 	
-	public void setParametros(int i, int j, int escala, Comodo meuComodo) {
+	public void setParametros(int i, int j, Comodo meuComodo, Image img) {
 		this.i = i;
 		this.j = j;
-		this.escala = escala;
 		this.meuComodo = meuComodo;
-		imgEstudante = new ImageIcon(Carregador.Imagens.get(Carregador.ESTUDANTE).getImage().getScaledInstance(escala, escala, 1)).getImage();
+		this.img = img;
 	}
 	
 	public void mover() {
@@ -45,7 +39,7 @@ public class Estudante extends Agente{
 
 
 	public Image getImagem() {
-		return imgEstudante;
+		return img;
 	}
 
 	public char getTipoAgente() {

@@ -1,8 +1,16 @@
 package agente;
 
+import java.awt.Image;
+
+import javax.swing.ImageIcon;
+
 import jogo.Comodo;
+import jogo.midia.Carregador;
 
 public class FabricaAgente implements IFabricaAgente{
+	
+		private Image img;
+		private Image img2;
 	
 	public Agente retornaAgente(String nomeAgente, int i, int j, int escala, int ciclos, Comodo meuComodo) {
 		if(nomeAgente == null) {
@@ -10,62 +18,116 @@ public class FabricaAgente implements IFabricaAgente{
 		}
 		
 		if(nomeAgente.equals("MACA")) {
-			return new Maca(i, j, escala, meuComodo, ciclos);
+			img = new ImageIcon(Carregador.Imagens.get(Carregador.MACA).getImage().getScaledInstance(escala,escala, 1)).getImage();
+			img2 = new ImageIcon(Carregador.Imagens.get(Carregador.MACA_LAGARTA).getImage().getScaledInstance(2*escala,escala, 1)).getImage();
+			return new VilaoDuploDinamico(i, j, meuComodo, ciclos, img, img2);
+			
 		}else if(nomeAgente.equals("ESTUDANTE")){
+			img = new ImageIcon(Carregador.Imagens.get(Carregador.ESTUDANTE).getImage().getScaledInstance(escala,escala, 1)).getImage();
 			Estudante aux = Estudante.getInstancia();
-			aux.setParametros(i, j, escala, meuComodo);
+			aux.setParametros(i, j, meuComodo, img);
 			return aux;
+			
 		}else if(nomeAgente.equals("OBJETIVO")){
-			return new Objetivo(i, j, escala, meuComodo, ciclos);
+			img = new ImageIcon(Carregador.Imagens.get(Carregador.OBJETIVO).getImage().getScaledInstance(escala,escala, 1)).getImage();
+			return new Objetivo(i, j, meuComodo, ciclos, img);
+			
 		}else if(nomeAgente.equals("CACHORRO")){
-			return new Cachorro(i,j,escala, meuComodo, ciclos);
+			img = new ImageIcon(Carregador.Imagens.get(Carregador.CACHORRO).getImage().getScaledInstance(escala,escala, 1)).getImage();
+			return new VilaoE(i,j, meuComodo, ciclos, img);
+			
 		}else if(nomeAgente.equals("BOLA")){
-			return new Bola(i, j, escala, meuComodo, ciclos);
+			img = new ImageIcon(Carregador.Imagens.get(Carregador.BOLA).getImage().getScaledInstance(escala,escala, 1)).getImage();
+			return new VilaoD(i, j, meuComodo, ciclos, img);
+			
 		}else if(nomeAgente.equals("GATO")){
-			return new Gato(i,j,escala,meuComodo, ciclos);
+			img = new ImageIcon(Carregador.Imagens.get(Carregador.GATO).getImage().getScaledInstance(escala,escala, 1)).getImage();
+			return new VilaoE(i,j,meuComodo, ciclos, img);
+			
 		}else if(nomeAgente.equals("MANGUEIRA")){
-			return new Mangueira(i,j,escala,meuComodo, ciclos);
+			img = new ImageIcon(Carregador.Imagens.get(Carregador.MANGUEIRA).getImage().getScaledInstance(2*escala,escala, 1)).getImage();
+			return new VilaoDuploEstatico(i,j,meuComodo, ciclos, img);
+			
 		}else if(nomeAgente.equals("CERCA")){
-			return new Cerca(i,j,escala);
+			img = new ImageIcon(Carregador.Imagens.get(Carregador.CERCA).getImage().getScaledInstance(escala,escala, 1)).getImage();
+			return new Parede(i,j,img);
+			
 		}else if(nomeAgente.equals("PIPOCA")){
-			return new Pipoca(i,j,escala,meuComodo,ciclos);
+			img = new ImageIcon(Carregador.Imagens.get(Carregador.PIPOCA).getImage().getScaledInstance(escala,escala, 1)).getImage();
+			return new VilaoQ(i,j,meuComodo,ciclos, img);
+			
 		}else if(nomeAgente.equals("TELEVISAO")){
-			return new Televisao(i,j,escala,meuComodo,ciclos);
+			img = new ImageIcon(Carregador.Imagens.get(Carregador.TV).getImage().getScaledInstance(escala,escala, 1)).getImage();
+			img2 = new ImageIcon(Carregador.Imagens.get(Carregador.TV_SOM).getImage().getScaledInstance(2*escala,escala, 1)).getImage();
+			return new VilaoDuploDinamico(i, j, meuComodo, ciclos, img, img2);
+			
 		}else if(nomeAgente.equals("RADIO")){
-			return new Radio(i,j,escala,meuComodo,ciclos);
+			img = new ImageIcon(Carregador.Imagens.get(Carregador.RADIO).getImage().getScaledInstance(escala,escala, 1)).getImage();
+			return new VilaoD(i,j,meuComodo,ciclos, img);
+			
 		}else if(nomeAgente.equals("VIDEOGAME")){
-			return new Videogame(i,j,escala,meuComodo,ciclos);
+			img = new ImageIcon(Carregador.Imagens.get(Carregador.VIDEOGAME).getImage().getScaledInstance(escala,escala, 1)).getImage();
+			return new VilaoE(i,j,meuComodo,ciclos, img);
+			
 		}else if(nomeAgente.equals("PIA")){
-			return new Pia(i,j,escala);
+			img = new ImageIcon(Carregador.Imagens.get(Carregador.PIA).getImage().getScaledInstance(escala,escala, 1)).getImage();
+			return new Parede(i,j,img);
+			
 		}else if(nomeAgente.equals("FOGAO")){
-			return new Fogao(i,j,escala);
+			img = new ImageIcon(Carregador.Imagens.get(Carregador.FOGAO).getImage().getScaledInstance(escala,escala, 1)).getImage();
+			return new Parede(i,j,img);
+			
 		}else if(nomeAgente.equals("ARMARIO")){
-			return new Armario(i,j,escala); 
+			img = new ImageIcon(Carregador.Imagens.get(Carregador.ARMARIO).getImage().getScaledInstance(escala,escala, 1)).getImage();
+			return new Parede(i,j,img); 
+			
 		}else if(nomeAgente.equals("FRIGIDEIRA")){
-			return new Frigideira(i,j,escala, meuComodo, ciclos);
+			img = new ImageIcon(Carregador.Imagens.get(Carregador.FRIGIDEIRA).getImage().getScaledInstance(escala,escala, 1)).getImage();
+			return new VilaoE(i,j, meuComodo, ciclos, img);
+			
 		}else if(nomeAgente.equals("LOUCA")){
-			return new Louca(i,j,escala, meuComodo, ciclos);
+			img = new ImageIcon(Carregador.Imagens.get(Carregador.LOUCA).getImage().getScaledInstance(escala,escala, 1)).getImage();
+			return new VilaoE(i,j, meuComodo, ciclos, img);
+			
 		}else if(nomeAgente.equals("CAMA_1")){
-			return new Cama(i,j,escala,1);
+			img = new ImageIcon(Carregador.Imagens.get(Carregador.CAMA_1).getImage().getScaledInstance(escala,escala, 1)).getImage();
+			return new Parede(i,j,img);
+			
 		}else if(nomeAgente.equals("CAMA_2")){
-			return new Cama(i,j,escala,2);
+			img = new ImageIcon(Carregador.Imagens.get(Carregador.CAMA_2).getImage().getScaledInstance(escala,escala, 1)).getImage();
+			return new Parede(i,j,img);
+			
 		}else if(nomeAgente.equals("CAMA_3")){
-			return new Cama(i,j,escala,3);
+			img = new ImageIcon(Carregador.Imagens.get(Carregador.CAMA_3).getImage().getScaledInstance(escala,escala, 1)).getImage();
+			return new Parede(i,j,img);
+			
 		}else if(nomeAgente.equals("CAMA_4")){
-			return new Cama(i,j,escala,4);
+			img = new ImageIcon(Carregador.Imagens.get(Carregador.CAMA_4).getImage().getScaledInstance(escala,escala, 1)).getImage();
+			return new Parede(i,j,img);
+			
 		}else if(nomeAgente.equals("DESKTOP")){
-			return new Desktop(i,j,escala);
+			img = new ImageIcon(Carregador.Imagens.get(Carregador.DESKTOP).getImage().getScaledInstance(escala,escala, 1)).getImage();
+			return new Parede(i,j,img);
+			
 		}else if(nomeAgente.equals("CELULAR")){
-			return new Celular(i, j, escala, meuComodo, ciclos);
+			img = new ImageIcon(Carregador.Imagens.get(Carregador.CELULAR).getImage().getScaledInstance(escala,escala, 1)).getImage();
+			return new VilaoBateVolta(i,j,meuComodo, ciclos, img);
+			
 		}else if(nomeAgente.equals("ROUPA_SUJA")){
-			return new RoupaSuja(i, j, escala, meuComodo, ciclos);
+			img = new ImageIcon(Carregador.Imagens.get(Carregador.ROUPA_SUJA).getImage().getScaledInstance(escala,escala, 1)).getImage();
+			return new VilaoD(i, j, meuComodo, ciclos, img);
+			
 		}else if(nomeAgente.equals("LIVRO")){
-			return new Livro(i, j, escala, meuComodo, ciclos);
+			img = new ImageIcon(Carregador.Imagens.get(Carregador.LIVRO).getImage().getScaledInstance(escala,escala, 1)).getImage();
+			return new VilaoE(i, j, meuComodo, ciclos, img);
+			
 		}else if(nomeAgente.equals("ABAJUR")){
-			return new Abajur(i, j, escala, meuComodo, ciclos);
+			img = new ImageIcon(Carregador.Imagens.get(Carregador.ABAJUR).getImage().getScaledInstance(escala,escala, 1)).getImage();
+			return new VilaoBateVolta(i,j,meuComodo, ciclos, img);
 		}else{
 			return null;
 		}
 	}
+	
 
 }

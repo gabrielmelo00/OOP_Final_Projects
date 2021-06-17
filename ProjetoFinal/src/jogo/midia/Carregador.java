@@ -39,7 +39,7 @@ public class Carregador {
 	public static final byte VIDEOGAME = 27;
 	public static final byte BACKGROUND_COZINHA = 28;
 	public static final byte PIA = 29;
-	public static final byte ARMARIO_1 = 30;
+	public static final byte ARMARIO = 30;
 	public static final byte FOGAO = 31;
 	public static final byte LOUCA = 32;
 	public static final byte FRIGIDEIRA = 33;
@@ -97,7 +97,7 @@ public class Carregador {
 		
 		Imagens.add(BACKGROUND_COZINHA, new ImageIcon(Carregador.class.getResource("background_cozinha.png")));
 		Imagens.add(PIA, new ImageIcon(Carregador.class.getResource("pia.png")));
-		Imagens.add(ARMARIO_1, new ImageIcon(Carregador.class.getResource("armario1.png")));
+		Imagens.add(ARMARIO, new ImageIcon(Carregador.class.getResource("armario1.png")));
 		Imagens.add(FOGAO, new ImageIcon(Carregador.class.getResource("fogao.png")));
 		Imagens.add(LOUCA, new ImageIcon(Carregador.class.getResource("louca.png")));
 		Imagens.add(FRIGIDEIRA, new ImageIcon(Carregador.class.getResource("frigideira.png")));

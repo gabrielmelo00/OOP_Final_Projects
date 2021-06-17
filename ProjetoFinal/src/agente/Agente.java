@@ -9,16 +9,16 @@ public abstract class Agente {
 	protected int i;
 	protected int j;
 	protected int ciclos;
-	protected int escala;
 	protected char tipoAgente;
+	protected Image img;
 	
 	
-	public Agente(int i, int j, int escala, char tipoAgente, int ciclos) {
+	public Agente(int i, int j, char tipoAgente, int ciclos, Image img) {
 		this.i = i;
 		this.j = j;
-		this.escala = escala;
 		this.tipoAgente = tipoAgente;
 		this.ciclos = ciclos;
+		this.img = img;
 	}
   
 	public abstract void mover();

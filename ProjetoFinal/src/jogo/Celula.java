@@ -28,7 +28,6 @@ public class Celula {
 
 	public boolean adicionaAgente(Agente agente) {
 		if(agente != null) {
-			//Hannah, concorda???
 			if(agente.getTipoAgente() == 'P') {
 				parede = true;
 				meusAgentes.add(agente);

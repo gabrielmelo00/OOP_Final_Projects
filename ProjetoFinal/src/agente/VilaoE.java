@@ -3,27 +3,17 @@ package agente;
 import java.awt.Image;
 import java.awt.event.KeyEvent;
 
-import javax.swing.ImageIcon;
-
 import jogo.Comodo;
-import jogo.midia.Carregador;
 
-public class Cachorro extends Agente{
+public class VilaoE extends Agente{
 	
-	private Image cachorro;
-	private Image cachorro_2;
 	private Comodo meuComodo;
 	private int contadorTempoCelula;
-	private int estado;
-	
 
-	public Cachorro(int i, int j, int escala, Comodo meuComodo, int ciclos) {
-		super(i, j, escala, 'V', ciclos);
+	public VilaoE(int i, int j,Comodo meuComodo, int ciclos, Image img) {
+		super(i, j, 'V', ciclos, img);
 		this.meuComodo = meuComodo;
 		contadorTempoCelula = 0;
-		estado = 0;
-		cachorro = new ImageIcon(Carregador.Imagens.get(Carregador.CACHORRO).getImage().getScaledInstance(escala,escala, 1)).getImage();
-		cachorro_2 = new ImageIcon(Carregador.Imagens.get(Carregador.CACHORRO_2).getImage().getScaledInstance(escala,escala, 1)).getImage();
 	}
 
 	public void mover() {
@@ -36,21 +26,11 @@ public class Cachorro extends Agente{
 			}else {
 				j = meuComodo.inserirCelulaFimX(i, this);
 			}
-			if(estado == 0) {
-				estado = 1;
-			}else {
-				estado = 0;
-			}
 		}
-		
 	}
 
 	public Image getImagem() {
-		if(estado == 0) {
-			return cachorro;
-		}else {
-			return cachorro_2;
-		}
+		return img;
 	}
 
 	public char getTipoAgente() {
