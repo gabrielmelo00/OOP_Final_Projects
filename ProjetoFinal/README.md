@@ -49,7 +49,7 @@ Interfaces | `<listagem das interfaces do componente>`
 
 Interfaces associadas a esse componente:
 
-![Diagrama Interfaces](diagrama-interfaces.png)
+![Diagrama Interfaces](https://github.com/gabrielmelo00/TrabalhosMC/blob/master/ProjetoFinal/assets/InterfaceFramework.png)
 
 Interface agregadora do componente em Java:
 
@@ -75,7 +75,7 @@ Interfaces | `<listagem das interfaces do componente>`
 
 Interfaces associadas a esse componente:
 
-![Diagrama Interfaces](diagrama-interfaces.png)
+![Diagrama Interfaces](https://github.com/gabrielmelo00/TrabalhosMC/blob/master/ProjetoFinal/assets/InterfaceJogo.png)
 
 Interface agregadora do componente em Java:
 
@@ -101,7 +101,7 @@ Interfaces | `<listagem das interfaces do componente>`
 
 Interfaces associadas a esse componente:
 
-![Diagrama Interfaces](diagrama-interfaces.png)
+![Diagrama Interfaces](https://github.com/gabrielmelo00/TrabalhosMC/blob/master/ProjetoFinal/assets/InterfaceAgente.png)
 
 Interface agregadora do componente em Java:
 
