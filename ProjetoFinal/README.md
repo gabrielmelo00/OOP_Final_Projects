@@ -40,9 +40,9 @@ A dinâmica do jogo foi inspirado no jogo de Arcade, Frogger.
 **Ficha Técnica**
 item | detalhamento
 ----- | -----
-Classe | `<caminho completo da classe com pacotes>` <br> Exemplo: `pt.c08componentes.s20catalog.s10ds.DataSetComponent`
-Autores | `<nome dos membros que criaram o componente>`
-Interfaces | `<listagem das interfaces do componente>`
+Classe | jogo.Motor
+Autores | Hannah e Gabriel
+Interfaces | IRJogo
 
 #### Interfaces
 
@@ -53,7 +53,7 @@ Interfaces associadas a esse componente:
 Interface agregadora do componente em Java:
 
 ~~~java
-public interface IDataSet extends ITableProducer, IDataSetProperties {
+public interface IRJogo {
 }
 ~~~
 
@@ -66,9 +66,9 @@ public interface IDataSet extends ITableProducer, IDataSetProperties {
 **Ficha Técnica**
 item | detalhamento
 ----- | -----
-Classe | `<caminho completo da classe com pacotes>` <br> Exemplo: `pt.c08componentes.s20catalog.s10ds.DataSetComponent`
-Autores | `<nome dos membros que criaram o componente>`
-Interfaces | `<listagem das interfaces do componente>`
+Classe | jogo.MenuPrincipal
+Autores | Hannah e Gabriel
+Interfaces | IJogo
 
 #### Interfaces
 
@@ -79,7 +79,7 @@ Interfaces associadas a esse componente:
 Interface agregadora do componente em Java:
 
 ~~~java
-public interface IDataSet extends ITableProducer, IDataSetProperties {
+public interface IJogo{
 }
 ~~~
 
@@ -92,9 +92,9 @@ public interface IDataSet extends ITableProducer, IDataSetProperties {
 **Ficha Técnica**
 item | detalhamento
 ----- | -----
-Classe | `<caminho completo da classe com pacotes>` <br> Exemplo: `pt.c08componentes.s20catalog.s10ds.DataSetComponent`
-Autores | `<nome dos membros que criaram o componente>`
-Interfaces | `<listagem das interfaces do componente>`
+Classe | agente.FabricaAgente
+Autores | Hannah e Gabriel
+Interfaces | IFabricaAgente
 
 #### Interfaces
 
@@ -105,25 +105,61 @@ Interfaces associadas a esse componente:
 Interface agregadora do componente em Java:
 
 ~~~java
-public interface IDataSet extends ITableProducer, IDataSetProperties {
+public interface IFabricaAgente {
 }
 ~~~
 
 
 ### Detalhamento das Interfaces
 
-#### Interface `<nome da interface>`
+#### Interface IFabricaAgente 
 
 `<Resumo do papel da interface.>`
 
 ~~~
-<Interface em Java.>
+public interface IFabricaAgente {
+	
+	Agente retornaAgente(String nomeAgente, int i, int j, int escala, int velocidade, Comodo meuComodo);
+}
+
 ~~~
 
 Método | Objetivo
 -------| --------
 `<id do método em Java>` | `<objetivo do método e descrição dos parâmetros>`
 
+#### Interface IRJogo
+
+`<Resumo do papel da interface.>`
+
+~~~
+public interface IRJogo {
+
+	public void conecta(IJogo novoJogo);	
+	public void comecarJogo();
+	
+}
+~~~
+
+Método | Objetivo
+-------| --------
+`<id do método em Java>` | `<objetivo do método e descrição dos parâmetros>`
+
+#### Interface IJogo
+
+`<Resumo do papel da interface.>`
+
+~~~
+public interface IJogo {
+	
+	public Modo retornaJogo();
+
+}
+~~~
+
+Método | Objetivo
+-------| --------
+`<id do método em Java>` | `<objetivo do método e descrição dos parâmetros>`
 ### Exemplo:
 
 #### Interface `ITableProducer`
