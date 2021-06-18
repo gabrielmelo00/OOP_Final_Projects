@@ -131,7 +131,6 @@ Método | Objetivo
 
 Interface provida que retorna um jogo do tipo `Modo` para o solicitante
 
-`<Resumo do papel da interface.>`
 
 ~~~java
 public interface IJogo {
