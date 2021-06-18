@@ -28,7 +28,7 @@ A dinâmica do jogo foi inspirado no jogo de Arcade, Frogger.
 
 ### Diagrama Geral do Projeto
 
-![ComponenteGeral](https://github.com/gabrielmelo00/TrabalhosMC/blob/master/ProjetoFinal/assets/diagramaProjeto.png)
+![ComponenteGeral](https://github.com/gabrielmelo00/TrabalhosMC/blob/master/ProjetoFinal/assets/diagramProjeto.png)
 
 ### Diagrama Geral de Componentes
 
