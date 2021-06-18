@@ -98,7 +98,7 @@ Interfaces associadas a esse componente:
 
 Permite o acesso aos elementos do tipo Agente através de um pattern factory.
 
-~~~
+~~~java
 public interface IFabricaAgente {
 	
 	Agente retornaAgente(String nomeAgente, int i, int j, int escala, int velocidade, Comodo meuComodo);
@@ -114,7 +114,7 @@ Método | Objetivo
 
 Interface requerida que permite que o jogo seja executado.   
 
-~~~
+~~~java
 public interface IRJogo {
 
 	public void conecta(IJogo novoJogo);	
@@ -133,7 +133,7 @@ Interface provida que retorna um jogo do tipo `Modo` para o solicitante
 
 `<Resumo do papel da interface.>`
 
-~~~
+~~~java
 public interface IJogo {
 	
 	public Modo retornaJogo();
