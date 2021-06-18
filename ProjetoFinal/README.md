@@ -73,7 +73,7 @@ Interfaces associadas a esse componente:
 
 ### Componente Agente
 
-> <Resumo do papel do componente e serviços que ele oferece.>
+ 
 
 ![Componente](https://github.com/gabrielmelo00/TrabalhosMC/blob/master/ProjetoFinal/assets/agente.png)
 
@@ -144,11 +144,6 @@ Método | Objetivo
 -------| --------
 `retornaJogo` | Retorna um modo de jogo. 
 
-
-Método | Objetivo
--------| --------
-`getDataSource` | Retorna o caminho da fonte de dados.
-`setDataSource` | Define o caminho da fonte de dados, informado através do parâmetro `dataSource`.
 
 ## Plano de Exceções
 
