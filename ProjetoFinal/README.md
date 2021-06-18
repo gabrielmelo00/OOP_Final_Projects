@@ -34,6 +34,7 @@ A dinâmica do jogo foi inspirado no jogo de Arcade, Frogger.
 
 ### Componente Framework
 
+Encapsula os comandos referentes à escrita na tela, leitura do teclado e comandos ligados ao `timer`. Com isso, ele encaminha esses comandos para as classes responsáveis pela execução da ação.
 
 ![ComponenteFramework](https://github.com/gabrielmelo00/TrabalhosMC/blob/master/ProjetoFinal/assets/framework.png)
 
@@ -53,7 +54,7 @@ Interfaces associadas a esse componente:
 
 ### Componente Jogo
 
-> <Resumo do papel do componente e serviços que ele oferece.>
+Implementa a dinâmica do jogo, sendo responsável pela execução das interações dos objetos do tipo `Agente` com o espaço celular.
 
 ![ComponenteJogo](https://github.com/gabrielmelo00/TrabalhosMC/blob/master/ProjetoFinal/assets/jogo.png)
 
@@ -73,7 +74,12 @@ Interfaces associadas a esse componente:
 
 ### Componente Agente
 
- 
+Implementa o pattern factory. Esse componente é responsável por fornecer ao componente jogo objetos do tipo `Agente`:
+
+* Estudante;
+* Vilão;
+* Parede;
+* Objetivo.
 
 ![Componente](https://github.com/gabrielmelo00/TrabalhosMC/blob/master/ProjetoFinal/assets/agente.png)
 
