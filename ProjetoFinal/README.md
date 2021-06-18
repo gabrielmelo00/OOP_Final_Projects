@@ -50,12 +50,6 @@ Interfaces associadas a esse componente:
 
 ![Diagrama Interfaces](https://github.com/gabrielmelo00/TrabalhosMC/blob/master/ProjetoFinal/assets/InterfaceFramework.png)
 
-Interface agregadora do componente em Java:
-
-~~~java
-public interface IRJogo {
-}
-~~~
 
 ### Componente Jogo
 
@@ -76,12 +70,6 @@ Interfaces associadas a esse componente:
 
 ![Diagrama Interfaces](https://github.com/gabrielmelo00/TrabalhosMC/blob/master/ProjetoFinal/assets/InterfaceJogo.png)
 
-Interface agregadora do componente em Java:
-
-~~~java
-public interface IJogo{
-}
-~~~
 
 ### Componente Agente
 
@@ -102,19 +90,13 @@ Interfaces associadas a esse componente:
 
 ![Diagrama Interfaces](https://github.com/gabrielmelo00/TrabalhosMC/blob/master/ProjetoFinal/assets/InterfaceFabrica.png)
 
-Interface agregadora do componente em Java:
-
-~~~java
-public interface IFabricaAgente {
-}
-~~~
 
 
 ### Detalhamento das Interfaces
 
 #### Interface IFabricaAgente 
 
-`<Resumo do papel da interface.>`
+Permite o acesso aos elementos do tipo Agente através de um pattern factory.
 
 ~~~
 public interface IFabricaAgente {
@@ -126,11 +108,11 @@ public interface IFabricaAgente {
 
 Método | Objetivo
 -------| --------
-`<id do método em Java>` | `<objetivo do método e descrição dos parâmetros>`
+`retornaAgente` | Retorna um objeto do tipo `Agente` de acordo com as especificações. 
 
 #### Interface IRJogo
 
-`<Resumo do papel da interface.>`
+Interface requerida que permite que o jogo seja executado.   
 
 ~~~
 public interface IRJogo {
@@ -143,9 +125,11 @@ public interface IRJogo {
 
 Método | Objetivo
 -------| --------
-`<id do método em Java>` | `<objetivo do método e descrição dos parâmetros>`
-
+`conecta` | Conecta um jogo ao componente Framework.
+`comecarJogo`| Executa os métodos necessários para começar o Jogo.
 #### Interface IJogo
+
+Interface provida que retorna um jogo do tipo `Modo` para o solicitante
 
 `<Resumo do papel da interface.>`
 
@@ -159,35 +143,8 @@ public interface IJogo {
 
 Método | Objetivo
 -------| --------
-`<id do método em Java>` | `<objetivo do método e descrição dos parâmetros>`
-### Exemplo:
+`retornaJogo` | Retorna um modo de jogo. 
 
-#### Interface `ITableProducer`
-
-Interface provida por qualquer fonte de dados que os forneça na forma de uma tabela.
-
-~~~java
-public interface ITableProducer {
-  String[] requestAttributes();
-  String[][] requestInstances();
-}
-~~~
-
-Método | Objetivo
--------| --------
-`requestAttributes` | Retorna um vetor com o nome de todos os atributos (colunas) da tabela.
-`requestInstances` | Retorna uma matriz em que cada linha representa uma instância e cada coluna o valor do respectivo atributo (a ordem dos atributos é a mesma daquela fornecida por `requestAttributes`.
-
-#### Interface `IDataSetProperties`
-
-Define o recurso (usualmente o caminho para um arquivo em disco) que é a fonte de dados.
-
-~~~java
-public interface IDataSetProperties {
-  public String getDataSource();
-  public void setDataSource(String dataSource);
-}
-~~~
 
 Método | Objetivo
 -------| --------
@@ -197,13 +154,11 @@ Método | Objetivo
 ## Plano de Exceções
 
 ### Diagrama da hierarquia de exceções
-`<Elabore um diagrama com a hierarquia de exceções como detalhado abaixo>`
 
 ![Hierarquia Exceções](https://github.com/gabrielmelo00/TrabalhosMC/blob/master/ProjetoFinal/assets/diagramaExcessao.png)
 
 ### Descrição das classes de exceção
 
-`<Monte uma tabela descritiva seguindo o exemplo>:`
 
 Classe | Descrição
 ----- | -----
