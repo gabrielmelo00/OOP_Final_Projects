@@ -20,6 +20,10 @@ public abstract class Agente {
 		this.ciclos = ciclos;
 		this.img = img;
 	}
+	
+	public int getTempo() {
+		return 0;
+	}
   
 	public abstract void mover();
 	public abstract Image getImagem();

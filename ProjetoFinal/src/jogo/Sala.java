@@ -11,6 +11,7 @@ import javax.swing.ImageIcon;
 import agente.Agente;
 import agente.FabricaAgente;
 import agente.IFabricaAgente;
+import excecao.ErroPilhaVazia;
 import jogo.midia.Carregador;
 
 public class Sala extends Comodo {
@@ -165,7 +166,7 @@ public class Sala extends Comodo {
 
 	public void perdeuJogo() {
 		meuGerenciador.removerPilha();
-		meuGerenciador.adicionarPilha(new GameOver());		
+		meuGerenciador.adicionarPilha(new GameOver(estudante.getTempo()));		
 	}
 
 	public void proximoNivel() {

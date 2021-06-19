@@ -6,6 +6,8 @@ import java.awt.event.ActionListener;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
+import excecao.ErroAdicionarTeclado;
+import excecao.ErroPilhaVazia;
 import jogo.IJogo;
 
 
@@ -32,7 +34,14 @@ public class Motor implements IRJogo{
 	public void comecarJogo() {
 		janela.adicionarPainel(new TelaAtual());
 		teclado = new Comandos(gerenciadorModo);
-		janela.adicionarKeyListener(teclado);
+	
+		try{
+			janela.adicionarKeyListener(teclado);
+		}catch(ErroAdicionarTeclado erro) {
+			System.out.println(erro);
+			System.exit(1);
+		}
+		
 		janela.mostrarJanela();
 		timer.start();
 	}
@@ -41,7 +50,13 @@ public class Motor implements IRJogo{
 	private class LoopJogo implements ActionListener {
 
 		public void actionPerformed(ActionEvent e) {
-			gerenciadorModo.loop();
+			try {
+				gerenciadorModo.loop();
+			} catch (ErroPilhaVazia erro) {
+				System.out.println("Erro no Carregamento do Jogo: " + erro.getMessage());
+				timer.stop();
+				System.exit(1);
+			}
 		}
 	}
 	
@@ -52,7 +67,13 @@ public class Motor implements IRJogo{
 		
 		protected void paintComponent(Graphics g) {
 			super.paintComponent(g);		
-			gerenciadorModo.pintarTela(g);
+			try {
+				gerenciadorModo.pintarTela(g);
+			} catch (ErroPilhaVazia erro) {
+				System.out.println("Erro no Carregamento do Jogo: " + erro.getMessage());
+				timer.stop();
+				System.exit(1);
+			}
 			repaint();
 		}
 		

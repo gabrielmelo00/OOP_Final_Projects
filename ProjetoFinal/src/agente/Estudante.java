@@ -31,6 +31,7 @@ public class Estudante extends Agente{
 		tempo++;
 	}
 	
+	@Override
 	public int getTempo() {
 		int aux = tempo;
 		tempo = 0;

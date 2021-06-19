@@ -6,6 +6,8 @@ import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
 import javax.swing.ImageIcon;
+
+import excecao.ErroPilhaVazia;
 import framework.Modo;
 
 

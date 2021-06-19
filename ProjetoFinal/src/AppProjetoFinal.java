@@ -1,4 +1,5 @@
 
+import excecao.ErroImagem;
 import framework.IRJogo;
 import framework.Motor;
 import jogo.IJogo;
@@ -8,13 +9,18 @@ public class AppProjetoFinal {
 	
 	public static void main(String[] args) {
 		
-		
-		
 		IRJogo meuFramework = new Motor();
 		
-		IJogo meuJogo = new MenuPrincipal();
+		try {
+			IJogo meuJogo = new MenuPrincipal();
+			meuFramework.conecta(meuJogo);
+			meuFramework.comecarJogo();
+		}catch(ErroImagem erro) {
+			System.out.println(erro.getMessage());
+			System.out.println("ErroImagem: Nao é possivel carregar jogo!");
+		}
 		
-		meuFramework.conecta(meuJogo);
-		meuFramework.comecarJogo();
+		
+		
 	}
 }

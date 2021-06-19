@@ -2,7 +2,9 @@ package jogo.midia;
 
 import java.util.ArrayList;
 
+
 import javax.swing.ImageIcon;
+import excecao.ErroImagemNaoEncontrada;
 
 public class Carregador {
 	
@@ -56,65 +58,57 @@ public class Carregador {
 	public static final byte LIVRO = 44;
 	public static final byte ABAJUR = 45;
 	
-	public static void carregar() {
-		Imagens.add(BACKGROUND_MENU, new ImageIcon(Carregador.class.getResource("background.png")));
-		Imagens.add(SELECAO_MENU_JOGAR, new ImageIcon(Carregador.class.getResource("selecao_menu_jogar.png")));
-		Imagens.add(SELECAO_MENU_REGRAS, new ImageIcon(Carregador.class.getResource("selecao_menu_regras.png")));	
-		Imagens.add(SELECAO_REGRAS_JOGAR, new ImageIcon(Carregador.class.getResource("selecao_regras_jogar.png")));		
-		
-		Imagens.add(SELECAO_REGRAS_MENU, new ImageIcon(Carregador.class.getResource("selecao_regras_menu.png")));	
-		
-		Imagens.add(BACKGROUND_REGRAS, new ImageIcon(Carregador.class.getResource("background_regras.png")));	
-		Imagens.add(BACKGROUND_JOGO, new ImageIcon(Carregador.class.getResource("background_jogo.png")));	
-		Imagens.add(BACKGROUND_QUINTAL, new ImageIcon(Carregador.class.getResource("background_quintal.png")));	
-		
-		Imagens.add(MACA, new ImageIcon(Carregador.class.getResource("maca.png")));	
-		
-		Imagens.add(ESTUDANTE, new ImageIcon(Carregador.class.getResource("carinhaFeliz.png")));	
-		
-		Imagens.add(BACKGROUND_GAMEOVER_MENU, new ImageIcon(Carregador.class.getResource("gameover_menu.png")));
-		Imagens.add(BACKGROUND_GAMEOVER_JOGAR, new ImageIcon(Carregador.class.getResource("gameover_jogar.png")));
-		
-		Imagens.add(OBJETIVO, new ImageIcon(Carregador.class.getResource("objetivo.png")));
-		Imagens.add(MACA_LAGARTA, new ImageIcon(Carregador.class.getResource("maca_lagarta.png")));
-		Imagens.add(TRANSPARENTE, new ImageIcon(Carregador.class.getResource("transparente.png")));
-		
-		Imagens.add(CACHORRO, new ImageIcon(Carregador.class.getResource("cachorro.png")));
-		Imagens.add(CACHORRO_2, new ImageIcon(Carregador.class.getResource("cachorro_2.png")));
-		
-		Imagens.add(BOLA, new ImageIcon(Carregador.class.getResource("bola.png")));
-		Imagens.add(GATO, new ImageIcon(Carregador.class.getResource("gato.png")));
-		Imagens.add(GATO_2, new ImageIcon(Carregador.class.getResource("gato_2.png")));
-		Imagens.add(MANGUEIRA, new ImageIcon(Carregador.class.getResource("mangueira.png")));
-		Imagens.add(CERCA, new ImageIcon(Carregador.class.getResource("cerca.png")));
-		
-		Imagens.add(BACKGROUND_SALA, new ImageIcon(Carregador.class.getResource("background_sala.png")));
-		Imagens.add(PIPOCA, new ImageIcon(Carregador.class.getResource("pipoca.png")));
-		Imagens.add(TV, new ImageIcon(Carregador.class.getResource("televisao.png")));
-		Imagens.add(TV_SOM, new ImageIcon(Carregador.class.getResource("televisao_som.png")));
-		Imagens.add(RADIO, new ImageIcon(Carregador.class.getResource("radio.png")));
-		Imagens.add(VIDEOGAME, new ImageIcon(Carregador.class.getResource("videogame.png")));
-		
-		Imagens.add(BACKGROUND_COZINHA, new ImageIcon(Carregador.class.getResource("background_cozinha.png")));
-		Imagens.add(PIA, new ImageIcon(Carregador.class.getResource("pia.png")));
-		Imagens.add(ARMARIO, new ImageIcon(Carregador.class.getResource("armario1.png")));
-		Imagens.add(FOGAO, new ImageIcon(Carregador.class.getResource("fogao.png")));
-		Imagens.add(LOUCA, new ImageIcon(Carregador.class.getResource("louca.png")));
-		Imagens.add(FRIGIDEIRA, new ImageIcon(Carregador.class.getResource("frigideira.png")));
-		
-		Imagens.add(BACKGROUND_QUARTO, new ImageIcon(Carregador.class.getResource("background_quarto.png")));
-		Imagens.add(CAMA_1, new ImageIcon(Carregador.class.getResource("cama1.png")));
-		Imagens.add(CAMA_2, new ImageIcon(Carregador.class.getResource("cama2.png")));
-		Imagens.add(CAMA_3, new ImageIcon(Carregador.class.getResource("cama3.png")));
-		Imagens.add(CAMA_4, new ImageIcon(Carregador.class.getResource("cama4.png")));
-		Imagens.add(DESKTOP, new ImageIcon(Carregador.class.getResource("desktop.png")));
-		
-		Imagens.add(BACKGROUND_VITORIA_MENU, new ImageIcon(Carregador.class.getResource("vitoria_menu.png")));
-		Imagens.add(BACKGROUND_VITORIA_JOGAR, new ImageIcon(Carregador.class.getResource("vitoria_jogar.png")));
-		
-		Imagens.add(CELULAR, new ImageIcon(Carregador.class.getResource("celular.png")));
-		Imagens.add(ROUPA_SUJA, new ImageIcon(Carregador.class.getResource("roupasuja.png")));
-		Imagens.add(LIVRO, new ImageIcon(Carregador.class.getResource("livro.png")));
-		Imagens.add(ABAJUR, new ImageIcon(Carregador.class.getResource("abajur.png")));
+	public static void carregar() throws ErroImagemNaoEncontrada{
+
+		try {	
+			Imagens.add(BACKGROUND_MENU, new ImageIcon(Carregador.class.getResource("background.png")));
+			Imagens.add(SELECAO_MENU_JOGAR, new ImageIcon(Carregador.class.getResource("selecao_menu_jogar.png")));
+			Imagens.add(SELECAO_MENU_REGRAS, new ImageIcon(Carregador.class.getResource("selecao_menu_regras.png")));	
+			Imagens.add(SELECAO_REGRAS_JOGAR, new ImageIcon(Carregador.class.getResource("selecao_regras_jogar.png")));		
+			Imagens.add(SELECAO_REGRAS_MENU, new ImageIcon(Carregador.class.getResource("selecao_regras_menu.png")));	
+			Imagens.add(BACKGROUND_REGRAS, new ImageIcon(Carregador.class.getResource("background_regras.png")));	
+			Imagens.add(BACKGROUND_JOGO, new ImageIcon(Carregador.class.getResource("background_jogo.png")));	
+			Imagens.add(BACKGROUND_QUINTAL, new ImageIcon(Carregador.class.getResource("background_quintal.png")));	
+			Imagens.add(MACA, new ImageIcon(Carregador.class.getResource("maca.png")));	
+			Imagens.add(ESTUDANTE, new ImageIcon(Carregador.class.getResource("carinhaFeliz.png")));	
+			Imagens.add(BACKGROUND_GAMEOVER_MENU, new ImageIcon(Carregador.class.getResource("gameover_menu.png")));
+			Imagens.add(BACKGROUND_GAMEOVER_JOGAR, new ImageIcon(Carregador.class.getResource("gameover_jogar.png")));
+			Imagens.add(OBJETIVO, new ImageIcon(Carregador.class.getResource("objetivo.png")));
+			Imagens.add(MACA_LAGARTA, new ImageIcon(Carregador.class.getResource("maca_lagarta.png")));
+			Imagens.add(TRANSPARENTE, new ImageIcon(Carregador.class.getResource("transparente.png")));
+			Imagens.add(CACHORRO, new ImageIcon(Carregador.class.getResource("cachorro.png")));
+			Imagens.add(CACHORRO_2, new ImageIcon(Carregador.class.getResource("cachorro_2.png")));
+			Imagens.add(BOLA, new ImageIcon(Carregador.class.getResource("bola.png")));
+			Imagens.add(GATO, new ImageIcon(Carregador.class.getResource("gato.png")));
+			Imagens.add(GATO_2, new ImageIcon(Carregador.class.getResource("gato_2.png")));
+			Imagens.add(MANGUEIRA, new ImageIcon(Carregador.class.getResource("mangueira.png")));
+			Imagens.add(CERCA, new ImageIcon(Carregador.class.getResource("cerca.png")));
+			Imagens.add(BACKGROUND_SALA, new ImageIcon(Carregador.class.getResource("background_sala.png")));
+			Imagens.add(PIPOCA, new ImageIcon(Carregador.class.getResource("pipoca.png")));
+			Imagens.add(TV, new ImageIcon(Carregador.class.getResource("televisao.png")));
+			Imagens.add(TV_SOM, new ImageIcon(Carregador.class.getResource("televisao_som.png")));
+			Imagens.add(RADIO, new ImageIcon(Carregador.class.getResource("radio.png")));
+			Imagens.add(VIDEOGAME, new ImageIcon(Carregador.class.getResource("videogame.png")));
+			Imagens.add(BACKGROUND_COZINHA, new ImageIcon(Carregador.class.getResource("background_cozinha.png")));
+			Imagens.add(PIA, new ImageIcon(Carregador.class.getResource("pia.png")));
+			Imagens.add(ARMARIO, new ImageIcon(Carregador.class.getResource("armario1.png")));
+			Imagens.add(FOGAO, new ImageIcon(Carregador.class.getResource("fogao.png")));
+			Imagens.add(LOUCA, new ImageIcon(Carregador.class.getResource("louca.png")));
+			Imagens.add(FRIGIDEIRA, new ImageIcon(Carregador.class.getResource("frigideira.png")));
+			Imagens.add(BACKGROUND_QUARTO, new ImageIcon(Carregador.class.getResource("background_quarto.png")));
+			Imagens.add(CAMA_1, new ImageIcon(Carregador.class.getResource("cama1.png")));
+			Imagens.add(CAMA_2, new ImageIcon(Carregador.class.getResource("cama2.png")));
+			Imagens.add(CAMA_3, new ImageIcon(Carregador.class.getResource("cama3.png")));
+			Imagens.add(CAMA_4, new ImageIcon(Carregador.class.getResource("cama4.png")));
+			Imagens.add(DESKTOP, new ImageIcon(Carregador.class.getResource("desktop.png")));
+			Imagens.add(BACKGROUND_VITORIA_MENU, new ImageIcon(Carregador.class.getResource("vitoria_menu.png")));
+			Imagens.add(BACKGROUND_VITORIA_JOGAR, new ImageIcon(Carregador.class.getResource("vitoria_jogar.png")));
+			Imagens.add(CELULAR, new ImageIcon(Carregador.class.getResource("celular.png")));
+			Imagens.add(ROUPA_SUJA, new ImageIcon(Carregador.class.getResource("roupasuja.png")));
+			Imagens.add(LIVRO, new ImageIcon(Carregador.class.getResource("livro.png")));
+			Imagens.add(ABAJUR, new ImageIcon(Carregador.class.getResource("abajur.png")));
+		} catch(Exception erro) {
+			throw new ErroImagemNaoEncontrada("ErroImagemNaoEncontrada: não foi possível carregar imagens");
+		}
 	}
 }

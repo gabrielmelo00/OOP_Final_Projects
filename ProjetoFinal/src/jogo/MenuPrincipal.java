@@ -5,7 +5,11 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
+
 import javax.swing.ImageIcon;
+
+import excecao.ErroImagem;
+import excecao.ErroImagemNaoEncontrada;
 import jogo.midia.Carregador;
 import framework.Modo;
 
@@ -22,12 +26,20 @@ public class MenuPrincipal extends Modo implements IJogo{
 
 	
 
-	public MenuPrincipal() {
+	public MenuPrincipal() throws ErroImagem{
 		super();
-		Carregador.carregar();
-		carregarImagens();
+		try{
+			Carregador.carregar();
+			carregarImagens();
+		}catch(ErroImagemNaoEncontrada erro) {
+			System.out.println(erro.getMessage());
+			throw new ErroImagem("ErroMenuImagem: Não foi possível carregar menu!");
+		}
+		
+		
 		meuMenu = menu_jogar;
-		selecaoEstado = JOGAR;
+		selecaoEstado = JOGAR;	
+
 	}
 	
 	public void carregarImagens() {
@@ -37,7 +49,6 @@ public class MenuPrincipal extends Modo implements IJogo{
 	}
 	
 	public void pintarTela(Graphics g) {
-		//setLayout(null);
 		Dimension tela = Toolkit.getDefaultToolkit().getScreenSize();
 		double largura = tela.getWidth();
 	    double altura = tela.getHeight();

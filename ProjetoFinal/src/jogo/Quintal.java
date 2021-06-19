@@ -204,7 +204,7 @@ public class Quintal extends Comodo{
 	
 	public void perdeuJogo() {
 		meuGerenciador.removerPilha();
-		meuGerenciador.adicionarPilha(new GameOver());
+		meuGerenciador.adicionarPilha(new GameOver(estudante.getTempo()));
 	}
 	
 	public void keyTyped(KeyEvent e) {

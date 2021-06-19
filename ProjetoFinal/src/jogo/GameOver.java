@@ -1,39 +1,42 @@
 package jogo;
 
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
 
 import javax.swing.ImageIcon;
-
 import framework.Modo;
 import jogo.midia.Carregador;
 
 public class GameOver extends Modo{
 	
-	Image img;
-	Image menu;
-	Image jogar;
+	private Image img;
+	private Image menu;
+	private Image jogar;
 
 	public static final byte MENU = 0;
 	public static final byte JOGAR = 1;
-	public int selecaoEstado;
+	private int selecaoEstado;
+	private double tempo;
 	
-	public GameOver() {
+	public GameOver(int tempo) {
 		carregarImagens();
 		selecaoEstado = MENU;
 		img = menu;
+		this.tempo = (double) tempo*20/1000;
 	}
 
 	public void pintarTela(Graphics g) {
 	    g.drawImage(img, 0, 0, null);
+	    Font f = new Font("Comic Sans MS", Font.BOLD, 100);
+        g.setFont(f);
+	    g.drawString("Tempo: "+Double.toString(tempo),300, 100);
 	}
 
-	public void loop() {
-
-	}
+	public void loop() {}
 
 	public void carregarImagens() {
 		Dimension tela = Toolkit.getDefaultToolkit().getScreenSize();
@@ -43,15 +46,9 @@ public class GameOver extends Modo{
 		jogar = new ImageIcon(Carregador.Imagens.get(Carregador.BACKGROUND_GAMEOVER_JOGAR).getImage().getScaledInstance( largura, altura, 1)).getImage();
 	}
 
-	public void keyTyped(KeyEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
+	public void keyTyped(KeyEvent e) {}
 
-	public void keyPressed(KeyEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
+	public void keyPressed(KeyEvent e) {}
 
 	public void keyReleased(KeyEvent e) {
 		if(e.getKeyCode() == KeyEvent.VK_ENTER) {

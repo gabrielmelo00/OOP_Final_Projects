@@ -4,6 +4,8 @@ import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 import java.util.Stack;
 
+import excecao.ErroPilhaVazia;
+
 public class GerenciadorModos {
 	private Stack<Modo> modos;
 
@@ -15,32 +17,66 @@ public class GerenciadorModos {
 		modos.push(novoModo);
 	}
 	
-	public void removerPilha() {
-		modos.pop();
+	public void removerPilha(){
+		if(modos.empty()) {
+			System.out.println("Atenção: a pilha está vazia.");
+		}else {
+			modos.pop();
+		}
 	}
 	
-	public Modo olharPilha() {
-		return modos.peek();
+	public Modo olharPilha() throws ErroPilhaVazia{
+		if(modos.empty()) {
+			throw new ErroPilhaVazia("A pilha de modos está vazia!");
+		}else {
+			return modos.peek();
+		}
+		
 	}
 	
-	public void loop() {
-		modos.peek().loop();
+	public void loop() throws ErroPilhaVazia{
+		if(modos.empty()) {
+			throw new ErroPilhaVazia("A pilha de modos está vazia!");
+		}else {
+			modos.peek().loop();
+		}
+		
 	}
 	
-	public void pintarTela (Graphics g) {
-		 modos.peek().pintarTela(g);
+	public void pintarTela (Graphics g) throws ErroPilhaVazia{
+		if(modos.empty()) {
+			throw new ErroPilhaVazia("A pilha de modos está vazia!");
+		}else {
+			 modos.peek().pintarTela(g);
+		}
+		
 	}
 	
 	public void keyTyped(KeyEvent e) {
-		modos.peek().keyTyped(e);
+		if(modos.empty()) {
+			System.out.println("Atenção: a pilha está vazia.");
+		}else {
+			modos.peek().keyTyped(e);
+		}
+		
 	}
 	
 	public void keyPressed(KeyEvent e) {
-		modos.peek().keyPressed(e);
+		if(modos.empty()) {
+			System.out.println("Atenção: a pilha está vazia.");
+		}else {
+			modos.peek().keyPressed(e);
+		}
+		
 	}
 	
 	public void keyReleased(KeyEvent e) {
-		modos.peek().keyReleased(e);
+		if(modos.empty()) {
+			System.out.println("Atenção: a pilha está vazia.");
+		}else {
+			modos.peek().keyReleased(e);
+		}
+		
 	}
 	
 

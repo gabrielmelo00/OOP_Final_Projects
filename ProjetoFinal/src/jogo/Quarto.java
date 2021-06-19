@@ -11,6 +11,7 @@ import javax.swing.ImageIcon;
 import agente.Agente;
 import agente.FabricaAgente;
 import agente.IFabricaAgente;
+
 import jogo.midia.Carregador;
 
 public class Quarto extends Comodo {
@@ -84,7 +85,6 @@ public class Quarto extends Comodo {
 		matrizCelulas[0][10].adicionaAgente(fabricaAgente.retornaAgente("DESKTOP",0, 10, delta, 0, this));
 		matrizCelulas[0][9].adicionaAgente(fabricaAgente.retornaAgente("OBJETIVO",0, 9, delta, 0, this));
 		
-		//matrizCelulas[0][6].adicionaAgente(fabricaAgente.retornaAgente("CELULAR",0, 6, delta, 5, this));
 		matrizCelulas[1][0].adicionaAgente(fabricaAgente.retornaAgente("CELULAR",1, 0, delta, 5, this));
 		
 		matrizCelulas[2][0].adicionaAgente(fabricaAgente.retornaAgente("LIVRO",2, 0, delta, 10, this));
@@ -175,12 +175,12 @@ public class Quarto extends Comodo {
 
 	public void perdeuJogo() {
 		meuGerenciador.removerPilha();
-		meuGerenciador.adicionarPilha(new GameOver());		
+		meuGerenciador.adicionarPilha(new GameOver(estudante.getTempo()));		
 	}
 
 	public void proximoNivel() {
 		meuGerenciador.removerPilha();
-		meuGerenciador.adicionarPilha(new Vitoria());	
+		meuGerenciador.adicionarPilha(new Vitoria(estudante.getTempo()));	
 	}
 	
 	public void pintarTela(Graphics g) {

@@ -1,12 +1,13 @@
 package framework;
 
 import java.awt.Dimension;
-import java.awt.Insets;
 import java.awt.Toolkit;
 import java.awt.event.KeyListener;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+
+import excecao.ErroAdicionarTeclado;
 
 public class GerenciadorJanela {
 	
@@ -33,9 +34,13 @@ public class GerenciadorJanela {
 		frame.setVisible(true);
 	}
 	
-	public void adicionarKeyListener(KeyListener listener) {
-		this.painel.addKeyListener(listener);
-		painel.setFocusable(true);
+	public void adicionarKeyListener(KeyListener listener) throws ErroAdicionarTeclado{
+		if(this.painel == null) {
+			throw new ErroAdicionarTeclado("KeyListener não pode ser adicionado a um JPanel null.");
+		}else {
+			this.painel.addKeyListener(listener);
+			painel.setFocusable(true);
+		}
 	}
 
 }

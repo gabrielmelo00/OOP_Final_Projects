@@ -3,6 +3,8 @@ package framework;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
+import excecao.ErroPilhaVazia;
+
 public class Comandos  implements KeyListener {
 	
 	private GerenciadorModos gerenciadorModo;
