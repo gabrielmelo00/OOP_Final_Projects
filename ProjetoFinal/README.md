@@ -8,7 +8,7 @@ Com isso em mente, propomos um jogo em que você deve ajudar um estudante a cheg
 	
 A dinâmica do jogo foi inspirado no jogo de Arcade, Frogger. 
 
-## Equipe
+## Equipe Fazendo Eletiva na Computação
 * Hannah de Oliveira Plath - 198642
 * Gabriel Silva Vieira de Melo - 216474
 
@@ -47,12 +47,57 @@ public class VilaoD extends Agente{ ...}
 ~~~
 ### Classe Abstrata
 
+~~~java
+public abstract class Modo {
+	...
+	public abstract void pintarTela(Graphics g);	
+	public abstract void loop(); 	
+	public abstract void keyTyped(KeyEvent e);
+	public abstract void keyPressed(KeyEvent e);
+	public abstract void keyReleased(KeyEvent e);
+	
+	}
+~~~
+### Comunicação entre componentes
+
+~~~java
+public class AppProjetoFinal {
+	...
+	IRJogo meuFramework = new Motor();
+	...
+	IJogo meuJogo = new MenuPrincipal();
+	meuFramework.conecta(meuJogo);
+	meuFramework.comecarJogo();
+	...
+}
+~~~
 
 ## Documentação dos Componentes
 
 ## Diagramas
 
 ### Diagrama Geral do Projeto
+
+O desenvolvimento deste projeto pode ser divido em duas frentes principais: a construção de um framework para o jogo e a elaboração do jogo em si.
+
+A construção de qualquer jogo exige a elaboração de uma estrutura externa à lógica do jogo que é responsável por gerir 
+
+estrutra externa à lógica do jogo
+
+a gente queria desenvolver um framework que não especifico para esse jogo/generalista
+
+Para construir um jogo é necessário um framework. Já que teriamos que construir um framework, a ideia foi transformar ele em um componente, de forma que outros jogos poderiam ser desenvolvidos através dele. Assim, teve-se a ideia de basear a arquitetura do nosso jogo em um esquema do tipo:
+
+FRAMEWORK -> requisita comandos -> Modo -> matriz celulas/celulas -> agente 
+
+Por exemplo, o framework precisa saber o que desenhar na tela. No decorrer da cadeia de objetos, cada um deles se desenha. Entende-se que isso contribui para o encapsulamento do código: cada objeto é responsável por tudo aquilo referente a ele msm.
+
+(dar exemplo talvez do loop de jogo tmb)
+(desenhos?)
+
+Ideia da pilha: a nossa forma de alternar as telas do jogo.
+
+Utilizar um componente Jogo para se conectar com o componente framework. Basta que ele tenha objetos/classes que estendam modo.
 
 ![ComponenteGeral](https://github.com/gabrielmelo00/TrabalhosMC/blob/master/ProjetoFinal/assets/diagramaProjeto.png)
 
