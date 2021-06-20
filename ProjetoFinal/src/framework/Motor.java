@@ -3,6 +3,9 @@ package framework;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
@@ -14,10 +17,9 @@ import jogo.IJogo;
 
 public class Motor implements IRJogo{
 	
-	private GerenciadorJanela janela;
-	private GerenciadorModos gerenciadorModo;
+	private IJanela janela;
+	private IGerenciadorModos gerenciadorModo;
 	private Timer timer;
-	private Comandos teclado;
 
 	public Motor() {		
 		janela = new GerenciadorJanela("NOME DO JOGO");
@@ -33,10 +35,8 @@ public class Motor implements IRJogo{
 
 	public void comecarJogo() {
 		janela.adicionarPainel(new TelaAtual());
-		teclado = new Comandos(gerenciadorModo);
-	
 		try{
-			janela.adicionarKeyListener(teclado);
+			janela.adicionarKeyListener(new Comandos());
 		}catch(ErroAdicionarTeclado erro) {
 			System.out.println(erro);
 			System.exit(1);
@@ -77,6 +77,20 @@ public class Motor implements IRJogo{
 			repaint();
 		}
 		
+	}
+	private class Comandos  implements KeyListener {
+		
+		public void keyTyped(KeyEvent e) {
+			gerenciadorModo.keyTyped(e);
+		}
+
+		public void keyPressed(KeyEvent e) {
+			gerenciadorModo.keyPressed(e);
+		}
+
+		public void keyReleased(KeyEvent e) {
+			gerenciadorModo.keyReleased(e);
+		}
 	}
 
 	

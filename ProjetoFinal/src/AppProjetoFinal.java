@@ -19,8 +19,5 @@ public class AppProjetoFinal {
 			System.out.println(erro.getMessage());
 			System.out.println("ErroImagem: Nao é possivel carregar jogo!");
 		}
-		
-		
-		
 	}
 }

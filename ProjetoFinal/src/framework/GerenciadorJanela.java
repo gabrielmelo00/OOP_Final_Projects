@@ -9,7 +9,7 @@ import javax.swing.JPanel;
 
 import excecao.ErroAdicionarTeclado;
 
-public class GerenciadorJanela {
+public class GerenciadorJanela implements IJanela {
 	
 	private JFrame frame;
 	private JPanel painel;

@@ -6,7 +6,7 @@ import java.util.Stack;
 
 import excecao.ErroPilhaVazia;
 
-public class GerenciadorModos {
+public class GerenciadorModos implements IGerenciadorModos{
 	private Stack<Modo> modos;
 
 	public GerenciadorModos() {
@@ -77,6 +77,11 @@ public class GerenciadorModos {
 			modos.peek().keyReleased(e);
 		}
 		
+	}
+
+	
+	public GerenciadorModos retornaGerenciadorModo() {
+		return this;
 	}
 	
 
