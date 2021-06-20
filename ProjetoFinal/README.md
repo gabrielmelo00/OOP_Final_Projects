@@ -8,7 +8,7 @@ Com isso em mente, propomos um jogo em que você deve ajudar um estudante a cheg
 	
 A dinâmica do jogo foi inspirado no jogo de Arcade, Frogger. 
 
-## Equipe Fazendo Eletiva em Computação
+## Equipe
 * Hannah de Oliveira Plath - 198642
 * Gabriel Silva Vieira de Melo - 216474
 
@@ -47,6 +47,30 @@ public class VilaoD extends Agente{ ...}
 ~~~
 ### Classe Abstrata
 
+~~~java
+public abstract class Modo {
+	...
+	public abstract void pintarTela(Graphics g);	
+	public abstract void loop(); 	
+	public abstract void keyTyped(KeyEvent e);
+	public abstract void keyPressed(KeyEvent e);
+	public abstract void keyReleased(KeyEvent e);
+	
+	}
+~~~
+### Comunicação entre componentes
+
+~~~java
+public class AppProjetoFinal {
+	...
+	IRJogo meuFramework = new Motor();
+	...
+	IJogo meuJogo = new MenuPrincipal();
+	meuFramework.conecta(meuJogo);
+	meuFramework.comecarJogo();
+	...
+}
+~~~
 
 ## Documentação dos Componentes
 
