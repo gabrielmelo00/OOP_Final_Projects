@@ -8,7 +8,7 @@ Com isso em mente, propomos um jogo em que você deve ajudar um estudante a cheg
 	
 A dinâmica do jogo foi inspirado no jogo de Arcade, Frogger. 
 
-## Equipe
+## Equipe Fazendo Eletiva na Computação
 * Hannah de Oliveira Plath - 198642
 * Gabriel Silva Vieira de Melo - 216474
 
