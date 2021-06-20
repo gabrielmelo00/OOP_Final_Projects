@@ -1,79 +1,68 @@
 package jogo;
 
-import java.awt.Dimension;
+
 import java.awt.Graphics;
 import java.awt.Image;
-import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
-
 import javax.swing.ImageIcon;
-
 import agente.Agente;
 import agente.FabricaAgente;
 import agente.IFabricaAgente;
-import excecao.ErroPilhaVazia;
 import jogo.midia.Carregador;
 
 public class Sala extends Comodo {
-	
-	private int altura;
-	private int largura;
-	private int inicioQuintalX; 
-	private int inicioQuintalY;
-	private int delta;
-	private int faixa;
-   
+
 	private Image imgSala;
     private Image imgBackground;
-    
-    private Agente estudante;
     private IFabricaAgente fabricaAgente;
-   
-    private Celula[][] matrizCelulas;
-    private static final int TAMANHO = 12; 
-	
-	
+    private Agente estudante;
 	
 	public Sala(){	
 		fabricaAgente = new FabricaAgente();
-		calculoDimensoes();
 		carregarImagens();
-		matrizCelulas = new Celula[TAMANHO][TAMANHO];
-		
-		for(int i = 0; i < TAMANHO; i++) {
-			for(int j = 0; j < TAMANHO; j++) {
-				int x = inicioQuintalX + j*delta;
-				int y = inicioQuintalY + i*delta;
-				matrizCelulas[i][j] = new Celula(i,j, x, y);
-			}
-		}
 		carregarAgentes();	
 	}
 
-	
+	public void perdeuJogo() {
+		meuGerenciador.removerPilha();
+		meuGerenciador.adicionarPilha(new GameOver(estudante.getTempo()));		
+	}
 
-	public void loop() {
+	public void proximoNivel() {
+		meuGerenciador.removerPilha();
+		meuGerenciador.adicionarPilha(new Quarto());	
+	}
+	
+	public void pintarTela(Graphics g) {
+		g.drawImage(imgSala, inicioQuintalX, 0, null);
+		
 		for(int i = 0; i < TAMANHO; i++) {
 			for(int j = 0; j < TAMANHO; j++) {
-				matrizCelulas[i][j].mover();
-				matrizCelulas[i][j].colisao();
+				if(matrizCelulas[i][j] != null) {
+					matrizCelulas[i][j].pintarTela(g);
+				}
 			}
-		}		
+		}
+		g.drawImage(imgBackground, 0, 0, null);
+		g.drawImage(imgBackground, largura - faixa, 0, null);
 	}
+	
+	public void keyTyped(KeyEvent e) {
+		estudante.keyTyped(e);		
+	}
+
+	public void keyPressed(KeyEvent e) {
+		estudante.keyPressed(e);		
+	}
+
+	public void keyReleased(KeyEvent e) {
+		estudante.keyReleased(e);		
+	}
+
 
 	public void carregarImagens() {
 		imgBackground = new ImageIcon(Carregador.Imagens.get(Carregador.BACKGROUND_JOGO).getImage().getScaledInstance( faixa, altura, 1)).getImage();
 		imgSala = new ImageIcon(Carregador.Imagens.get(Carregador.BACKGROUND_SALA).getImage().getScaledInstance( altura, altura, 1)).getImage();		
-	}
-
-	public void calculoDimensoes() {
-		Dimension tela = Toolkit.getDefaultToolkit().getScreenSize();
-	    altura = (int) tela.getHeight();
-	    largura = (int)  tela.getWidth();
-	    inicioQuintalX = (largura - altura)/2;
-	    inicioQuintalY = 0;
-	    delta = altura/TAMANHO;
-	    faixa = (largura - altura)/2;		
 	}
 
 	public void carregarAgentes() {
@@ -115,89 +104,8 @@ public class Sala extends Comodo {
 		matrizCelulas[11][11].adicionaAgente(estudante);		
 	}
 
-	public boolean inserirCelula(int i, int j, Agente agente) {
-		if(i >= 0 && i < TAMANHO && j >= 0 && j < TAMANHO) {
-			return matrizCelulas[i][j].adicionaAgente(agente);
-		}else {
-			return false;
-		}
-	}
-
-	public int inserirCelulaInicioX(int i, Agente agente) {
-		int jAux = 0;
-		while(!matrizCelulas[i][jAux].adicionaAgente(agente)){
-			jAux = jAux + 1;
-		}
-		return jAux;
-	}
-
-	public int inserirCelulaFimX(int i, Agente agente) {
-		int jAux = TAMANHO -1;
-		while(!matrizCelulas[i][jAux].adicionaAgente(agente)) {
-			jAux = jAux -1;
-		}
-		return jAux;
-	}
 	
-	public int inserirCelulaFimY(int j, Agente agente) {
-        int iAux = TAMANHO -1;
-        while(!matrizCelulas[iAux][j].adicionaAgente(agente)) {
-        	iAux = iAux -1;
-        }
-		return iAux;
-	}
 
-	public int inserirCelulaInicioY(int j, Agente agente) {
-        int iAux = 0;
-        while(!matrizCelulas[iAux][j].adicionaAgente(agente)) {
-        	iAux = iAux +1;
-        }
-		return iAux;
-	}
-
-	public boolean retirarCelula(int i, int j, Agente agente) {
-		if(i >= 0 && i < TAMANHO && j >= 0 && j < TAMANHO) {
-			matrizCelulas[i][j].retiraAgente(agente);
-			return true;
-		}else {
-			return false;
-		}
-	}
-
-	public void perdeuJogo() {
-		meuGerenciador.removerPilha();
-		meuGerenciador.adicionarPilha(new GameOver(estudante.getTempo()));		
-	}
-
-	public void proximoNivel() {
-		meuGerenciador.removerPilha();
-		meuGerenciador.adicionarPilha(new Quarto());	
-	}
 	
-	public void pintarTela(Graphics g) {
-		g.drawImage(imgSala, inicioQuintalX, 0, null);
-		
-		for(int i = 0; i < TAMANHO; i++) {
-			for(int j = 0; j < TAMANHO; j++) {
-				if(matrizCelulas[i][j] != null) {
-					matrizCelulas[i][j].pintarTela(g);
-				}
-			}
-		}
-		g.drawImage(imgBackground, 0, 0, null);
-		g.drawImage(imgBackground, largura - faixa, 0, null);
-	}
-	
-	public void keyTyped(KeyEvent e) {
-		estudante.keyTyped(e);		
-	}
-
-	public void keyPressed(KeyEvent e) {
-		estudante.keyPressed(e);		
-	}
-
-	public void keyReleased(KeyEvent e) {
-		estudante.keyReleased(e);		
-	}
 
 }

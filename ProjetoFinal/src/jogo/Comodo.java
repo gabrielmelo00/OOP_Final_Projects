@@ -8,7 +8,7 @@ import java.awt.event.KeyEvent;
 import agente.Agente;
 import framework.Modo;
 
-public class Comodo extends Modo{
+public abstract class Comodo extends Modo{
 	
 	protected int altura;
 	protected int largura;
@@ -100,17 +100,17 @@ public class Comodo extends Modo{
 		}
 	}
 	
-	public void proximoNivel() {}
+	public abstract void proximoNivel();
 	
-	public void perdeuJogo() {}
+	public abstract void perdeuJogo();
 
-	public void pintarTela(Graphics g) {}
+	public abstract void pintarTela(Graphics g);
 	
-	public void keyTyped(KeyEvent e) {}
+	public abstract void keyTyped(KeyEvent e);
 
-	public void keyPressed(KeyEvent e) {}
+	public abstract void keyPressed(KeyEvent e);
 
-	public void keyReleased(KeyEvent e) {}
+	public abstract void keyReleased(KeyEvent e);
 	
 	
 	

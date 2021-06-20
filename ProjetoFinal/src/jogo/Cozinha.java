@@ -17,8 +17,6 @@ public class Cozinha extends Comodo{
     private Image imgBackground;
     private IFabricaAgente fabricaAgente;
     private Agente estudante;
-
-    
 	
 	public Cozinha(){		
 		fabricaAgente = new FabricaAgente();
