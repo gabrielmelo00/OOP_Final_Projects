@@ -22,6 +22,32 @@ A dinâmica do jogo foi inspirado no jogo de Arcade, Frogger.
 ### Slides da Prévia
 [Apresentação de slides da prévia do projeto](https://github.com/gabrielmelo00/TrabalhosMC/blob/master/ProjetoFinal/assets/Previa%20Projeto.pdf)
 
+## Destaques do Código
+
+### Polimorfismo
+~~~java
+public class Celula {
+	private ArrayList<Agente> meusAgentes;
+	...
+	public boolean adicionaAgente(Agente agente){ ...}
+	public void retiraAgente(Agente agente){ ...}
+	...
+	}
+~~~
+
+
+~~~java
+public class Parede extends Agente{ ...}
+
+public class Estudante extends Agente{ ...}
+
+public class VilaoD extends Agente{ ...}
+
+...
+~~~
+### Classe Abstrata
+
+
 ## Documentação dos Componentes
 
 ## Diagramas
