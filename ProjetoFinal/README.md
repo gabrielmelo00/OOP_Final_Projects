@@ -96,11 +96,11 @@ public class AppProjetoFinal {
 
 ### Diagrama Geral do Projeto
 
-![ComponenteGeral](https://github.com/gabrielmelo00/TrabalhosMC/blob/master/ProjetoFinal/assets/ComponentesGeral.png)
+![ComponenteGeral](https://github.com/gabrielmelo00/TrabalhosMC/blob/master/ProjetoFinal/assets/diagramaProjeto.png)
 
 ### Diagrama Geral de Componentes
 
-![DiagramaComponente](https://github.com/gabrielmelo00/TrabalhosMC/blob/master/ProjetoFinal/assets/diagrama_compontens_geral.png)
+![DiagramaComponente](https://github.com/gabrielmelo00/TrabalhosMC/blob/master/ProjetoFinal/assets/ComponentesGeral.png)
 
 ### Componente Framework
 
