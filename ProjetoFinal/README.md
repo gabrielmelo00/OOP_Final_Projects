@@ -39,7 +39,6 @@ public class Celula {
 	}
 ~~~
 
-
 ~~~java
 public class Parede extends Agente{ ...}
 
@@ -51,8 +50,8 @@ public class VilaoD extends Agente{ ...}
 ~~~
 ### Classe Abstrata
 
-
-
+Para que a parte do código referente ao `Framework` possa ser usada para o desenvolvimento de outros jogo, o uso da classe abstrata `Modo` é essencial. Os componentes do `Framework` fazem referências à métodos de `Modo` para pintarem a tela, realizarem o loop do jogo e tratarem os eventos decorrentes do teclado. Dessa forma, para 
+reaproveitar o `Framework` em outros jogos, basta que esse estenda a classe `Modo` e implemente os métodos abstratos obrigatórios.
 ~~~java
 public abstract class Modo {
 	...
