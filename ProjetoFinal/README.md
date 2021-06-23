@@ -10,7 +10,7 @@ O estudante pode se mover nas quatro direções (cima, baixo, direita e esquerda
 	
 A dinâmica do jogo foi inspirado no jogo de Arcade, Frogger. 
 
-## Ideia da Arquitetura do Jogo
+## Proposta da Arquitetura do Jogo
 
 O desenvolvimento deste projeto pode ser divido em duas frentes principais: a construção de um `Framework` para o jogo e a elaboração do `Jogo` em si.
 
