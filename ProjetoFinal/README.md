@@ -25,6 +25,10 @@ A dinâmica do jogo foi inspirado no jogo de Arcade, Frogger.
 ## Destaques do Código
 
 ### Polimorfismo
+
+Os elementos do jogo (estudante e obstáculos) foram criados a partir de classes que estendem uma classe abstrata chamada `Agente`. Como as operações das células do jogo, performadas pela classe `Celula`, são feitas considerando elementos da classe `Agente`, o uso do polimorfismo na codificação torna o código mais expansível. Isso pois, para se adicionar um novo tipo de obstáculo no jogo basta criar uma nova classe que estende Agente.
+
+
 ~~~java
 public class Celula {
 	private ArrayList<Agente> meusAgentes;
@@ -46,6 +50,8 @@ public class VilaoD extends Agente{ ...}
 ...
 ~~~
 ### Classe Abstrata
+
+
 
 ~~~java
 public abstract class Modo {
