@@ -14,9 +14,9 @@ A dinâmica do jogo foi inspirado no jogo de Arcade, Frogger.
 
 O desenvolvimento deste projeto pode ser divido em duas frentes principais: a construção de um `Framework` para o jogo e a elaboração do `Jogo` em si.
 
-O `Framework` é responsável pelo controle do `loop principal` de jogo e dos eventos desencadeados pelo teclado assim como pela inicialização da janela do jogo. As ações que devem ser realizadas a partir da ocorrência de cada um desses eventos, no entanto, não são de responsabilidade do `Framework`. Ele delega essas decisões para o contexto apropriado de cada momento ou o `Modo` atual do jogo. Dessa forma, o evento desencadeado pelo pressionamento de uma tecla, por exemplo, varia de acordo com o `Modo` atual do jogo. Tal característica permite que o `Framework` possa ser usado no desenvolvido de outros jogos e não somente desse, basta mudar o `Modo` do jogo.
+O `Framework` é responsável pelo controle do `loop principal` de jogo e dos eventos desencadeados pelo teclado assim como pela inicialização da janela do jogo. As ações que devem ser realizadas a partir da ocorrência de cada um desses eventos, no entanto, não são de responsabilidade do `Framework`. Ele delega essas decisões para o contexto apropriado de cada momento ou o `Modo` atual do jogo. Dessa forma, o evento desencadeado pelo pressionamento de uma tecla, por exemplo, varia de acordo com o `Modo` atual do jogo. Tal característica permite que o `Framework` possa ser usado no desenvolvimento de outros jogos e não somente desse, basta trocar o conjunto de `Modos` do jogo.
 
-O `Framework` acessa os diferentes `Modos` através de uma pilha.
+O `Framework` orquestra os diferentes `Modos` através de uma pilha.
 
 O `Framework` criado é composto por três componentes: Motor, Gerenciador de Janela e Gerenciador de Modos.
 
