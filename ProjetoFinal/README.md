@@ -201,7 +201,7 @@ Interfaces | IRJogo
 
 Interfaces associadas a esse componente:
 
-![Diagrama Interfaces](https://github.com/gabrielmelo00/TrabalhosMC/blob/master/ProjetoFinal/assets/InterfaceFramework.png)
+![Diagrama Interfaces](https://github.com/gabrielmelo00/TrabalhosMC/blob/master/ProjetoFinal/assets/InterfaceGerenciadorModo.png)
 
 ### Componente Gerenciador de Janela
 
@@ -220,7 +220,7 @@ Interfaces | IRJogo
 
 Interfaces associadas a esse componente:
 
-![Diagrama Interfaces](https://github.com/gabrielmelo00/TrabalhosMC/blob/master/ProjetoFinal/assets/InterfaceFramework.png)
+![Diagrama Interfaces](https://github.com/gabrielmelo00/TrabalhosMC/blob/master/ProjetoFinal/assets/InterfaceJanela.png)
 
 
 ### Componente Motor
