@@ -101,7 +101,7 @@ public class AppProjetoFinal {
 
 #### Código do Pattern Factory
 
-Em FabricaAgente.java
+Em [`FabricaAgente.java`](https://github.com/gabrielmelo00/TrabalhosMC/blob/master/ProjetoFinal/src/agente/FabricaAgente.java)
 
 ~~~java
 
@@ -128,7 +128,7 @@ public Agente retornaAgente(String nomeAgente, int i, int j, int escala, int cic
 	}
 ~~~
 
-Em Quintal.java que estende a classe abstrata Comodo.java;
+Em [`Quintal.java`](https://github.com/gabrielmelo00/TrabalhosMC/blob/master/ProjetoFinal/src/jogo/Quintal.java) que estende a classe abstrata Comodo.java;
 
 ~~~java
 
@@ -153,7 +153,7 @@ public void carregarAgentes() {
 
 #### Código do Pattern Factory
 
-Em Estudante.java
+Em [`Estudante.java`](https://github.com/gabrielmelo00/TrabalhosMC/blob/master/ProjetoFinal/src/agente/Estudante.java)
 
 ~~~java
 
