@@ -353,7 +353,7 @@ Método | Objetivo
 
 Classe | Descrição
 ----- | -----
-ErroImagem | Engloba todas as exceções referentes à escrita e leitura de imagens no jogo
-ImagemNaoEncontrada | Indica que nenhuma imagem com o nome especificado foi encontrada no diretório dado.
-PosicaoInvalidaVetorImagem | Indica que o vetor de imagem não possui uma posição correspondente à que foi requisitada pelo código.
+ErroImagemNaoEncontrada | Indica que nenhuma imagem com o nome especificado foi encontrada no diretório dado.
+ErroAdicionarTeclado | Indica que não foi possível adicionar um `Teclado` (KeyListener) à janela.
+ErroPilhaVazia | Indica tentativa de acesso à uma posição de memória que não existe, pois a pilha de modos está vazia.
 
