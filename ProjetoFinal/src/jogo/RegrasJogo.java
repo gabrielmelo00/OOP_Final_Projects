@@ -64,7 +64,7 @@ public class RegrasJogo extends Modo {
 			case JOGAR: meuGerenciador.adicionarPilha(new Quintal());break;
 			case MENU: break;
 			}
-		}else if(e.getKeyCode() == KeyEvent.VK_DOWN) {
+		}else if(e.getKeyCode() == KeyEvent.VK_S ||e.getKeyCode() == KeyEvent.VK_DOWN) {
 			switch(selecaoEstado) {
 			case MENU: 
 				meuMenu = regras_jogar;
@@ -72,7 +72,7 @@ public class RegrasJogo extends Modo {
 				break;
 			case JOGAR: break;
 			}
-		}else if(e.getKeyCode() == KeyEvent.VK_UP) {
+		}else if(e.getKeyCode() == KeyEvent.VK_W ||e.getKeyCode() == KeyEvent.VK_UP) {
 			switch(selecaoEstado) {
 			case MENU: break;
 			case JOGAR: 

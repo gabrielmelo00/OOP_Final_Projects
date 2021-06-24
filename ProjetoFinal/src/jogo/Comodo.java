@@ -6,6 +6,7 @@ import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
 
 import agente.Agente;
+import agente.IFabricaAgente;
 import framework.Modo;
 
 public abstract class Comodo extends Modo{
@@ -16,6 +17,8 @@ public abstract class Comodo extends Modo{
 	protected int inicioQuintalY;
 	protected int delta;
 	protected int faixa;
+	protected IFabricaAgente fabricaAgente;
+	protected Agente estudante;
 
 	protected Celula[][] matrizCelulas;
 	protected static final int TAMANHO = 12; 

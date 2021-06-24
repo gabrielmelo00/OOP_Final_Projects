@@ -6,9 +6,7 @@ import java.awt.event.KeyEvent;
 
 import javax.swing.ImageIcon;
 
-import agente.Agente;
 import agente.FabricaAgente;
-import agente.IFabricaAgente;
 
 import jogo.midia.Carregador;
 
@@ -16,8 +14,6 @@ public class Quarto extends Comodo {
    
 	private Image imgComodo;
     private Image imgBackground;
-    private IFabricaAgente fabricaAgente;
-    private Agente estudante;
     
 	
 	public Quarto(){		

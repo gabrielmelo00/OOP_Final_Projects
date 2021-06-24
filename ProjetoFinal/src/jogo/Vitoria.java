@@ -59,7 +59,7 @@ public class Vitoria extends Modo {
 				break;
 			case MENU:meuGerenciador.removerPilha();break;
 			}
-		}else if(e.getKeyCode() == KeyEvent.VK_DOWN) {
+		}else if(e.getKeyCode() == KeyEvent.VK_S ||e.getKeyCode() == KeyEvent.VK_DOWN) {
 			switch(selecaoEstado) {
 			case MENU: break;
 			case JOGAR: 
@@ -67,7 +67,7 @@ public class Vitoria extends Modo {
 				selecaoEstado = MENU;
 				break;
 			}
-		}else if(e.getKeyCode() == KeyEvent.VK_UP) {
+		}else if(e.getKeyCode() == KeyEvent.VK_W ||e.getKeyCode() == KeyEvent.VK_UP) {
 			switch(selecaoEstado) {
 			case MENU: 
 				img = jogar;

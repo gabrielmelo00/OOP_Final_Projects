@@ -73,7 +73,7 @@ public class MenuPrincipal extends Modo implements IJogo{
 				selecaoEstado = JOGAR;
 				break;
 			}
-		}else if(e.getKeyCode() == KeyEvent.VK_DOWN) {
+		}else if(e.getKeyCode() == KeyEvent.VK_S ||e.getKeyCode() == KeyEvent.VK_DOWN) {
 			switch(selecaoEstado) {
 			case JOGAR: 
 				meuMenu = menu_regras;
@@ -81,7 +81,7 @@ public class MenuPrincipal extends Modo implements IJogo{
 				break;
 			case REGRAS: break;
 			}
-		}else if(e.getKeyCode() == KeyEvent.VK_UP) {
+		}else if(e.getKeyCode() == KeyEvent.VK_W ||e.getKeyCode() == KeyEvent.VK_UP) {
 			switch(selecaoEstado) {
 			case JOGAR: break;
 			case REGRAS: 

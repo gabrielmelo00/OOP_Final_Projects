@@ -5,18 +5,14 @@ import java.awt.Image;
 import java.awt.event.KeyEvent;
 
 import javax.swing.ImageIcon;
-
-import agente.Agente;
 import agente.FabricaAgente;
-import agente.IFabricaAgente;
 import jogo.midia.Carregador;
 
 public class Cozinha extends Comodo{
 	
 	private Image imgCozinha;
     private Image imgBackground;
-    private IFabricaAgente fabricaAgente;
-    private Agente estudante;
+    
 	
 	public Cozinha(){		
 		fabricaAgente = new FabricaAgente();
