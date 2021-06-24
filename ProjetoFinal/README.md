@@ -5,8 +5,22 @@
 Há quase um ano e meio no EAD, nós estudantes sabemos que um dos maiores desafios do estudo remoto é se manter focado. Na superfície, isso pode parecer uma tarefa fácil, mas assistir aulas em casa é uma tarefa que apresenta vários desafios, como telefonemas inesperados, animais que demandam atenção e pilhas de louça que parecem nunca ter fim.
 
 Com isso em mente, propomos um jogo em que você deve ajudar um estudante a chegar são e salvo no seu computador para assistir uma aula. Para isso ele deve atravessar diferentes cômodos da casa, desviando das distrações e obrigações que aparecem pelo caminho.
+
+O estudante pode se mover nas quatro direções (cima, baixo, direita e esquerda) através das setas do teclado ou das teclas WASD.
 	
 A dinâmica do jogo foi inspirado no jogo de Arcade, Frogger. 
+
+## Proposta da Arquitetura do Jogo
+
+O desenvolvimento deste projeto pode ser divido em duas frentes principais: a construção de um `Framework` para o jogo e a elaboração do `Jogo` em si.
+
+O `Framework` é responsável pelo controle do `loop principal` de jogo e dos eventos desencadeados pelo teclado assim como pela inicialização da janela do jogo. As ações que devem ser realizadas a partir da ocorrência de cada um desses eventos, no entanto, não são de responsabilidade do `Framework`. Ele delega essas decisões para o contexto apropriado de cada momento ou o `Modo` atual do jogo. Dessa forma, o evento desencadeado pelo pressionamento de uma tecla, por exemplo, varia de acordo com o `Modo` atual do jogo. Tal característica permite que o `Framework` possa ser usado no desenvolvimento de outros jogos e não somente desse, basta trocar o conjunto de `Modos` do jogo.
+
+O `Framework` orquestra os diferentes `Modos` através de uma pilha.
+
+O `Framework` criado é composto por três componentes: Motor, Gerenciador de Janela e Gerenciador de Modos.
+
+Por sua vez, o `Jogo` consiste em uma máquina de estados de `Modos` que será gerenciada pela pilha do Gerenciador de Modos. Assim, por exemplo, para trocar de nível, basta que o `Modo` que implementa o nível atual requisite ao Gerenciador de Modos que coloque o próximo nível no topo da pilha. Essa dinâmica trouxe facilidade para o encadeamento de fases e telas do jogo desenvolvido.
 
 ## Equipe Fazendo Eletiva na Computação
 * Hannah de Oliveira Plath - 198642
@@ -25,6 +39,10 @@ A dinâmica do jogo foi inspirado no jogo de Arcade, Frogger.
 ## Destaques do Código
 
 ### Polimorfismo
+
+Os elementos do jogo (estudante e obstáculos) foram criados a partir de classes que estendem uma classe abstrata chamada `Agente`. Como as operações das células do jogo, performadas pela classe `Celula`, são feitas considerando elementos da classe `Agente`, o uso do polimorfismo na codificação torna o código mais expansível. Isso pois, para se adicionar um novo tipo de obstáculo no jogo basta criar uma nova classe que estende Agente.
+
+
 ~~~java
 public class Celula {
 	private ArrayList<Agente> meusAgentes;
@@ -34,7 +52,6 @@ public class Celula {
 	...
 	}
 ~~~
-
 
 ~~~java
 public class Parede extends Agente{ ...}
@@ -47,6 +64,8 @@ public class VilaoD extends Agente{ ...}
 ~~~
 ### Classe Abstrata
 
+Para que a parte do código referente ao `Framework` possa ser usada para o desenvolvimento de outros jogo, o uso da classe abstrata `Modo` é essencial. Os componentes do `Framework` fazem referências à métodos de `Modo` para pintarem a tela, realizarem o loop do jogo e tratarem os eventos decorrentes do teclado. Dessa forma, para 
+reaproveitar o `Framework` em outros jogos, basta que esse estenda a classe `Modo` e implemente os métodos abstratos obrigatórios.
 ~~~java
 public abstract class Modo {
 	...
@@ -78,32 +97,11 @@ public class AppProjetoFinal {
 
 ### Diagrama Geral do Projeto
 
-O desenvolvimento deste projeto pode ser divido em duas frentes principais: a construção de um framework para o jogo e a elaboração do jogo em si.
-
-A construção de qualquer jogo exige a elaboração de uma estrutura externa à lógica do jogo que é responsável por gerir 
-
-estrutra externa à lógica do jogo
-
-a gente queria desenvolver um framework que não especifico para esse jogo/generalista
-
-Para construir um jogo é necessário um framework. Já que teriamos que construir um framework, a ideia foi transformar ele em um componente, de forma que outros jogos poderiam ser desenvolvidos através dele. Assim, teve-se a ideia de basear a arquitetura do nosso jogo em um esquema do tipo:
-
-FRAMEWORK -> requisita comandos -> Modo -> matriz celulas/celulas -> agente 
-
-Por exemplo, o framework precisa saber o que desenhar na tela. No decorrer da cadeia de objetos, cada um deles se desenha. Entende-se que isso contribui para o encapsulamento do código: cada objeto é responsável por tudo aquilo referente a ele msm.
-
-(dar exemplo talvez do loop de jogo tmb)
-(desenhos?)
-
-Ideia da pilha: a nossa forma de alternar as telas do jogo.
-
-Utilizar um componente Jogo para se conectar com o componente framework. Basta que ele tenha objetos/classes que estendam modo.
-
 ![ComponenteGeral](https://github.com/gabrielmelo00/TrabalhosMC/blob/master/ProjetoFinal/assets/diagramaProjeto.png)
 
 ### Diagrama Geral de Componentes
 
-![DiagramaComponente](https://github.com/gabrielmelo00/TrabalhosMC/blob/master/ProjetoFinal/assets/diagrama_compontens_geral.png)
+![DiagramaComponente](https://github.com/gabrielmelo00/TrabalhosMC/blob/master/ProjetoFinal/assets/ComponentesGeral.png)
 
 ### Componente Framework
 
