@@ -81,8 +81,8 @@ public class FabricaAgente implements IFabricaAgente{
 			Image img = new ImageIcon(Carregador.Imagens.get(Carregador.FRIGIDEIRA).getImage().getScaledInstance(escala,escala, 1)).getImage();
 			return new VilaoE(i,j, meuComodo, ciclos, img);
 			
-		}else if(nomeAgente.equals("LOUCA")){
-			Image img = new ImageIcon(Carregador.Imagens.get(Carregador.LOUCA).getImage().getScaledInstance(escala,escala, 1)).getImage();
+		}else if(nomeAgente.equals("HAMBURGUER")){
+			Image img = new ImageIcon(Carregador.Imagens.get(Carregador.HAMBURGUER).getImage().getScaledInstance(escala,escala, 1)).getImage();
 			return new VilaoE(i,j, meuComodo, ciclos, img);
 			
 		}else if(nomeAgente.equals("CAMA_1")){

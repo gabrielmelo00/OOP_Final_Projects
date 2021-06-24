@@ -98,7 +98,7 @@ public class Sala extends Comodo {
 	    matrizCelulas[1][8].adicionaAgente(fabricaAgente.retornaAgente("PIPOCA",1, 8, delta, 20, this));
 		matrizCelulas[1][10].adicionaAgente(fabricaAgente.retornaAgente("PIPOCA",1, 10, delta, 20, this));
 		
-		matrizCelulas[0][5].adicionaAgente(fabricaAgente.retornaAgente("OBJETIVO",0, 5, delta, 0, this));
+		matrizCelulas[0][0].adicionaAgente(fabricaAgente.retornaAgente("OBJETIVO",0, 0, delta, 0, this));
 
 		estudante = fabricaAgente.retornaAgente("ESTUDANTE" ,11, 11, delta, 0, this);
 		matrizCelulas[11][11].adicionaAgente(estudante);		

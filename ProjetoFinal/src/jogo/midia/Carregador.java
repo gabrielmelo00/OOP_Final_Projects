@@ -43,7 +43,7 @@ public class Carregador {
 	public static final byte PIA = 29;
 	public static final byte ARMARIO = 30;
 	public static final byte FOGAO = 31;
-	public static final byte LOUCA = 32;
+	public static final byte HAMBURGUER = 32;
 	public static final byte FRIGIDEIRA = 33;
 	public static final byte BACKGROUND_QUARTO = 34;
 	public static final byte CAMA_1 = 35;
@@ -93,7 +93,7 @@ public class Carregador {
 			Imagens.add(PIA, new ImageIcon(Carregador.class.getResource("pia.png")));
 			Imagens.add(ARMARIO, new ImageIcon(Carregador.class.getResource("armario1.png")));
 			Imagens.add(FOGAO, new ImageIcon(Carregador.class.getResource("fogao.png")));
-			Imagens.add(LOUCA, new ImageIcon(Carregador.class.getResource("hamburguer.png")));
+			Imagens.add(HAMBURGUER, new ImageIcon(Carregador.class.getResource("hamburguer.png")));
 			Imagens.add(FRIGIDEIRA, new ImageIcon(Carregador.class.getResource("frigideira.png")));
 			Imagens.add(BACKGROUND_QUARTO, new ImageIcon(Carregador.class.getResource("background_quarto.png")));
 			Imagens.add(CAMA_1, new ImageIcon(Carregador.class.getResource("cama1.png")));
@@ -107,7 +107,7 @@ public class Carregador {
 			Imagens.add(ROUPA_SUJA, new ImageIcon(Carregador.class.getResource("roupasuja.png")));
 			Imagens.add(LIVRO, new ImageIcon(Carregador.class.getResource("livro.png")));
 			Imagens.add(ABAJUR, new ImageIcon(Carregador.class.getResource("abajur.png")));
-		} catch(Exception erro) {
+		} catch( NullPointerException erro) {
 			throw new ErroImagemNaoEncontrada("ErroImagemNaoEncontrada: não é  possível carregar imagens!");
 		}
 	}
