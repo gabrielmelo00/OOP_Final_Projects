@@ -240,7 +240,7 @@ Interfaces | IRJogo
 
 Interfaces associadas a esse componente:
 
-![Diagrama Interfaces](https://github.com/gabrielmelo00/TrabalhosMC/blob/master/ProjetoFinal/assets/InterfaceFramework.png)
+![Diagrama Interfaces](https://github.com/gabrielmelo00/TrabalhosMC/blob/master/ProjetoFinal/assets/InterfaceRJogo.png)
 
 
 ### Componente Jogo
