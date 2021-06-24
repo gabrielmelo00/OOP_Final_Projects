@@ -60,7 +60,7 @@ public class Carregador {
 	
 	public static void carregar() throws ErroImagemNaoEncontrada{
 
-		try {	
+		try {
 			Imagens.add(BACKGROUND_MENU, new ImageIcon(Carregador.class.getResource("background.png")));
 			Imagens.add(SELECAO_MENU_JOGAR, new ImageIcon(Carregador.class.getResource("selecao_menu_jogar.png")));
 			Imagens.add(SELECAO_MENU_REGRAS, new ImageIcon(Carregador.class.getResource("selecao_menu_regras.png")));	
@@ -93,7 +93,7 @@ public class Carregador {
 			Imagens.add(PIA, new ImageIcon(Carregador.class.getResource("pia.png")));
 			Imagens.add(ARMARIO, new ImageIcon(Carregador.class.getResource("armario1.png")));
 			Imagens.add(FOGAO, new ImageIcon(Carregador.class.getResource("fogao.png")));
-			Imagens.add(LOUCA, new ImageIcon(Carregador.class.getResource("louca.png")));
+			Imagens.add(LOUCA, new ImageIcon(Carregador.class.getResource("hamburguer.png")));
 			Imagens.add(FRIGIDEIRA, new ImageIcon(Carregador.class.getResource("frigideira.png")));
 			Imagens.add(BACKGROUND_QUARTO, new ImageIcon(Carregador.class.getResource("background_quarto.png")));
 			Imagens.add(CAMA_1, new ImageIcon(Carregador.class.getResource("cama1.png")));
@@ -108,7 +108,7 @@ public class Carregador {
 			Imagens.add(LIVRO, new ImageIcon(Carregador.class.getResource("livro.png")));
 			Imagens.add(ABAJUR, new ImageIcon(Carregador.class.getResource("abajur.png")));
 		} catch(Exception erro) {
-			throw new ErroImagemNaoEncontrada("ErroImagemNaoEncontrada: não foi possível carregar imagens");
+			throw new ErroImagemNaoEncontrada("ErroImagemNaoEncontrada: não é  possível carregar imagens!");
 		}
 	}
 }

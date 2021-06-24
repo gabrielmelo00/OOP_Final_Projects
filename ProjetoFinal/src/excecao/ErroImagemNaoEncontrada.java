@@ -1,6 +1,6 @@
 package excecao;
 
-public class ErroImagemNaoEncontrada extends ErroImagem{
+public class ErroImagemNaoEncontrada extends Exception{
 
 	private static final long serialVersionUID = -8943894436689460834L;
 

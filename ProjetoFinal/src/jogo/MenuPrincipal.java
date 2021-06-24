@@ -8,7 +8,6 @@ import java.awt.event.KeyEvent;
 
 import javax.swing.ImageIcon;
 
-import excecao.ErroImagem;
 import excecao.ErroImagemNaoEncontrada;
 import jogo.midia.Carregador;
 import framework.Modo;
@@ -26,14 +25,13 @@ public class MenuPrincipal extends Modo implements IJogo{
 
 	
 
-	public MenuPrincipal() throws ErroImagem{
+	public MenuPrincipal() throws ErroImagemNaoEncontrada{
 		super();
 		try{
 			Carregador.carregar();
 			carregarImagens();
 		}catch(ErroImagemNaoEncontrada erro) {
-			System.out.println(erro.getMessage());
-			throw new ErroImagem("ErroMenuImagem: Não foi possível carregar menu!");
+			throw new ErroImagemNaoEncontrada(erro.getMessage());
 		}
 		
 		

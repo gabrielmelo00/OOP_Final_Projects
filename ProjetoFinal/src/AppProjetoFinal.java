@@ -1,5 +1,6 @@
 
-import excecao.ErroImagem;
+
+import excecao.ErroImagemNaoEncontrada;
 import framework.IRJogo;
 import framework.Motor;
 import jogo.IJogo;
@@ -15,9 +16,11 @@ public class AppProjetoFinal {
 			IJogo meuJogo = new MenuPrincipal();
 			meuFramework.conecta(meuJogo);
 			meuFramework.comecarJogo();
-		}catch(ErroImagem erro) {
+		}catch(ErroImagemNaoEncontrada erro) {
 			System.out.println(erro.getMessage());
-			System.out.println("ErroImagem: Nao é possivel carregar jogo!");
+			System.out.println("ErroImagemNaoEncontrada: não é possivel carregar jogo!");
+		}catch(Exception erro) {
+			System.out.println("Erro: não é possível carregar jogo!");
 		}
 	}
 }
