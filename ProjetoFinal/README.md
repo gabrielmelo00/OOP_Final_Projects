@@ -97,7 +97,7 @@ public class AppProjetoFinal {
 
 ### Diagrama Geral do Projeto
 
-![ComponenteGeral](https://github.com/gabrielmelo00/TrabalhosMC/blob/master/ProjetoFinal/assets/DiagramaProjeto.png)
+![ComponenteGeral](https://github.com/gabrielmelo00/TrabalhosMC/blob/master/ProjetoFinal/assets/DiagramProjeto.png)
 
 ### Diagrama Geral de Componentes
 
