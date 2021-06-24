@@ -91,6 +91,87 @@ public class AppProjetoFinal {
 }
 ~~~
 
+## Destaques do Código
+
+### Pattern Factory
+
+#### Diagrama do Pattern
+
+![FabricaAgente](https://github.com/gabrielmelo00/TrabalhosMC/blob/master/ProjetoFinal/assets/FabricaAgente.png)
+
+#### Código do Pattern Factory
+
+Em FabricaAgente.java
+
+~~~java
+
+public Agente retornaAgente(String nomeAgente, int i, int j, int escala, int ciclos, Comodo meuComodo) {
+	if(nomeAgente == null) {
+		return null;
+	}
+
+	if(nomeAgente.equals("MACA")) {
+		Image img = new ImageIcon(Carregador.Imagens.get(Carregador.MACA).getImage().getScaledInstance(escala,escala, 1)).getImage();
+		Image img2 = new ImageIcon(Carregador.Imagens.get(Carregador.MACA_LAGARTA).getImage().getScaledInstance(2*escala,escala, 1)).getImage();
+		return new VilaoDuploDinamico(i, j, meuComodo, ciclos, img, img2);
+
+	}else if(nomeAgente.equals("ESTUDANTE")){
+		Image img = new ImageIcon(Carregador.Imagens.get(Carregador.ESTUDANTE).getImage().getScaledInstance(escala,escala, 1)).getImage();
+		Estudante aux = Estudante.getInstancia();
+		aux.setParametros(i, j, meuComodo, img);
+		return aux;
+
+	}
+		...
+	}else{
+		return null;
+	}
+~~~
+
+Em Quintal.java que estende a classe abstrata Comodo.java;
+
+~~~java
+
+public Quintal(){		
+	fabricaAgente = new FabricaAgente();
+	carregarImagens();
+	carregarAgentes();
+}
+
+public void carregarAgentes() {	
+	matrizCelulas[10][0].adicionaAgente(fabricaAgente.retornaAgente("CACHORRO",10, 0, delta, 20, this));
+	matrizCelulas[8][3].adicionaAgente(fabricaAgente.retornaAgente("GATO",8, 3, delta, 30, this));
+	...
+}
+~~~
+
+### Pattern Singleton
+
+#### Diagrama do Pattern
+
+![EstudanteSingleton](https://github.com/gabrielmelo00/TrabalhosMC/blob/master/ProjetoFinal/assets/EstudanteSingleton.png)
+
+#### Código do Pattern Factory
+
+Em Estudante.java
+
+~~~java
+
+private static Estudante instanciaEstudante = new Estudante();
+
+	...
+
+private Estudante() {
+	super(0,0,'E', 0, null);
+	tempo = 0;
+}
+
+public static Estudante getInstancia() {
+	return instanciaEstudante;
+}
+
+	...
+~~~
 ## Documentação dos Componentes
 
 ## Diagramas
