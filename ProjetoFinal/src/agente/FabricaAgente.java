@@ -11,6 +11,7 @@ public class FabricaAgente implements IFabricaAgente{
 	
 	public Agente retornaAgente(String nomeAgente, int i, int j, int escala, int ciclos, Comodo meuComodo) {
 		if(nomeAgente == null) {
+			return null;
 		}
 		
 		if(nomeAgente.equals("MACA")) {
