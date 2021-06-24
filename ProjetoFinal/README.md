@@ -97,17 +97,56 @@ public class AppProjetoFinal {
 
 ### Diagrama Geral do Projeto
 
-![ComponenteGeral](https://github.com/gabrielmelo00/TrabalhosMC/blob/master/ProjetoFinal/assets/diagramaProjeto.png)
+![ComponenteGeral](https://github.com/gabrielmelo00/TrabalhosMC/blob/master/ProjetoFinal/assets/DiagramaProjeto.png)
 
 ### Diagrama Geral de Componentes
 
 ![DiagramaComponente](https://github.com/gabrielmelo00/TrabalhosMC/blob/master/ProjetoFinal/assets/ComponentesGeral.png)
 
-### Componente Framework
+### Componente Gerenciador de Modos
 
 Encapsula os comandos referentes à escrita na tela, leitura do teclado e comandos ligados ao `timer`. Com isso, ele encaminha esses comandos para as classes responsáveis pela execução da ação.
 
-![ComponenteFramework](https://github.com/gabrielmelo00/TrabalhosMC/blob/master/ProjetoFinal/assets/framework.png)
+![ComponenteFramework](https://github.com/gabrielmelo00/TrabalhosMC/blob/master/ProjetoFinal/assets/GerenciadorModos.png)
+
+**Ficha Técnica**
+item | detalhamento
+----- | -----
+Classe | jogo.Motor
+Autores | Hannah e Gabriel
+Interfaces | IRJogo
+
+#### Interfaces
+
+Interfaces associadas a esse componente:
+
+![Diagrama Interfaces](https://github.com/gabrielmelo00/TrabalhosMC/blob/master/ProjetoFinal/assets/InterfaceFramework.png)
+
+### Componente Gerenciador de Janela
+
+Encapsula os comandos referentes à escrita na tela, leitura do teclado e comandos ligados ao `timer`. Com isso, ele encaminha esses comandos para as classes responsáveis pela execução da ação.
+
+![ComponenteFramework](https://github.com/gabrielmelo00/TrabalhosMC/blob/master/ProjetoFinal/assets/GerenciadorJanela.png)
+
+**Ficha Técnica**
+item | detalhamento
+----- | -----
+Classe | jogo.Motor
+Autores | Hannah e Gabriel
+Interfaces | IRJogo
+
+#### Interfaces
+
+Interfaces associadas a esse componente:
+
+![Diagrama Interfaces](https://github.com/gabrielmelo00/TrabalhosMC/blob/master/ProjetoFinal/assets/InterfaceFramework.png)
+
+
+### Componente Motor
+
+Encapsula os comandos referentes à escrita na tela, leitura do teclado e comandos ligados ao `timer`. Com isso, ele encaminha esses comandos para as classes responsáveis pela execução da ação.
+
+![ComponenteFramework](https://github.com/gabrielmelo00/TrabalhosMC/blob/master/ProjetoFinal/assets/Motor.png)
 
 **Ficha Técnica**
 item | detalhamento
@@ -127,7 +166,7 @@ Interfaces associadas a esse componente:
 
 Implementa a dinâmica do jogo, sendo responsável pela execução das interações dos objetos do tipo `Agente` com o espaço celular.
 
-![ComponenteJogo](https://github.com/gabrielmelo00/TrabalhosMC/blob/master/ProjetoFinal/assets/jogo.png)
+![ComponenteJogo](https://github.com/gabrielmelo00/TrabalhosMC/blob/master/ProjetoFinal/assets/Jogo.png)
 
 **Ficha Técnica**
 item | detalhamento
@@ -152,7 +191,7 @@ Implementa o pattern factory. Esse componente é responsável por fornecer ao co
 * Parede;
 * Objetivo.
 
-![Componente](https://github.com/gabrielmelo00/TrabalhosMC/blob/master/ProjetoFinal/assets/agente.png)
+![Componente](https://github.com/gabrielmelo00/TrabalhosMC/blob/master/ProjetoFinal/assets/Agente.png)
 
 **Ficha Técnica**
 item | detalhamento
