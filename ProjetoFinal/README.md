@@ -193,9 +193,9 @@ Encapsula os comandos referentes à escrita na tela, leitura do teclado e comand
 **Ficha Técnica**
 item | detalhamento
 ----- | -----
-Classe | jogo.Motor
+Classe | framework.GerenciadorModos
 Autores | Hannah e Gabriel
-Interfaces | IRJogo
+Interfaces | IGerenciadorModos
 
 #### Interfaces
 
@@ -212,9 +212,9 @@ Encapsula os comandos referentes à escrita na tela, leitura do teclado e comand
 **Ficha Técnica**
 item | detalhamento
 ----- | -----
-Classe | jogo.Motor
+Classe | framework.GerenciadorJanela
 Autores | Hannah e Gabriel
-Interfaces | IRJogo
+Interfaces | IJanela
 
 #### Interfaces
 
@@ -232,7 +232,7 @@ Encapsula os comandos referentes à escrita na tela, leitura do teclado e comand
 **Ficha Técnica**
 item | detalhamento
 ----- | -----
-Classe | jogo.Motor
+Classe | framework.Motor
 Autores | Hannah e Gabriel
 Interfaces | IRJogo
 
