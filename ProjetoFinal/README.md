@@ -186,7 +186,7 @@ public static Estudante getInstancia() {
 
 ### Componente Gerenciador de Modos
 
-Encapsula os comandos referentes à escrita na tela, leitura do teclado e comandos ligados ao `timer`. Com isso, ele encaminha esses comandos para as classes responsáveis pela execução da ação.
+
 
 ![ComponenteGerenciadorModo](https://github.com/gabrielmelo00/TrabalhosMC/blob/master/ProjetoFinal/assets/GerenciadorModos.png)
 
@@ -205,7 +205,6 @@ Interfaces associadas a esse componente:
 
 ### Componente Gerenciador de Janela
 
-Encapsula os comandos referentes à escrita na tela, leitura do teclado e comandos ligados ao `timer`. Com isso, ele encaminha esses comandos para as classes responsáveis pela execução da ação.
 
 ![ComponenteGerenciadorJanela](https://github.com/gabrielmelo00/TrabalhosMC/blob/master/ProjetoFinal/assets/GerenciadorJanela.png)
 
@@ -225,7 +224,6 @@ Interfaces associadas a esse componente:
 
 ### Componente Motor
 
-Encapsula os comandos referentes à escrita na tela, leitura do teclado e comandos ligados ao `timer`. Com isso, ele encaminha esses comandos para as classes responsáveis pela execução da ação.
 
 ![ComponenteMotor](https://github.com/gabrielmelo00/TrabalhosMC/blob/master/ProjetoFinal/assets/Motor.png)
 
