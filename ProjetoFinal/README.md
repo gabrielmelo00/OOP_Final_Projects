@@ -144,11 +144,15 @@ public class GerenciadorModos implements IGerenciadorModos{
 
 ### Pattern Factory
 
+A fim de facilitar a instanciação de objetos do tipo `Agente`, decidiu-se utilizar o `pattern factory`. Criou-se, assim, uma classe chamada `FabricaAgente` que possui um único método: `retornaAgente()`. Esse método retorna um objeto específico do tipo `Agente` de acordo com os parâmetros passados. As classes que estendem `Comodo`, como `Quintal`, `Quarto`, `Sala` e `Cozinha`, requisitam seus `Agentes` através do método `carregarAgentes()` e os adiciona a células da matriz.
+
+Assim, pode-se dizer que os `Comodos` são clientes de `FabricaAgente`.
+
 #### Diagrama do Pattern
 
 ![FabricaAgente](https://github.com/gabrielmelo00/TrabalhosMC/blob/master/ProjetoFinal/assets/FabricaAgente.png)
 
-#### Código do Pattern Factory
+#### Código do Pattern
 
 Em [`FabricaAgente.java`](https://github.com/gabrielmelo00/TrabalhosMC/blob/master/ProjetoFinal/src/agente/FabricaAgente.java)
 
@@ -196,11 +200,13 @@ public void carregarAgentes() {
 
 ### Pattern Singleton
 
+O `Estudante` é a classe do jogo que gera um objeto que pode ser controlado pelo jogador. Para que o jogo funcione corretamente deve existir somente um `Estudante` no jogo. Assim, decidiu-se usar o `pattern singleton` na sua construção a fim de garantir tal condição.
+
 #### Diagrama do Pattern
 
 ![EstudanteSingleton](https://github.com/gabrielmelo00/TrabalhosMC/blob/master/ProjetoFinal/assets/EstudanteSingleton.png)
 
-#### Código do Pattern Factory
+#### Código do Pattern 
 
 Em [`Estudante.java`](https://github.com/gabrielmelo00/TrabalhosMC/blob/master/ProjetoFinal/src/agente/Estudante.java)
 
