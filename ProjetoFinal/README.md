@@ -241,6 +241,8 @@ public static Estudante getInstancia() {
 
 ### Componente Gerenciador de Modos
 
+Implementa a pilha responsável por controlar os modos do jogo e os métodos que serão repassados para cada modo resolver no seu contexto específico. 
+
 ![ComponenteGerenciadorModo](https://github.com/gabrielmelo00/TrabalhosMC/blob/master/ProjetoFinal/assets/GerenciadorModos.png)
 
 **Ficha Técnica**
@@ -258,6 +260,7 @@ Interfaces associadas a esse componente:
 
 ### Componente Gerenciador de Janela
 
+Responsável por gerar um `JFrame` e um `JPanel` e manter as imagens do jogo atualizadas na tela. Além disso, o componente coleta as informações advindas do teclado. 
 
 ![ComponenteGerenciadorJanela](https://github.com/gabrielmelo00/TrabalhosMC/blob/master/ProjetoFinal/assets/GerenciadorJanela.png)
 
@@ -322,10 +325,16 @@ Interfaces associadas a esse componente:
 
 Implementa o pattern factory. Esse componente é responsável por fornecer ao componente jogo objetos do tipo `Agente`:
 
-* Estudante;
-* Vilão;
-* Parede;
-* Objetivo.
+* `Estudante`;
+* `VilaoBateVolta`;
+* `VilaoD`;
+* `VilaoDuploDinamico`;
+* `VilaoDuploEstatico`;
+* `VilaoE`;
+* `VilaoQ`;
+* `VilaoTransparente`;
+* `Parede`;
+* `Objetivo`.
 
 ![ComponenteAgente](https://github.com/gabrielmelo00/TrabalhosMC/blob/master/ProjetoFinal/assets/Agente.png)
 
@@ -341,8 +350,6 @@ Interfaces | IFabricaAgente
 Interfaces associadas a esse componente:
 
 ![Diagrama Interfaces](https://github.com/gabrielmelo00/TrabalhosMC/blob/master/ProjetoFinal/assets/InterfaceFabrica.png)
-
-
 
 ### Detalhamento das Interfaces
 
