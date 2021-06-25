@@ -140,7 +140,7 @@ public class GerenciadorModos implements IGerenciadorModos{
 }
 ~~~
 
-## Destaques do Código
+## Destaques do Pattern
 
 ### Pattern Factory
 
