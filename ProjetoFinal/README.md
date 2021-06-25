@@ -177,7 +177,7 @@ public Agente retornaAgente(String nomeAgente, int i, int j, int escala, int cic
 	}
 ~~~
 
-Em [`Quintal.java`](https://github.com/gabrielmelo00/TrabalhosMC/blob/master/ProjetoFinal/src/jogo/Quintal.java) que estende a classe abstrata Comodo.java;
+Em [`Quintal.java`](https://github.com/gabrielmelo00/TrabalhosMC/blob/master/ProjetoFinal/src/jogo/Quintal.java) que estende a classe abstrata [`Comodo.java`](https://github.com/gabrielmelo00/TrabalhosMC/blob/master/ProjetoFinal/src/jogo/Comodo.java);
 
 ~~~java
 
@@ -197,6 +197,8 @@ public void carregarAgentes() {
 A fim de facilitar a instanciação de objetos do tipo `Agente`, decidiu-se utilizar o `pattern factory`. Criou-se, assim, uma classe chamada `FabricaAgente` que possui um único método: `retornaAgente()`. Esse método retorna um objeto específico do tipo `Agente` de acordo com os parâmetros passados. As classes que estendem `Comodo`, como `Quintal`, `Quarto`, `Sala` e `Cozinha`, requisitam seus `Agentes` através do método `carregarAgentes()` e os adiciona a células da matriz.
 
 Assim, pode-se dizer que os `Comodos` são clientes de `FabricaAgente`.
+
+A comunicação entre as duas classes, `FabricaAgente` e `Comodo`, é feita através do uso da interface `IFabricaAgente`.
 
 ### Pattern Singleton
 
@@ -227,6 +229,8 @@ public static Estudante getInstancia() {
 ~~~
 
 O `Estudante` é a classe do jogo que gera um objeto que pode ser controlado pelo jogador. Para que o jogo funcione corretamente deve existir somente um `Estudante` no jogo. Assim, decidiu-se usar o `pattern singleton` na sua construção a fim de garantir tal condição.
+
+A classe `FabricaAgente` não consegue instanciar diretamente um objeto do tipo `Estudante`, mas requisita à essa classe que retorne um objeto desse tipo através do método `getInstancia()`. A classe `Estudante`, por sua vez, sempre retorna a mesma instância, garantindo a existência de apenas um objeto desse tipo.
 
 ## Documentação dos Componentes
 
@@ -368,7 +372,7 @@ public interface IFabricaAgente {
 
 Método | Objetivo
 -------| --------
-`retornaAgente` | Retorna um objeto do tipo `Agente` de acordo com as especificações. 
+`Agente retornaAgente` | Retorna um objeto do tipo `Agente` de acordo com as especificações. 
 
 #### Interface IRJogo
 
@@ -385,8 +389,8 @@ public interface IRJogo {
 
 Método | Objetivo
 -------| --------
-`conecta` | Conecta um jogo ao componente Framework.
-`comecarJogo`| Executa os métodos necessários para começar o Jogo.
+`void conecta` | Conecta um jogo ao componente Framework.
+`void comecarJogo`| Executa os métodos necessários para começar o Jogo.
 
 
 #### Interface IJogo
@@ -404,7 +408,7 @@ public interface IJogo {
 
 Método | Objetivo
 -------| --------
-`retornaJogo` | Retorna um modo de jogo. 
+`Modo retornaJogo` | Retorna um modo de jogo. 
 
 #### Interface IGerenciadorModos
 
@@ -424,13 +428,13 @@ public interface IGerenciadorModos {
 
 Método | Objetivo
 -------| --------
-`adicionarPilha` | Adiciona um elemento do tipo `Modo` à pilha do `GerenciadorModos`. 
-`loop` | Chama o método `loop` do `Modo` que está no topo da pilha.
-`pintarTela` | Chama o método `pintarTela` do `Modo` que está no topo da pilha.
-`retornaGerenciadorModo` | Retorna um `GerenciadorModos`
-`keyReleased` | Chama o método `keyReleased` do `Modo` que está no topo da pilha.
-`keyPressed` | Chama o método `keyPressed` do `Modo` que está no topo da pilha.
-`keyTyped` | Chama o método `keyTyped` do `Modo` que está no topo da pilha.
+`void adicionarPilha` | Adiciona um elemento do tipo `Modo` à pilha do `GerenciadorModos`. 
+`void loop` | Chama o método `loop` do `Modo` que está no topo da pilha.
+`void pintarTela` | Chama o método `pintarTela` do `Modo` que está no topo da pilha.
+`GerenciadorModos retornaGerenciadorModo` | Retorna um `GerenciadorModos`
+`void keyReleased` | Chama o método `keyReleased` do `Modo` que está no topo da pilha.
+`void keyPressed` | Chama o método `keyPressed` do `Modo` que está no topo da pilha.
+`void keyTyped` | Chama o método `keyTyped` do `Modo` que está no topo da pilha.
 
 #### Interface IJanela
 
@@ -446,9 +450,9 @@ public interface IJanela {
 
 Método | Objetivo
 -------| --------
-`adicionarPainel` | Adiciona um painel à janela.
-`mostrarJanela` | Torna a janela visível.
-`adicionarKeyListener` | Adiciona um `KeyListener` à janela.
+`void adicionarPainel` | Adiciona um painel à janela.
+`void mostrarJanela` | Torna a janela visível.
+`void adicionarKeyListener` | Adiciona um `KeyListener` à janela.
 
 ## Plano de Exceções
 
