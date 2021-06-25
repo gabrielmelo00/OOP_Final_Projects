@@ -79,6 +79,8 @@ public abstract class Modo {
 ~~~
 ### Comunicação entre componentes
 
+Neste trecho, nota-se que os dois componentes `Motor` e `Jogo` são conectados através do uso de duas interfaces. Essa componetização dos elementos do código é importante para tornar as diferentes partes do código reutilizáveis.
+
 ~~~java
 public class AppProjetoFinal {
 	...
@@ -87,6 +89,55 @@ public class AppProjetoFinal {
 	IJogo meuJogo = new MenuPrincipal();
 	meuFramework.conecta(meuJogo);
 	meuFramework.comecarJogo();
+	...
+}
+~~~
+
+### Pilha de Modos
+
+Para orquestrar os diferentes `Modos` do jogo, o `Gerenciador de Modos` utiliza uma pilha. O uso dessa estrutura facilita, por exemplo, a troca entre fases do jogo. Cada fase é construída como um `Modo` de forma que a passagem de nível se caracteriza pela adição do novo modo na pilha. Como os métodos de `Gerenciador de Modos` fazem referência ao elemento que está no topo da pilha, o `loop` do jogo executado, por exemplo, é aquele pertencente ao contexto atual do jogo, ou seja, seu `Modo` atual. 
+
+
+O `Motor` do jogo sempre requisita para o `Gerenciados de Modos` o `loop`
+~~~java
+public class GerenciadorModos implements IGerenciadorModos{
+	private Stack<Modo> modos;
+
+	public GerenciadorModos() {
+		modos = new Stack<Modo>();
+	}
+	
+	public void adicionarPilha(Modo novoModo) {
+		modos.push(novoModo);
+	}
+	
+	public void loop() throws ErroPilhaVazia{
+		if(modos.empty()) {
+			throw new ErroPilhaVazia("A pilha de modos está vazia!");
+		}else {
+			modos.peek().loop();
+		}
+		
+	}
+	
+	public void pintarTela (Graphics g) throws ErroPilhaVazia{
+		if(modos.empty()) {
+			throw new ErroPilhaVazia("A pilha de modos está vazia!");
+		}else {
+			 modos.peek().pintarTela(g);
+		}
+		
+	}
+	
+	public void keyTyped(KeyEvent e) {
+		if(modos.empty()) {
+			System.out.println("Atenção: a pilha está vazia.");
+		}else {
+			modos.peek().keyTyped(e);
+		}
+		
+	}
+	
 	...
 }
 ~~~
@@ -322,6 +373,8 @@ Método | Objetivo
 -------| --------
 `conecta` | Conecta um jogo ao componente Framework.
 `comecarJogo`| Executa os métodos necessários para começar o Jogo.
+
+
 #### Interface IJogo
 
 Interface provida que retorna um jogo do tipo `Modo` para o solicitante
@@ -339,6 +392,49 @@ Método | Objetivo
 -------| --------
 `retornaJogo` | Retorna um modo de jogo. 
 
+#### Interface IGerenciadorModos
+
+Interface que provê acesso aos métodos de `GerenciadorModos`  
+
+~~~java
+public interface IGerenciadorModos {
+	public void adicionarPilha(Modo novoModo);
+	public void loop() throws ErroPilhaVazia;
+	public void pintarTela (Graphics g) throws ErroPilhaVazia;
+	public GerenciadorModos retornaGerenciadorModo();
+	public void keyReleased(KeyEvent e);
+	public void keyPressed(KeyEvent e);
+	public void keyTyped(KeyEvent e);
+}
+~~~
+
+Método | Objetivo
+-------| --------
+`adicionarPilha` | Adiciona um elemento do tipo `Modo` à pilha do `GerenciadorModos`. 
+`loop` | Chama o método `loop` do `Modo` que está no topo da pilha.
+`pintarTela` | Chama o método `pintarTela` do `Modo` que está no topo da pilha.
+`retornaGerenciadorModo` | Retorna um `GerenciadorModos`
+`keyReleased` | Chama o método `keyReleased` do `Modo` que está no topo da pilha.
+`keyPressed` | Chama o método `keyPressed` do `Modo` que está no topo da pilha.
+`keyTyped` | Chama o método `keyTyped` do `Modo` que está no topo da pilha.
+
+#### Interface IJanela
+
+Interface que permite operações com a janela gráfica do jogo.
+
+~~~java
+public interface IJanela {
+	public void adicionarPainel();
+	public void mostrarJanela();
+	public void adicionarKeyListener() throws ErroAdicionarTeclado;
+}
+~~~
+
+Método | Objetivo
+-------| --------
+`adicionarPainel` | Adiciona um painel à janela.
+`mostrarJanela` | Torna a janela visível.
+`adicionarKeyListener` | Adiciona um `KeyListener` à janela.
 
 ## Plano de Exceções
 
