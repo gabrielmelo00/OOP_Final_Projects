@@ -431,7 +431,7 @@ Método | Objetivo
 `void adicionarPilha` | Adiciona um elemento do tipo `Modo` à pilha do `GerenciadorModos`. 
 `void loop` | Chama o método `loop` do `Modo` que está no topo da pilha.
 `void pintarTela` | Chama o método `pintarTela` do `Modo` que está no topo da pilha.
-`GerenciadorModos retornaGerenciadorModo` | Retorna um `GerenciadorModos`
+`GerenciadorModos retornaGerenciadorModo` | Retorna um `GerenciadorModos`.
 `void keyReleased` | Chama o método `keyReleased` do `Modo` que está no topo da pilha.
 `void keyPressed` | Chama o método `keyPressed` do `Modo` que está no topo da pilha.
 `void keyTyped` | Chama o método `keyTyped` do `Modo` que está no topo da pilha.
