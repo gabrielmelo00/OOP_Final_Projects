@@ -232,6 +232,8 @@ O `Estudante` é a classe do jogo que gera um objeto que pode ser controlado pel
 
 A classe `FabricaAgente` não consegue instanciar diretamente um objeto do tipo `Estudante`, mas requisita à essa classe que retorne um objeto desse tipo através do método `getInstancia()`. A classe `Estudante`, por sua vez, sempre retorna a mesma instância, garantindo a existência de apenas um objeto desse tipo.
 
+##Conclusão e Trabalhos Futuros
+
 ## Documentação dos Componentes
 
 ## Diagramas
