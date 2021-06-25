@@ -36,6 +36,38 @@ Por sua vez, o `Jogo` consiste em uma máquina de estados de `Modos` que será g
 ### Slides da Prévia
 [Apresentação de slides da prévia do projeto](https://github.com/gabrielmelo00/TrabalhosMC/blob/master/ProjetoFinal/assets/Previa%20Projeto.pdf)
 
+## Relatório de Evolução
+
+Ao longo do projeto, foram surgindo necessidades de adaptação da arquitetura inicial proposta e várias modificações foram feitas.
+
+Primeiramente, decidiu-se mudar a forma como os diferentes cômodos (níveis) seriam apresentados na tela. A ideia inicial era de simular a planta de uma casa, colocando os quatro cômodos (quintal, cozinha, sala e quarto) ao mesmo tempo na tela. Após testes, no entanto, percebeu-se que, com tal disposição, a área de tela de cada cômodo ficava pequena e o jogo poluído visualmente. Assim, decidiu-se carregar uma tela para cada cômodo. Isto é, somente quando o jogador passasse do primeiro nível a tela do segundo seria carregada.
+
+Além disso, o grupo decidiu construir uma estrutura base que pudesse ser utilizada para o desenvolvimento de outros jogos. A ideia foi inspirada no pattern `Chain of Responsability`, em que um objeto repassa uma tarefa para um outro de hierarquia inferior à sua caso não consiga por si só resolver o problema. Analogamente, a estrutra base do jogo capta eventos (Timer, KeyListener, PaintComponent) e delega a ação a ser tomada a partir deles para objetos cada vez mais especializados, de forma a otimizar o encapsulamento. 
+
+Por exemplo, a estrutura base deve pintar a janela do jogo. No entanto, a informação do que deve ser pintado está contida dentro de cada objeto que está na tela. 
+
+
+Isto é, uma estrutra de componentes que permitisse a captação de comandos do teclado, criação de uma janela gráfica e controle e gerenciamento do loop do jogo.
+
+Essas duas decisões levaram o grupo a reavaliar a arquitetura inicialmente proposta, modificando-a.
+
+As relações entre as classes `Comodo`, `Agente` e `Celula` foram mantidas assim como a ideia inicial de que a classe `Agente` seria uma classe abstrata a ser usada para a geração de diferentes elementos do jogo, como estudante, maça, bola etc. As outras classes, no entanto, foram substituidas por três componentes: `Motor`, `GerenciadorModos` e `GerenciadorJanela`.
+
+A relação entre esses
+
+Anteriormente
+
+
+* decidiu-se mudar 1 comodo por tela -> razoes estéticas
+* a gente reestruturou a arquitetura geral do código, mantendo somente a relação entre as classes comodo, agente, célula (espaço celular)
+* colocar livro
+* a arquitetua proposta anteriormente (montador, casa, motor de jogo) era complexa e dificultava a troca de níveis
+* adotou-se uma nova arquitetura que tem como inspiração Chain of Responsability. Breve explicação
+
+* 20 e poucas classes de agente -> 10 tipos de movimento e optou por usar factory
+* a maior dificuldade foi de pensar numa arquitetura inicial forte. A gente teve que adaptar as nossas ideias varias vezes e o projeto foi surgindo organicamente.
+
+
 ## Destaques do Código
 
 ### Polimorfismo
