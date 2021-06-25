@@ -97,8 +97,6 @@ public class AppProjetoFinal {
 
 Para orquestrar os diferentes `Modos` do jogo, o `Gerenciador de Modos` utiliza uma pilha. O uso dessa estrutura facilita, por exemplo, a troca entre fases do jogo. Cada fase é construída como um `Modo` de forma que a passagem de nível se caracteriza pela adição do novo modo na pilha. Como os métodos de `Gerenciador de Modos` fazem referência ao elemento que está no topo da pilha, o `loop` do jogo executado, por exemplo, é aquele pertencente ao contexto atual do jogo, ou seja, seu `Modo` atual. 
 
-
-O `Motor` do jogo sempre requisita para o `Gerenciados de Modos` o `loop`
 ~~~java
 public class GerenciadorModos implements IGerenciadorModos{
 	private Stack<Modo> modos;
