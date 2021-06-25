@@ -241,8 +241,6 @@ public static Estudante getInstancia() {
 
 ### Componente Gerenciador de Modos
 
-
-
 ![ComponenteGerenciadorModo](https://github.com/gabrielmelo00/TrabalhosMC/blob/master/ProjetoFinal/assets/GerenciadorModos.png)
 
 **Ficha Técnica**
@@ -298,9 +296,13 @@ Interfaces associadas a esse componente:
 
 ### Componente Jogo
 
-Implementa a dinâmica do jogo, sendo responsável pela execução das interações dos objetos do tipo `Agente` com o espaço celular.
+Implementa a dinâmica do jogo, sendo responsável pela execução das interações dos objetos do tipo `Agente` com o espaço celular. O jogo contém uma página de menu principal, uma página de regras, uma página de vitórias, uma página de GameOver e 4 cômodos (Quintal, Cozinha, Sala e Quarto).  
 
 ![ComponenteJogo](https://github.com/gabrielmelo00/TrabalhosMC/blob/master/ProjetoFinal/assets/Jogo.png)
+
+**Máquina de estados do Jogo**
+
+![MaquinaEstados](https://github.com/gabrielmelo00/TrabalhosMC/blob/master/ProjetoFinal/assets/MaquinaEstados.png)
 
 **Ficha Técnica**
 item | detalhamento
