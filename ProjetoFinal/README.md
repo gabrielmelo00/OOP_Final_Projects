@@ -287,6 +287,7 @@ Interfaces associadas a esse componente:
 
 ### Componente Motor
 
+Responsável pelo controle do loop principal e é o componente que inicializa o `GerenciadorModos` e o `GerenciadorJanela`.
 
 ![ComponenteMotor](https://github.com/gabrielmelo00/TrabalhosMC/blob/master/ProjetoFinal/assets/Motor.png)
 
