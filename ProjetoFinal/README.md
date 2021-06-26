@@ -36,6 +36,27 @@ Por sua vez, o `Jogo` consiste em uma máquina de estados de `Modos` que será g
 ### Slides da Prévia
 [Apresentação de slides da prévia do projeto](https://github.com/gabrielmelo00/TrabalhosMC/blob/master/ProjetoFinal/assets/Previa%20Projeto.pdf)
 
+## Relatório de Evolução
+
+Ao longo do projeto, foram surgindo necessidades de adaptação da arquitetura inicial proposta e várias modificações foram feitas.
+
+Primeiramente, decidiu-se mudar a forma como os diferentes cômodos (níveis) seriam apresentados na tela. A ideia inicial era de simular a planta de uma casa, colocando os quatro cômodos (quintal, cozinha, sala e quarto) ao mesmo tempo na tela. Após testes, no entanto, percebeu-se que, com tal disposição, a área de tela de cada cômodo ficava pequena e o jogo poluído visualmente. Assim, decidiu-se carregar uma tela para cada cômodo. Isto é, somente quando o jogador passasse do primeiro nível a tela do segundo seria carregada.
+
+Além disso, o grupo decidiu construir uma estrutura base que pudesse ser utilizada para o desenvolvimento de outros jogos. A ideia foi inspirada no pattern `Chain of Responsability`, em que um objeto repassa uma tarefa para um outro de hierarquia inferior à sua caso não consiga por si só resolver o problema. Analogamente, a estrutra base do jogo capta eventos (Timer, KeyListener, PaintComponent) e delega a ação a ser tomada a partir deles para objetos cada vez mais especializados, de forma a otimizar o encapsulamento. 
+
+Por exemplo, a estrutura base deve pintar a janela do jogo. No entanto, a informação do que deve ser pintado está contida dentro de cada objeto que está na tela. Assim, o componente responsável por pintar a janela chama o método `pintarTela()` de um objeto imediatamente inferior à ele e esse, caso possua objetos hierarquicamente inferiores à ele que demandam pintura, repassa o pedido para eles e assim sucessivamente até que todos os elementos presentes na tela tenham se pintado.
+
+Essas duas decisões levaram o grupo a reavaliar a arquitetura inicialmente proposta, modificando-a. 
+
+As relações entre as classes `Comodo`, `Agente` e `Celula` foram mantidas assim como a ideia inicial de que a classe `Agente` seria uma classe abstrata a ser usada para a geração de diferentes elementos do jogo, como estudante, maça, bola etc. As outras classes, no entanto, foram substituidas por três componentes: `Motor`, `GerenciadorModos` e `GerenciadorJanela`, que compõem a chamada `estrutura base` ou `framework` do jogo.
+
+Além disso, a ideia inicial apresentada de cada elemento do jogo (estudante, maça etc) estender `Agente` foi abandonada. Isto pois, tal abordagem levaria à criação de 23 classes com grandes similaridades. Decidiu-se, então, criar dez classes que descrevessem os dez padrões de movimento adotados no jogo e passar como parâmetros informações específicas para a criação de cada objeto como velocidade, imagem, etc. Também decidiu-se usar o `pattern factory` nesse caso para facilitar a instanciação desses elementos bem como a flexibilidade da criação de novos padrões de movimento.
+
+A maior dificuldade encontrada foi visualizar os entraves que a nossa arquitetura proposta possuia antes de começar a programar. Durante a elaboração do código, foram encontradas falhas na arquitetura que demandavam uma reestruturação dessa. Assim, foi necessário repensar a arquitetura ao longo do projeto até chegarmos na versão final.
+
+Vale ressaltar que, além dos materiais disponibilizados durante a disciplina, também foi consultado o seguinte material a fim de se compreender melhor as etapas necessárias para o desenvolvimento de um jogo: [Game Programming Patterns, Robert Nystrom](https://gameprogrammingpatterns.com/contents.html).
+
+
 ## Destaques do Código
 
 ### Polimorfismo
@@ -79,6 +100,8 @@ public abstract class Modo {
 ~~~
 ### Comunicação entre componentes
 
+Neste trecho, nota-se que os dois componentes `Motor` e `Jogo` são conectados através do uso de duas interfaces. Essa componetização dos elementos do código é importante para tornar as diferentes partes do código reutilizáveis.
+
 ~~~java
 public class AppProjetoFinal {
 	...
@@ -91,28 +114,215 @@ public class AppProjetoFinal {
 }
 ~~~
 
+### Pilha de Modos
+
+Para orquestrar os diferentes `Modos` do jogo, o `Gerenciador de Modos` utiliza uma pilha. O uso dessa estrutura facilita, por exemplo, a troca entre fases do jogo. Cada fase é construída como um `Modo` de forma que a passagem de nível se caracteriza pela adição do novo modo na pilha. Como os métodos de `Gerenciador de Modos` fazem referência ao elemento que está no topo da pilha, o `loop` do jogo executado, por exemplo, é aquele pertencente ao contexto atual do jogo, ou seja, seu `Modo` atual. 
+
+~~~java
+public class GerenciadorModos implements IGerenciadorModos{
+	private Stack<Modo> modos;
+
+	public GerenciadorModos() {
+		modos = new Stack<Modo>();
+	}
+	
+	public void adicionarPilha(Modo novoModo) {
+		modos.push(novoModo);
+	}
+	
+	public void loop() throws ErroPilhaVazia{
+		if(modos.empty()) {
+			throw new ErroPilhaVazia("A pilha de modos está vazia!");
+		}else {
+			modos.peek().loop();
+		}
+		
+	}
+	
+	public void pintarTela (Graphics g) throws ErroPilhaVazia{
+		if(modos.empty()) {
+			throw new ErroPilhaVazia("A pilha de modos está vazia!");
+		}else {
+			 modos.peek().pintarTela(g);
+		}
+		
+	}
+	
+	public void keyTyped(KeyEvent e) {
+		if(modos.empty()) {
+			System.out.println("Atenção: a pilha está vazia.");
+		}else {
+			modos.peek().keyTyped(e);
+		}
+		
+	}
+	
+	...
+}
+~~~
+
+## Destaques do Pattern
+
+### Pattern Factory
+
+#### Diagrama do Pattern
+
+![FabricaAgente](https://github.com/gabrielmelo00/TrabalhosMC/blob/master/ProjetoFinal/assets/FabricaAgente.png)
+
+#### Código do Pattern
+
+Em [`FabricaAgente.java`](https://github.com/gabrielmelo00/TrabalhosMC/blob/master/ProjetoFinal/src/agente/FabricaAgente.java)
+
+~~~java
+
+public Agente retornaAgente(String nomeAgente, int i, int j, int escala, int ciclos, Comodo meuComodo) {
+	if(nomeAgente == null) {
+		return null;
+	}
+
+	if(nomeAgente.equals("MACA")) {
+		Image img = new ImageIcon(Carregador.Imagens.get(Carregador.MACA).getImage().getScaledInstance(escala,escala, 1)).getImage();
+		Image img2 = new ImageIcon(Carregador.Imagens.get(Carregador.MACA_LAGARTA).getImage().getScaledInstance(2*escala,escala, 1)).getImage();
+		return new VilaoDuploDinamico(i, j, meuComodo, ciclos, img, img2);
+
+	}else if(nomeAgente.equals("ESTUDANTE")){
+		Image img = new ImageIcon(Carregador.Imagens.get(Carregador.ESTUDANTE).getImage().getScaledInstance(escala,escala, 1)).getImage();
+		Estudante aux = Estudante.getInstancia();
+		aux.setParametros(i, j, meuComodo, img);
+		return aux;
+
+	}
+		...
+	}else{
+		return null;
+	}
+~~~
+
+Em [`Quintal.java`](https://github.com/gabrielmelo00/TrabalhosMC/blob/master/ProjetoFinal/src/jogo/Quintal.java) que estende a classe abstrata [`Comodo.java`](https://github.com/gabrielmelo00/TrabalhosMC/blob/master/ProjetoFinal/src/jogo/Comodo.java);
+
+~~~java
+
+public Quintal(){		
+	fabricaAgente = new FabricaAgente();
+	carregarImagens();
+	carregarAgentes();
+}
+
+public void carregarAgentes() {	
+	matrizCelulas[10][0].adicionaAgente(fabricaAgente.retornaAgente("CACHORRO",10, 0, delta, 20, this));
+	matrizCelulas[8][3].adicionaAgente(fabricaAgente.retornaAgente("GATO",8, 3, delta, 30, this));
+	...
+}
+~~~
+
+A fim de facilitar a instanciação de objetos do tipo `Agente`, decidiu-se utilizar o `pattern factory`. Criou-se, assim, uma classe chamada `FabricaAgente` que possui um único método: `retornaAgente()`. Esse método retorna um objeto específico do tipo `Agente` de acordo com os parâmetros passados. As classes que estendem `Comodo`, como `Quintal`, `Quarto`, `Sala` e `Cozinha`, requisitam seus `Agentes` através do método `carregarAgentes()` e os adiciona a células da matriz.
+
+Assim, pode-se dizer que os `Comodos` são clientes de `FabricaAgente`.
+
+A comunicação entre as duas classes, `FabricaAgente` e `Comodo`, é feita através do uso da interface `IFabricaAgente`.
+
+### Pattern Singleton
+
+#### Diagrama do Pattern
+
+![EstudanteSingleton](https://github.com/gabrielmelo00/TrabalhosMC/blob/master/ProjetoFinal/assets/EstudanteSingleton.png)
+
+#### Código do Pattern 
+
+Em [`Estudante.java`](https://github.com/gabrielmelo00/TrabalhosMC/blob/master/ProjetoFinal/src/agente/Estudante.java)
+
+~~~java
+
+private static Estudante instanciaEstudante = new Estudante();
+
+	...
+
+private Estudante() {
+	super(0,0,'E', 0, null);
+	tempo = 0;
+}
+
+public static Estudante getInstancia() {
+	return instanciaEstudante;
+}
+
+	...
+~~~
+
+O `Estudante` é a classe do jogo que gera um objeto que pode ser controlado pelo jogador. Para que o jogo funcione corretamente deve existir somente um `Estudante` no jogo. Assim, decidiu-se usar o `pattern singleton` na sua construção a fim de garantir tal condição.
+
+A classe `FabricaAgente` não consegue instanciar diretamente um objeto do tipo `Estudante`, mas requisita à essa classe que retorne um objeto desse tipo através do método `getInstancia()`. A classe `Estudante`, por sua vez, sempre retorna a mesma instância, garantindo a existência de apenas um objeto desse tipo.
+
+## Conclusão e Trabalhos Futuros
+
+O planejamento e execução desse projeto permitiu uma aplicação prática de todos os conceitos aprendidos em aula, o que proporcionou uma melhor sedimentação desses e um entendimento mais profundo sobre seus usos. Em particular, a elaboração de uma boa arquitetura para o jogo se mostrou uma tarefa desafiadora, mas interessante e que proporcionou um maior entendimento sobre modelagem de softwares mais complexos. A divisão das partes do código em componentes se mostrou muito poderosa e foi possível perceber na prática o quanto essa técnica facilita a expansão do programa e sua manutenção.
+
+Quanto a mudanças na arquiteura, a geração dos diferentes cômodos poderia ser feita através de um `pattern factory` similar ao que foi feito para `Agente`. Dessa forma, a expansão de níveis ficaria ainda mais fácil. Além disso, o tratamento de exceções poderia ser mais detalhado. 
+
+Para o futuro é possível implementar elementos extras no jogo que podem proporcionar maior divertimento, como número de vidas, pontuação por quantidade de movimento e atribuição de selos por missões cumpridas. Além disso, poderiam ser desenvolvidos outros cômodos.
+
+
 ## Documentação dos Componentes
 
 ## Diagramas
 
 ### Diagrama Geral do Projeto
 
-![ComponenteGeral](https://github.com/gabrielmelo00/TrabalhosMC/blob/master/ProjetoFinal/assets/diagramaProjeto.png)
+![ComponenteGeral](https://github.com/gabrielmelo00/TrabalhosMC/blob/master/ProjetoFinal/assets/DiagramProjeto.png)
 
 ### Diagrama Geral de Componentes
 
 ![DiagramaComponente](https://github.com/gabrielmelo00/TrabalhosMC/blob/master/ProjetoFinal/assets/ComponentesGeral.png)
 
-### Componente Framework
+### Componente Gerenciador de Modos
 
-Encapsula os comandos referentes à escrita na tela, leitura do teclado e comandos ligados ao `timer`. Com isso, ele encaminha esses comandos para as classes responsáveis pela execução da ação.
+Implementa a pilha responsável por controlar os modos do jogo e os métodos que serão repassados para cada modo resolver no seu contexto específico. 
 
-![ComponenteFramework](https://github.com/gabrielmelo00/TrabalhosMC/blob/master/ProjetoFinal/assets/framework.png)
+![ComponenteGerenciadorModo](https://github.com/gabrielmelo00/TrabalhosMC/blob/master/ProjetoFinal/assets/GerenciadorModos.png)
 
 **Ficha Técnica**
 item | detalhamento
 ----- | -----
-Classe | jogo.Motor
+Classe | framework.GerenciadorModos
+Autores | Hannah e Gabriel
+Interfaces | IGerenciadorModos
+
+#### Interfaces
+
+Interfaces associadas a esse componente:
+
+![Diagrama Interfaces](https://github.com/gabrielmelo00/TrabalhosMC/blob/master/ProjetoFinal/assets/InterfaceGerenciadorModo.png)
+
+### Componente Gerenciador de Janela
+
+Responsável por gerar um `JFrame` e um `JPanel` e manter as imagens do jogo atualizadas na tela. Além disso, o componente coleta as informações advindas do teclado. 
+
+![ComponenteGerenciadorJanela](https://github.com/gabrielmelo00/TrabalhosMC/blob/master/ProjetoFinal/assets/GerenciadorJanela.png)
+
+**Ficha Técnica**
+item | detalhamento
+----- | -----
+Classe | framework.GerenciadorJanela
+Autores | Hannah e Gabriel
+Interfaces | IJanela
+
+#### Interfaces
+
+Interfaces associadas a esse componente:
+
+![Diagrama Interfaces](https://github.com/gabrielmelo00/TrabalhosMC/blob/master/ProjetoFinal/assets/InterfaceJanela.png)
+
+
+### Componente Motor
+
+Responsável pelo controle do loop principal e é o componente que inicializa o `GerenciadorModos` e o `GerenciadorJanela`.
+
+![ComponenteMotor](https://github.com/gabrielmelo00/TrabalhosMC/blob/master/ProjetoFinal/assets/Motor.png)
+
+**Ficha Técnica**
+item | detalhamento
+----- | -----
+Classe | framework.Motor
 Autores | Hannah e Gabriel
 Interfaces | IRJogo
 
@@ -120,14 +330,18 @@ Interfaces | IRJogo
 
 Interfaces associadas a esse componente:
 
-![Diagrama Interfaces](https://github.com/gabrielmelo00/TrabalhosMC/blob/master/ProjetoFinal/assets/InterfaceFramework.png)
+![Diagrama Interfaces](https://github.com/gabrielmelo00/TrabalhosMC/blob/master/ProjetoFinal/assets/InterfaceRJogo.png)
 
 
 ### Componente Jogo
 
-Implementa a dinâmica do jogo, sendo responsável pela execução das interações dos objetos do tipo `Agente` com o espaço celular.
+Implementa a dinâmica do jogo, sendo responsável pela execução das interações dos objetos do tipo `Agente` com o espaço celular. O jogo contém uma página de menu principal, uma página de regras, uma página de vitórias, uma página de GameOver e 4 cômodos (Quintal, Cozinha, Sala e Quarto). Vale ressaltar que cada cômodo contém seus agentes.
 
-![ComponenteJogo](https://github.com/gabrielmelo00/TrabalhosMC/blob/master/ProjetoFinal/assets/jogo.png)
+![ComponenteJogo](https://github.com/gabrielmelo00/TrabalhosMC/blob/master/ProjetoFinal/assets/Jogo.png)
+
+**Máquina de estados do Jogo**
+
+![MaquinaEstados](https://github.com/gabrielmelo00/TrabalhosMC/blob/master/ProjetoFinal/assets/MaquinaEstados.png)
 
 **Ficha Técnica**
 item | detalhamento
@@ -147,12 +361,18 @@ Interfaces associadas a esse componente:
 
 Implementa o pattern factory. Esse componente é responsável por fornecer ao componente jogo objetos do tipo `Agente`:
 
-* Estudante;
-* Vilão;
-* Parede;
-* Objetivo.
+* `Estudante`;
+* `VilaoBateVolta`;
+* `VilaoD`;
+* `VilaoDuploDinamico`;
+* `VilaoDuploEstatico`;
+* `VilaoE`;
+* `VilaoQ`;
+* `VilaoTransparente`;
+* `Parede`;
+* `Objetivo`.
 
-![Componente](https://github.com/gabrielmelo00/TrabalhosMC/blob/master/ProjetoFinal/assets/agente.png)
+![ComponenteAgente](https://github.com/gabrielmelo00/TrabalhosMC/blob/master/ProjetoFinal/assets/Agente.png)
 
 **Ficha Técnica**
 item | detalhamento
@@ -166,8 +386,6 @@ Interfaces | IFabricaAgente
 Interfaces associadas a esse componente:
 
 ![Diagrama Interfaces](https://github.com/gabrielmelo00/TrabalhosMC/blob/master/ProjetoFinal/assets/InterfaceFabrica.png)
-
-
 
 ### Detalhamento das Interfaces
 
@@ -185,7 +403,7 @@ public interface IFabricaAgente {
 
 Método | Objetivo
 -------| --------
-`retornaAgente` | Retorna um objeto do tipo `Agente` de acordo com as especificações. 
+`Agente retornaAgente` | Retorna um objeto do tipo `Agente` de acordo com as especificações. 
 
 #### Interface IRJogo
 
@@ -202,8 +420,10 @@ public interface IRJogo {
 
 Método | Objetivo
 -------| --------
-`conecta` | Conecta um jogo ao componente Framework.
-`comecarJogo`| Executa os métodos necessários para começar o Jogo.
+`void conecta` | Conecta um jogo ao componente Framework.
+`void comecarJogo`| Executa os métodos necessários para começar o Jogo.
+
+
 #### Interface IJogo
 
 Interface provida que retorna um jogo do tipo `Modo` para o solicitante
@@ -219,21 +439,64 @@ public interface IJogo {
 
 Método | Objetivo
 -------| --------
-`retornaJogo` | Retorna um modo de jogo. 
+`Modo retornaJogo` | Retorna um modo de jogo. 
 
+#### Interface IGerenciadorModos
+
+Interface que provê acesso aos métodos de `GerenciadorModos`  
+
+~~~java
+public interface IGerenciadorModos {
+	public void adicionarPilha(Modo novoModo);
+	public void loop() throws ErroPilhaVazia;
+	public void pintarTela (Graphics g) throws ErroPilhaVazia;
+	public GerenciadorModos retornaGerenciadorModo();
+	public void keyReleased(KeyEvent e);
+	public void keyPressed(KeyEvent e);
+	public void keyTyped(KeyEvent e);
+}
+~~~
+
+Método | Objetivo
+-------| --------
+`void adicionarPilha` | Adiciona um elemento do tipo `Modo` à pilha do `GerenciadorModos`. 
+`void loop` | Chama o método `loop` do `Modo` que está no topo da pilha.
+`void pintarTela` | Chama o método `pintarTela` do `Modo` que está no topo da pilha.
+`GerenciadorModos retornaGerenciadorModo` | Retorna um `GerenciadorModos`.
+`void keyReleased` | Chama o método `keyReleased` do `Modo` que está no topo da pilha.
+`void keyPressed` | Chama o método `keyPressed` do `Modo` que está no topo da pilha.
+`void keyTyped` | Chama o método `keyTyped` do `Modo` que está no topo da pilha.
+
+#### Interface IJanela
+
+Interface que permite operações com a janela gráfica do jogo.
+
+~~~java
+public interface IJanela {
+	public void adicionarPainel();
+	public void mostrarJanela();
+	public void adicionarKeyListener() throws ErroAdicionarTeclado;
+}
+~~~
+
+Método | Objetivo
+-------| --------
+`void adicionarPainel` | Adiciona um painel à janela.
+`void mostrarJanela` | Torna a janela visível.
+`void adicionarKeyListener` | Adiciona um `KeyListener` à janela.
 
 ## Plano de Exceções
 
 ### Diagrama da hierarquia de exceções
 
-![Hierarquia Exceções](https://github.com/gabrielmelo00/TrabalhosMC/blob/master/ProjetoFinal/assets/diagramaExcessao.png)
+![Hierarquia Exceções](https://github.com/gabrielmelo00/TrabalhosMC/blob/master/ProjetoFinal/assets/Excecao.png)
 
 ### Descrição das classes de exceção
 
 
 Classe | Descrição
 ----- | -----
-ErroImagem | Engloba todas as exceções referentes à escrita e leitura de imagens no jogo
-ImagemNaoEncontrada | Indica que nenhuma imagem com o nome especificado foi encontrada no diretório dado.
-PosicaoInvalidaVetorImagem | Indica que o vetor de imagem não possui uma posição correspondente à que foi requisitada pelo código.
+ErroImagemNaoEncontrada | Indica que nenhuma imagem com o nome especificado foi encontrada no diretório dado.
+ErroAdicionarTeclado | Indica que não foi possível adicionar um `Teclado` (KeyListener) à janela.
+ErroPilhaVazia | Indica tentativa de acesso à uma posição de memória que não existe, pois a pilha de modos está vazia.
 
