@@ -31,9 +31,9 @@ public class GameOver extends Modo{
 
 	public void pintarTela(Graphics g) {
 	    g.drawImage(img, 0, 0, null);
-	    Font f = new Font("Comic Sans MS", Font.BOLD, 100);
+	    Font f = new Font("Segoe Print", Font.BOLD, 55);
         g.setFont(f);
-	    g.drawString("Tempo: "+Double.toString(tempo),300, 100);
+	    g.drawString(Double.toString(tempo) + " segundos",960, 750);
 	}
 
 	public void loop() {}

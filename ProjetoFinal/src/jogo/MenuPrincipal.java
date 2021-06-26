@@ -52,7 +52,7 @@ public class MenuPrincipal extends Modo implements IJogo{
 	    double altura = tela.getHeight();
         Image imagem = new ImageIcon(background.getScaledInstance((int) largura, (int) altura, 1)).getImage();
         g.drawImage(imagem, 0, 0, null);
-        g.drawImage(meuMenu, 30, 30, null);
+        g.drawImage(meuMenu, 130, 70, null);
 	} 
 
 
