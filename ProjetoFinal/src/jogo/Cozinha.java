@@ -89,9 +89,9 @@ public class Cozinha extends Comodo{
 		matrizCelulas[8][7].adicionaAgente(fabricaAgente.retornaAgente("ARMARIO",8, 7, delta, 0, this));
 		matrizCelulas[8][9].adicionaAgente(fabricaAgente.retornaAgente("ARMARIO",8,9, delta, 0, this));
 		matrizCelulas[8][11].adicionaAgente(fabricaAgente.retornaAgente("ARMARIO",8, 11, delta, 0, this));	
-		matrizCelulas[1][0].adicionaAgente(fabricaAgente.retornaAgente("LOUCA",1, 0, delta, 20, this));
-		matrizCelulas[1][4].adicionaAgente(fabricaAgente.retornaAgente("LOUCA",1, 4, delta, 20, this));
-		matrizCelulas[1][8].adicionaAgente(fabricaAgente.retornaAgente("LOUCA",1, 8, delta, 20, this));	
+		matrizCelulas[1][0].adicionaAgente(fabricaAgente.retornaAgente("HAMBURGUER",1, 0, delta, 20, this));
+		matrizCelulas[1][4].adicionaAgente(fabricaAgente.retornaAgente("HAMBURGUER",1, 4, delta, 20, this));
+		matrizCelulas[1][8].adicionaAgente(fabricaAgente.retornaAgente("HAMBURGUER",1, 8, delta, 20, this));	
 		matrizCelulas[2][2].adicionaAgente(fabricaAgente.retornaAgente("MACA",2, 2, delta, 15, this));
 		matrizCelulas[2][8].adicionaAgente(fabricaAgente.retornaAgente("MACA",2, 8, delta, 15, this));	
 		matrizCelulas[3][0].adicionaAgente(fabricaAgente.retornaAgente("HAMBURGUER",3, 0, delta, 15, this));

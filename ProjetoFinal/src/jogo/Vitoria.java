@@ -33,7 +33,7 @@ public class Vitoria extends Modo {
 	    g.drawImage(img, 0, 0, null);
         Font f = new Font("Comic Sans MS", Font.BOLD, 60);
         g.setFont(f);
-	    g.drawString("Tempo: "+Double.toString(tempo),600, 700);
+	    g.drawString("Tempo: "+Double.toString(tempo), 100, 100);
 	}
 
 	public void loop() {}

@@ -33,7 +33,8 @@ public class GameOver extends Modo{
 	    g.drawImage(img, 0, 0, null);
 	    Font f = new Font("Segoe Print", Font.BOLD, 55);
         g.setFont(f);
-	    g.drawString(Double.toString(tempo) + " segundos",960, 750);
+	    g.drawString("Você perdeu em ...", 100, 100);
+	    g.drawString(Double.toString(tempo) + " segundos", 100, 160);
 	}
 
 	public void loop() {}
