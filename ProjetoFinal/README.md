@@ -50,7 +50,7 @@ Essas duas decisões levaram o grupo a reavaliar a arquitetura inicialmente prop
 
 As relações entre as classes `Comodo`, `Agente` e `Celula` foram mantidas assim como a ideia inicial de que a classe `Agente` seria uma classe abstrata a ser usada para a geração de diferentes elementos do jogo, como estudante, maça, bola etc. As outras classes, no entanto, foram substituidas por três componentes: `Motor`, `GerenciadorModos` e `GerenciadorJanela`, que compõem a chamada `estrutura base` ou `framework` do jogo.
 
-Além disso, a ideia inicial apresentada de cada elemento do jogo (estudante, maça etc) estender `Agente` foi abandonada. Isto pois, tal abordagem levaria à criação de 23 classes com grandes similaridades. Decidiu-se, então, criar dez classes que descrevessem os dez padrões de movimento adotados no jogo e passar como parâmetros informações específicas para a criação de cada objeto como (velocidade, imagem, etc). Também decidiu-se usar o `pattern factory` nesse caso para facilitar a instanciação desses elementos bem como a flexibilidade da criação de novos padrões de movimento.
+Além disso, a ideia inicial apresentada de cada elemento do jogo (estudante, maça etc) estender `Agente` foi abandonada. Isto pois, tal abordagem levaria à criação de 23 classes com grandes similaridades. Decidiu-se, então, criar dez classes que descrevessem os dez padrões de movimento adotados no jogo e passar como parâmetros informações específicas para a criação de cada objeto como velocidade, imagem, etc. Também decidiu-se usar o `pattern factory` nesse caso para facilitar a instanciação desses elementos bem como a flexibilidade da criação de novos padrões de movimento.
 
 A maior dificuldade encontrada foi visualizar os entraves que a nossa arquitetura proposta possuia antes de começar a programar. Durante a elaboração do código, foram encontradas falhas na arquitetura que demandavam uma reestruturação dessa. Assim, foi necessário repensar a arquitetura ao longo do projeto até chegarmos na versão final.
 
@@ -254,6 +254,13 @@ O `Estudante` é a classe do jogo que gera um objeto que pode ser controlado pel
 A classe `FabricaAgente` não consegue instanciar diretamente um objeto do tipo `Estudante`, mas requisita à essa classe que retorne um objeto desse tipo através do método `getInstancia()`. A classe `Estudante`, por sua vez, sempre retorna a mesma instância, garantindo a existência de apenas um objeto desse tipo.
 
 ## Conclusão e Trabalhos Futuros
+
+O planejamento e execução desse projeto permitiu uma aplicação prática de todos os conceitos aprendidos em aula, o que proporcionou uma melhor sedimentação desses e um entendimento mais profundo sobre seus usos. Em particular, a elaboração de uma boa arquitetura para o jogo se mostrou uma tarefa desafiadora, mas interessante e que proporcionou um maior entendimento sobre modelagem de softwares mais complexos. A divisão das partes do código em componentes se mostrou muito poderosa e foi possível perceber na prática o quanto essa técnica facilita a expansão do programa e sua manutenção.
+
+Quanto a mudanças na arquiteura, a geração dos diferentes cômodos poderia ser feita através de um `pattern factory` similar ao que foi feito para `Agente`. Dessa forma, a expansão de níveis ficaria ainda mais fácil. Além disso, o tratamento de exceções poderia ser mais detalhado. 
+
+Para o futuro é possível implementar elementos extras no jogo que podem proporcionar maior divertimento, como número de vidas, pontuação por quantidade de movimento e atribuição de selos por missões cumpridas. Além disso, poderiam ser desenvolvidos outros cômodos.
+
 
 ## Documentação dos Componentes
 
