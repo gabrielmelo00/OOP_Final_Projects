@@ -1,28 +1,16 @@
-# Projeto Final MC322
+# Quarentenado
 
 ## Descrição Resumida do Projeto/Jogo
 
 Há quase um ano e meio no EAD, nós estudantes sabemos que um dos maiores desafios do estudo remoto é se manter focado. Na superfície, isso pode parecer uma tarefa fácil, mas assistir aulas em casa é uma tarefa que apresenta vários desafios, como telefonemas inesperados, animais que demandam atenção e pilhas de louça que parecem nunca ter fim.
 
-Com isso em mente, propomos um jogo em que você deve ajudar um estudante a chegar são e salvo no seu computador para assistir uma aula. Para isso ele deve atravessar diferentes cômodos da casa, desviando das distrações e obrigações que aparecem pelo caminho.
+Com isso em mente, propomos o jogo `Quarentenado` em que você deve ajudar um estudante a chegar são e salvo no seu computador para assistir uma aula. Para isso ele deve atravessar diferentes cômodos da casa, desviando das distrações e obrigações que aparecem pelo caminho.
 
 O estudante pode se mover nas quatro direções (cima, baixo, direita e esquerda) através das setas do teclado ou das teclas WASD.
 	
 A dinâmica do jogo foi inspirado no jogo de Arcade, Frogger. 
 
-## Proposta da Arquitetura do Jogo
-
-O desenvolvimento deste projeto pode ser divido em duas frentes principais: a construção de um `Framework` para o jogo e a elaboração do `Jogo` em si.
-
-O `Framework` é responsável pelo controle do `loop principal` de jogo e dos eventos desencadeados pelo teclado assim como pela inicialização da janela do jogo. As ações que devem ser realizadas a partir da ocorrência de cada um desses eventos, no entanto, não são de responsabilidade do `Framework`. Ele delega essas decisões para o contexto apropriado de cada momento ou o `Modo` atual do jogo. Dessa forma, o evento desencadeado pelo pressionamento de uma tecla, por exemplo, varia de acordo com o `Modo` atual do jogo. Tal característica permite que o `Framework` possa ser usado no desenvolvimento de outros jogos e não somente desse, basta trocar o conjunto de `Modos` do jogo.
-
-O `Framework` orquestra os diferentes `Modos` através de uma pilha.
-
-O `Framework` criado é composto por três componentes: Motor, Gerenciador de Janela e Gerenciador de Modos.
-
-Por sua vez, o `Jogo` consiste em uma máquina de estados de `Modos` que será gerenciada pela pilha do Gerenciador de Modos. Assim, por exemplo, para trocar de nível, basta que o `Modo` que implementa o nível atual requisite ao Gerenciador de Modos que coloque o próximo nível no topo da pilha. Essa dinâmica trouxe facilidade para o encadeamento de fases e telas do jogo desenvolvido.
-
-## Equipe Fazendo Eletiva na Computação
+## Equipe Fazendo Eletiva em Computação
 * Hannah de Oliveira Plath - 198642
 * Gabriel Silva Vieira de Melo - 216474
 
@@ -55,6 +43,18 @@ Além disso, a ideia inicial apresentada de cada elemento do jogo (estudante, ma
 A maior dificuldade encontrada foi visualizar os entraves que a nossa arquitetura proposta possuia antes de começar a programar. Durante a elaboração do código, foram encontradas falhas na arquitetura que demandavam uma reestruturação dessa. Assim, foi necessário repensar a arquitetura ao longo do projeto até chegarmos na versão final.
 
 Vale ressaltar que, além dos materiais disponibilizados durante a disciplina, também foi consultado o seguinte material a fim de se compreender melhor as etapas necessárias para o desenvolvimento de um jogo: [Game Programming Patterns, Robert Nystrom](https://gameprogrammingpatterns.com/contents.html).
+
+## Proposta Final da Arquitetura do Jogo
+
+O desenvolvimento deste projeto pode ser divido em duas frentes principais: a construção de um `Framework` para o jogo e a elaboração do `Jogo` em si.
+
+O `Framework` é responsável pelo controle do `loop principal` de jogo e dos eventos desencadeados pelo teclado assim como pela inicialização da janela do jogo. As ações que devem ser realizadas a partir da ocorrência de cada um desses eventos, no entanto, não são de responsabilidade do `Framework`. Ele delega essas decisões para o contexto apropriado de cada momento ou o `Modo` atual do jogo. Dessa forma, o evento desencadeado pelo pressionamento de uma tecla, por exemplo, varia de acordo com o `Modo` atual do jogo. Tal característica permite que o `Framework` possa ser usado no desenvolvimento de outros jogos e não somente desse, basta trocar o conjunto de `Modos` do jogo.
+
+O `Framework` orquestra os diferentes `Modos` através de uma pilha.
+
+O `Framework` criado é composto por três componentes: Motor, Gerenciador de Janela e Gerenciador de Modos.
+
+Por sua vez, o `Jogo` consiste em uma máquina de estados de `Modos` que será gerenciada pela pilha do Gerenciador de Modos. Assim, por exemplo, para trocar de nível, basta que o `Modo` que implementa o nível atual requisite ao Gerenciador de Modos que coloque o próximo nível no topo da pilha. Essa dinâmica trouxe facilidade para o encadeamento de fases e telas do jogo desenvolvido.
 
 
 ## Destaques do Código
@@ -259,7 +259,7 @@ O planejamento e execução desse projeto permitiu uma aplicação prática de t
 
 Quanto a mudanças na arquiteura, a geração dos diferentes cômodos poderia ser feita através de um `pattern factory` similar ao que foi feito para `Agente`. Dessa forma, a expansão de níveis ficaria ainda mais fácil. Além disso, o tratamento de exceções poderia ser mais detalhado. 
 
-Para o futuro é possível implementar elementos extras no jogo que podem proporcionar maior divertimento, como número de vidas, pontuação por quantidade de movimento e atribuição de selos por missões cumpridas. Além disso, poderiam ser desenvolvidos outros cômodos.
+Para o futuro é possível implementar elementos extras no jogo que podem proporcionar maior divertimento, como número de vidas, pontuação por quantidade de movimento e atribuição de selos por missões cumpridas. Além disso, poderiam ser desenvolvidos outros cômodos (níveis).
 
 
 ## Documentação dos Componentes
