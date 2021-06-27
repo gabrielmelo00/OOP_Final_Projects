@@ -22,7 +22,7 @@ O `Framework` criado é composto por três componentes: Motor, Gerenciador de Ja
 
 Por sua vez, o `Jogo` consiste em uma máquina de estados de `Modos` que será gerenciada pela pilha do Gerenciador de Modos. Assim, por exemplo, para trocar de nível, basta que o `Modo` que implementa o nível atual requisite ao Gerenciador de Modos que coloque o próximo nível no topo da pilha. Essa dinâmica trouxe facilidade para o encadeamento de fases e telas do jogo desenvolvido.
 
-## Equipe Fazendo Eletiva na Computação
+## Equipe Fazendo Eletiva em Computação
 * Hannah de Oliveira Plath - 198642
 * Gabriel Silva Vieira de Melo - 216474
 
