@@ -18,7 +18,7 @@ public class Motor implements IRJogo{
 
 	public Motor() {	
 		gerenciadorModo = new GerenciadorModos();
-		janela = new GerenciadorJanela("NOME DO JOGO", gerenciadorModo);
+		janela = new GerenciadorJanela("Quarentenado", gerenciadorModo);
 		timer = new Timer(20, new LoopJogo());
 	}
 	
