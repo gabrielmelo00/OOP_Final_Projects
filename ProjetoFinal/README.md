@@ -14,6 +14,8 @@ A dinâmica do jogo foi inspirado no jogo de Arcade, Frogger.
 * Hannah de Oliveira Plath - 198642
 * Gabriel Silva Vieira de Melo - 216474
 
+Agradecimento à Gabriela Ferreira por ter feito a arte do jogo ([@gabimarart](https://www.instagram.com/gabimarart/)).
+
 ## Vídeos do Projeto
 
 ### Vídeo da Prévia
