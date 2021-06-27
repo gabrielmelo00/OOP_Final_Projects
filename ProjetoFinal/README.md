@@ -21,6 +21,9 @@ Agradecimento à Gabriela Ferreira por ter feito a arte do jogo ([@gabimarart](h
 ### Vídeo da Prévia
 [Apresentação em vídeo da prévia do projeto](https://drive.google.com/file/d/1SO7CH6iEJi1w_buz3tIoBtMbhdTDB4hw/view?usp=sharing)
 
+### Vídeo do Jogo
+[Apresentação em vídeo do jogo](https://drive.google.com/file/d/1Yxa2iak5I-0ffU7tIU1D7wqaRLqFhISJ/view?usp=sharing)
+
 ## Slides do Projeto
 
 ### Slides da Prévia
