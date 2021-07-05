@@ -29,6 +29,16 @@ Agradecimento à Gabriela Ferreira por ter feito a arte do jogo ([@gabimarart](h
 ### Slides da Prévia
 [Apresentação de slides da prévia do projeto](https://github.com/gabrielmelo00/TrabalhosMC/blob/master/ProjetoFinal/assets/Previa%20Projeto.pdf)
 
+### Slides da Apresentação Final
+[Apresentação Final](https://github.com/gabrielmelo00/TrabalhosMC/blob/master/ProjetoFinal/assets/Quarentenado%20-%20ApresentacaoFinal.pdf)
+
+## Procedimento para Jogar o Jogo
+
+Para acionar o jogo você deve:
+
+* Baixar a pasta ProjetoFinal deste github.
+* Abrir em um ambiente eclipse ou similar e executar o projeto. Isto é, executar o arquivo [`AppProjetoFinal.java`](https://github.com/gabrielmelo00/TrabalhosMC/blob/master/ProjetoFinal/src/AppProjetoFinal.java) presente na pastar `src` deste diretório.
+
 ## Relatório de Evolução
 
 Ao longo do projeto, foram surgindo necessidades de adaptação da arquitetura inicial proposta e várias modificações foram feitas.
