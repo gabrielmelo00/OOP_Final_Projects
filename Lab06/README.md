@@ -1,93 +1,93 @@
-# Lab06 - O Mundo de Wumpus
+# Lab06 - The Wumpus World
 
-## O Jogo
+## The Game
 
-O Mundo de Wumpus é um jogo que consiste em uma caverna composta por 16 salas (4x4) que são conectadas entre si. O herói (personagem principal) deve desbravar essa caverna em busca do ouro. No entanto, nessa caverna há também um monstro chamado Wumpus que mata qualquer pessoa que entra na caverna. Para se proteger do Wumpus, o herói tem a sua disposição uma flecha para atacar o monstro. Na caverna, existem também buracos espalhados. Se o herói cair em um deles, ele não consegue sair da caverna e perde o jogo.
+The Wumpus World is a game that takes place in a cave composed of 16 rooms (4x4) that are connected to each other. The hero (main character) must explore this cave in search of gold. However, there is also a monster called Wumpus in the cave that kills anyone who enters. To protect himself from the Wumpus, the hero has an arrow to attack the monster. Additionally, there are scattered pits in the cave. If the hero falls into one of them, he can't escape and loses the game.
 
-## Objetivo
+## Objective
 
-O objetivo do jogo é o héroi entrar na caverna, capturar o ouro e sair dela sem ser morto pelo Wumpus ou cair em um buraco.
+The goal of the game is for the hero to enter the cave, capture the gold, and exit without being killed by the Wumpus or falling into a pit.
 
-## Elementos do Jogo
+## Game Elements
 
-O jogo possui, então, os seguintes componentes:
+The game has the following components:
 
-* Caverna: composta por 16 salas conectadas dispostas como uma matriz 4x4;
-* Herói: busca o ouro na caverna sem morrer;
-* Wumpus: monstro que mata qualquer um que entrar na caverna;
-* Buraco: um buraco que não permite que ninguém saia dele;
-* Ouro: prêmio buscado pelo herói;
-* Fedor*: odor emitido pelo monstro e mostrado nas células adjacentes a ele (exceto diagonais);
-* Brisa*: vento emitido pelo buraco e mostrado nas células adjacentes a ele (exceto diagonais);
+* Cave: composed of 16 interconnected rooms arranged in a 4x4 matrix;
+* Hero: seeks the gold in the cave without dying;
+* Wumpus: monster that kills anyone who enters the cave;
+* Pit: a hole from which no one can escape;
+* Gold: the prize the hero seeks;
+* Stench*: odor emitted by the monster and shown in the adjacent cells (except diagonals);
+* Breeze*: wind emitted by the pit and shown in the adjacent cells (except diagonals);
 
-<sub>*Elementos secundários que ajudam na exploração da caverna visto que indicam onde podem estar o Wumpus e os buracos.<sub>
+<sub>*Secondary elements that help explore the cave by indicating where the Wumpus and pits might be.<sub>
 
-O herói possui uma única flecha para matar o Wumpus. A probabilidade de matar o monstro após atirar a flecha é de 50%.
+The hero has a single arrow to kill the Wumpus. The probability of killing the monster after shooting the arrow is 50%.
 	
-## Pontuação
+## Scoring
 	
-O herói começa o jogo com zero pontos.
+The hero starts the game with zero points.
 
-A pontuação é, então, distribuída da seguinte forma:
+The score is distributed as follows:
 
-* +1000 pontos - se o herói sai da caverna com o Ouro;
-* -1000 pontos - se o herói cai no buraco ou é morto pelo Wumpus;
-* -15 pontos - por cada movimento;
-* -100 pontos - por usar a flecha;
-* +500 pontos - se o herói matar o Wumpus.
+* +1000 points - if the hero exits the cave with the gold;
+* -1000 points - if the hero falls into a pit or is killed by the Wumpus;
+* -15 points - for each move;
+* -100 points - for using the arrow;
+* +500 points - if the hero kills the Wumpus.
 	
-## Informações sobre o Jogo
+## Game Information
 	
-* O herói sempre começa na célula (1,1);
-* O Wumpus não se move pela caverna;
-* O herói só toma conhecimento dos elementos dentro da sala após passar por ela;
-* Para matar o Wumpus, o herói deve estar com a flecha equipada antes de entrar na sala com o monstro;
-* Caso o herói equipe a flecha e se mova para uma sala sem  o monstro, ele perderá a flecha;
-* O herói não pode sair da caverna sem o ouro;
-* Matar o monstro é opcional.
-* Existe uma hierarquia entre os elementos de uma sala. Apenas o elemento de maior hierarquia da sala será mostrado na tela para o usuário, mas podem existir outros elementos de menor hierarquia na sala. A ordem é: ouro = Wumpus = buraco > herói > brisa > fedor.
+* The hero always starts at cell (1,1);
+* The Wumpus does not move within the cave;
+* The hero only becomes aware of the elements inside a room after passing through it;
+* To kill the Wumpus, the hero must have the arrow equipped before entering the room with the monster;
+* If the hero equips the arrow and moves to a room without the monster, he will lose the arrow;
+* The hero cannot leave the cave without the gold;
+* Killing the monster is optional.
+* There is a hierarchy among the elements in a room. Only the element of the highest hierarchy will be shown to the user, but other lower hierarchy elements may exist in the room. The order is: gold = Wumpus = pit > hero > breeze > stench.
 	
-## Movimentos do Jogo
+## Game Movements
 	
-Os movimentos existentes no jogo são:
+The game movements are:
 	
-* w -> Herói movimenta para a sala acima;
-* s -> Herói movimenta para a sala abaixo;
-* d -> Herói movimenta para a sala a direita;
-* a -> Herói movimenta para a sala a esquerda;
-* k -> Herói equipa a flecha;
-* c -> Herói captura o ouro;
-* q -> O usuário sai do jogo.
+* w -> Hero moves to the room above;
+* s -> Hero moves to the room below;
+* d -> Hero moves to the room to the right;
+* a -> Hero moves to the room to the left;
+* k -> Hero equips the arrow;
+* c -> Hero captures the gold;
+* q -> The user exits the game.
 	
-## Arquivos Java do Jogo
+## Java Game Files
 	
-### Como acionar o jogo
+### How to Run the Game
 	
-Para acionar o jogo você deve:
+To run the game, you should:
 	
-* Baixar a pasta Lab06 deste github.
-* Executar o jogo tendo como entrada um vetor de Strings que contém na primeira posição o endereço para o arquivo de entrada "../Lab06/data/data.csv"
-* Na pasta [data](https://github.com/gabrielmelo00/TrabalhosMC/tree/master/Lab06/data) existem outros arquivos de entrada intitulados de `caverna1` , `caverna2` e `caverna3`. Para trocar o arquivo de entrada (tabuleiro do jogo), basta alterar o caminho do arquivo para, por exemplo,  "../Lab06/data/caverna3.csv".
-* Após executar o jogo, você deverá enserir um nome para o seu Player;
-* Então basta começar a jogar!
+* Download the Lab06 folder from this GitHub.
+* Run the game with an input string array, where the first position contains the path to the input file "../Lab06/data/data.csv".
+* In the [data folder](https://github.com/gabrielmelo00/TrabalhosMC/tree/master/Lab06/data), there are other input files named `caverna1`, `caverna2`, and `caverna3`. To change the input file (game board), just change the file path to, for example, "../Lab06/data/caverna3.csv".
+* After running the game, you will need to enter a name for your Player;
+* Then, simply start playing!
 
-Os arquivos de Java do jogo estão na seguinte pasta.
+The Java files for the game are in the following folder.
 
-## Destaques de Arquitetura
-### Polimorfismo
+## Architecture Highlights
+### Polymorphism
 	
-O trecho abaixo ilustra o uso de polimorfismo no laboratório. Os componentes do jogo (herói, wumpus, buraco, fedor, brisa) foram todos construídos como subclasses de uma classe maior chamada Componente. Assim, no Montador, utiliza-se desse polimorfismo para a criação dos componentes do jogo. 
-	
-Além disso, no trecho abaixo, nota-se que a classe Componente possui dois construtores (sobrecarga). No primeiro caso, somente o objeto Caverna é passado como parâmetro do construtor. Para a resolução desse laboratório, decidiu-se que a classe Componente teria uma instância estática do tipo Caverna, visto que todos as subclasses de Componente partilham da mesma caverna.
+The snippet below illustrates the use of polymorphism in the lab. The game components (hero, wumpus, pit, stench, breeze) were all created as subclasses of a larger class called `Componente`. Thus, in the `Montador`, polymorphism is used to create the game components.
+
+Additionally, in the snippet below, it can be seen that the `Componente` class has two constructors (overloading). In the first case, only the `Caverna` object is passed as a constructor parameter. For the resolution of this lab, it was decided that the `Componente` class would have a static instance of type `Caverna`, as all `Componente` subclasses share the same cave.
 
 ~~~java
   ...
   meusComponentes = new Componente(minhaCaverna);
 
-  for(int x = 0;x < vetor_componentes.length;x++) {
+  for(int x = 0; x < vetor_componentes.length; x++) {
     switch(vetor_componentes[x]) {
       case "B":
-        meusComponentes = new Buraco(Integer.parseInt(vetor_i[x]),Integer.parseInt(vetor_j[x]));
+        meusComponentes = new Buraco(Integer.parseInt(vetor_i[x]), Integer.parseInt(vetor_j[x]));
         meusComponentes.conectaComponente();
         break;          
         ...
@@ -95,9 +95,9 @@ Além disso, no trecho abaixo, nota-se que a classe Componente possui dois const
   }
 ~~~
 
-## Modularização e Encapsulamento
+## Modularization and Encapsulation
 						 
-Abaixo, mostra-se algumas das instâncias e métodos da classe Herói. Essa classe possui instâncias e métodos que guardam informação sobre aspectos do jogo que são diretamente relacionados ao herói, contribuindo para a modularização e encapsulamento do código.
+Below are some instances and methods of the `Herói` class. This class contains instances and methods that store information about game aspects directly related to the hero, contributing to the modularization and encapsulation of the code.
 
 ~~~java
 public class Heroi extends Componente {
@@ -117,30 +117,30 @@ public class Heroi extends Componente {
   public void setWumpus() {..}
 ~~~
 
-## Aspectos que Facilitam a Implementação de Novos Componentes no Jogo
+## Facilitating the Implementation of New Game Components
 						 
-Em cada sala, os Componentes são armazenados em uma array ordenada de acordo com a hierarquia dos Componentes. Dessa forma, caso deseja-se inserir um novo tipo de Componente no jogo, basta inseri-lo dentro da hierarquia dos outros Componentes, não sendo necessário alterar outras partes do código além dessa.
+In each room, the components are stored in an array ordered according to the hierarchy of the components. Thus, if a new type of component is to be added to the game, it can simply be inserted within the hierarchy of the other components, without needing to modify other parts of the code beyond this.
 
 ~~~java
 public Sala() {
-		meusComponentes = new ArrayList<Componente>();
-		salaConhecida = false;
-	}
+	meusComponentes = new ArrayList<Componente>();
+	salaConhecida = false;
+}
  
- public boolean adicionaComponente(Componente c) {..}
- public boolean retiraComponente(Componente c) {..}
+public boolean adicionaComponente(Componente c) {..}
+public boolean retiraComponente(Componente c) {..}
 ~~~
 
-## Evitando Centralização de Papéis
+## Avoiding Centralization of Roles
 	
-A classe caverna tem como principal papel conectar os componentes com as salas. Dessa forma, ela não verifica se as ações requeridas pelo componente são possíveis ou não, mas apenas as passa para a Sala, onde essa verificação ocorrerá.
+The `Caverna` class mainly connects components with rooms. Therefore, it does not verify if the requested actions by the component are possible or not, but simply passes them to the `Sala`, where the verification occurs.
 
 ~~~java
 public class Caverna {
 
   public void conectaSala(int x, int y, Componente c) {
-    if(!matrizSala[x][y].adicionaComponente(c)) {
-      System.out.println("Erro: caverna não pode adicionar componente");
+    if (!matrizSala[x][y].adicionaComponente(c)) {
+      System.out.println("Error: cave cannot add component");
     }
   }
   public void atiraFlecha(int x, int y) {
