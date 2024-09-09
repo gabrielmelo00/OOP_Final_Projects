@@ -1,9 +1,6 @@
-# Equipe FEEC - Fazendo Eletiva em Computação
-
-Equipe da disciplina de MC322 IC-Unicamp composta pelos membros:
+# OOP Course at Unicamp - 2021
+This repository showcases the final projects for the Object-Oriented Programming course at the Institute of Computing, Unicamp, completed in 2021. The authors of the repository are the students:
 
 * Gabriel Silva Vieira de Melo
 * Hannah de Oliveira Plath
-
-Somos alunos da engenharia elétrica 018 na Unicamp e este é o nosso repositório dos projetos em dupla da disciplina de MC322.
 
