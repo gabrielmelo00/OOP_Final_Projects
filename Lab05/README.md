@@ -1,17 +1,17 @@
-# Lab05 A e B - Jogo de Damas
+# Lab05 A and B - Checkers Game
 
-## Objetivo
+## Objective
 
-O objetivo deste laboratório é escrever um conjunto de classes que representam um jogo de damas (simplificado).
+The objective of this lab is to write a set of classes that represent a simplified checkers game.
 
-A resolução dessa tarefa foi feita de duas formas distintas: 
+This task was solved in two distinct ways:
 
-* `A` - não usando os conceitos de hierarquização e polimorfismo;
-* `B` - usando os conceitos de hierarquização e polimorfismo.
+* `A` - without using the concepts of inheritance and polymorphism;
+* `B` - using the concepts of inheritance and polymorphism.
 
-## Tabuleiro
+## Board
 
-O tabuleiro do jogo foi representado da seguinte forma:
+The game board was represented as follows:
 
 ~~~
   8 - p - p - p - p
@@ -24,75 +24,77 @@ O tabuleiro do jogo foi representado da seguinte forma:
   1 b - b - b - b -
     a b c d e f g h 
 ~~~
-    
-As peças por sua vez são representadas como: peão preto - `p`, peão branco - `b`, dama preta `P` e dama branca `B`.
-Os espaços que não estão ocupados por nenhuma peça são representados como `-`.
 
-## Entrada
+The pieces are represented as follows: black pawn - `p`, white pawn - `b`, black queen - `P`, and white queen - `B`.
+Spaces not occupied by any piece are represented as `-`.
 
-A entrada do programa será um arquivo `.csv` contendo todos os comandos a serem executados pelo jogo. Cada comando consistirá de uma posição inicial e uma posição final, separadas por `:`. Assim, `e3:f4` representa um comando em que a peça sai da casa `e3` e vai até a casa `f4`.
+## Input
 
-## Saída
+The program's input will be a `.csv` file containing all the commands to be executed in the game. Each command will consist of an initial position and a final position, separated by `:`. For example, `e3:f4` represents a command where the piece moves from position `e3` to position `f4`.
+
+## Output
 
 ### Lab A
 
-O programa contém duas saídas:
+The program has two outputs:
 
-* `saída padrão` - imprime a posição inicial e final da peça assim como o estado do tabuleiro após o movimento;
-  * se o movimento for inválido, o estado atual do tabuleiro (sem modificações em relação ao anterior) é impresso na saída.
-* `vetor de strings` - contém todos os estados do tabuleiro durante o jogo.
+* `standard output` - prints the initial and final position of the piece as well as the board state after the move;
+  * if the move is invalid, the current board state (unchanged from the previous state) is printed.
+* `vector of strings` - contains all the board states during the game.
 
 ### Lab B
 
-O programa contém duas saídas:
+The program has two outputs:
 
-* `saída padrão` - imprime a posição inicial e final da peça assim como o estado do tabuleiro após o movimento. Caso o movimento executado tenha sido inválido, o programa retornará a mensagem `Movimento Inválido!`;
-* `arquivo csv` - contém o estado final do tabuleiro, representado como `número da casa + peça/vazio`, seguindo a ordem `colunas-linhas`. Caso o movimento executado tenha sido inválido, o arquivo .csv conterá a mensagem `erro!`.
-  * Exemplo: `a1b` - casa a1 contém um peão branco, `a2P` - casa a2 contém uma dama preta, `a3_` - casa a3 está vazia.
+* `standard output` - prints the initial and final position of the piece as well as the board state after the move. If the move executed is invalid, the program will return the message `Invalid Move!`;
+* `csv file` - contains the final board state, represented as `square number + piece/empty`, following the `columns-rows` order. If the executed move is invalid, the `.csv` file will contain the message `error!`.
+  * Example: `a1b` - square a1 contains a white pawn, `a2P` - square a2 contains a black queen, `a3_` - square a3 is empty.
+
 ## Classes
 
 ### Lab A
 
-* `CSVReader` - realiza a leitura do csv de entrada;
-* `Tabuleiro` - gera um objeto tabuleiro, executa movimentos e retiradas de peças e retorna uma String contendo seu estado;
-* `Peao` - responsável pela validação dos movimentos do peão e verifica se o movimento foi um avanço ou um ataque;
-* `Dama` - responsável pela validação dos movimentos da dama e verifica se o movimento foi um avanço ou um ataque;
-* `AppDama` - executa o jogo.
+* `CSVReader` - reads the input csv;
+* `Tabuleiro` - creates a board object, executes moves and piece removals, and returns a string containing its state;
+* `Peao` - responsible for validating pawn moves and checking if the move was a forward or an attack;
+* `Dama` - responsible for validating queen moves and checking if the move was a forward or an attack;
+* `AppDama` - runs the game.
 
 ### Lab B
 
-* `CSVHandling` - realiza a leitura e a escrita dos csv de entrada e saída, respectivamente;
-* `Tabuleiro` - gera um objeto tabuleiro, executa movimentos e retiradas de peças e retorna uma String contendo seu estado;
-* `Peça`(superclasse) - verifica se o movimento é possível de ser realizado dentro de um jogo de damas;
-  * `Peao` - responsável pela validação dos movimentos do peão e verifica se o movimento foi um avanço ou um ataque;
-  * `Dama` - responsável pela validação dos movimentos da dama e verifica se o movimento foi um avanço ou um ataque;
-* `AppDama` - executa o jogo.
+* `CSVHandling` - reads the input csv and writes the output csv;
+* `Tabuleiro` - creates a board object, executes moves and piece removals, and returns a string containing its state;
+* `Peça` (superclass) - checks if the move is possible within the rules of checkers;
+  * `Peao` - responsible for validating pawn moves and checking if the move was a forward or an attack;
+  * `Dama` - responsible for validating queen moves and checking if the move was a forward or an attack;
+* `AppDama` - runs the game.
 
-## Regras do Jogo
+## Game Rules
 
-O jogo de damas desenvolvido neste laboratório está simplificado.
+The checkers game developed in this lab is simplified.
 
-Verifica-se:
+The following is checked:
 
-* Se o movimento é na diagonal;
-* Se o número de casas percorridas é compatível com a peça e com a jogada (ataque ou avanço);
-* Se a casa alvo é válida. Ou seja, está dentro dos limites do tabuleiro e está vaga;
-* Se o sentido do movimento é correto (peão não pode andar para trás);
-* Se o ataque está sendo feito em relação à uma peça adversária.
+* Whether the move is diagonal;
+* Whether the number of squares moved is compatible with the piece and the move (attack or forward);
+* Whether the target square is valid. That is, within the board limits and vacant;
+* Whether the direction of the move is correct (pawns cannot move backward);
+* Whether the attack is being made against an opponent's piece.
 
-NÃO verifica-se:
+The following is NOT checked:
 
-* Se o jogador movimenta sua peça no seu turno;
-* A obrigatoriedade de se atacar uma peça quando existe a oportunidade.
+* Whether the player moves their piece during their turn;
+* The obligation to attack a piece when there is an opportunity.
 
-## Instruções para Acionar o Jogo
+## Instructions to Run the Game
 
-Para acionar o jogo você deve:
+To run the game, you should:
 
-* Baixar a pasta Lab05 deste github.
-* Alterar o documento [data.csv](https://github.com/HannahPlath/MC322/blob/main/Lab05//data/data.csv) com a sua sequência de jogadas.
-* Apagar o arquivo [out.csv](https://github.com/HannahPlath/MC322/blob/main/Lab05//data/out.csv). Caso contrário, as saídas dos diferentes jogos serão concatenadas dentro do arquivo.
-* Executar o jogo tendo como entrada um vetor de Strings que contém na primeira posição o endereço para o arquivo de entrada `"../Lab05/data/data.csv"` e na segunda posição o endereço para o arquivo de saída `"../Lab04/data/out.csv"`.
+* Download the Lab05 folder from this GitHub.
+* Modify the [data.csv](https://github.com/HannahPlath/MC322/blob/main/Lab05/data/data.csv) file with your move sequence.
+* Delete the [out.csv](https://github.com/HannahPlath/MC322/blob/main/Lab05/data/out.csv) file. Otherwise, the outputs of different games will be concatenated in the file.
+* Run the game, providing as input a vector of strings that contains the first position with the input file path `"../Lab05/data/data.csv"` and the second position with the output file path `"../Lab04/data/out.csv"`.
+
 
 
 
