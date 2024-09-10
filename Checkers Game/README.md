@@ -91,8 +91,8 @@ The following is NOT checked:
 To run the game, you should:
 
 * Download the Lab05 folder from this GitHub.
-* Modify the [data.csv](https://github.com/HannahPlath/MC322/blob/main/Lab05/data/data.csv) file with your move sequence.
-* Delete the [out.csv](https://github.com/HannahPlath/MC322/blob/main/Lab05/data/out.csv) file. Otherwise, the outputs of different games will be concatenated in the file.
+* Modify the [data.csv](https://github.com/gabrielmelo00/OOP_Final_Projects/blob/master/Checkers%20Game/data/data.csv) file with your move sequence.
+* Delete the [out.csv](https://github.com/gabrielmelo00/OOP_Final_Projects/blob/master/Checkers%20Game/data/out.csv) file. Otherwise, the outputs of different games will be concatenated in the file.
 * Run the game, providing as input a vector of strings that contains the first position with the input file path `"../Lab05/data/data.csv"` and the second position with the output file path `"../Lab04/data/out.csv"`.
 
 
