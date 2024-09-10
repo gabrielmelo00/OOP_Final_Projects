@@ -186,7 +186,8 @@ public class GerenciadorModos implements IGerenciadorModos{
 
 #### Código do Pattern
 
-Em [`FabricaAgente.java`](https://github.com/gabrielmelo00/OOP_Final_Projects/tree/master/Arcade%20Game%20Quarentenado/src/agente/FabricaAgente.java)
+Em [`FabricaAgente.java`](https://github.com/gabrielmelo00/OOP_Final_Projects/blob/fd125fe26551e8a41edb80de2e2eab2e40d96ca1/Arcade%20Game%20Quarentenado/assets/FabricaAgente.png)
+
 
 ~~~java
 
