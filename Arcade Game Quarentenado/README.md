@@ -388,7 +388,7 @@ Implementa o pattern factory. Esse componente é responsável por fornecer ao co
 * `Parede`;
 * `Objetivo`.
 
-![ComponenteAgente](https://github.com/gabrielmelo00/OOP_Final_Projects/blob/fd125fe26551e8a41edb80de2e2eab2e40d96ca1/Arcade%20Game%20Quarentenado/assets/Agente.png)
+![ComponenteAgente](https://github.com/gabrielmelo00/OOP_Final_Projects/blob/fd125fe26551e8a41edb80de2e2eab2e40d96ca1/Arcade%20Game%20Quarentenado/assets/agente.png)
 
 **Ficha Técnica**
 item | detalhamento
