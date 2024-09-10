@@ -240,7 +240,7 @@ A comunicação entre as duas classes, `FabricaAgente` e `Comodo`, é feita atra
 
 #### Diagrama do Pattern
 
-![EstudanteSingleton](https://raw.githubusercontent.com/gabrielmelo00/OOP_Final_Projects/tree/master/Arcade%20Game%20Quarentenado/assets/EstudanteSingleton.png)
+![EstudanteSingleton](https://github.com/gabrielmelo00/OOP_Final_Projects/tree/master/Arcade%20Game%20Quarentenado/assets/EstudanteSingleton.png)
 
 #### Código do Pattern 
 
@@ -283,17 +283,17 @@ Para o futuro é possível implementar elementos extras no jogo que podem propor
 
 ### Diagrama Geral do Projeto
 
-![ComponenteGeral](https://raw.githubusercontent.com/gabrielmelo00/OOP_Final_Projects/tree/master/Arcade%20Game%20Quarentenado/assets/DiagramProjeto.png)
+![ComponenteGeral](https://github.com/gabrielmelo00/OOP_Final_Projects/tree/master/Arcade%20Game%20Quarentenado/assets/DiagramProjeto.png)
 
 ### Diagrama Geral de Componentes
 
-![DiagramaComponente](https://raw.githubusercontent.com/gabrielmelo00/OOP_Final_Projects/tree/master/Arcade%20Game%20Quarentenado/assets/ComponentesGeral.png)
+![DiagramaComponente](https://github.com/gabrielmelo00/OOP_Final_Projects/tree/master/Arcade%20Game%20Quarentenado/assets/ComponentesGeral.png)
 
 ### Componente Gerenciador de Modos
 
 Implementa a pilha responsável por controlar os modos do jogo e os métodos que serão repassados para cada modo resolver no seu contexto específico. 
 
-![ComponenteGerenciadorModo](https://raw.githubusercontent.com/gabrielmelo00/OOP_Final_Projects/tree/master/Arcade%20Game%20Quarentenado/assets/GerenciadorModos.png)
+![ComponenteGerenciadorModo](https://github.com/gabrielmelo00/OOP_Final_Projects/tree/master/Arcade%20Game%20Quarentenado/assets/GerenciadorModos.png)
 
 **Ficha Técnica**
 item | detalhamento
@@ -306,13 +306,13 @@ Interfaces | IGerenciadorModos
 
 Interfaces associadas a esse componente:
 
-![Diagrama Interfaces](https://raw.githubusercontent.com/gabrielmelo00/OOP_Final_Projects/tree/master/Arcade%20Game%20Quarentenado/assets/InterfaceGerenciadorModo.png)
+![Diagrama Interfaces](https://github.com/gabrielmelo00/OOP_Final_Projects/tree/master/Arcade%20Game%20Quarentenado/assets/InterfaceGerenciadorModo.png)
 
 ### Componente Gerenciador de Janela
 
 Responsável por gerar um `JFrame` e um `JPanel` e manter as imagens do jogo atualizadas na tela. Além disso, o componente coleta as informações advindas do teclado. 
 
-![ComponenteGerenciadorJanela](https://raw.githubusercontent.com/gabrielmelo00/OOP_Final_Projects/tree/master/Arcade%20Game%20Quarentenado/assets/GerenciadorJanela.png)
+![ComponenteGerenciadorJanela](https://github.com/gabrielmelo00/OOP_Final_Projects/tree/master/Arcade%20Game%20Quarentenado/assets/GerenciadorJanela.png)
 
 **Ficha Técnica**
 item | detalhamento
@@ -325,14 +325,14 @@ Interfaces | IJanela
 
 Interfaces associadas a esse componente:
 
-![Diagrama Interfaces](https://raw.githubusercontent.com/gabrielmelo00/OOP_Final_Projects/tree/master/Arcade%20Game%20Quarentenado/assets/InterfaceJanela.png)
+![Diagrama Interfaces](https://github.com/gabrielmelo00/OOP_Final_Projects/tree/master/Arcade%20Game%20Quarentenado/assets/InterfaceJanela.png)
 
 
 ### Componente Motor
 
 Responsável pelo controle do loop principal e é o componente que inicializa o `GerenciadorModos` e o `GerenciadorJanela`.
 
-![ComponenteMotor](https://raw.githubusercontent.com/gabrielmelo00/OOP_Final_Projects/tree/master/Arcade%20Game%20Quarentenado/assets/Motor.png)
+![ComponenteMotor](https://github.com/gabrielmelo00/OOP_Final_Projects/tree/master/Arcade%20Game%20Quarentenado/assets/Motor.png)
 
 **Ficha Técnica**
 item | detalhamento
@@ -345,18 +345,18 @@ Interfaces | IRJogo
 
 Interfaces associadas a esse componente:
 
-![Diagrama Interfaces](https://raw.githubusercontent.com/gabrielmelo00/OOP_Final_Projects/tree/master/Arcade%20Game%20Quarentenado/assets/InterfaceRJogo.png)
+![Diagrama Interfaces](https://github.com/gabrielmelo00/OOP_Final_Projects/tree/master/Arcade%20Game%20Quarentenado/assets/InterfaceRJogo.png)
 
 
 ### Componente Jogo
 
 Implementa a dinâmica do jogo, sendo responsável pela execução das interações dos objetos do tipo `Agente` com o espaço celular. O jogo contém uma página de menu principal, uma página de regras, uma página de vitórias, uma página de GameOver e 4 cômodos (Quintal, Cozinha, Sala e Quarto). Vale ressaltar que cada cômodo contém seus agentes.
 
-![ComponenteJogo](https://raw.githubusercontent.com/gabrielmelo00/OOP_Final_Projects/tree/master/Arcade%20Game%20Quarentenado/assets/Jogo.png)
+![ComponenteJogo](https://github.com/gabrielmelo00/OOP_Final_Projects/tree/master/Arcade%20Game%20Quarentenado/assets/Jogo.png)
 
 **Máquina de estados do Jogo**
 
-![MaquinaEstados](https://raw.githubusercontent.com/gabrielmelo00/OOP_Final_Projects/tree/master/Arcade%20Game%20Quarentenado/assets/MaquinaEstados.png)
+![MaquinaEstados](https://github.com/gabrielmelo00/OOP_Final_Projects/tree/master/Arcade%20Game%20Quarentenado/assets/MaquinaEstados.png)
 
 **Ficha Técnica**
 item | detalhamento
@@ -369,7 +369,7 @@ Interfaces | IJogo
 
 Interfaces associadas a esse componente:
 
-![Diagrama Interfaces](https://raw.githubusercontent.com/gabrielmelo00/OOP_Final_Projects/tree/master/Arcade%20Game%20Quarentenado/assets/InterfaceJogo.png)
+![Diagrama Interfaces](https://github.com/gabrielmelo00/OOP_Final_Projects/tree/master/Arcade%20Game%20Quarentenado/assets/InterfaceJogo.png)
 
 
 ### Componente Agente
@@ -387,7 +387,7 @@ Implementa o pattern factory. Esse componente é responsável por fornecer ao co
 * `Parede`;
 * `Objetivo`.
 
-![ComponenteAgente](https://raw.githubusercontent.com/gabrielmelo00/OOP_Final_Projects/tree/master/Arcade%20Game%20Quarentenado/assets/Agente.png)
+![ComponenteAgente](https://github.com/gabrielmelo00/OOP_Final_Projects/tree/master/Arcade%20Game%20Quarentenado/assets/Agente.png)
 
 **Ficha Técnica**
 item | detalhamento
@@ -400,7 +400,7 @@ Interfaces | IFabricaAgente
 
 Interfaces associadas a esse componente:
 
-![Diagrama Interfaces](https://raw.githubusercontent.com/gabrielmelo00/OOP_Final_Projects/tree/master/Arcade%20Game%20Quarentenado/assets/InterfaceFabrica.png)
+![Diagrama Interfaces](https://github.com/gabrielmelo00/OOP_Final_Projects/tree/master/Arcade%20Game%20Quarentenado/assets/InterfaceFabrica.png)
 
 ### Detalhamento das Interfaces
 
@@ -504,7 +504,7 @@ Método | Objetivo
 
 ### Diagrama da hierarquia de exceções
 
-![Hierarquia Exceções](https://raw.githubusercontent.com/gabrielmelo00/OOP_Final_Projects/tree/master/Arcade%20Game%20Quarentenado/assets/Excecao.png)
+![Hierarquia Exceções](https://github.com/gabrielmelo00/OOP_Final_Projects/tree/master/Arcade%20Game%20Quarentenado/assets/Excecao.png)
 
 ### Descrição das classes de exceção
 
