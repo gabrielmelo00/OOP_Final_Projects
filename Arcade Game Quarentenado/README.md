@@ -353,7 +353,7 @@ Interfaces associadas a esse componente:
 
 Implementa a dinâmica do jogo, sendo responsável pela execução das interações dos objetos do tipo `Agente` com o espaço celular. O jogo contém uma página de menu principal, uma página de regras, uma página de vitórias, uma página de GameOver e 4 cômodos (Quintal, Cozinha, Sala e Quarto). Vale ressaltar que cada cômodo contém seus agentes.
 
-![ComponenteJogo](https://github.com/gabrielmelo00/OOP_Final_Projects/blob/fd125fe26551e8a41edb80de2e2eab2e40d96ca1/Arcade%20Game%20Quarentenado/assets/Jogo.png)
+![ComponenteJogo](https://github.com/gabrielmelo00/OOP_Final_Projects/blob/fd125fe26551e8a41edb80de2e2eab2e40d96ca1/Arcade%20Game%20Quarentenado/assets/jogo.png)
 
 **Máquina de estados do Jogo**
 
