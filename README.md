@@ -5,6 +5,6 @@ This repository showcases the final projects for the Object-Oriented Programming
 * Hannah de Oliveira Plath
 
 During the course we developed 3 final projects that are presented in this repository. There were 3 games in Java:
-1. Checkers
-2. RPG
-3. Own
+1. [Checkers]()
+2. [Wumpus RPG]()
+3. [Own game inspired by Frogger]()
