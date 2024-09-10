@@ -1,43 +1,45 @@
 # Quarentenado
 
-## Descrição Resumida do Projeto/Jogo
+## Project/Game Brief Description
 
-Há quase um ano e meio no EAD, nós estudantes sabemos que um dos maiores desafios do estudo remoto é se manter focado. Na superfície, isso pode parecer uma tarefa fácil, mas assistir aulas em casa é uma tarefa que apresenta vários desafios, como telefonemas inesperados, animais que demandam atenção e pilhas de louça que parecem nunca ter fim.
+After nearly a year and a half of online learning, we students know that one of the biggest challenges of remote study is staying focused. At first glance, it may seem simple, but attending classes at home presents numerous challenges, such as unexpected phone calls, pets needing attention, and seemingly endless piles of dishes.
 
-Com isso em mente, propomos o jogo `Quarentenado` em que você deve ajudar um estudante a chegar são e salvo no seu computador para assistir uma aula. Para isso ele deve atravessar diferentes cômodos da casa, desviando das distrações e obrigações que aparecem pelo caminho.
+With this in mind, we propose the game `Quarentenado`, where you must help a student reach their computer safely to attend a class. To do so, the student must navigate through different rooms in the house, avoiding distractions and tasks that appear along the way.
 
-O estudante pode se mover nas quatro direções (cima, baixo, direita e esquerda) através das setas do teclado ou das teclas WASD.
-	
-A dinâmica do jogo foi inspirado no jogo de Arcade, Frogger. 
+The student can move in four directions (up, down, left, and right) using the arrow keys or WASD keys.
 
-## Equipe Fazendo Eletiva em Computação
-* Hannah de Oliveira Plath - 198642
-* Gabriel Silva Vieira de Melo - 216474
+The gameplay was inspired by the Arcade game Frogger.
 
-Agradecimento à Gabriela Ferreira por ter feito a arte do jogo ([@gabimarart](https://www.instagram.com/gabimarart/)).
+## Creators 
+* Hannah de Oliveira Plath
+* Gabriel Silva Vieira de Melo
 
-## Vídeos do Projeto
+Special thanks to Gabriela Ferreira for creating the game art ([@gabimarart](https://www.instagram.com/gabimarart/)).
 
-### Vídeo da Prévia
-[Apresentação em vídeo da prévia do projeto](https://drive.google.com/file/d/1SO7CH6iEJi1w_buz3tIoBtMbhdTDB4hw/view?usp=sharing)
+## Project Videos
 
-### Vídeo do Jogo
-[Apresentação em vídeo do jogo](https://drive.google.com/file/d/1Yxa2iak5I-0ffU7tIU1D7wqaRLqFhISJ/view?usp=sharing)
+### Preview Video
+[Preview presentation video](https://drive.google.com/file/d/1SO7CH6iEJi1w_buz3tIoBtMbhdTDB4hw/view?usp=sharing)
 
-## Slides do Projeto
+### Game Video
+[Game presentation video](https://drive.google.com/file/d/1Yxa2iak5I-0ffU7tIU1D7wqaRLqFhISJ/view?usp=sharing)
 
-### Slides da Prévia
-[Apresentação de slides da prévia do projeto](https://github.com/gabrielmelo00/TrabalhosMC/blob/master/ProjetoFinal/assets/Previa%20Projeto.pdf)
+## Project Slides
 
-### Slides da Apresentação Final
-[Apresentação Final](https://github.com/gabrielmelo00/TrabalhosMC/blob/master/ProjetoFinal/assets/Quarentenado%20-%20ApresentacaoFinal.pdf)
+### Preview Slides
+[Preview slides presentation](https://github.com/gabrielmelo00/TrabalhosMC/blob/master/ProjetoFinal/assets/Previa%20Projeto.pdf)
 
-## Procedimento para Jogar o Jogo
+### Final Presentation Slides
+[Final Presentation](https://github.com/gabrielmelo00/TrabalhosMC/blob/master/ProjetoFinal/assets/Quarentenado%20-%20ApresentacaoFinal.pdf)
 
-Para acionar o jogo você deve:
+## Instructions to Play the Game
 
-* Baixar a pasta ProjetoFinal deste github.
-* Abrir em um ambiente eclipse ou similar e executar o projeto. Isto é, executar o arquivo [`AppProjetoFinal.java`](https://github.com/gabrielmelo00/TrabalhosMC/blob/master/ProjetoFinal/src/AppProjetoFinal.java) presente na pastar `src` deste diretório.
+To run the game, follow these steps:
+
+* Download the `ProjetoFinal` folder from this GitHub.
+* Open the project in an IDE like Eclipse and run it by executing the file [`AppProjetoFinal.java`](https://github.com/gabrielmelo00/TrabalhosMC/blob/master/ProjetoFinal/src/AppProjetoFinal.java) located in the `src` directory.
+
+## Project Evolution Report
 
 ## Relatório de Evolução
 
@@ -509,7 +511,7 @@ Método | Objetivo
 ### Descrição das classes de exceção
 
 
-Classe | Descrição
+Class | Description
 ----- | -----
 ErroImagemNaoEncontrada | Indica que nenhuma imagem com o nome especificado foi encontrada no diretório dado.
 ErroAdicionarTeclado | Indica que não foi possível adicionar um `Teclado` (KeyListener) à janela.
