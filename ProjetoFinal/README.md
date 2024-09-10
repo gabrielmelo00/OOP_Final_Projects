@@ -41,37 +41,35 @@ To run the game, follow these steps:
 
 ## Project Evolution Report
 
-## Relatório de Evolução
+Throughout the project, we found it necessary to adapt the initial architecture and make several modifications.
 
-Ao longo do projeto, foram surgindo necessidades de adaptação da arquitetura inicial proposta e várias modificações foram feitas.
+Initially, the plan was to display the different rooms (levels) on the screen as a house floor plan, showing all four rooms (yard, kitchen, living room, and bedroom) simultaneously. However, after testing, we realized that this layout made each room too small and cluttered. We decided to load one room at a time instead, only transitioning to the next screen when the player finishes a level.
 
-Primeiramente, decidiu-se mudar a forma como os diferentes cômodos (níveis) seriam apresentados na tela. A ideia inicial era de simular a planta de uma casa, colocando os quatro cômodos (quintal, cozinha, sala e quarto) ao mesmo tempo na tela. Após testes, no entanto, percebeu-se que, com tal disposição, a área de tela de cada cômodo ficava pequena e o jogo poluído visualmente. Assim, decidiu-se carregar uma tela para cada cômodo. Isto é, somente quando o jogador passasse do primeiro nível a tela do segundo seria carregada.
+Additionally, we developed a base structure for use in other game projects. Inspired by the `Chain of Responsibility` pattern, this structure captures events (Timer, KeyListener, PaintComponent) and delegates the appropriate actions to increasingly specialized objects, improving encapsulation.
 
-Além disso, o grupo decidiu construir uma estrutura base que pudesse ser utilizada para o desenvolvimento de outros jogos. A ideia foi inspirada no pattern `Chain of Responsability`, em que um objeto repassa uma tarefa para um outro de hierarquia inferior à sua caso não consiga por si só resolver o problema. Analogamente, a estrutra base do jogo capta eventos (Timer, KeyListener, PaintComponent) e delega a ação a ser tomada a partir deles para objetos cada vez mais especializados, de forma a otimizar o encapsulamento. 
+For instance, the base structure is responsible for painting the game window, but the details of what should be painted are stored in each object on the screen. The component responsible for painting calls the `paintScreen()` method of the object directly below it in the hierarchy. If there are more objects requiring painting, the request is passed down the chain until all elements on the screen are painted.
 
-Por exemplo, a estrutura base deve pintar a janela do jogo. No entanto, a informação do que deve ser pintado está contida dentro de cada objeto que está na tela. Assim, o componente responsável por pintar a janela chama o método `pintarTela()` de um objeto imediatamente inferior à ele e esse, caso possua objetos hierarquicamente inferiores à ele que demandam pintura, repassa o pedido para eles e assim sucessivamente até que todos os elementos presentes na tela tenham se pintado.
+These decisions led us to revise and modify the original architecture.
 
-Essas duas decisões levaram o grupo a reavaliar a arquitetura inicialmente proposta, modificando-a. 
+The relationships between the `Room`, `Agent`, and `Cell` classes were retained, as was the initial idea of using an abstract `Agent` class to represent different game elements like the student, apple, ball, etc. However, the other classes were replaced by three components: `Engine`, `ModeManager`, and `WindowManager`, which form the base structure or framework of the game.
 
-As relações entre as classes `Comodo`, `Agente` e `Celula` foram mantidas assim como a ideia inicial de que a classe `Agente` seria uma classe abstrata a ser usada para a geração de diferentes elementos do jogo, como estudante, maça, bola etc. As outras classes, no entanto, foram substituidas por três componentes: `Motor`, `GerenciadorModos` e `GerenciadorJanela`, que compõem a chamada `estrutura base` ou `framework` do jogo.
+Additionally, the original plan to have each game element (student, apple, etc.) extend the `Agent` class was discarded. Instead of creating 23 classes with similar functionality, we implemented ten movement patterns and passed specific parameters like speed and image to each object. We used the `factory pattern` to simplify object instantiation and provide flexibility in creating new movement patterns.
 
-Além disso, a ideia inicial apresentada de cada elemento do jogo (estudante, maça etc) estender `Agente` foi abandonada. Isto pois, tal abordagem levaria à criação de 23 classes com grandes similaridades. Decidiu-se, então, criar dez classes que descrevessem os dez padrões de movimento adotados no jogo e passar como parâmetros informações específicas para a criação de cada objeto como velocidade, imagem, etc. Também decidiu-se usar o `pattern factory` nesse caso para facilitar a instanciação desses elementos bem como a flexibilidade da criação de novos padrões de movimento.
+One of the main challenges was identifying architectural flaws early in the process. As we coded, we encountered issues that required restructuring the architecture. We continuously refined the design until we reached the final version.
 
-A maior dificuldade encontrada foi visualizar os entraves que a nossa arquitetura proposta possuia antes de começar a programar. Durante a elaboração do código, foram encontradas falhas na arquitetura que demandavam uma reestruturação dessa. Assim, foi necessário repensar a arquitetura ao longo do projeto até chegarmos na versão final.
+It's worth noting that, in addition to the course materials, we consulted the book [Game Programming Patterns by Robert Nystrom](https://gameprogrammingpatterns.com/contents.html) to better understand the game development process.
 
-Vale ressaltar que, além dos materiais disponibilizados durante a disciplina, também foi consultado o seguinte material a fim de se compreender melhor as etapas necessárias para o desenvolvimento de um jogo: [Game Programming Patterns, Robert Nystrom](https://gameprogrammingpatterns.com/contents.html).
+## Final Game Architecture Proposal
 
-## Proposta Final da Arquitetura do Jogo
+This project was developed in two main stages: building a `Framework` for the game and creating the `Game` itself.
 
-O desenvolvimento deste projeto pode ser divido em duas frentes principais: a construção de um `Framework` para o jogo e a elaboração do `Jogo` em si.
+The `Framework` controls the game's `main loop`, handles keyboard events, and initializes the game window. However, it delegates decisions on how to respond to events (such as key presses) to the current game `Mode`. This allows the same `Framework` to be used in other games by simply changing the set of `Modes`.
 
-O `Framework` é responsável pelo controle do `loop principal` de jogo e dos eventos desencadeados pelo teclado assim como pela inicialização da janela do jogo. As ações que devem ser realizadas a partir da ocorrência de cada um desses eventos, no entanto, não são de responsabilidade do `Framework`. Ele delega essas decisões para o contexto apropriado de cada momento ou o `Modo` atual do jogo. Dessa forma, o evento desencadeado pelo pressionamento de uma tecla, por exemplo, varia de acordo com o `Modo` atual do jogo. Tal característica permite que o `Framework` possa ser usado no desenvolvimento de outros jogos e não somente desse, basta trocar o conjunto de `Modos` do jogo.
+The `Framework` manages the different `Modes` through a stack.
 
-O `Framework` orquestra os diferentes `Modos` através de uma pilha.
+The `Framework` consists of three main components: `Engine`, `ModeManager`, and `WindowManager`.
 
-O `Framework` criado é composto por três componentes: Motor, Gerenciador de Janela e Gerenciador de Modos.
-
-Por sua vez, o `Jogo` consiste em uma máquina de estados de `Modos` que será gerenciada pela pilha do Gerenciador de Modos. Assim, por exemplo, para trocar de nível, basta que o `Modo` que implementa o nível atual requisite ao Gerenciador de Modos que coloque o próximo nível no topo da pilha. Essa dinâmica trouxe facilidade para o encadeamento de fases e telas do jogo desenvolvido.
+The `Game` is a state machine composed of `Modes`, managed by the stack of the `ModeManager`. For instance, to switch levels, the current `Mode` requests the `ModeManager` to add the next level to the top of the stack. This approach simplifies the management of game phases and screens.
 
 
 ## Destaques do Código
