@@ -67,7 +67,7 @@ To run the game, you should:
 	
 * Download the Lab06 folder from this GitHub.
 * Run the game with an input string array, where the first position contains the path to the input file "../Lab06/data/data.csv".
-* In the [data folder](https://github.com/gabrielmelo00/TrabalhosMC/tree/master/Lab06/data), there are other input files named `caverna1`, `caverna2`, and `caverna3`. To change the input file (game board), just change the file path to, for example, "../Lab06/data/caverna3.csv".
+* In the [data folder](https://github.com/gabrielmelo00/OOP_Final_Projects/tree/master/Wumpus%20RPG%20Game%20/data), there are other input files named `caverna1`, `caverna2`, and `caverna3`. To change the input file (game board), just change the file path to, for example, "../Lab06/data/caverna3.csv".
 * After running the game, you will need to enter a name for your Player;
 * Then, simply start playing!
 
