@@ -7,4 +7,4 @@ This repository showcases the final projects for the Object-Oriented Programming
 During the course we developed 3 final projects that are presented in this repository. There were 3 games in Java:
 1. [Checkers]()
 2. [Wumpus RPG]()
-3. [Own game inspired by Frogger]()
+3. [Own game inspired by Frogger](https://github.com/gabrielmelo00/OOP_Final_Projects/tree/master/Arcade%20Game%20Quarentenado)
